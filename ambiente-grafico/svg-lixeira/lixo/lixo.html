@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Lixo</title>
+<style type="text/css">
+#myCanvas{
+     border: 1px solid #484;
+}
+</style>
+<script language="javascript" src="../../../../../programacao/programacao/componentes_1/js/kinetic-v4.3.3.min.js"></script>
+</head>
+<body>
+<canvas id="myCanvas" width="200" height="200"></canvas>
+<form name="posicao">
+<input type="button" onClick="canvasOnMouse()" value="Teste"><br>
+<output name="x">Mouse x = 0</output><br>
+<output name="y">Mouse y = 0</output><br>
+<output name="_x">Circle x = 0</output><br>
+<output name="_y">Circle y = 0</output>
+</form>
+<script language="javascript">
+<!--
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.arc(100, 100, 50, 0, 2 * Math.PI);
+      context.fillStyle = 'green';
+      context.fill();
+      context.lineWidth = 5;
+      context.strokeStyle = 'black';
+      context.stroke();
+
+      canvas.addEventListener('click', canvasOnMouse, false);
+
+
+function canvasOnMouse(event) {
+      // var circle = findPos(this);
+	  document.posicao.x.value = "Mouse x = " + event.clientX;
+	  document.posicao.y.value = "Mouse y = " + event.clientY;
+
+      var stage = new Kinetic.Stage(this);
+
+	  var mousePos = stage.getMousePosition();
+	  document.posicao._x.value = "Circle x = " + mousePos.x;
+      document.posicao._y.value = "Circle y = " + mousePos.y;
+
+	  // var pointer = canvas.getPointer(event.memo.event);
+      // (context.clientX >= circle.left) && (context.clientY >= circle.top)
+      context.fillStyle = 'blue';
+	  context.fill();
+	  context.stroke();
+
+}
+-->
+</script> 
+</body>
+</html>

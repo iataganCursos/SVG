@@ -1,0 +1,962 @@
+<!--
++-------------------------------------------------------------------+
+| Simple Tetris(NN)                                                 |
+| Copyright 1999  Xin Yang        yangxin@iname.com                 |
+| Created 09/01/1999              Last Modified 11/23/1999          |
+| Web Games Archive:              http://yx.webprovider.com         |
++-------------------------------------------------------------------+
+| Copyright 1999  Xin Yang        All Rights Reserved.              |
+|                                                                   |
+| Simple Tetris may be used and hosted free of charge by anyone for |
+| personal purpose so long as this copyright notice remain intact.  |
+|                                                                   |
+| Obtain permission before selling the code for this program or     |
+| hosting this software on a commercial web or redistributing this  |
+| software over the Internet or in any other medium. In all cases   |
+| copyright must remain intact.                                     |
++-------------------------------------------------------------------+
+-->
+
+<html>
+
+<head>
+<title>Simple Tetris</title>
+
+<style type="text/css">
+<!--
+p.score1   {text-decoration:underline; font-size:11px; color:#00FF00; font-family:"verdana,arial,helvetica";}
+p.score2   {text-decoration:underline; font-size:12px; color:#FF00FF; font-family:"verdana,arial,helvetica";}
+p.score3   {text-decoration:underline; font-size:13px; color:#FFFF00; font-family:"verdana,arial,helvetica";}
+p.score4   {text-decoration:underline; font-size:15px; color:#FF0000; font-family:"verdana,arial,helvetica";}
+
+p.winner   {font-size:16px; font-weight:bold; color:#FF0000; font-family:"verdana,arial,helvetica";}
+p.gameover {font-size:14px; font-weight:bold; color:#FFFFFF; font-family:"verdana,arial,helvetica";}
+p.holdon   {font-size:12px; font-weight:bold; color:#FFFFFF; font-family:"verdana,arial,helvetica";}
+
+p.tablex   {font-size:9px; color:#000000; font-family:"verdana,arial,times,helvetica";}
+p.tablet   {font-size:19px; color:#FF0000; font-family:"verdana,arial,times,helvetica";}
+p.tableb   {font-size:13px; color:#FFFFFF; font-family:"arial,verdana,times,helvetica";}
+p.info     {font-size:12px; color:#000000; font-family:"verdana,arial,times,helvetica";}
+-->
+</style>
+
+<script language="javascript">
+<!--
+var game_name = "Simple Tetris";
+
+var _block = null;
+var _block_style = "document.layers.";
+
+var key_up = 105;
+var key_UP = 73;
+var key_down = 107;
+var key_DOWN = 75;
+var key_left = 106;
+var key_LEFT = 74;
+var key_right = 108;
+var key_RIGHT = 76;
+var key_pause = 112;
+var key_PAUSE = 80;
+
+var block_base_width = 400;
+var block_base_height = 400;
+var block_size = 16;
+
+var block_base_x = 0; // generate by Para_Init()
+var block_base_y = 0;
+var preview_base_x = 0;
+var preview_base_y = 0;
+var game_tag_offset = 0;
+var game_tag_step = 0;
+var tag_layer_offset = 0;
+
+var game_tag_width = 120;
+var game_tag_height = 40;
+var block_table_gap = 30;
+var block_preview_gap = 10;
+var block_preview_x = 3;
+var block_preview_y = 4;
+
+var block_table_width = 10;
+var block_table_height = 20;
+var block_id = "block";
+var block_x = new Array("0","1","2","3","4","5","6","7","8","9");
+var block_y = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t");
+
+var block_matrix_unit = 8;
+var block_matrix = new Array(
+  new Array(0,0,1,0,0,1,1,1,0,0,1,0,0,1,1,1,0,0,1,0,0,1,1,1,0,0,1,0,0,1,1,1),
+  new Array(1,0,2,0,0,1,1,1,0,0,0,1,1,1,1,2,1,0,2,0,0,1,1,1,0,0,0,1,1,1,1,2),
+  new Array(0,0,1,0,1,1,2,1,1,0,0,1,1,1,0,2,0,0,1,0,1,1,2,1,1,0,0,1,1,1,0,2),
+  new Array(0,0,0,1,0,2,1,2,2,0,0,1,1,1,2,1,0,0,1,0,1,1,1,2,0,0,1,0,2,0,0,1),
+  new Array(1,0,1,1,0,2,1,2,0,0,1,0,2,0,2,1,0,0,1,0,0,1,0,2,0,0,0,1,1,1,2,1),
+  new Array(0,0,0,1,0,2,0,3,0,0,1,0,2,0,3,0,0,0,0,1,0,2,0,3,0,0,1,0,2,0,3,0),
+  new Array(0,0,1,0,2,0,1,1,0,0,0,1,1,1,0,2,1,0,0,1,1,1,2,1,1,0,0,1,1,1,1,2));
+var block_unit_dim = new Array(
+  new Array(2,2,2,2,2,2,2,2),
+  new Array(3,2,2,3,3,2,2,3),
+  new Array(3,2,2,3,3,2,2,3),
+  new Array(2,3,3,2,2,3,3,2),
+  new Array(2,3,3,2,2,3,3,2),
+  new Array(1,4,4,1,1,4,4,1),
+  new Array(3,2,2,3,3,2,2,3));
+var block_unit_width = 0;
+var block_unit_height = 0;
+
+var block_color = new Array("#FF0000","#00FFFF","#00FF00","#0000FF","#FF00FF","#FF0000","#FFFF00");
+
+var block1_x = 0;
+var block1_y = 0;
+var block2_x = 0;
+var block2_y = 0;
+var block3_x = 0;
+var block3_y = 0;
+var block4_x = 0;
+var block4_y = 0;
+
+var block_type = 7;
+var block_component = 4;
+
+var block_next = Math.floor(Math.random() * block_type);
+var block_current = 0;
+var block_direction = 0;
+
+var block_timer_id = 0;
+var block_timer = new Array(500,360,240,160,80);
+var movement_timer = 60;
+
+var block_shown = false;
+var block_position_x = 4;
+var block_position_y = 0;
+
+function one_block() {
+  this.id = "";
+  this.x = 0;
+  this.y = 0;
+}
+function one_column() {
+  for (var i = 0; i < block_table_height; i++)
+    this[i] = new one_block();
+}
+function one_table() {
+  for (var i = 0; i < block_table_width; i++)
+    this[i] = new one_column();
+}
+var block_position = new one_table();
+
+function _one_column() {
+  for (var i = 0; i < block_table_height; i++)
+    this[i] = true;
+}
+function _one_table() {
+  for (var i = 0; i < block_table_width; i++)
+    this[i] = new _one_column();
+}
+var block_available = new _one_table();
+
+var block_index_x = 0;
+var block_index_y = 0;
+
+var block_content = "";
+var block_content1 = ""; // generate by Para_Init()
+var block_content2 = '" cellpadding="0" cellspacing="0" border="1"><tr><td><p class="tablex">&nbsp;</p></td></tr></table>';
+
+var game_finished = true;
+var game_pause = false;
+var game_winner = false;
+var game_winner_tag = '<table width="' + game_tag_width + '" height="' + game_tag_height + '" bgcolor="#000000" cellpadding="0" cellspacing="0" border="1"><tr align="center" valign="middle"><td><p class="winner">Winner</p></td></tr></table>';
+var game_over_tag = '<table width="' + game_tag_width + '" height="' + game_tag_height + '" bgcolor="#000000" cellpadding="0" cellspacing="0" border="1"><tr align="center" valign="middle"><td><p class="gameover">Game Over</p></td></tr></table>';
+var game_holdon_tag = '<table width="' + game_tag_width + '" height="' + game_tag_height + '" bgcolor="#0000FF" cellpadding="0" cellspacing="0" border="1"><tr align="center" valign="middle"><td><p class="holdon">Hold On</p></td></tr></table>';
+
+var number_timer = 0;
+
+var score_shown = false;
+var score_index = 0;
+var score_max_index = 7;
+var score_tag = new Array(true,true,true,true,true,true,true,true);
+var score_step = new Array(-4,-2,-1,-1);
+var score_grip = new Array(10,50,100,300);
+var score_content1 = '<p class="score';
+var score_content2 = '">';
+var score_content3 = '</p>';
+
+var high_score = 0;
+var game_score = 0;
+var game_lines = 0;
+var game_level = 0;
+var game_max_level = 4;
+var game_level_lines = new Array(50,40,30,20,10);
+var table_background_dim = ""; // generate by Para_Init()
+var table_background = new Array(
+  '"#000000"><tr align="center" valign="top"><td><br><br><p class="tablet">' + game_name + '</p><p class="tableb">Copyright 1999<br>Xin Yang<br>All Rights Reserved<br><br><br>Left:[J]<br>Right:[L]<br>Rotate[I]<br>Drop:[K]<br>Pause:[P]<br><br>Hit any key to start</p></td></tr></table>',
+  '"#C0C0C0"><tr align="center" valign="top"><td><br><br><p class="tablet">' + game_name + '</p><p class="tableb">Have you tried<br><br>Bubble Puzzle<br>Jigsaw Puzzle<br>and<br>Warship Battle<br>?</p></td></tr></table>',
+  '"#008080"><tr align="center" valign="top"><td><br><br><p class="tablet">' + game_name + '</p><p class="tableb">visit<br><br>yx.webprovider.com<br><br>for more games</p></td></tr></table>',
+  '"#808000"><tr align="center" valign="top"><td><br><br><p class="tablet">' + game_name + '</p><p class="tableb"><br>Send<br><br>your comments<br><br>to<br><br>yangxin@iname.com</p></td></tr></table>',
+  '"#800000"><tr align="center" valign="top"><td><br><br><p class="tablet">' + game_name + '</p><p class="tableb"><br><br><br>The final challenge</p></td></tr></table>');
+
+var is_NN4 = (document.layers);
+var is_IE4 = (document.all);
+
+function Show_Level() {
+  _block.block0.document.open();
+  _block.block0.document.writeln(table_background_dim + table_background[game_level]);
+  _block.block0.document.close();
+
+  Hold_On();
+}
+
+function Check_Position(position_x, position_y) {
+  return ((block_position[position_x + block1_x][position_y + block1_y].id == "") &&
+          (block_position[position_x + block2_x][position_y + block2_y].id == "") &&
+          (block_position[position_x + block3_x][position_y + block3_y].id == "") &&
+          (block_position[position_x + block4_x][position_y + block4_y].id == ""));
+}
+
+function Check_Rotate() {
+  var block_next_x = block_position_x;
+  var block_next_dir = (block_direction < 3)?block_direction+1:0;
+
+  Set_Offset(block_current,block_next_dir);
+
+  if (block_position_y < (block_table_height - block_unit_height)) {
+    while ((block_next_x + block_unit_width - 1) >= block_table_width) {
+      block_next_x--; }
+
+    if (Check_Position(block_next_x, block_position_y)) {
+      block_direction = block_next_dir;
+      return true; }
+    else {
+      Set_Offset(block_current,block_direction);
+      return false; } }
+  else {
+    Set_Offset(block_current,block_direction);
+    return false; }
+}
+
+function Check_Direction(x_offset,y_offset) {
+  var block_next_x = block_position_x + x_offset;
+  var block_next_y = block_position_y + y_offset;
+  
+  if ((block_next_x < 0) || (block_next_x > (block_table_width - block_unit_width)) || (block_next_y > (block_table_height - block_unit_height)))
+    return false
+  else 
+    return Check_Position(block_next_x, block_next_y);
+}
+
+function Set_Offset(block_num, block_dir) {
+  var block_unit_offset = block_dir * 2;
+  var block_matrix_offset = block_dir * block_matrix_unit;
+
+  block_unit_width = block_unit_dim[block_num][block_unit_offset+0];
+  block_unit_height = block_unit_dim[block_num][block_unit_offset+1];
+
+  block1_x = block_matrix[block_num][block_matrix_offset+0];
+  block1_y = block_matrix[block_num][block_matrix_offset+1];
+  block2_x = block_matrix[block_num][block_matrix_offset+2];
+  block2_y = block_matrix[block_num][block_matrix_offset+3];
+  block3_x = block_matrix[block_num][block_matrix_offset+4];
+  block3_y = block_matrix[block_num][block_matrix_offset+5];
+  block4_x = block_matrix[block_num][block_matrix_offset+6];
+  block4_y = block_matrix[block_num][block_matrix_offset+7];
+}
+
+function Get_Content(block_num) {
+  return block_content1 + block_color[block_num] + block_content2;
+}
+
+function Drop_Block() {
+  var drop_step = 1;
+
+  block_shown = false;  
+  clearInterval(block_timer_id);
+  
+  while (Check_Direction(0,drop_step))
+    drop_step++;
+
+  Move_Block(0,drop_step-1);
+  Check_Block();
+}
+
+function Move_Block(x_offset,y_offset) {
+  var block_offset_x = x_offset * block_size;
+  var block_offset_y = y_offset * block_size;
+
+  block_position_x += x_offset;
+  block_position_y += y_offset;
+
+  _block.block1.left += block_offset_x;
+  _block.block1.top += block_offset_y;
+  _block.block2.left += block_offset_x;
+  _block.block2.top += block_offset_y;
+  _block.block3.left += block_offset_x;
+  _block.block3.top += block_offset_y;
+  _block.block4.left += block_offset_x;
+  _block.block4.top += block_offset_y;
+}
+
+function Show_Block() {
+  block_position_x = 4;
+  block_position_y = 0;
+  block_direction = 0;
+  
+  block_current = block_next;
+  block_next = Math.floor(Math.random() * block_type);
+
+  Set_Offset(block_current,block_direction);
+  block_content = Get_Content(block_current);
+
+  _block.block1.document.open();
+  _block.block1.document.write(block_content);
+  _block.block1.document.close();
+  _block.block1.left = (block1_x + block_position_x) * block_size + block_base_x;
+  _block.block1.top = block1_y * block_size + block_base_y;
+  
+  _block.block2.document.open();
+  _block.block2.document.write(block_content);
+  _block.block2.document.close();
+  _block.block2.left = (block2_x + block_position_x) * block_size + block_base_x;
+  _block.block2.top = block2_y * block_size + block_base_y;
+  
+  _block.block3.document.open();
+  _block.block3.document.write(block_content);
+  _block.block3.document.close();
+  _block.block3.left = (block3_x + block_position_x) * block_size + block_base_x;
+  _block.block3.top = block3_y * block_size + block_base_y;
+  
+  _block.block4.document.open();
+  _block.block4.document.write(block_content);
+  _block.block4.document.close();
+  _block.block4.left = (block4_x + block_position_x) * block_size + block_base_x;
+  _block.block4.top = block4_y * block_size + block_base_y;
+  
+  if (block_next != block_current) {
+    Set_Offset(block_next,block_direction);
+    block_content = Get_Content(block_next); }
+  
+  _block.blockp1.document.open();
+  _block.blockp1.document.write(block_content);
+  _block.blockp1.document.close();
+  _block.blockp1.left = block1_x * block_size + preview_base_x;
+  _block.blockp1.top = block1_y * block_size + preview_base_y;
+  
+  _block.blockp2.document.open();
+  _block.blockp2.document.write(block_content);
+  _block.blockp2.document.close();
+  _block.blockp2.left = block2_x * block_size + preview_base_x;
+  _block.blockp2.top = block2_y * block_size + preview_base_y;
+  
+  _block.blockp3.document.open();
+  _block.blockp3.document.write(block_content);
+  _block.blockp3.document.close();
+  _block.blockp3.left = block3_x * block_size + preview_base_x;
+  _block.blockp3.top = block3_y * block_size + preview_base_y;
+  
+  _block.blockp4.document.open();
+  _block.blockp4.document.write(block_content);
+  _block.blockp4.document.close();
+  _block.blockp4.left = block4_x * block_size + preview_base_x;
+  _block.blockp4.top = block4_y * block_size + preview_base_y;
+  
+  if (block_next != block_current) {
+    Set_Offset(block_current,block_direction);
+    block_content = Get_Content(block_current); }
+  
+  block_shown = true;
+
+  if (Check_Direction(0,0))
+    return true
+  else
+    return false;
+}
+
+function Mark_Block() {
+  var this_offset_x = 0;
+  var this_offset_y = 0;
+  var this_block_source = null;
+  var this_block_id = null;
+  var this_block_done = false;
+
+  block_shown = false;  
+
+  for (var i = 1; i <= block_component; i++) {
+    this_block_done = false;
+
+    while (!this_block_done) {
+      if (block_available[block_index_x][block_index_y]) {
+        block_available[block_index_x][block_index_y] = false;
+
+        this_offset_x = block_position_x + eval(block_id + i + "_x");
+        this_offset_y = block_position_y + eval(block_id + i + "_y");
+  
+        block_position[this_offset_x][this_offset_y].id = block_x[block_index_x] + block_y[block_index_y];
+        block_position[this_offset_x][this_offset_y].x = block_index_x;
+        block_position[this_offset_x][this_offset_y].y = block_index_y;
+  
+        this_block_source = eval(_block_style + block_id + i + "");
+        this_block_id = eval(_block_style + block_id + block_position[this_offset_x][this_offset_y].id);
+  
+        this_block_done = true; }
+
+      block_index_y++;
+      if (block_index_y == block_table_height) {
+        block_index_y = 0;
+        block_index_x++;
+        if (block_index_x == block_table_width)
+          block_index_x = 0; } }
+
+    this_block_id.left = this_block_source.left;
+    this_block_id.top = this_block_source.top;
+
+    this_block_id.document.open();
+    this_block_id.document.write(block_content);
+    this_block_id.document.close();
+
+    this_block_source.top = -block_size; }
+}
+
+function Remove_Line(line_num) {
+  var this_block_id  = null;
+  var this_line = block_position_y + line_num;
+  var upper_line = this_line - 1;
+  var no_more_line = false;
+
+  for (var i = 0; i < block_table_width; i++) {
+    block_available[block_position[i][this_line].x][block_position[i][this_line].y] = true;
+
+    this_block_id = eval(_block_style + block_id + block_position[i][this_line].id);
+    this_block_id.left = 0;
+    this_block_id.top = -block_size;
+
+    block_position[i][this_line].id = "";
+    block_position[i][this_line].x = 0;
+    block_position[i][this_line].y = 0; }
+
+  while ((upper_line >= 0) && (!no_more_line)) {
+    no_more_line = true;
+
+    for (var i = 0; i < block_table_width; i++) {
+      if (block_position[i][upper_line].id != "") {
+        no_more_line = false;
+
+        this_block_id = eval(_block_style + block_id + block_position[i][upper_line].id);
+        this_block_id.top += block_size;
+
+        block_position[i][this_line].id = block_position[i][upper_line].id;
+        block_position[i][this_line].x = block_position[i][upper_line].x;
+        block_position[i][this_line].y = block_position[i][upper_line].y;
+
+        block_position[i][upper_line].id = "";
+        block_position[i][upper_line].x = 0; 
+        block_position[i][upper_line].y = 0; } }
+
+    this_line--;
+    upper_line--; }
+}
+
+function Hide_Tag() {
+  _block.blockxx.top = -game_tag_height;
+}
+
+function Show_Tag() {
+  var next_step = 0;
+
+  if (game_tag_step > 0) {
+    next_step = Math.ceil(game_tag_step/10);
+
+    _block.blockxx.moveBy(0,next_step);
+    game_tag_step -= next_step;
+
+    setTimeout("Show_Tag()",movement_timer); }
+  else
+    Event_Init();
+}
+
+function Restart_Game() {
+  Clear_Block();
+  Clear_Num();
+  Clear_Table(1);
+
+  high_score = (high_score < game_score)?game_score:high_score;
+
+  game_score = 0;
+  game_lines = 0;
+  block_index_x = 0;
+  block_index_y = 0
+
+  game_finished = false;
+
+  Hide_Tag();
+
+  if (game_level > 0) {
+    game_level = 0;
+    Show_Level(); }
+
+  Show_Score();
+  Show_Lines();
+
+  Start_Block();
+}
+
+function Clear_Table(move_direction) {
+  var table_done = false;
+  var this_step = 0;
+  var this_block_id = null;
+  var block_step = 0;
+
+  while (!table_done) {
+    table_done = true;
+    block_step++;
+
+    for (var i = 0; i < block_table_height; i++)
+      for (var j = 0; j < block_table_width; j++)
+        if (block_position[j][i].id != "") {
+          table_done = false;
+
+          this_block_id = eval(_block_style + block_id + block_position[j][i].id);
+          this_step = Math.floor(Math.random()*block_step) + 1;
+        
+          if (((this_block_id.top - this_step > block_base_y) && (move_direction == -1)) ||
+              ((this_block_id.top + this_step < block_base_y + (block_table_height-1) * block_size) && (move_direction == 1)))
+            this_block_id.moveBy(0,this_step*move_direction)
+          else {
+            block_available[block_position[j][i].x][block_position[j][i].y] = true;
+
+            this_block_id.left = 0;
+            this_block_id.top = -block_size;
+
+            block_position[j][i].id = "";
+            block_position[j][i].x = 0;
+            block_position[j][i].y = 0; } } }
+}
+
+function Hold_On() {
+  Event_Release();
+  Clear_Num();
+
+  _block.blockxx.document.open();
+  _block.blockxx.document.writeln(game_holdon_tag);
+  _block.blockxx.document.close();
+
+  _block.blockxx.top = game_tag_offset + block_base_y;
+
+  Clear_Table(-1);
+
+  Hide_Tag();
+
+  Event_Init();
+}
+
+function Game_Over() {
+  Event_Release();
+
+  clearInterval(block_timer_id);
+
+  _block.blockxx.document.open();
+
+  if (game_winner)
+    _block.blockxx.document.writeln(game_winner_tag)
+  else
+    _block.blockxx.document.writeln(game_over_tag);
+
+  _block.blockxx.document.close();
+
+  _block.blockxx.top = block_base_y;
+
+  game_winner = false;
+  game_pause = false;
+  game_finished = true;
+
+  game_tag_step = game_tag_offset;
+
+  setTimeout("Show_Tag()",movement_timer);
+}
+
+function Clear_Block() {
+  _block.block1.top = -block_size;
+  _block.block2.top = -block_size;
+  _block.block3.top = -block_size;
+  _block.block4.top = -block_size;
+}
+
+function Clear_Num() {
+  var number_id = null;
+
+  clearInterval(number_timer);
+  score_shown = false;
+
+  for (var i = 0; i <= score_max_index; i++)
+    if (!score_tag[i]) {
+      number_id = eval(_block_style + block_id + "x" + i + "");
+
+      number_id.top = -block_size;
+      number_id.left = 0;
+      score_tag[i] = true; } 
+}
+
+function Move_Num() {
+  var number_id = null;
+  var score_found = 0;
+
+  for (var i = 0; i <= score_max_index; i++)
+    if (!score_tag[i]) {
+      number_id = eval(_block_style + block_id + "x" + i + "");
+
+      if (number_id.top > block_base_y) {
+        number_id.moveBy(0,score_step[number_id.lines-1]);
+        score_found++; }
+      else {
+        number_id.top = -block_size;
+        number_id.left = 0;
+        score_tag[i] = true; } }
+
+  if (score_found == 0) {
+    clearInterval(number_timer);
+    score_shown = false; }
+}
+
+function Show_Num(line_num, line_offset) {
+  var number_id = null;
+  var this_index = score_index;
+  var this_offset = ((block1_x + block_position_x) > 0)?-1:0;
+  var score_content = score_content1 + line_num + score_content2 + score_grip[line_num-1] + score_content3;
+
+  while (!score_tag[score_index]) {
+    score_index++;
+
+    if (score_index > score_max_index)
+      score_index = 0;
+
+    if (score_index == this_index) {
+      score_index++;
+      if (score_index > score_max_index)
+        score_index = 0;
+      break; } }
+
+  number_id = eval(_block_style + block_id + "x" + score_index + "");
+  number_id.lines = line_num;
+  score_tag[score_index] = false;
+  
+  number_id.left = (block1_x + block_position_x + this_offset) * block_size + block_base_x;
+  number_id.top = (block1_y + block_position_y + line_offset) * block_size + block_base_y;
+  number_id.document.open();
+  number_id.document.writeln(score_content);
+  number_id.document.close();
+
+  if (!score_shown) {
+    score_shown = true;
+    number_timer = setInterval("Move_Num()",movement_timer); }
+}
+
+function Show_Score() {
+  _block.score.document.forms[0].High_Score.value = high_score;
+  _block.score.document.forms[0].Game_Score.value = game_score;
+}
+
+function Show_Lines() {
+  if (!game_winner)
+    _block.score.document.forms[0].Lines_Remain.value = game_level_lines[game_level] - game_lines
+  else
+    _block.score.document.forms[0].Lines_Remain.value = game_lines;
+}
+
+function Check_Line() {
+  var line_done = false;
+  var line_found = 0;
+  var line_offset = 0;
+
+  for (var i = 0; i < block_unit_height; i++) {
+    line_done = true;
+
+    for (var j = 0; j < block_table_width; j++)
+      if (block_position[j][block_position_y+i].id == "") {
+        line_done = false;
+        break; }
+
+    if (line_done) {
+      if (line_found == 0)
+        line_offset = i;
+
+      line_found++;
+      Remove_Line(i); } }
+
+  if (line_found > 0) {
+    if (game_level < game_max_level)
+      Show_Num(line_found,line_offset);
+
+    game_score += score_grip[line_found-1];
+    Show_Score();
+
+    game_lines += line_found;
+    if ((game_lines >= game_level_lines[game_level]) && (!game_winner)) {
+      game_lines -= game_level_lines[game_level];
+
+      if (game_level < game_max_level) {
+        game_level++;
+        Show_Level(); }
+      else
+        game_winner = true; }
+
+    Show_Lines(); }
+
+}
+
+function Check_Block() {
+  Mark_Block();
+  Check_Line();
+  Start_Block();
+}
+
+function Mov_Block() {
+  if (Check_Direction(0,1)) {
+    block_position_y++;
+
+    _block.block1.top += block_size;
+    _block.block2.top += block_size;
+    _block.block3.top += block_size;
+    _block.block4.top += block_size; }
+  else
+    Check_Block();
+}
+
+function Resume_Game() {
+  game_pause = false;
+  block_timer_id = setInterval("Mov_Block()",block_timer[game_level]);
+  number_timer = setInterval("Move_Num()",movement_timer);
+}
+
+function Pause_Game() {
+  game_pause = true;
+  clearInterval(block_timer_id);
+  clearInterval(number_timer);
+}
+
+function Key_Down(e) {
+  var key_code = e.which;
+
+  if (game_finished)
+    Restart_Game()
+  else {
+    if (game_pause)
+      Resume_Game();
+
+    if((key_code == key_pause) || (key_code == key_PAUSE)) {
+      if (block_shown)
+        Pause_Game(); }
+
+    if((key_code == key_down) || (key_code == key_DOWN)) {
+      if (block_shown)
+        Drop_Block(); }
+
+    if ((key_code == key_up) || (key_code == key_UP)) {
+      if (block_shown)
+        if (Check_Rotate())
+          Rotate_Block(); }
+
+    if ((key_code == key_left) || (key_code == key_LEFT)) {
+      if (block_shown)
+        if (Check_Direction(-1,0))
+          Move_Block(-1,0); }
+
+    if ((key_code == key_right) || (key_code == key_RIGHT)) {
+      if (block_shown)
+        if (Check_Direction(1,0))
+          Move_Block(1,0); } }
+
+  return false;
+}
+
+function Rotate_Block() {
+  while ((block_position_x + block_unit_width - 1) >= block_table_width) {
+    block_position_x--; }
+
+  _block.block1.left = (block1_x  + block_position_x) * block_size + block_base_x;
+  _block.block1.top = (block1_y + block_position_y) * block_size + block_base_y;
+
+  _block.block2.left = (block2_x + block_position_x) * block_size + block_base_x;
+  _block.block2.top = (block2_y + block_position_y) * block_size + block_base_y;
+
+  _block.block3.left = (block3_x + block_position_x) * block_size + block_base_x;
+  _block.block3.top = (block3_y + block_position_y) * block_size + block_base_y;
+
+  _block.block4.left = (block4_x + block_position_x) * block_size + block_base_x;
+  _block.block4.top = (block4_y + block_position_y) * block_size + block_base_y;
+}
+
+function New_Layer(Layer_ID, Layer_Index) {
+  document.layers[Layer_ID] = new Layer(block_size);
+  document.layers[Layer_ID].top = -block_size;
+  document.layers[Layer_ID].left = 0;
+  document.layers[Layer_ID].height = block_size;
+  document.layers[Layer_ID].zIndex = Layer_Index;
+  document.layers[Layer_ID].visibility = "show";
+}
+
+function Layer_Init() {
+  var this_block_id = "";
+
+  // layers for marking blocks
+  for (var i = 0; i < block_table_width; i++)
+    for (var j = 0; j < block_table_height; j++) {
+      this_block_id = block_id + block_x[i] + block_y[j];
+      New_Layer(this_block_id,3); }
+
+  // layers for falling blocks
+  for (i = 1; i <= block_component; i++) {
+    this_block_id = block_id + block_x[i];
+    New_Layer(this_block_id,4); }
+
+  // layers for preview blocks
+  for (i = 1; i <= block_component; i++) {
+    this_block_id = block_id + "p" + block_x[i];
+    New_Layer(this_block_id,3); }
+
+  // layers for score points
+  for (i = 0; i <= score_max_index; i++) {
+    this_block_id = block_id + "x" + block_x[i];
+    New_Layer(this_block_id,5); }
+
+  // layer for table background
+  document.layers["blockx"] = new Layer(block_table_width * block_size + block_preview_gap * 2);
+  document.layers["blockx"].top = block_base_y - block_preview_gap;
+  document.layers["blockx"].left = block_base_x - block_preview_gap;
+  document.layers["blockx"].height = block_table_height * block_size + block_preview_gap * 2;
+  document.layers["blockx"].zIndex = 1;
+  document.layers["blockx"].document.open();
+  document.layers["blockx"].document.writeln('<table width="' + (block_table_width * block_size + block_preview_gap * 2) + '" height="' + (block_table_height * block_size + block_preview_gap * 2) + '" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" border="3"><tr><td><font size="1">&nbsp;</font></td></tr></table>');
+  document.layers["blockx"].document.close();
+  document.layers["blockx"].visibility = "show";
+
+  // layer for table
+  document.layers["block0"] = new Layer(block_table_width * block_size);
+  document.layers["block0"].top = block_base_y;
+  document.layers["block0"].left = block_base_x;
+  document.layers["block0"].height = block_table_height * block_size;
+  document.layers["block0"].zIndex = 2;
+  document.layers["block0"].visibility = "show";
+
+  // layer for preview box background
+  document.layers["previewx"] = new Layer(block_preview_x * block_size + block_preview_gap * 2);
+  document.layers["previewx"].top = preview_base_y - block_preview_gap;
+  document.layers["previewx"].left = preview_base_x - block_preview_gap;
+  document.layers["previewx"].height = block_preview_y * block_size + block_preview_gap * 2;
+  document.layers["previewx"].zIndex = 1;
+  document.layers["previewx"].document.open();
+  document.layers["previewx"].document.writeln('<table width="' + (block_preview_x * block_size + block_preview_gap * 2) +'" height="' + (block_preview_y * block_size + block_preview_gap * 2) + '" bgcolor="#000000" cellpadding="0" cellspacing="0" border="2"><tr><td>&nbsp</td></tr></table>');
+  document.layers["previewx"].document.close();
+  document.layers["previewx"].visibility = "show";
+
+  // layer for preview box
+  document.layers["preview"] = new Layer(block_preview_x * block_size);
+  document.layers["preview"].top = preview_base_y;
+  document.layers["preview"].left = preview_base_x;
+  document.layers["preview"].height = block_preview_y * block_size;
+  document.layers["preview"].zIndex = 2;
+  document.layers["preview"].document.open();
+  document.layers["preview"].document.writeln('<table width="' + (block_preview_x * block_size) +'" height="' + (block_preview_y * block_size) + '" bgcolor="#000000" cellpadding="0" cellspacing="0" border="0"><tr><td>&nbsp</td></tr></table>');
+  document.layers["preview"].document.close();
+  document.layers["preview"].visibility = "show";
+
+  // layer for Winner, GameOver and HoldOn tags
+  document.layers["blockxx"] = new Layer(game_tag_width);
+  document.layers["blockxx"].top = -game_tag_height;
+  document.layers["blockxx"].left = tag_layer_offset;
+  document.layers["blockxx"].height = game_tag_height;
+  document.layers["blockxx"].zIndex = 6;
+  document.layers["blockxx"].visibility = "show";
+
+  // layer for score board
+  document.layers["score"] = new Layer(120);
+  document.layers["score"].top = preview_base_y + block_preview_y * block_size + block_preview_gap + block_table_gap;
+  document.layers["score"].left = preview_base_x - block_preview_gap;
+  document.layers["score"].zIndex = 2;
+  document.layers["score"].document.open();
+  document.layers["score"].document.writeln('<form>' +
+    '<nobr><p class="info">High Score</p></nobr>' +
+    '<input type="text" name="High_Score" maxlenght="6" size="6" value=0 onfocus="blur();">' +
+    '<nobr><p class="info">Game Score</p></nobr>' +
+    '<input type="text" name="Game_Score" maxlenght="6" size="6" value=0 onfocus="blur();">' +
+    '<nobr><p class="info">Lines Remain</p></nobr>' +
+    '<input type="text" name="Lines_Remain" maxlenght="6" size="6" value=0 onfocus="blur();">' +
+    '</form>');
+  document.layers["score"].document.close();
+  document.layers["score"].visibility = "show";
+}
+
+function Start_Block() {
+  if (Show_Block()) {
+    clearInterval(block_timer_id);
+    block_timer_id = setInterval("Mov_Block()",block_timer[game_level]); }
+  else
+    Game_Over();
+}
+
+function Resizing_Fix() {
+  document.location.href = document.location.href;
+}
+
+function Game_Init() {
+  if (is_NN4) {
+    _block = document.layers;
+
+    Para_Init();
+    Layer_Init();
+    Event_Init();
+    Show_Level();
+    Show_Score();
+    Show_Lines(); }
+  else
+    alert("Sorry!\nYou need Netscape Navigator 4 or above to play this script");
+}
+
+function Para_Init() {
+  var block_window_width = window.innerWidth;
+  var block_window_height = window.innerHeight;
+  var block_scale = 1;
+  var block_table_x_size = 0;
+  var block_table_y_size = 0;
+
+  if ((block_window_width > block_base_width) || (block_window_height > block_base_height)) {
+    block_scale = Math.min(block_window_width/block_base_width, block_window_height/block_base_height);
+    block_scale = Math.max(block_scale, 1); }
+
+  block_size = Math.floor(block_size * block_scale);
+
+  block_table_x_size = block_preview_gap + block_table_width * block_size + block_preview_gap + block_table_gap + block_preview_gap + block_preview_x * block_size + block_preview_gap;
+  block_table_y_size = block_preview_gap + block_table_height * block_size + block_preview_gap;
+  
+  block_window_width = Math.max(block_window_width, block_table_x_size);
+  block_window_height = Math.max(block_window_height, block_table_y_size);
+
+  block_base_x = Math.floor((block_window_width - block_table_x_size)/2) + block_preview_gap;
+  block_base_y = Math.floor((block_window_height - block_table_y_size)/2) + block_preview_gap;
+
+  preview_base_x = block_base_x + block_table_width * block_size + block_table_gap + block_preview_gap;
+  preview_base_y = block_base_y + block_preview_gap;
+
+  game_tag_offset = (block_table_height * block_size - game_tag_height)/2;
+
+  tag_layer_offset = block_base_x + (block_table_width * block_size - game_tag_width)/2;
+
+  block_content1 = '<table width="' + block_size + '" height="' + block_size + '" bgcolor="';
+  table_background_dim = '<table width="' + (block_table_width * block_size) + '" height="' + (block_table_height * block_size) + '" cellpadding="0" cellspacing="0" border="0" bgcolor=';
+}
+
+function Event_Release() {
+  document.releaseEvents(Event.KEYDOWN);
+  document.onkeydown = null;
+}
+
+function Event_Init() {
+  document.captureEvents(Event.KEYDOWN);
+  document.onkeydown = Key_Down;
+}
+
+window.onResize = Resizing_Fix;
+
+//-->
+</script>
+</head>
+
+<body bgcolor="#ffffff" text="#ffffff" link="#ffffff" alink="#ffffff" vlink="#ffffff" onload="Game_Init();"></body>
+
+</html>

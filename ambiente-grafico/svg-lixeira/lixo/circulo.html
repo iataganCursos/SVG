@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Eventos</title>
+</head>
+<script language="javascript" src="../js/jquery.min.js"></script>
+<script language="javascript" src="../js/jquery.svg.js"></script>
+<body>
+<!-- Begin onclick -->
+<div id="_mouse_1" style="width: 200px; height: 340px;float:left;background-color:#FDDFFD;border: 2px solid black"></div>
+<script type="text/javascript">
+   $(function() {
+      $('#_mouse_1').svg({onLoad: _svg_1});
+      $('#x_circulo_1').bind("click",function(e){
+         _mouseCirculo_1();
+         return false;
+      });
+   });
+   function _svg_1(svg)
+   {
+      svg.circle(100, 160, 50, {id: 'x_circulo_1', fill: 'green', stroke: 'black', strokeWidth: 5});
+      svg.text(15, 20,  "Botão Esquerdo", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 40,  "Botão Esquerdo", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 60,  "Botão Esquerdo", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 80,  "Botão Esquerdo", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 100, "Botão Esquerdo", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 240, "Clique no circulo", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 260, "Clique no circulo", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 280, "Clique no circulo", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 300, "Clique no circulo", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 320, "Clique no circulo", {fontFamily: "Verdana", fontSize: "15"});
+   }
+   function _mouseCirculo_1()
+   {
+      var circle = document.getElementById('x_circulo_1');
+      var cor = circle.getAttribute('fill');
+      if (cor == "green")
+	  {
+         circle.setAttribute("fill", "red");
+	  }
+      else
+	  {
+         circle.setAttribute("fill", "green");
+	  }
+   }
+</script>
+<!-- End onclick -->
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Eventos</title>
+</head>
+<script language="javascript" src="../../js/jquery.min.js"></script>
+<script language="javascript" src="../../js/jquery.svg.js"></script>
+<body id="xDoc">
+<applet code="Teste.class" name="mens" style="visibility:hidden" width="0" height="0">
+</applet>
+<div id="_tecla2" style="width: 300px; height: 200px;float:left;background-color:#FDDFFD;border: 2px solid black"></div>
+<script type="text/javascript">
+   $(function(document) {
+      $('#_tecla2').svg({onLoad: _svg_tecla2});
+      $('#xDoc').keydown(function(evt){
+	     xKeyDown2(evt);
+      });
+      $('#xDoc').keyup(function(evt){
+	     xKeyUp2(evt);
+      });
+   });
+   function _svg_tecla2(svg){
+      svg.text(15, 20, "Precione as seguintes Teclas:", {fontFamily: "Verdana", fontSize: "15"});
+	  svg.text(15, 40, "Caps Lock = ", {id: 'teclaCaps', fontFamily: "Verdana", fontSize: "15"});
+	  svg.text(15, 60, "Num Lock = ", {id: 'teclaNum', fontFamily: "Verdana", fontSize: "15"});
+	  svg.text(15, 80, "Scroll Lock = ", {id: 'teclaScroll', fontFamily: "Verdana", fontSize: "15"});
+   }
+   function xKeyDown2(evt){
+      xKeyAll(evt);
+   }
+   function xKeyUp2(evt){
+      xKeyAll(evt);
+   }
+function xKeyAll(evt){
+app = document.mens;
+var _rTeclaCaps = app.rTeclaCaps();
+var _rTeclaNum = app.rTeclaNum();
+var _rTeclaScroll = app.rTeclaScroll();
+
+var texto1 = document.getElementById("teclaCaps");
+var texto2 = document.getElementById("teclaNum");
+var texto3 = document.getElementById("teclaScroll");
+
+texto1.firstChild.nodeValue = _rTeclaCaps;
+texto2.firstChild.nodeValue = _rTeclaNum;
+texto3.firstChild.nodeValue = _rTeclaScroll;
+   }
+</script>
+</body>
+</html>

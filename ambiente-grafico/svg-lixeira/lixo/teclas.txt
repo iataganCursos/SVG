@@ -1,0 +1,19 @@
+keyCode keyB = new rKeyCode(KeyEvent _keyEvt_);
+
+boolean _Shift = keyB.rIsShiftDown();
+boolean _Control = keyB.rIsControlDown();
+boolean _Alt = keyB.rIsAltDown();
+
+boolean _CapsLock = keyB.rIsCapsLock();
+boolean _NumLock = keyB.rIsNumLock();
+boolean _ScrollLock = keyB.rIsScrollLock();
+
+int _codigo = keyB.rGetKeyCode();
+
+_keyEvt_.keyB.rPreventDefault(); // fazemos com que não se escreva nada no textarea, ou seja, estamos inibindo o comportamento habitual do evento, que é escrever as teclas no textarea, que não tem muito que ver com nosso exemplo, mas é bom para ver como funciona. 
+
+String tecla = keyB.rGetKeyText(int _codigo);
+String caractere = keyB.rGetKeyTextAZ09(int _codigo);
+String tecla_precionada = keyB.rGetKeyboardText(int _codigo);
+
+int tecla_F4 = keyB.rVK_F14;

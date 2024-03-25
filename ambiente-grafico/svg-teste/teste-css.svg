@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+ width="200" height="200"
+ style="border: 2px solid black; background-color: rgb(253, 223, 253);">
+<style type="text/css">
+   #css-test {
+      stroke:black;
+      fill:none;
+      'stroke-width':'1px'
+      'vector-effect':'non-scaling-stroke'
+   }
+</style>
+   <path
+      id="css-test"
+      d='M 10 10 L 190 190'
+   />
+</svg>

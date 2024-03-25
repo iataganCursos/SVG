@@ -1,0 +1,2288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+.style1 {color: #0000FF}
+.style2 {
+	color: #0000FF;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+
+<body>
+<table width="100%" border="1">
+  <tr>
+    <td><h1 align="center">1&ordf; Parte:<br />
+      import 
+    java.awt.*; </h1></td>
+  </tr>
+</table>
+<p align="center"><img src="java_2d/exemplo_1.jpg" width="220" height="116" /></p>
+<p align="center">Exemplo</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: JavaGrafico.java </strong></td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class JavaGrafico extends JFrame {
+
+      public JavaGrafico() {
+
+      super("Formulario");
+      this.setSize(200,200);
+      this.setLocation(50, 100);
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+      <span class="style1">Grafico g2D = new Grafico();</span>
+
+      g2D.setBounds(0,0,400,400);
+
+      ct.add(g2D);
+
+      Image Icone = Toolkit.getDefaultToolkit().getImage("icon.gif"); 
+      setIconImage(Icone);
+
+      this.setVisible(true);
+
+       this.addWindowListener(new WindowAdapter() {
+         public void windowClosing(WindowEvent e) {
+            System.exit(0);
+      }});
+
+   }
+   public static void main(String[] args) {
+      new JavaGrafico();
+   }
+
+<span class="style1">   class Grafico extends JPanel {
+       public void paintComponent(Graphics g){
+	      g.setColor(new Color(255, 0, 0));
+		  g.drawRect(5, 10, 90, 50);
+		  g.fillRect(100, 10, 90, 50);
+	   }
+   }</span>
+}</pre></td>
+  </tr>
+</table>
+<h2 align="center">Cores</h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Constante Color </strong></td>
+    <td bgcolor="#CCCCCC"><strong>Cor</strong></td>
+    <td bgcolor="#CCCCCC"><strong>Valor RGB </strong></td>
+  </tr>
+  <tr>
+    <td>Color.orange</td>
+    <td>laranja</td>
+    <td>255, 200, 0 </td>
+  </tr>
+  <tr>
+    <td> Color.pink</td>
+    <td>cor-de-rosa</td>
+    <td>255, 175, 175 </td>
+  </tr>
+  <tr>
+    <td> Color.cyan</td>
+    <td>ciano</td>
+    <td>0, 255, 255 </td>
+  </tr>
+  <tr>
+    <td> Color.magenta</td>
+    <td>magenta</td>
+    <td>255, 0, 255 </td>
+  </tr>
+  <tr>
+    <td> Color.yellow</td>
+    <td>amarelo</td>
+    <td>255, 255, 0 </td>
+  </tr>
+  <tr>
+    <td> Color.black</td>
+    <td>preto</td>
+    <td>0, 0, 0</td>
+  </tr>
+  <tr>
+    <td> Color.white</td>
+    <td>branco</td>
+    <td>255, 255, 255 </td>
+  </tr>
+  <tr>
+    <td> Color.gray</td>
+    <td>cinza</td>
+    <td>128, 128, 128 </td>
+  </tr>
+  <tr>
+    <td> Color.ligthGray</td>
+    <td>cinza-claro</td>
+    <td>192, 192, 192 </td>
+  </tr>
+  <tr>
+    <td> Color.darkGray</td>
+    <td>cinza-escuro</td>
+    <td>64, 64, 64 </td>
+  </tr>
+  <tr>
+    <td> Color.red</td>
+    <td>vermelho</td>
+    <td>255, 0, 0 </td>
+  </tr>
+  <tr>
+    <td> Color.green</td>
+    <td>verde</td>
+    <td>0, 255, 0 </td>
+  </tr>
+  <tr>
+    <td> Color.blue</td>
+    <td>azul</td>
+    <td>0, 0, 255 </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td> g.setColor(Color.blue);<br />
+g.drawRect(5, 10, 90, 50);<br />
+g.fillRect(100, 10, 90, 50);</td>
+  </tr>
+  <tr>
+    <td><img src="java_2d/color_blue.jpg" width="217" height="110" /></td>
+  </tr>
+</table>
+<h2 align="center">Objeto Color()</h2>
+<table width="100%" border="1">
+  <tr>
+    <td colspan="2"><p><strong>Color(int r, int g, int b)</strong><br /> 
+      <br />
+      Cria uma cor com base no conte&uacute;do de vermelho, verde e azul, expresso como inteiros entre 0 e 255.<br />
+      Exemplo:<br />
+    new Color(255, 175, 175)</p></td>
+  </tr>
+  <tr>
+    <td>setColor(Color c) </td>
+    <td>Configura a cor atual para desenho com o contexto gr&aacute;fico </td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2">g.setColor(new Color(255, 175, 175));<br />
+g.drawRect(5, 10, 90, 50);<br />
+g.fillRect(100, 10, 90, 50);</td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="java_2d/color_pink.jpg" width="218" height="113" /></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>M&eacute;todo</strong></td>
+    <td bgcolor="#CCCCCC"><strong>Descri&ccedil;&atilde;o</strong></td>
+  </tr>
+  <tr>
+    <td>getRed()</td>
+    <td>Devolve um valor entre 0 e 255 que representa conte&uacute;do de vermelho </td>
+  </tr>
+  <tr>
+    <td>getGreen()</td>
+    <td>Devolve um valor entre 0 e 255 que representa conte&uacute;do de verde </td>
+  </tr>
+  <tr>
+    <td>getBlue()</td>
+    <td>Devolve um valor entre 0 e 255 que representa conte&uacute;do de azul </td>
+  </tr>
+  <tr>
+    <td>getColor()</td>
+    <td>Devolve o objeto Color que representa a cor atual para contexto gr&aacute;fico. </td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"><p>Color cor = new Color(78,127,25);<br />
+      g.setColor(cor);<br />
+      g.fillRect(5, 10, 100, 20); <br />
+      g.drawString(&quot;Current RGB: &quot;+g.getColor(), 5, 50);<br />
+      g.drawString(&quot;RGB values : &quot;+cor.getRed()+&quot; &quot;+cor.getGreen()+&quot; &quot;+cor.getBlue(), 5, 70);</p>    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="java_2d/cores.jpg" width="312" height="127" /></td>
+  </tr>
+</table>
+<h2 align="center">Cor de Fundo</h2>
+<p align="center"><img src="java_2d/cor_de_fundo.jpg" width="217" height="105" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td> g.setColor(Color.blue);<br />
+      <span class="style1"><strong>g.fillRect(0, 0, getWidth(), getHeight());</strong></span><br />
+g.setColor(Color.red);<br />
+g.drawRect(5, 10, 90, 50);<br />
+g.fillRect(100, 10, 90, 50);</td>
+  </tr>
+</table>
+<h2 align="center">Objeto Fonte </h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Constante</strong></td>
+    <td bgcolor="#CCCCCC"><strong>Descri&ccedil;&atilde;o</strong></td>
+  </tr>
+  <tr>
+    <td>Font.PLAIN</td>
+    <td>Constante que representa um estilo de fonte simples </td>
+  </tr>
+  <tr>
+    <td>Font.BOLD</td>
+    <td>Constante que representa um estilo de fonte em negrito </td>
+  </tr>
+  <tr>
+    <td>Font.ITALIC</td>
+    <td>Constante que representa um estilo de fonte em it&aacute;lico </td>
+  </tr>
+  <tr>
+    <td>Font.BOLD+Font.ITALIC</td>
+    <td>Constante que representa um estilo de fonte em negrito e it&aacute;lico </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td colspan="2"><p><strong>Font(String name, int style, int size)</strong><br />
+        <br />
+      Cria um objeto Font com a fonte o estilo e o tamanho especificados.
+      <br />
+    new Font(&quot;Monospaced&quot;,Font.BOLD+Font.ITALIC, 24)</p></td>
+  </tr>
+  <tr>
+    <td>setFont(Font f) </td>
+    <td>Configura a fonte atual com a fonte, o estilo e o tamanho especificados pela refer&ecirc;ncia ao objeto Font f. </td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"><p>g.setColor(Color.blue);<br />
+      g.setFont(new Font(&quot;Monospaced&quot;,Font.BOLD+Font.ITALIC, 14));<br />
+    g.drawString(&quot;Monospaced 14 points bold, italic&quot;, 5, 25);</p></td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="java_2d/fonte.jpg" width="314" height="91" /></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td colspan="2" bgcolor="#CCCCCC"><strong>Estilo da Fonte</strong> </td>
+  </tr>
+  <tr>
+    <td width="37%" bgcolor="#CCCCCC"><strong>M&eacute;todo</strong></td>
+    <td width="63%" bgcolor="#CCCCCC"><strong>Descri&ccedil;&atilde;o</strong></td>
+  </tr>
+  <tr>
+    <td>getFont()</td>
+    <td>Devolve uma refer&ecirc;ncia do objeto Font que representa a fonte atual. </td>
+  </tr>
+  <tr>
+    <td>getFont().getStyle()</td>
+    <td>Devolve um valor inteiro que indica o estilo de fonte atual (Negrito e It&aacute;lico). </td>
+  </tr>
+  <tr>
+    <td>getFont().getSize()</td>
+    <td>Devolve um valor inteiro que indica o tamanho da fonte atual. </td>
+  </tr>
+  <tr>
+    <td>getFont().getName()</td>
+    <td>Devolve o nome da fonte atual como um string. </td>
+  </tr>
+  <tr>
+    <td>getFont().getFamily()</td>
+    <td>Devolve o nome da fam&iacute;lia de fontes como um string. </td>
+  </tr>
+  <tr>
+    <td>getFont().isPlain()</td>
+    <td>Verifica se o estilo da fonte &eacute; simples. Devolve true se a fonte for simples. </td>
+  </tr>
+  <tr>
+    <td>getFont().isBold()</td>
+    <td>Verifica se o estilo da fonte &eacute; negrito. Devolve true se a fonte estiver em negrito. </td>
+  </tr>
+  <tr>
+    <td>getFont().isItalic()</td>
+    <td>Verifica o estilo da fonte &eacute; it&aacute;lico. Devolve true se a fonte estiver em it&aacute;lico. </td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#CCCCCC"><strong>Medida da Fonte</strong> </td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="java_2d/fonte_xy.png" width="751" height="209" /></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Metodo</strong></td>
+    <td bgcolor="#CCCCCC"><strong>Descri&ccedil;&atilde;o</strong></td>
+  </tr>
+  <tr>
+    <td>FontMetrics metrics = g.getFontMetrics()</td>
+    <td>Devolve as mediadas da fonte usada. </td>
+  </tr>
+  <tr>
+    <td>String mensagem = &quot;Testando Java 2D: Hello World (y-&Ocirc;)&quot;;<br />
+      <br />
+    metrics.stringWidth(mensagem)</td>
+    <td>Devolve um valor que representa <span class="style1"><strong>a largura</strong></span> de uma fonte em pontos.</td>
+  </tr>
+  <tr>
+    <td>metrics.getHeight()</td>
+    <td>Devolve um valor que representa <span class="style1"><strong>a altura</strong></span> de uma fonte em pontos. </td>
+  </tr>
+  <tr>
+    <td>metrics.getLeading()</td>
+    <td>Devolve um valor que representa <span class="style1"><strong>em cima </strong></span>de uma fonte, em pontos. </td>
+  </tr>
+  <tr>
+    <td>metrics.getAscent()</td>
+    <td>Devolve um valor que representa <span class="style1"><strong>o meio</strong></span> de uma fonte, em pontos. </td>
+  </tr>
+  <tr>
+    <td>metrics.getDescent()</td>
+    <td>Devolve um valor que representa <span class="style1">em baixo</span> de uma fonte, em pontos. </td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#CCCCCC"><strong>Exemplo:<br />
+    Arquivo: JavaGrafico.java </strong></td>
+  </tr>
+  <tr>
+    <td colspan="2"><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class JavaGrafico extends JFrame {
+
+	  private JButton botao;
+	  String texto ="";
+
+      public JavaGrafico() {
+
+      super("Formulario");
+      this.setSize(200,200);
+      this.setLocation(50, 100);
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+      Grafico g2D = new Grafico();
+
+      g2D.setBounds(0,0,400,200);
+
+      ct.add(g2D);
+
+botao = new JButton("Resultado");
+
+botao.setBounds(0,50,150,25);
+
+ct.add(botao);
+
+      Image Icone = Toolkit.getDefaultToolkit().getImage("icon.gif"); 
+      setIconImage(Icone);
+
+      this.setVisible(true);
+
+      botao.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+
+            JOptionPane.showMessageDialog(null, texto);
+
+      }});
+
+       this.addWindowListener(new WindowAdapter() {
+         public void windowClosing(WindowEvent e) {
+            System.exit(0);
+      }});
+
+   }
+   public static void main(String[] args) {
+      new JavaGrafico();
+   }
+
+   class Grafico extends JPanel {
+       public void paintComponent(Graphics g){
+g.setColor(Color.blue);
+g.setFont(new Font("SansSerif",Font.BOLD+Font.ITALIC, 22));
+String mensagem = "Testando Java 2D: Hello World (y-Ô)";
+g.drawString(mensagem, 5, 25);
+
+texto = "";
+texto += g.getFont().getName()+"\n";
+texto += g.getFont().getSize()+" pontos\n"; 
+if(g.getFont().isBold()== true){
+texto += "Negrito\n"; 
+}
+if(g.getFont().isItalic()== true){
+texto += "Italico\n"; 
+}
+FontMetrics metrics = g.getFontMetrics();
+texto += "Largura: "+metrics.stringWidth(mensagem)+"\n";
+texto += "Altura: "+metrics.getHeight()+"\n";
+texto += "[em cima]: "+metrics.getLeading()+"\n";
+texto += "[do meio]: "+metrics.getAscent()+"\n";
+texto += "[em baixo]: "+metrics.getDescent();
+	   }
+   }
+}</pre></td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="java_2d/estilo.jpg" width="463" height="322" /></td>
+  </tr>
+</table>
+<h2 align="center">Lista de fontes</h2>
+<p><img src="java_2d/lista_de_fontes.jpg" width="502" height="353" /></p>
+<p>Se voc&ecirc; quer obter a lista de fontes, use esse c&oacute;digo:</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: Estudos.java </strong></td>
+  </tr>
+  <tr>
+    <td><pre>/*
+ Este exemplo mostra como obter a lista
+ de fontes disponíveis no sistema. Observe
+ que apenas os nomes das fontes são obtidas
+ com o método getAvailableFontFamilyNames. Outras
+ dicas contém códigos mais avançados em relação
+ ao uso de fontes em Java.
+*/
+
+import java.awt.*;
+import javax.swing.*;
+
+public class Estudos extends JFrame{
+  public Estudos(){
+    super("Lista de Fontes");
+    
+    String[] fontNames; // nomes das fontes
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
+    fontNames = 
+      GraphicsEnvironment.getLocalGraphicsEnvironment().
+      getAvailableFontFamilyNames();
+  
+    Container c = getContentPane();
+    FlowLayout layout = new FlowLayout(FlowLayout.LEFT);
+    c.setLayout(layout);
+    
+    JTextArea textArea = new JTextArea(15, 40);
+    JScrollPane scrollPane = new JScrollPane(textArea);
+       
+    c.add(scrollPane);
+    
+    // adiciona os nomes das fontes ao JTextArea
+    for(int i = 0; i < fontNames.length; i++){
+      textArea.setText(textArea.getText() +
+        fontNames[i] + "\n");
+    }
+
+    setSize(500, 350);
+    setVisible(true);
+  }
+  
+  public static void main(String args[]){
+    Estudos app = new Estudos();
+    app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  }
+}
+</pre></td>
+  </tr>
+</table>
+<h2 align="center">Desenhando linhas, ret&acirc;ngulos e elipses</h2>
+<h2 align="center">Linhas</h2>
+<p align="center"><img src="java_2d/linha.jpg" width="126" height="111" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td><p><strong>g.drawLine(int x1, int y1, int x2, int y2);</strong><br />
+      <br />
+      Desenha uma linha entre o ponto (x1, y1) e o ponto (x2, y2).
+</p>    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td> g.setColor(new Color(78,127,25));<br />
+g.drawLine(5, 10, 95, 60);<br />
+g.setColor(Color.blue);<br />
+g.drawLine(10, 60, 95, 10);</td>
+  </tr>
+</table>
+<h2 align="center">Ret&acirc;ngulo</h2>
+<p align="center"><img src="java_2d/retangulo.jpg" width="212" height="107" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td><p><strong>g.drawRect(int x, int y, int width, int height);</strong><br />
+      <br />
+      Desenha um ret&acirc;ngulo (linha) com a Width e a height especificadas. O canto superior esquerdo do retangulo tem a coordenada (x, y).<br />
+      <br />
+      <strong>g.fillRect(int x, int y, int width, int height);</strong><br />
+      <br />
+Desenha um ret&acirc;ngulo (s&oacute;lido) com a Width e a height especificadas. O canto superior esquerdo do retangulo tem a coordenada (x, y).</p>    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td>g.setColor(new Color(78,127,25));<br />
+      g.drawRect(5, 10, 90, 50);<br />
+      g.setColor(Color.blue);<br />
+    g.fillRect(100, 10, 90, 50);</td>
+  </tr>
+</table>
+<h2 align="center">El&iacute;pse</h2>
+<p align="center"><img src="java_2d/elipse.jpg" width="213" height="108" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td><p><strong>g.drawOval(int x, int y, int width, int height);</strong></p>
+    <p>Desenha uma elipse (linha) na cor atual com a width e a height espec&iacute;ficadas. O canto superior esquerdo est&aacute; nas coordenadas (x, y).<br />
+      <br />
+      <strong>g.fillOval(int x, int y, int width, int height);</strong></p>
+    <p>Desenha uma elipse (s&oacute;lido) na cor atual com a width e a height espec&iacute;ficadas. O canto superior esquerdo est&aacute; nas coordenadas (x, y).     </p>    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td>g.setColor(new Color(78,127,25));<br />
+      g.drawOval(5, 10, 90, 50);<br />
+      g.setColor(Color.blue);<br />
+    g.fillOval(100, 10, 90, 50);</td>
+  </tr>
+</table>
+<h2 align="center">Ret&acirc;ngulo com cantos arredondados</h2>
+<p align="center"><img src="java_2d/retangulo_aredondado.jpg" width="212" height="106" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td>      <strong>g.drawRoundRect(int x, int y, int width, int height, int arcWidth, int arcHeight);</strong><br />
+      <br />
+      Desenha um ret&acirc;ngulo com cantos arredondados (linha) na cor atual com a width e a height especificadas. A arcWidth e arc Height determinam o arredondamento dos cantos. <br />
+      <br />
+      <strong>g.fillRoundRect(int x, int y, int width, int height, int arcWidth, int arcHeight);</strong><br />
+    <br />
+    Desenha um ret&acirc;ngulo com cantos arredondados (s&oacute;lido) na cor atual com a width e a height especificadas. A arcWidth e arcHeight determinam o arredondamento dos cantos.</td>
+  </tr>
+  <tr>
+    <td align="center"><p>&nbsp;<br />
+      <img src="java_2d/ret_ared.png" width="455" height="368" /><br />
+    &nbsp;</p>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td>g.setColor(new Color(78,127,25));<br />
+      g.drawRoundRect(5, 10, 90, 50, 40, 40);<br />
+      g.setColor(Color.blue);<br />
+    g.fillRoundRect(100, 10, 90, 50, 40, 40);</td>
+  </tr>
+</table>
+<h2 align="center">Arco</h2>
+<p align="center"><img src="java_2d/arco.jpg" width="251" height="270" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>Obs:<br />
+        1 - O arco pode ser uma el&iacute;pse ou um c&iacute;rculo; <br />
+        2 - 
+        O &acirc;ngulo do arco &eacute; dado em Graus <br />
+      3 - O arco n&atilde;o &eacute; criado no sentido anti-hor&aacute;rio<br />
+      <img src="java_2d/anti_horario.png" width="200" height="200" /><br />
+    4 - O arco &eacute; criado no sentido anti hor&aacute;rio </p>
+      <p><img src="java_2d/horario.png" width="200" height="200" /><br />
+      5 - Arco negativo, quando o inicio_do_angulo &eacute; entre 270&ordm; e 360 ou menos, o fim_do_angulo &eacute; negativo<br />
+      Exemplo:<br />
+      inicio_do_angulo = 300&ordm;<br />
+      fim_do_angulo = 200-300 = -100<br />
+      <img src="java_2d/horario_negativo.png" width="251" height="193" /><br />
+      <br />
+      <img src="java_2d/angulo_horario.jpg" width="196" height="172" /><br />
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td><p><strong>g.fillArc(int x, int y, int width, int height, inicio_do_angulo, int fim_do_angulo);</strong><br />
+        <br />
+        Desenha um arco (s&oacute;lido) em rela&ccedil;&atilde;o &agrave;s coordenadas do canto superior esquerdo do ret&acirc;ngulo delimitador (x, y) com a width e a height especificadas. O segmento do arco &eacute; desenhado come&ccedil;ando-se em inicio_do_angulo e finalizando-se em fim_do_angulo.<br /> 
+        <br />
+        <strong>g.drawArc(int x, int y, int width, int height, inicio_do_angulo, int fim_do_angulo);</strong><br />
+    <br />
+    Desenha um arco (linha) em rela&ccedil;&atilde;o &agrave;s coordenadas do canto superior esquerdo do ret&acirc;ngulo delimitador (x, y) com a width e a height especificadas. O segmento do arco &eacute; desenhado come&ccedil;ando-se em inicio_do_angulo e finalizando-se em fim_do_angulo.<br />
+</p>    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td>g.setColor(new Color(78,127,25));<br />
+      <br />
+      g.fillArc(10,  10, 100, 100, 0, 120);<br />
+      g.fillArc(120, 10, 100, 100, 360, -240);<br />
+      <br />
+      g.setColor(Color.blue);<br />
+      <br />
+      g.drawArc(10,  120, 100, 100, 0, 120);<br />
+    g.drawArc(120, 120, 100, 100, 360, -240);</td>
+  </tr>
+</table>
+<h2 align="center">Pol&iacute;gono</h2>
+<p align="center"><img src="java_2d/poligono.jpg" width="215" height="103" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td><p><strong>Polygon p1 = new Polygon(int xValor, int yValor, int n&uacute;mero_de_pontos);</strong><br />
+      <br />
+    Constr&oacute;i um novo objeto pol&iacute;gono. O pol&iacute;gono tem n&uacute;mero_de_pontos ao lado, com cada ponto consistindo em uma coordenada x de xValor e uma coordenada y de yValor.<br />
+      <br />
+      <span class="style2">Ou:</span><br />
+      <br />
+      <strong>Polygon p2 = new Polygon();<br />
+      p2.addPoint(int xValor, int yValor);</strong><br />
+      <br />
+      Tamb&eacute;m constr&oacute;i um novo objeto pol&iacute;gono. Constr&oacute;i cada ponto na coordenada x de xValor e na coordenada y de yValor.<strong><br />
+      </strong><br />
+      <strong>g.drawPolygon(Polygono p);</strong><br />
+    <br />
+    Desenha o pol&iacute;gono (linha) fechado especificado. <br />
+    <br />
+    <strong>g.fillPolygon(Polygono p);</strong><br />
+    <br />
+    Desenha o pol&iacute;gono s&oacute;lido especificado, o pol&iacute;gono &eacute; fechado. <br />
+    <br />
+    <br />
+    <span class="style1"><strong>Ou:</strong></span><br />
+    <br />
+    <strong>g.drawPolygon(int xValor, int yValor, int n&uacute;mero_de_pontos);</strong><br />
+    <br />
+    Desenha o pol&iacute;gono (linha) fechado especificado.O pol&iacute;gono tem n&uacute;mero_de_pontos ao lado, com cada ponto consistindo em uma coordenada x de xValor e uma coordenada y de yValor.<br />
+    <br />
+    <strong>g.fillPolygon(int xValor, int yValor, int n&uacute;mero_de_pontos);</strong><br />
+    <br />
+Desenha o pol&iacute;gono s&oacute;lido especificado, o pol&iacute;gono &eacute; fechado.O pol&iacute;gono tem n&uacute;mero_de_pontos ao lado, com cada ponto consistindo em uma coordenada x de xValor e uma coordenada y de yValor.<br />
+    </p>    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td><p>g.setColor(new Color(78,127,25));<br />
+      int xValor_1[] = {5,   5, 47, 90, 90, 47};<br />
+      int yValor_1[] = {10, 55, 42, 55, 10, 22};</p>
+      <p>Polygon p1 = new Polygon(xValor_1, yValor_1, 6);<br />
+        g.drawPolygon(p1);</p>
+      <p>g.setColor(Color.blue);<br />
+        int xValor_2[] = {100, 100, 147, 190, 190, 147};<br />
+        int yValor_2[] = {10,   55,  42,  55,  10,  22};</p>
+      <p>Polygon p2 = new Polygon(xValor_2, yValor_2, 6);<br />
+    g.fillPolygon(p2);</p></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Ou:</strong></td>
+  </tr>
+  <tr>
+    <td><p>g.setColor(new Color(78,127,25));<br />
+      Polygon p1 = new Polygon();<br />
+      p1.addPoint(5,  10);<br />
+      p1.addPoint(5,  55);<br />
+      p1.addPoint(47, 42);<br />
+      p1.addPoint(90, 55);<br />
+      p1.addPoint(90, 10);<br />
+      p1.addPoint(47, 22);<br />
+      g.drawPolygon(p1);</p>
+      <p>g.setColor(Color.blue);<br />
+        Polygon p2 = new Polygon();<br />
+        p2.addPoint(100, 10);<br />
+        p2.addPoint(100, 55);<br />
+        p2.addPoint(147, 42);<br />
+        p2.addPoint(190, 55);<br />
+        p2.addPoint(190, 10);<br />
+        p2.addPoint(147, 22);<br />
+    g.fillPolygon(p2);</p></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Ou:</strong></td>
+  </tr>
+  <tr>
+    <td><p>g.setColor(new Color(78,127,25));<br />
+      int xValor_1[] = {5, 5, 47, 90, 90, 47};<br />
+      int yValor_1[] = {10, 55, 42, 55, 10, 22};</p>
+      <p>g.drawPolygon(xValor_1, yValor_1, 6);</p>
+      <p>g.setColor(Color.blue);<br />
+        int xValor_2[] = {100, 100, 147, 190, 190, 147};<br />
+        int yValor_2[] = {10, 55, 42, 55, 10, 22};</p>
+    <p>g.fillPolygon(xValor_2, yValor_2, 6);</p></td>
+  </tr>
+</table>
+<h2 align="center">Poly Linha</h2>
+<p align="center"><img src="java_2d/poly_linha.jpg" width="190" height="109" />   </p>
+<table width="100%" border="1">
+  <tr>
+    <td><strong>g.drawPolyline(int xValor, int yValor, int n&uacute;mero_de_pontos);</strong><br />
+    <br />
+    Desenha uma s&eacute;rie de linhas conectadas. A linha tem n&uacute;mero_de_pontos ao lado, com cada ponto consistindo em uma coordenada x de xValor e uma coordenada y de yValor.</td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td><p>g.setColor(new Color(78,127,25));<br />
+      int xValor[] = {10, 40, 70, 100, 130, 160};<br />
+      int yValor[] = {10, 50, 10,  50,  10,  50};</p>
+    <p>g.drawPolyline(xValor, yValor, 6);</p></td>
+  </tr>
+</table>
+<h2 align="center">Aumentando e Diminuindo Imagens</h2>
+<p align="center"><img src="java_2d/imagem.jpg" width="359" height="187" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td><p> <strong>private Image img = null;<br />  
+      .<br />
+      .<br />
+      .<br />
+      Toolkit toolkit = getToolkit();<br />
+      img = toolkit.createImage(&quot;coracao.gif&quot;);<br />
+      .<br />
+      .<br />
+      .<br />
+      // Diminuindo a imagem<br />
+      g.drawImage(img, 10, 10, img.getWidth(this)/2, img.getHeight(this)/2, this);<br />
+      // Normal<br />
+      g.drawImage(img, 100, 10, img.getWidth(this), img.getHeight(this), this);<br />
+      // Aumentando a imagem<br />
+      g.drawImage(img, 200, 10, img.getWidth(this)*2, img.getHeight(this)*2, this);</strong><span class="style1"><br />
+<br />
+</span></p>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:<br />
+      Arquivo: JavaGrafico.java </strong></td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class JavaGrafico extends JFrame {
+<span class="style1">
+      private Image img = null;
+</span>
+      public JavaGrafico() {
+
+      super("Formulario");
+      this.setSize(200,200);
+      this.setLocation(50, 100);
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+<span class="style1">      Toolkit toolkit = getToolkit();
+      img = toolkit.createImage("coracao.gif");</span>
+
+
+      Grafico g2D = new Grafico();
+
+      g2D.setBounds(0,0,400,400);
+
+      ct.add(g2D);
+
+      Image Icone = Toolkit.getDefaultToolkit().getImage("icon.gif"); 
+      setIconImage(Icone);
+
+      this.setVisible(true);
+
+       this.addWindowListener(new WindowAdapter() {
+         public void windowClosing(WindowEvent e) {
+            System.exit(0);
+      }});
+
+   }
+   public static void main(String[] args) {
+      new JavaGrafico();
+   }
+
+   class Grafico extends JPanel {
+       public void paintComponent(Graphics g){
+<span class="style1">// Diminuindo a imagem
+g.drawImage(img, 10, 10, img.getWidth(this)/2, img.getHeight(this)/2, this);
+// Normal
+g.drawImage(img, 100, 10, img.getWidth(this), img.getHeight(this), this);
+// Aumentando a imagem
+g.drawImage(img, 200, 10, img.getWidth(this)*2, img.getHeight(this)*2, this);</span>
+	   }
+   }
+}</pre></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td><h1 align="center">2&ordf; Parte:<br />
+      import 
+      java.awt.geom.*; </h1></td>
+  </tr>
+</table>
+<h2 align="center">Ret&acirc;ngulo</h2>
+<p align="center"><img src="java_2d/retangulo.jpg" width="212" height="107" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td><p>import java.awt.geom.*;<br />
+      .<br />
+        .<br />
+        .<br />
+        Graphics2D grp = (Graphics2D) g;<br />
+        grp.setPaint(new Color(78,127,25));<br />
+        grp.draw(new Rectangle2D.Double(5, 10, 90, 50));<br />
+        grp.setPaint(Color.blue);<br />
+    grp.fill(new Rectangle2D.Double(100, 10, 90, 50));</p>
+    </td>
+  </tr>
+</table>
+<h2 align="center">El&iacute;pse</h2>
+<h2 align="center"><img src="java_2d/elipse.jpg" width="213" height="108" /></h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td>import java.awt.geom.*;<br />
+.<br />
+.<br />
+.<br />
+      Graphics2D grp = (Graphics2D) g;<br />
+      grp.setPaint(new Color(78,127,25));<br />
+      grp.draw(new Ellipse2D.Double(5, 10, 90, 50));<br />
+      grp.setPaint(Color.blue);<br />
+    grp.fill(new Ellipse2D.Double(100, 10, 90, 50));</td>
+  </tr>
+</table>
+<h2 align="center">Ret&acirc;ngulo com cantos arredondados</h2>
+<p align="center"><img src="java_2d/retangulo_aredondado.jpg" width="212" height="106" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td>import java.awt.geom.*;<br />
+.<br />
+.<br />
+.<br />
+      Graphics2D grp = (Graphics2D) g;<br />
+      grp.setPaint(new Color(78,127,25));<br />
+      grp.draw(new RoundRectangle2D.Double(5, 10, 90, 50, 40, 40));<br />
+      grp.setPaint(Color.blue);<br />
+    grp.fill(new RoundRectangle2D.Double(100, 10, 90, 50, 40, 40));</td>
+  </tr>
+</table>
+<h2 align="center">Arco</h2>
+<h2 align="center"><img src="java_2d/arco.jpg" width="251" height="270" /></h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td><p>import java.awt.geom.*;<br />
+.<br />
+.<br />
+.<br />
+Graphics2D grp = (Graphics2D) g;</p>
+      <p>grp.setPaint(new Color(78,127,25));</p>
+      <p>grp.fill(new Arc2D.Double(10, 10, 100, 100, 0, 120, Arc2D.PIE));<br />
+        grp.fill(new Arc2D.Double(120, 10, 100, 100, 360, -240, Arc2D.PIE));</p>
+      <p>grp.setPaint(Color.blue);</p>
+      <p>grp.draw(new Arc2D.Double(10, 120, 100, 100, 0, 120, Arc2D.OPEN));<br />
+    grp.draw(new Arc2D.Double(120, 120, 100, 100, 360, -240, Arc2D.OPEN));</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#EEEEEE"><p align="center">Arc2D.PIE</p>
+      <p align="center"><img src="java_2d/pie.jpg" width="100" height="100" /></p>
+      <p>grp.setPaint(Color.blue);</p>
+    <p>grp.draw(new Arc2D.Double(10, 10, 100, 100, 315, -90, Arc2D.PIE));</p></td>
+    <td bgcolor="#EEEEEE"><p align="center">Arc2D.CHORD</p>
+      <p align="center"><img src="java_2d/chord.jpg" width="100" height="100" /></p>
+      <p>grp.setPaint(Color.blue);</p>
+    <p>grp.draw(new Arc2D.Double(10, 10, 100, 100, 315, -90, Arc2D.CHORD));</p></td>
+    <td bgcolor="#EEEEEE"><p align="center">Arc2D.OPEN</p>
+      <p align="center"><img src="java_2d/open.jpg" width="100" height="100" /></p>
+      <p>grp.setPaint(Color.blue);</p>
+    <p>grp.draw(new Arc2D.Double(10, 10, 100, 100, 315, -90,Arc2D.OPEN));</p></td>
+  </tr>
+</table>
+<h2 align="center">&nbsp;</h2>
+<h2 align="center">Linhas</h2>
+<h2 align="center"><img src="java_2d/linha.jpg" width="126" height="111" /></h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td>import java.awt.geom.*;<br />
+.<br />
+.<br />
+.<br />
+Graphics2D grp = (Graphics2D) g;<br />
+      grp.setPaint(new Color(78,127,25));<br />
+      grp.draw(new Line2D.Double(5, 10, 95, 60));<br />
+      grp.setPaint(Color.blue);<br />
+    grp.draw(new Line2D.Double(10, 60, 95, 10));</td>
+  </tr>
+</table>
+<h2 align="center">Pol&iacute;gono</h2>
+<h2 align="center"><img src="java_2d/poligono.jpg" width="215" height="103" /></h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td><p>import java.awt.geom.*;<br />
+.<br />
+.<br />
+.<br />
+Graphics2D grp = (Graphics2D) g;</p>
+      <p>grp.setPaint(new Color(78,127,25));</p>
+      <p>int xValor_1[] = {5, 5, 47, 90, 90, 47};<br />
+        int yValor_1[] = {10, 55, 42, 55, 10, 22};</p>
+      <p>GeneralPath p1 = new GeneralPath();</p>
+      <p>p1.moveTo(xValor_1[0], yValor_1[0]);</p>
+      <p>for(int count = 1; count &lt; xValor_1.length; count++){<br />
+        p1.lineTo(xValor_1[count], yValor_1[count]);<br />
+        }</p>
+      <p>p1.closePath();</p>
+      <p>grp.draw(p1);</p>
+      <p>grp.setPaint(Color.blue);</p>
+      <p>int xValor_2[] = {100, 100, 147, 190, 190, 147};<br />
+        int yValor_2[] = {10, 55, 42, 55, 10, 22};</p>
+      <p>GeneralPath p2 = new GeneralPath();</p>
+      <p>p2.moveTo(xValor_2[0], yValor_2[0]);</p>
+      <p>for(int count = 1; count &lt; xValor_2.length; count++){<br />
+        p2.lineTo(xValor_2[count], yValor_2[count]);<br />
+        }</p>
+      <p>p2.closePath();</p>
+    <p>grp.fill(p2);</p></td>
+  </tr>
+</table>
+<h2 align="center">poly linha</h2>
+<p align="center"><img src="java_2d/poly_linha.jpg" width="190" height="109" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td><p>import java.awt.geom.*;<br />
+.<br />
+.<br />
+.<br />
+Graphics2D grp = (Graphics2D) g;</p>
+      <p>grp.setPaint(new Color(78,127,25));</p>
+      <p>int xValor[] = {10, 40, 70, 100, 130, 160};<br />
+        int yValor[] = {10, 50, 10, 50, 10, 50};</p>
+      <p>GeneralPath p1 = new GeneralPath();</p>
+      <p>p1.moveTo(xValor[0], yValor[0]);</p>
+      <p>for(int count = 1; count &lt; xValor.length; count++){<br />
+        p1.lineTo(xValor[count], yValor[count]);<br />
+        }</p>
+    <p>grp.draw(p1);</p></td>
+  </tr>
+</table>
+<h2 align="center">Curvas</h2>
+<p align="center"><img src="java_2d/pac_man.png" width="150" height="150" /><br />
+pac-man</p>
+<p align="center">Em nosso Exemplo:</p>
+<p align="center"><img src="java_2d/pac_man2.jpg" width="213" height="144" /> </p>
+<p align="center"><img src="java_2d/linha_pac_man.png" width="700" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td><p>import java.awt.geom.*;<br />
+      .<br />
+        .<br />
+        .<br />
+        Graphics2D grp = (Graphics2D) g;</p>
+      <p>GeneralPath gp = new GeneralPath();<br />
+          <br />
+        // Ponto Inicial<br />
+        gp.moveTo(0, 35);</p>
+      <p>//linha lateral esquerda<br />
+        gp.lineTo(0, 80);</p>
+      <p>gp.quadTo(15, 95, 20, 80);<br />
+        gp.quadTo(25, 75, 30, 80);<br />
+        gp.quadTo(40, 95, 50, 80);<br />
+        gp.quadTo(55, 75, 60, 80);<br />
+        gp.quadTo(70, 95, 80, 80);</p>
+      <p>//linha lateral direita<br />
+        gp.lineTo(80, 35);<br />
+        <br />
+        //Topo<br />
+        gp.curveTo(70, -5, 8, -5, 0, 30);</p>
+      <p>// Cor azul<br />
+        grp.setPaint(Color.blue);</p>
+      <p>// Transporte<br />
+        grp.translate(10, 10);</p>
+      <p>grp.draw(gp);</p>
+      <p>// Transporte<br />
+        grp.translate(90, 0);</p>
+    <p>grp.fill(gp);</p></td>
+  </tr>
+</table>
+<p align="center"><img src="java_2d/window_pac_man.jpg" width="467" height="385" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: ShapedWindow.java</strong></td>
+  </tr>
+  <tr>
+    <td><p>import java.awt.*;<br />
+      import java.awt.geom.*;</p>
+      <p>import javax.swing.*;</p>
+      <p>public class ShapedWindow extends JFrame {<br />
+        public ShapedWindow() {<br />
+        super(&quot;Test oval-shaped window&quot;);<br />
+        this.setLayout(new FlowLayout());<br />
+        this.add(new JButton(&quot;test&quot;));<br />
+        this.add(new JCheckBox(&quot;test&quot;));<br />
+        this.add(new JRadioButton(&quot;test&quot;));<br />
+        this.add(new JProgressBar(0, 100));</p>
+      <p> this.setSize(new Dimension(400, 400));<br />
+        this.setLocationRelativeTo(null);<br />
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);<br />
+        }</p>
+      <p> public static void main(String[] args) {<br />
+        JFrame.setDefaultLookAndFeelDecorated(true);<br />
+        SwingUtilities.invokeLater(new Runnable() {<br />
+        @Override<br />
+        public void run() {<br />
+        Window w = new ShapedWindow();<br />
+        w.setVisible(true);<br />
+        GeneralPath gp = new GeneralPath();</p>
+      <p>// Ponto Inicial<br />
+        gp.moveTo(0, 35);</p>
+      <p>//linha lateral esquerda<br />
+        gp.lineTo(0, 80);</p>
+      <p>gp.quadTo(15, 95, 20, 80);<br />
+        gp.quadTo(25, 75, 30, 80);<br />
+        gp.quadTo(40, 95, 50, 80);<br />
+        gp.quadTo(55, 75, 60, 80);<br />
+        gp.quadTo(70, 95, 80, 80);</p>
+      <p>//linha lateral direita<br />
+        gp.lineTo(80, 35);</p>
+      <p>//Topo<br />
+        gp.curveTo(70, -5, 8, -5, 0, 30);</p>
+      <p>com.sun.awt.AWTUtilities.setWindowShape(w, gp);</p>
+      <p> }<br />
+        });<br />
+        }</p>
+    <p>}</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td align="center" bgcolor="#CCCCCC"><h2>Transforma&ccedil;&otilde;es geom&eacute;tricas</h2></td>
+  </tr>
+</table>
+<h2 align="center"><br />
+Tamanho das Bordas</h2>
+<p align="center"><img src="java_2d/bordas.jpg" width="254" height="117" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td><p>import java.awt.geom.*;<br />
+      .<br />
+      .<br />
+      .<br />
+      Graphics2D grp = (Graphics2D) g;<br />
+      grp.setPaint(Color.blue);</p>
+        <p>grp.draw(new Rectangle2D.Double(5, 10, 90, 50));</p>
+      <p>grp.setStroke(new BasicStroke(10));</p>
+      <p>grp.draw(new Rectangle2D.Double(130, 10, 90, 50));</p></td>
+  </tr>
+</table>
+<h2 align="center">Tipo de bordas </h2>
+<p align="center"><img src="java_2d/bordas2.jpg" width="348" height="306" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td><p>import java.awt.geom.*;<br />
+      .<br />
+      .<br />
+      .<br />
+      Graphics2D grp = (Graphics2D) g;<br />
+      grp.setPaint(Color.blue);</p>
+        <p>grp.setStroke(new BasicStroke(20, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER));</p>
+      <p>grp.draw(new Rectangle2D.Double(50, 50, 90, 50));</p>
+      <p>grp.setStroke(new BasicStroke(20, BasicStroke.CAP_BUTT, BasicStroke.JOIN_ROUND));</p>
+      <p>grp.draw(new Rectangle2D.Double(200, 50, 90, 50));</p>
+      <p>grp.setStroke(new BasicStroke(20, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));</p>
+      <p>grp.draw(new Rectangle2D.Double(50, 150, 90, 50));</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td align="center"><strong>Borda quadrada</strong> </td>
+    <td align="center"><strong>Borda circular</strong> </td>
+    <td align="center"><strong>Borda triangular</strong> </td>
+  </tr>
+  <tr>
+    <td bgcolor="#EEEEEE"><p align="center">BasicStroke.JOIN_MITER</p>
+        <p align="center"><img src="java_2d/join_miter.jpg" width="150" height="100" /></p>
+      <p>grp.setPaint(Color.blue);</p>
+      <p>grp.setStroke(new BasicStroke(20, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER));</p>
+      <p>grp.draw(new Rectangle2D.Double(50, 50, 90, 50));</p></td>
+    <td bgcolor="#EDEFEA"><p align="center">BasicStroke.JOIN_ROUND</p>
+        <p align="center"><img src="java_2d/join_round.jpg" width="150" height="100" /></p>
+      <p>grp.setPaint(Color.blue);</p>
+      <p>grp.setStroke(new BasicStroke(20, BasicStroke.CAP_BUTT, BasicStroke.JOIN_ROUND));</p>
+      <p>grp.draw(new Rectangle2D.Double(50, 50, 90, 50));</p></td>
+    <td bgcolor="#EDEFEA"><p align="center">BasicStroke.JOIN_BEVEL</p>
+        <p align="center"><img src="java_2d/join_bevel.jpg" width="150" height="100" /></p>
+      <p>grp.setPaint(Color.blue);</p>
+      <p>grp.setStroke(new BasicStroke(20, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL));</p>
+      <p>grp.draw(new Rectangle2D.Double(50, 50, 90, 50));</p></td>
+  </tr>
+</table>
+<h2 align="center">Gradiente</h2>
+<p align="center"><img src="java_2d/gradiente.jpg" width="126" height="110" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td>import java.awt.geom.*;<br />
+      .<br />
+      .<br />
+      .<br />
+      Graphics2D grp = (Graphics2D) g;<br />
+      grp.setPaint(new GradientPaint(5, 10, Color.blue, 65, 80, Color.yellow, true));<br />
+      grp.fill(new Rectangle2D.Double(5, 10, 90, 50));</td>
+  </tr>
+</table>
+<h2 align="center">Mos&aacute;ico</h2>
+<p align="center"><img src="java_2d/mosaico.jpg" width="126" height="115" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><p><strong>Exemplo:</strong></p></td>
+  </tr>
+  <tr>
+    <td><p>import java.awt.geom.*;<br />
+            <span class="style1"><strong>import java.awt.image.*;</strong></span><br />
+      .<br />
+      .<br />
+      .<br />
+      Graphics2D grp = (Graphics2D) g;</p>
+        <p>BufferedImage buffImage = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);<br />
+          Graphics2D gg = buffImage.createGraphics();<br />
+          gg.setColor(Color.yellow);<br />
+          gg.fillRect(0, 0, 10, 10);<br />
+          gg.setColor(Color.black);<br />
+          gg.drawRect(1, 1, 6, 6);<br />
+          gg.setColor(Color.blue);<br />
+          gg.fillRect(1, 1, 3, 3);<br />
+          gg.setColor(Color.red);<br />
+          gg.fillRect(4, 4, 3, 3);</p>
+      <p>grp.setPaint(new TexturePaint(buffImage, new Rectangle(10, 10)));</p>
+      <p>grp.fill(new Ellipse2D.Double(5, 10, 90, 50));</p></td>
+  </tr>
+</table>
+<h2 align="center">Transporte</h2>
+<p align="center"><img src="java_2d/translate.jpg" width="125" height="127" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td><p>import java.awt.geom.*;<br />
+.<br />
+.<br />
+.<br />
+      Graphics2D grp = (Graphics2D) g;</p>
+        <p>grp.setPaint(Color.blue);<br />
+          grp.draw(new Rectangle2D.Double(0, 0, 50, 50));</p>
+      <p class="style1"><strong>grp.translate(25, 25);</strong></p>
+      <p>grp.fill(new Rectangle2D.Double(0, 0, 50, 50));</p></td>
+  </tr>
+</table>
+<h2 align="center">Rota&ccedil;&atilde;o</h2>
+<p align="center"><img src="java_2d/rotacao.jpg" width="123" height="121" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td><p>import java.awt.geom.*;<br />
+.<br />
+.<br />
+.<br />
+      Graphics2D grp = (Graphics2D) g;</p>
+        <p>grp.setPaint(Color.blue);<br />
+          grp.draw(new Rectangle2D.Double(0, 0, 50, 50));</p>
+      <p>grp.translate(50, 0);</p>
+      <p class="style1"><strong>// Rota&ccedil;&atilde;o de 45&ordm;<br />
+        grp.rotate(Math.PI/4);</strong></p>
+      <p>grp.fill(new Rectangle2D.Double(0, 0, 50, 50));</p></td>
+  </tr>
+</table>
+<h2 align="center">Tra&ccedil;os numa linha </h2>
+<p align="center"><img src="java_2d/tracos.jpg" width="126" height="137" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td><p>import java.awt.geom.*;<br />
+.<br />
+.<br />
+.<br />
+      Graphics2D grp = (Graphics2D) g;</p>
+      <p>float linha[] = {10, 20};</p>
+      <p>grp.setPaint(Color.blue);<br />
+        grp.setStroke( new BasicStroke(4, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 10, linha, 0));<br />
+    grp.draw(new Line2D.Double(0, 0, 100, 100));</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#EEEEEE"><p align="center">BasicStroke.CAP_BUTT</p>
+    <p align="center"><img src="java_2d/cap_square.jpg" width="101" height="50" /></p></td>
+    <td bgcolor="#EEEEEE"><p align="center">BasicStroke.CAP_ROUND</p>
+    <p align="center"><img src="java_2d/cap_round.jpg" width="100" height="50" /></p></td>
+    <td bgcolor="#EEEEEE"><p align="center">BasicStroke.CAP_SQUARE</p>
+    <p align="center"><img src="java_2d/cap_square.jpg" width="101" height="50" /></p></td>
+  </tr>
+  <tr>
+    <td>CAP_BUTT  extremidade nenhuma.<br />
+    Por padr&atilde;o &eacute; quadrada. </td>
+    <td>CAP_ROUND extremidade circular. </td>
+    <td>CAP_SQUARE extremidade quadrada. </td>
+  </tr>
+</table>
+<h2 align="center">Exemplo de c&iacute;rculo com tra&ccedil;os</h2>
+<p align="center"><img src="java_2d/tracos_circulo.jpg" width="129" height="150" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo:</strong></td>
+  </tr>
+  <tr>
+    <td><p>Graphics2D grp = (Graphics2D) g;</p>
+      <p>float linha[] = {10, 20};</p>
+      <p>grp.setPaint(Color.blue);<br />
+        grp.setStroke( new BasicStroke(4, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 10, linha, 0));<br />
+    grp.draw(new Ellipse2D.Double(5, 5, 100, 100));</p></td>
+  </tr>
+</table>
+<h2 align="center">Girando uma Imagem</h2>
+<p align="center"><img src="java_2d/girar_imagem.jpg" width="128" height="164" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC">Arquivo: JavaGrafico.java </td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+import java.awt.geom.*;
+import java.awt.image.*;
+
+public class JavaGrafico extends JFrame {
+
+      private Image img = null;
+
+      public JavaGrafico() {
+
+      super("Formulario");
+      this.setSize(200,200);
+      this.setLocation(50, 100);
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+      Toolkit toolkit = getToolkit();
+      img = toolkit.createImage("coracao.gif");
+
+
+      Grafico g2D = new Grafico();
+
+      g2D.setBounds(0,0,400,400);
+
+      ct.add(g2D);
+
+      Image Icone = Toolkit.getDefaultToolkit().getImage("icon.gif"); 
+      setIconImage(Icone);
+
+      this.setVisible(true);
+
+       this.addWindowListener(new WindowAdapter() {
+         public void windowClosing(WindowEvent e) {
+            System.exit(0);
+      }});
+
+   }
+   public static void main(String[] args) {
+      new JavaGrafico();
+   }
+
+   class Grafico extends JPanel {
+       public void paintComponent(Graphics g){
+Graphics2D grp = (Graphics2D) g;
+int largura = img.getWidth(this);
+int altura = img.getHeight(this);
+try {
+BufferedImage buffImage = new BufferedImage(largura, altura, BufferedImage.TYPE_INT_RGB);
+
+Graphics2D gg = buffImage.createGraphics();
+
+gg.drawImage(img, 0, 0, largura, altura, this);
+
+grp.setPaint(new TexturePaint(buffImage, new Rectangle(largura, altura)));
+} catch(Exception rem){ /*erro removido e apagado*/ }
+grp.translate(100, 50);
+
+grp.rotate(Math.PI/1.5);
+
+grp.fill(new Rectangle2D.Double(0, 0, largura, altura));
+	   }
+   }
+}</pre></td>
+  </tr>
+</table>
+<p>&nbsp; </p>
+<table width="100%" border="1">
+  <tr>
+    <td align="center" bgcolor="#CCCCCC"><h2>Criando anima&ccedil;&otilde;es com imagens </h2></td>
+  </tr>
+</table>
+<p align="center">
+  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="400" height="80">
+    <param name="movie" value="java_2d/duke.swf" />
+    <param name="quality" value="high" />
+    <embed src="java_2d/duke.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="400" height="80"></embed>
+  </object>
+</p>
+<table width="100%" border="1">
+  <tr>
+    <td align="center"><a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T1.gif">T1.gif </a></td>
+    <td align="center"><a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T2.gif">T2.gif </a></td>
+    <td align="center"><a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T3.gif">T3.gif</a></td>
+    <td align="center"><a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T4.gif">T4.gif</a></td>
+    <td align="center"><a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T5.gif">T5.gif</a></td>
+  </tr>
+  <tr>
+    <td align="center"> <a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T6.gif">T6.gif</a></td>
+    <td align="center"><a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T7.gif">T7.gif</a></td>
+    <td align="center"><a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T8.gif">T8.gif</a></td>
+    <td align="center"> <a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T9.gif">T9.gif</a></td>
+    <td align="center"> <a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T10.gif">T10.gif</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T11.gif">T11.gif</a></td>
+    <td align="center"> <a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T12.gif">T12.gif</a></td>
+    <td align="center"> <a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T13.gif">T13.gif</a></td>
+    <td align="center"> <a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T14.gif">T14.gif</a></td>
+    <td align="center"> <a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T15.gif">T15.gif</a></td>
+  </tr>
+  <tr>
+    <td align="center"> <a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T16.gif">T16.gif</a></td>
+    <td align="center"><a href="../../../../../../web/apostilas/programacao/java/java_2d/duke/T17.gif">T17.gif</a></td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+  </tr>
+</table>
+<p align="center">&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: JavaGrafico.java </strong></td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+import java.awt.image.*;
+import java.lang.*;
+public class JavaGrafico extends JFrame {
+
+      private Image img[];
+	  private int tempoEspera = 150;
+	  private int numImg = 17;
+	  private int imgAtual;
+
+      public JavaGrafico() {
+
+      super("Formulario");
+      this.setSize(200,200);
+      this.setLocation(50, 100);
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+      img = new Image[numImg];
+      Toolkit t = getToolkit();
+	  for(int i = 1; i <= numImg; i++){ 
+	  	try {
+	  		img[i] = t.createImage("duke\\T"+i+".gif");
+	  	} catch (ArrayIndexOutOfBoundsException erro) {/* Erro desapareceu */}
+	  }
+
+	  imgAtual = 0;
+
+      Grafico g2D = new Grafico();
+
+      g2D.setBounds(0,0,400,400);
+
+      ct.add(g2D);
+
+      Image Icone = Toolkit.getDefaultToolkit().getImage("icon.gif"); 
+      setIconImage(Icone);
+
+      this.setVisible(true);
+
+       this.addWindowListener(new WindowAdapter() {
+         public void windowClosing(WindowEvent e) {
+            System.exit(0);
+      }});
+
+   }
+   public static void main(String[] args) {
+      new JavaGrafico();
+   }
+
+   class Grafico extends JPanel {
+       public void paintComponent(Graphics g){
+g.drawImage(img[imgAtual], 10, 10, this);
+imgAtual = (imgAtual + 1) % numImg;
+try {
+Thread.sleep(tempoEspera);
+} catch (InterruptedException e) {
+e.printStackTrace();
+}
+repaint();
+	   }
+   }
+}</pre></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td align="center" bgcolor="#CCCCCC"><h2>Eventos<br />
+      Interagindo com os gr&aacute;ficos </h2></td>
+  </tr>
+</table>
+<p align="center"><applet CODE="JavaGrafico.class" archive="JavaGrafico1.jar" width="400" height="400">
+</applet></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: JavaGrafico.java </strong></td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.*;
+
+public class JavaGrafico extends JFrame {
+
+      public JavaGrafico() {
+
+      super("Formulario");
+      this.setSize(200,200);
+      this.setLocation(50, 100);
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+      PaintPanel g2D = new PaintPanel();
+
+      g2D.setBounds(0,0,400,400);
+
+      ct.add(g2D);
+
+      Image Icone = Toolkit.getDefaultToolkit().getImage("icon.gif"); 
+      setIconImage(Icone);
+
+      this.setVisible(true);
+
+       this.addWindowListener(new WindowAdapter() {
+         public void windowClosing(WindowEvent e) {
+            System.exit(0);
+      }});
+
+   }
+   public static void main(String[] args) {
+      new JavaGrafico();
+   }
+
+   class Grafico extends JPanel {
+       public void paintComponent(Graphics g){
+Graphics2D grp = (Graphics2D) g;
+
+float linha[] = {10, 20};
+
+grp.setPaint(Color.blue);
+grp.setStroke( new BasicStroke(4, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 10, linha, 0));
+grp.draw(new Ellipse2D.Double(5, 5, 100, 100));
+	   }
+   }
+}</pre></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: PaintPanel.java </strong></td>
+  </tr>
+  <tr>
+    <td><pre>import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class PaintPanel extends JPanel {
+private int pointCount = 0; // número de contagem de pontos
+
+// array de 10000 referências java.awt.Point
+private Point points[] = new Point[ 10000 ];
+private String mouse[] = new String[10000];
+private String mensagem = "Testando";
+// configura a GUI e registra handler de evento de mouse
+public PaintPanel() {
+this.setFocusable(true);
+    addKeyListener(new KeyAdapter() {
+    public void keyPressed(KeyEvent tecla) {
+    char caracter = tecla.getKeyChar();
+	int codigo = tecla.getKeyCode();
+	if(codigo == KeyEvent.VK_BACK_SPACE) {
+		if(!mensagem.equals("")){
+			mensagem = mensagem.substring(0, mensagem.length()-1);
+		}
+	} else if(codigo != KeyEvent.VK_BACK_SPACE) {
+	mensagem += ""+caracter;
+	}
+	repaint();
+   }});
+   addMouseMotionListener( new MouseMotionAdapter(){  
+         public void mouseDragged( MouseEvent event ){
+
+            if (event.isMetaDown()){
+        	   if ( pointCount < points.length ){
+                 points[ pointCount ] = event.getPoint(); // localiza o ponto
+				 mouse[pointCount]="vermelho";
+                 pointCount++; // incrementa número de pontos em array
+                 repaint(); // repinta JFrame
+                }//fim if interno
+            }else{
+            	if ( pointCount < points.length ){
+                 points[ pointCount ] = event.getPoint(); // localiza o ponto
+				 mouse[pointCount]="azul";
+                 pointCount++; // incrementa número de pontos em array
+                 repaint(); // repinta JFrame
+                }//fim if interno
+            }//fim do if else
+         }});
+} // fim do construtor PaintPanel
+
+
+public void paintComponent( Graphics g ){
+   super.paintComponent( g );
+g.setColor(Color.blue);
+g.setFont(new Font("Arial",Font.PLAIN, 22));
+g.drawString(mensagem, 5, 25);
+   for ( int i = 0; i < pointCount; i++ ){
+   if (mouse[i] == "azul"){
+	   g.setColor(Color.BLUE);
+   }else if(mouse[i] == "vermelho"){
+	   g.setColor(Color.red);
+   }
+   	  g.fillOval( points[ i ].x, points[ i ].y, 4, 4 );
+   }
+}
+}</pre></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td align="center" bgcolor="#CCCCCC"><h2>Eventos<br />
+      Clicando com o mouse no c&iacute;rculo </h2></td>
+  </tr>
+</table>
+<h2 align="center">OnClick</h2>
+<p align="center">
+  <applet code="JavaGrafico.class" archive="JavaGrafico2.jar" width="150" height="150">
+  </applet>
+</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: JavaGrafico.java (Obs: Applet) </strong></td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+import java.awt.geom.*;
+
+public class JavaGrafico extends JApplet {
+
+    public Ellipse2D ellipse;
+    private Grafico g2D;
+    boolean cor = false;
+
+      public void init() {
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+
+      g2D = new Grafico();
+      g2D.setBounds(0,0,150,150);
+      ct.add(g2D);
+
+   }
+
+   class Grafico extends JPanel {
+       public Grafico(){
+	  addMouseListener( new MouseAdapter(){
+       public void mouseClicked(MouseEvent e) {
+        if (ellipse.contains(e.getX(), e.getY())) {
+           if (cor == false){
+		      cor = true;
+		   } else if(cor == true){
+		      cor = false;
+		   }
+		repaint();
+		}
+      }});
+	   }
+       public void paintComponent(Graphics g){
+      Graphics2D grp = (Graphics2D) g;
+           if (cor == false){
+		      grp.setPaint(Color.blue);
+		   } else if(cor == true){
+		      grp.setPaint(new Color(78,127,25));
+		   }
+      ellipse = new Ellipse2D.Double(25, 25, 100, 100);
+      grp.fill(ellipse);
+	   }
+   }
+}</pre></td>
+  </tr>
+</table>
+<h2 align="center">DoubleClick</h2>
+<p align="center">
+  <applet code="JavaGrafico.class" archive="JavaGrafico3.jar" width="150" height="150">
+  </applet>
+</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: JavaGrafico.java (Obs: Applet) </strong></td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+import java.awt.geom.*;
+
+public class JavaGrafico extends JApplet {
+
+    public Ellipse2D ellipse;
+    private Grafico g2D;
+    boolean cor = false;
+
+      public void init() {
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+
+      g2D = new Grafico();
+      g2D.setBounds(0,0,150,150);
+      ct.add(g2D);
+
+   }
+
+   class Grafico extends JPanel {
+       public Grafico(){
+	  addMouseListener( new MouseAdapter(){
+       public void mouseClicked(MouseEvent e) {
+      if(e.getClickCount() == 2) {
+        // Duplo-clique detectado
+        if (ellipse.contains(e.getX(), e.getY())) {
+           if (cor == false){
+		      cor = true;
+		   } else if(cor == true){
+		      cor = false;
+		   }
+      } else {
+        // Clique simples detectado.
+      }
+		repaint();
+		}
+      }});
+	   }
+       public void paintComponent(Graphics g){
+      Graphics2D grp = (Graphics2D) g;
+           if (cor == false){
+		      grp.setPaint(Color.blue);
+		   } else if(cor == true){
+		      grp.setPaint(new Color(78,127,25));
+		   }
+      ellipse = new Ellipse2D.Double(25, 25, 100, 100);
+      grp.fill(ellipse);
+	   }
+   }
+}</pre></td>
+  </tr>
+</table>
+<h2 align="center">Mouse Over, Mouse Out </h2>
+<p align="center">
+  <applet code="JavaGrafico.class" archive="JavaGrafico4.jar" width="150" height="150">
+  </applet>
+</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: javaGrafico.java (Obs: Applet) </strong></td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+import java.awt.geom.*;
+
+public class JavaGrafico extends JApplet {
+
+    public Ellipse2D ellipse;
+    private Grafico g2D;
+    boolean cor = false;
+
+      public void init() {
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+
+      g2D = new Grafico();
+      g2D.setBounds(0,0,150,150);
+      ct.add(g2D);
+
+   }
+
+   class Grafico extends JPanel {
+       public Grafico(){
+	   addMouseMotionListener( new MouseMotionAdapter(){
+       public void mouseMoved(MouseEvent e) {
+        if (ellipse.contains(e.getX(), e.getY())) {
+		      cor = true;
+
+		   }else {
+		      cor = false;
+        }
+			repaint();
+		}});
+	   }
+       public void paintComponent(Graphics g){
+      Graphics2D grp = (Graphics2D) g;
+           if (cor == false){
+		      grp.setPaint(Color.blue);
+		   } else if(cor == true){
+		      grp.setPaint(new Color(78,127,25));
+		   }
+      ellipse = new Ellipse2D.Double(25, 25, 100, 100);
+      grp.fill(ellipse);
+	   }
+   }
+}</pre></td>
+  </tr>
+</table>
+<h2 align="center">Bot&atilde;o direito e bot&atilde;o esquerdo </h2>
+<p align="center">
+  <applet code="JavaGrafico.class" archive="JavaGrafico6.jar" width="150" height="150">
+  </applet>
+</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: JavaGrafico.java (Obs: Applet) </strong></td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+import java.awt.geom.*;
+
+public class JavaGrafico extends JApplet {
+
+    public Ellipse2D ellipse;
+    private Grafico g2D;
+    boolean cor = false;
+    boolean valor = true;
+
+      public void init() {
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+
+      g2D = new Grafico();
+      g2D.setBounds(0,0,150,150);
+      ct.add(g2D);
+
+   }
+
+   class Grafico extends JPanel {
+       public Grafico(){
+	  addMouseListener( new MouseAdapter(){
+       public void mouseClicked(MouseEvent e) {
+        if (ellipse.contains(e.getX(), e.getY())) {
+           if (e.isMetaDown()){
+		      cor = true;
+		   } else{
+		      cor = false;
+		   }
+		valor = false;
+		repaint();
+		}
+      }});
+	   }
+       public void paintComponent(Graphics g){
+      Graphics2D grp = (Graphics2D) g;
+           if (cor == false){
+		      grp.setPaint(Color.blue);
+		   } else if(cor == true){
+		      grp.setPaint(new Color(78,127,25));
+		   }
+	  	   if (valor == true){
+		   	  grp.setPaint(Color.red);
+		   }
+      ellipse = new Ellipse2D.Double(25, 25, 100, 100);
+      grp.fill(ellipse);
+	   }
+   }
+}</pre></td>
+  </tr>
+</table>
+<h2 align="center">Mouse Wheel </h2>
+<p align="center">
+  <applet code="JavaGrafico.class" archive="JavaGrafico8.jar" width="150" height="150">
+  </applet>
+</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: JavaGrafico.java (Obs: Applet) </strong></td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+import java.awt.geom.*;
+
+public class JavaGrafico extends JApplet {
+
+    public Ellipse2D ellipse;
+    private Grafico g2D;
+
+private String mensagem1 = "";
+private String mensagem2 = "";
+
+int x = 0;
+int y = 0;
+
+      public void init() {
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+
+      g2D = new Grafico();
+      g2D.setBounds(0,0,150,150);
+      ct.add(g2D);
+      g2D.setFocusable(true);
+   }
+
+   class Grafico extends JPanel {
+       public Grafico(){
+	  addMouseListener( new MouseAdapter(){
+       public void mouseClicked(MouseEvent e) {
+if(e.getButton() == 1){
+mensagem2 = "Botão Esquerdo";
+} else if(e.getButton() == 2){
+mensagem2 = "Botão Central";
+} else if(e.getButton() == 3){
+mensagem2 = "Botão Direito";
+}
+repaint();
+      }});
+
+addMouseWheelListener(new MouseWheelListener() { 
+public void mouseWheelMoved(MouseWheelEvent e) { 
+y = e.getWheelRotation();
+x = x + y;                
+if (y < 0) { 
+mensagem1 = "Para cima... " + y + " valor = " + x; 
+} else if(y > 0) { 
+mensagem1 = "Para baixo... " + y + " valor = " + x; 
+} 
+repaint();
+   }});
+
+	   }
+       public void paintComponent(Graphics g){
+super.paintComponent( g );
+g.setColor(Color.blue);
+g.setFont(new Font("Arial",Font.PLAIN, 12));
+g.drawString("Mouse Wheel", 5, 25); 
+g.drawString(mensagem1, 5, 50);
+g.drawString(mensagem2, 5, 75);
+	   }
+   }
+}</pre></td>
+  </tr>
+</table>
+<h2 align="center">Teclado</h2>
+<p align="center">
+  <applet code="JavaGrafico.class" archive="JavaGrafico7.jar" width="150" height="150">
+  </applet>
+</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: JavaGrafico.java (Obs: Applet)</strong> </td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+import java.awt.geom.*;
+
+public class JavaGrafico extends JApplet {
+
+    public Ellipse2D ellipse;
+    private Grafico g2D;
+private String mensagem = "A";
+
+      public void init() {
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+
+      g2D = new Grafico();
+      g2D.setBounds(0,0,150,150);
+      ct.add(g2D);
+      g2D.setFocusable(true);
+   }
+
+   class Grafico extends JPanel {
+       public Grafico(){
+    addKeyListener(new KeyAdapter() {
+    public void keyPressed(KeyEvent tecla) {
+    mensagem = "" + tecla.getKeyChar();
+	repaint();
+   }});
+
+	   }
+       public void paintComponent(Graphics g){
+super.paintComponent( g );
+g.setColor(Color.blue);
+g.setFont(new Font("Arial",Font.PLAIN, 22));
+g.drawString(mensagem, 5, 25);
+	   }
+   }
+}</pre></td>
+  </tr>
+</table>
+<h2 align="center">Dando nome ao Evento </h2>
+<p align="center">
+  <applet code="JavaGrafico.class" archive="JavaGrafico5.jar" width="150" height="150">
+  </applet>
+</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: JavaGrafico.java (Obs: Applet)</strong> </td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+import java.awt.geom.*;
+
+public class JavaGrafico extends JApplet {
+
+    public Ellipse2D ellipse;
+    private Grafico g2D;
+    boolean cor = false;
+
+      public void init() {
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+
+      g2D = new Grafico();
+      g2D.setBounds(0,0,150,150);
+      ct.add(g2D);
+      g2D.addMouseListener(new testandoMouse());
+   }
+
+   class Grafico extends JPanel {
+       public Grafico(){
+	   }
+       public void paintComponent(Graphics g){
+      Graphics2D grp = (Graphics2D) g;
+           if (cor == false){
+		      grp.setPaint(Color.blue);
+		   } else if(cor == true){
+		      grp.setPaint(new Color(78,127,25));
+		   }
+      ellipse = new Ellipse2D.Double(25, 25, 100, 100);
+      grp.fill(ellipse);
+	   }
+   }
+class testandoMouse extends MouseAdapter {
+     public void mouseClicked(MouseEvent e) {
+        if (ellipse.contains(e.getX(), e.getY())) {
+           	if (cor == false){
+		      cor = true;
+		   	} else if(cor == true){
+		      	cor = false;
+		   	}
+			repaint();
+		}
+	}
+}
+}</pre></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td align="center" bgcolor="#CCCCCC"><h2>Salvado a imagem do gr&aacute;fico </h2></td>
+  </tr>
+</table>
+<p align="center">Exemplo:</p>
+<p align="center"><img src="java_2d/mosaico.jpg" width="126" height="115" /></p>
+<p align="center">Resultado:</p>
+<p align="center"><img src="java_2d/teste.png" width="100" height="60" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: JavaGrafico.java </strong></td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.*;
+
+import javax.imageio.*;
+import java.io.*;
+import java.awt.image.*;
+
+public class JavaGrafico extends JFrame {
+
+      public JavaGrafico() {
+
+      super("Formulario");
+      this.setSize(200,200);
+      this.setLocation(50, 100);
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+      Grafico g2D = new Grafico();
+
+      g2D.setBounds(0,0,100,60);
+
+      ct.add(g2D);
+try {   
+            BufferedImage dest = new BufferedImage(g2D.getWidth(), g2D.getHeight(), BufferedImage.TYPE_INT_ARGB);   
+           
+            Graphics2D graphics = dest.createGraphics();   
+
+            g2D.paintComponent(graphics);
+            graphics.dispose();   
+            // png, gif ou jpg:
+            ImageIO.write(dest, "png", new File("teste.png"));   
+  
+        } catch (Exception e) {   
+            e.printStackTrace();   
+        } 
+      Image Icone = Toolkit.getDefaultToolkit().getImage("icon.gif"); 
+      setIconImage(Icone);
+
+      this.setVisible(true);
+
+       this.addWindowListener(new WindowAdapter() {
+         public void windowClosing(WindowEvent e) {
+            System.exit(0);
+      }});
+
+   }
+   public static void main(String[] args) {
+      new JavaGrafico();
+   }
+
+   class Grafico extends JPanel {
+       public void paintComponent(Graphics g){
+Graphics2D grp = (Graphics2D) g;
+
+BufferedImage buffImage = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);
+Graphics2D gg = buffImage.createGraphics();
+gg.setColor(Color.yellow);
+gg.fillRect(0, 0, 10, 10);
+gg.setColor(Color.black);
+gg.drawRect(1, 1, 6, 6);
+gg.setColor(Color.blue);
+gg.fillRect(1, 1, 3, 3);
+gg.setColor(Color.red);
+gg.fillRect(4, 4, 3, 3);
+
+grp.setPaint(new TexturePaint(buffImage, new Rectangle(10, 10)));
+
+grp.fill(new Ellipse2D.Double(5, 5, 90, 50));
+	   }
+   }
+}</pre></td>
+  </tr>
+</table>
+<h2 align="center">Tonalidade</h2>
+<h2 align="center"><img src="java_2d/tonalidade.jpg" width="124" height="201" /></h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: JavaGrafico.java </strong></td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+import java.awt.geom.*;
+import java.awt.image.*;
+
+public class JavaGrafico extends JFrame {
+
+      private Image img = null;
+	  private JButton botao;
+      private Grafico g2D;
+
+      int teste = 0;
+
+      public JavaGrafico() {
+
+      super("Formulario");
+      this.setSize(200,200);
+      this.setLocation(50, 100);
+
+      Container ct = this.getContentPane();
+      ct.setLayout(null);
+
+      Toolkit toolkit = getToolkit();
+      img = toolkit.createImage("coracao.gif");
+
+
+      g2D = new Grafico();
+      g2D.setBounds(0,0,400,400);
+      ct.add(g2D);
+
+      botao = new JButton("tonalidade");
+	  botao.setBounds(0,100,100,25);
+	  ct.add(botao);
+
+      Image Icone = Toolkit.getDefaultToolkit().getImage("icon.gif"); 
+      setIconImage(Icone);
+
+      this.setVisible(true);
+
+      botao.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+
+			 g2D.repaint();
+
+      }});
+
+       this.addWindowListener(new WindowAdapter() {
+         public void windowClosing(WindowEvent e) {
+            System.exit(0);
+      }});
+
+   }
+   public static void main(String[] args) {
+      new JavaGrafico();
+   }
+
+   class Grafico extends JPanel {
+       public void paintComponent(Graphics g){
+Graphics2D grp = (Graphics2D) g;
+int largura = img.getWidth(this);
+int altura = img.getHeight(this);
+<span class="style1">int lay = 0;
+if (teste == 0){
+lay = BufferedImage.TYPE_INT_ARGB;
+teste = 1;
+}else if (teste == 1){
+lay = BufferedImage.TYPE_INT_RGB;
+teste = 2;
+}else if (teste == 2){
+lay = BufferedImage.TYPE_BYTE_GRAY;
+teste = 3;
+}else if (teste == 3){
+lay = BufferedImage.TYPE_BYTE_BINARY;
+teste = 0;
+}
+try {
+BufferedImage buffImage = new BufferedImage(largura, altura, lay);</span>
+
+Graphics2D gg = buffImage.createGraphics();
+
+gg.drawImage(img, 0, 0, largura, altura, this);
+
+grp.setPaint(new TexturePaint(buffImage, new Rectangle(largura, altura)));
+} catch(Exception rem){ /*erro removido e apagado*/ }
+
+grp.fill(new Rectangle2D.Double(0, 0, largura, altura));
+	   }
+   }
+}</pre></td>
+  </tr>
+</table>
+<h2 align="center">Captura de cor</h2>
+<table width="100%" border="1">
+  <tr>
+    <td>import java.awt.Robot;<br />
+      .<br />
+      .<br />
+    public Color getPixelColor(int x, int y)</td>
+  </tr>
+</table>
+</body>
+</html>

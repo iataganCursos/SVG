@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Teclado</title>
+<script language="javascript" src="js/jquery.min.js"></script>
+<script language="javascript" src="js/key1.js"></script>
+<script language="javascript">
+<!--
+   key(90, 88, 67, 86, 66, 78, 77, 188, 190, 191);
+-->
+</script>
+<style type="text/css">
+<!--
+.style1 {font-family: Verdana, Arial, Helvetica, sans-serif}
+.style5 {font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; }
+-->
+</style>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td bgcolor="#ff8a8a"><strong>Eventos</strong></td>
+    </tr>
+    <tr>
+        <td bgcolor="#cccccc"><strong>Eventos do Teclado</strong></td>
+    </tr>
+    <tr>
+        <td bgcolor="#00ffff"><strong>KeyDown keyUp</strong></td>
+    </tr>
+    <tr>
+        <td>
+            <span class="style1">Combina&ccedil;&atilde;o de Teclas<br/>Precionando mais de uma tecla ao mesmo tempo</span>
+            <br/>
+            <br/>
+            <div class="style1" style="border: 2px solid black; width: 300px; height: 200px; float: left; background-color: rgb(253, 223, 253);">
+                Precione as seguintes<br />
+                Teclas<br />
+                (Ctrl, Alt, Shift)<br />
+                (CAPS LOCK, NUM LOCK, SCROLL LOCK)<br />
+                + Combinação de Tecla<br /><br />
+                _key = "<span id="_key"></span>"            </div>        </td>
+    </tr>
+</table>
+<ul>
+  <li class="style1">Eventos do Teclado:
+    <ul>
+      <li>Precione as seguintes Teclas<br />
+        <ul>
+          <li>(Ctrl, Alt, Shift)<br />
+            (CAPS LOCK, NUM LOCK, SCROLL LOCK)<br />
+            + Combina&ccedil;&atilde;o de Tecla<br />
+          </li>
+        </ul>
+      </li>
+      <li>Exemplo:</li>
+    </ul>
+  </li>
+</ul>
+<p class="style1">[CAPS LOCK][Shift][8]()</p>
+<ul>
+  <li class="style1">Precionando mais de uma tecla ao mesmo tempo:
+    <ul>
+      <li>Precione as seguintes
+        Teclas:
+        <ul>
+          <li>([z][x][c][v][b][n][m][,][.][;])</li>
+        </ul>
+      </li>
+      <li>Corresponde as seguintes Teclas:
+        <ul>
+          <li>([90][88][67][86][66][78][77][188][190][191])</li>
+        </ul>
+      </li>
+      <li>Exemplo:</li>
+    </ul>
+  </li>
+</ul>
+<p class="style1">[CAPS LOCK][Shift][8]([90][88][67][86])</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC" class="style5">Criando sua pr&oacute;pria combina&ccedil;&atilde;o de Tecas:</td>
+  </tr>
+  <tr>
+    <td bgcolor="#00FFFF"><p class="style1">([&#8592;][&#8594;][&#8593;][&#8595;][a][s][d][f])</p>
+    <p class="style1">key(37, 39, 38, 40, 65, 83, 68, 70, 0, 0)</p></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><span class="style5">Exemplo.html</span></td>
+  </tr>
+  <tr>
+    <td><span class="style1">(...)<br />
+&lt;script language=&quot;javascript&quot; src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;<br />
+&lt;script language=&quot;javascript&quot; src=&quot;js/key1.js&quot;&gt;&lt;/script&gt;<br />
+&lt;script language=&quot;javascript&quot;&gt;<br />
+&lt;!--<br />
+// key(90, 88, 67, 86, 66, 78, 77, 188, 190, 191);<br />
+key(37, 39, 38, 40, 65, 83, 68, 70, 0, 0);<br />
+--&gt;<br />
+&lt;/script&gt;<br />
+(...)<br />
+_key = &quot;&lt;span id=&quot;_key&quot;&gt;&lt;/span&gt;&quot;<br />
+(...)<br />
+&lt;script language=&quot;javascript&quot; src=&quot;js/key2.js&quot;&gt;&lt;/script&gt;</span></td>
+  </tr>
+</table>
+</body>
+</html>
+<script language="javascript" src="js/key2.js"></script>

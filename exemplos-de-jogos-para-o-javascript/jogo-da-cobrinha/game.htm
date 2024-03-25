@@ -1,0 +1,32 @@
+<title>- S n a k e </title>
+<head><SCRIPT LANGUAGE="JavaScript">main=new Image();main.src="screan.gif";doter=new Image();doter.src="dot.gif"</script></head>
+<body bgcolor=#1e1e1e text=#ffffff onload=cantplay()>
+<img src=screan.gif style='position:absolute; left: 9; top: 9'>
+<script>for(v=1;v<=100;v++){document.write("<img src=dot.gif id='dot"+v+"' style='position:absolute;left:0;top:-200'>")}</script>
+<center><font face=Verdana size=2><strong>
+<div id='bd' style='position:absolute;width=150;left:35;top:15'><p>Select Mode<br><p><input type=button onclick="level=1;startIt()" value="Beginner"><br><p><input type=button onclick="level=2;startIt()" value="Intermediate"><br><p><input type=button onclick="level=3;startIt()" value="Professional"><br><p><input type=button onclick="level=4;startIt()" value="Xtreamest"><br></div>
+<div id='go' style='position:absolute;width=100;left:60;top:-200'>Game Over</div>
+<div id='ld' style='position:absolute;width=100;left:60;top:30'>Loading... </div>
+<div id='yw' style='position:absolute;width=100;left:60;top:-200'>You Win !</div>
+</strong></font></center>
+<SCRIPT LANGUAGE="JavaScript">
+direct="null";sec=0;run="get";S=0;var top=new Array();var left=new Array();var go=new Array()
+for(n=2;n<=100;n++){go[n]="not";top[n]=-200;left[n]=-200};for(n=1;n<5;n++){go[n]="yes"}
+function locatEm(turn){ar=new Array(70,160,140,10,60,70,100,30,190,180);am=new Array(10,110,190,170,60,30,60,80,150,120,20,130,180,160,200,180,70,100,90,20);test=sec;now=new Date();sec=now.getSeconds();if(test==sec){sec+=sec};left[turn]=ar[sec%10];top[turn]=am[sec%20];showEm(turn);if(turn!=5){showscore();speed-=rate}}
+function SSnake(){if(go[100]=="yes"){document.all.yw.style.pixelTop=60;lost="yes"};for(i=99;i>1;i--){if(go[i]=="yes"){top[i]=top[(i-1)];left[i]=left[(i-1)]}};if(direct=="up"){top[1]-=10};if(direct=="down"){top[1]+=10};if(direct=="left"){left[1]-=10};if(direct=="right"){left[1]+=10};for(m=99;m>4;m--){if(top[1]==top[m]){if(left[1]==left[m]){if(go[m]!="yes"){go[m]="yes";locatEm((m+1))}else{lost="yes"}}}};if(top[1]==top[100]){if(left[1]==left[100]){go[100]="yes"}};for(z=1;z<=99;z++){if(go[z]=="yes"){showEm(z)}};if(top[1]==0){lost="yes"};if(top[1]==210){lost="yes"};if(left[1]==0){lost="yes"};if(left[1]==210){lost="yes"};if(lost!="yes"){setTimeout("SSnake()",speed)}else{hideEm(1);if(go[100]!="yes"){document.all.go.style.pixelTop=60;setTimeout("reaload()",2000)}}}
+function showEm(turn){eval("document.all.dot"+turn+".style.pixelTop ="+top[turn]);eval("document.all.dot"+turn+".style.pixelLeft ="+left[turn])}
+function keyDown(){k=window.event.keyCode;if(k==104){if(direct!="down"){direct="up"}};if(k==98){if(direct!="up"){direct="down"}};if(k==100){if(direct!="right"){direct="left"}};if(k==102){if(direct!="left"){direct="right"}};if(k==38){if(direct!="down"){direct="up"}};if(k==40){if(direct!="up"){direct="down"}};if(k==37){if(direct!="right"){direct="left"}};if(k==39){if(direct!="left"){direct="right"}}}
+function startIt(){if(run=="not"){S=0;add=0;showscore();if(level==1){speed=151;rate=1.5;add=3};if(level==2){speed=101;rate=1;add=5};if(level==3){speed=51;rate=.5;add=9};if(level==4){speed=11;rate=.1;add=15};direct="null";lost="not";top[1]=100;left[1]=90;setTimeout('locatEm(5)',3000);document.all.bd.style.pixelTop=-200;run="once";SSnake()}}
+function reaload(){for(n=5;n<=99;n++){go[n]="not"};for(e=1;e<=99;e++){hideEm(e)};run="not";document.all.go.style.pixelTop=-200;document.all.bd.style.pixelTop=15;document.all.yw.style.pixelTop=-200}
+function hideEm(turn){top[turn]=-200;eval("document.all.dot"+turn+".style.pixelTop=-200")}
+function showscore(){S+=add;parent.score.document.write("<bo"+"dy bgcolor=#1e1e1e text=#99CCFF><center><font face=Verdana size=2><strong>Score "+S+"</font></strong></center>");parent.score.document.close()} 
+function cantplay(){if(navigator.appName=="Netscape"){document.write("<div style='position:absolute; left: 9; top: 9'><img src=screan.gif></div>");alert("Sorry this game cannot be played with Netscape, please use Explorer 4 or heigher")}else{document.all.ld.style.pixelTop=-200;run="not"}}
+document.onkeydown = keyDown
+</script>
+<IFRAME SRC='score.htm' name=score width='200' height='50' frameborder='0' scrolling='no' STYLE='position:absolute; top:215; left:10'>
+</body>
+
+
+<!-- Written by Omar Wally surfsup_79@hotmail.com ----> http://crash.to/PLAY --!>
+
+

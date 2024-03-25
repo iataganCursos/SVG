@@ -1,0 +1,19 @@
+<svg
+xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="100" style="border:solid">
+<script language="JavaScript"> <![CDATA[
+var svgns = "http://www.w3.org/2000/svg";
+
+function makeShape(evt) {
+if ( window.svgDocument == null )
+svgDocument = evt.target.ownerDocument;
+var shape = svgDocument.createElementNS(svgns, "circle");
+shape.setAttributeNS(null, "cx", 25);
+shape.setAttributeNS(null, "cy", 25);
+shape.setAttributeNS(null, "r", 20);
+shape.setAttributeNS(null, "fill", "green");
+svgDocument.documentElement.appendChild(shape);
+}
+]]> </script>
+<g onload="makeShape(evt)">
+</g>
+</svg>

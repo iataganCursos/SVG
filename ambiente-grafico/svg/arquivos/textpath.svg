@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="100" style="border:solid">
+<path id="duck" d="M20 20 L20 80 L100 80 L100 20 L200 20 L200 80 L280 80" fill="none" stroke="none"/>
+<text style="font-size:10">
+<textPath xlink:href="#duck">
+We go up, then we go down, then up again around his head. Now we are upside down as we
+go round his neck and along the bottom to the tail.
+</textPath>
+</text>
+</svg>

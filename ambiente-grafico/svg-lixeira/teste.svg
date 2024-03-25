@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200" style="border: 2px solid black; background-color: rgb(253, 223, 253);">
+<script type="text/javascript" src="js-2d/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js-2d/svg/jquery.svg.js"></script>
+   <rect
+      id="css-test"
+      x="50"
+      y="50"
+      width="100"
+      height="100"
+   >
+   </rect>
+</svg>
