@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+</head>
+
+<body>
+<h1 align="center">Exemplo 1</h1>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo 1: compile.hxml</strong></td>
+  </tr>
+  <tr>
+    <td># haxe compile.hxml<br />
+      -swf test.swf<br />
+      -main Test<br />
+      -swf-header 200:300:30:FFFFFF<br />
+    -swf-version 9</td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo 1: Test.hx</strong></td>
+  </tr>
+  <tr>
+    <td>// haxe compile.hxml<br />
+      <br />
+import flash.display.Sprite;<br />
+import flash.events.KeyboardEvent;<br />
+import pkg.System;<br />
+class Test extends Sprite{<br />
+<br />
+   static function main() {<br />
+      var foo = new System();<br />
+<br />
+      foo.Write(&quot;Oi&quot;);<br />
+<br />
+      foo.ReadLine();<br />
+<br />
+   }<br />
+<br />
+   function init() {<br />
+      stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);<br />
+   }<br />
+<br />
+  function onKeyPress(e : KeyboardEvent) {<br />
+      trace(&quot;Key Code: &quot; + e.keyCode);<br />
+  }<br />
+<br />
+}<br /></td>
+  </tr>
+</table>
+<h1 align="center">Exemplo 2</h1>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo 1: compile.hxml</strong></td>
+  </tr>
+  <tr>
+    <td># haxe compile.hxml<br />
+      -swf teste.swf<br />
+      -main teste<br />
+      -swf-header 200:300:30:FFFFFF<br />
+      -swf-version 9</td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Exemplo 2: teste.hx</strong></td>
+  </tr>
+  <tr>
+    <td>class teste {<br />
+   static function main() {<br />
+<br />
+      var texto:TextArea = new TextArea();<br />
+      texto.text = &quot;&quot;;<br />
+      texto.setSize(200, 100);<br />
+      texto.move(10, 10);<br />
+      addChild(texto);<br />
+<br />
+      var botao:Button = new Button();<br />
+      botao.label = &quot;Clique Aqui!&quot;;<br />
+      botao.setSize(200, 25);<br />
+      botao.move(10, 100+25);<br />
+      botao.addEventListener(MouseEvent.CLICK, onClick);<br />
+      addChild(botao);<br />
+<br />
+      function onClick(evt:MouseEvent):void {<br />
+          texto.text = &quot;Esta é a nova mensagem&quot;;<br />
+      }<br />
+   }<br />
+}<br /></td>
+  </tr>
+</table>
+<h1 align="center">Importando uma LIB &lt;= *.swf</h1>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: compile.hxml</strong></td>
+  </tr>
+  <tr>
+    <td><p>-swf9 button_etude.swf</p>
+      <p># set swf version to 9<br />
+        # don't know if that's necessary given the above swf9 switch<br />
+        -swf-version 9</p>
+      <p># set dimensions of 700 wide x 400 tall<br />
+        # 40 frames per second<br />
+        # background color of #FFFFFF<br />
+        -swf-header 700:400:40:FFFFFF</p>
+      <p># identify library.swf as my library file<br />
+        -swf-lib library.swf</p>
+      <p># identify main method in ButtonEtude class<br />
+        # which lives in ButtonEtude.hx<br />
+        -main ButtonEtude<br />
+    </p></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: ButtonEtude.hx</strong></td>
+  </tr>
+  <tr>
+    <td>import flash.display.MovieClip;<br />
+      <br />
+class ButtonEtude<br />
+{<br />
+    private static var _button_factory : ArrowButtonFactory;<br />
+<br />
+    public static function main()<br />
+    {   <br />
+        ButtonEtude._button_factory = new ArrowButtonFactory();<br />
+<br />
+        var target_box : MovieClip = ButtonEtude._makeTargetBox();<br />
+<br />
+        /* labels go under clickable things */<br />
+        ButtonEtude._makeLabels();<br />
+<br />
+        /* initialize button events with target and make the buttons */<br />
+        var button_events : ButtonEvents = ButtonEvents.getInstance(target_box);<br />
+        ButtonEtude._makeButtons(button_events);<br />
+    }<br />
+}<br /></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250">
+<script language="JavaScript"> <![CDATA[
+function circle_mouse(valor) {
+var texto = document.getElementById("texto");
+if(valor == true){
+texto.firstChild.nodeValue = "Mouse Over";
+} else {
+texto.firstChild.nodeValue = "Mouse Out";
+}
+}
+]]> </script>
+<rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/>
+<circle onmouseover="circle_mouse(true)" onmouseout="circle_mouse(false)" id="circulo" cx="125" cy="125" r="50" fill="red"/>
+<text id="texto" x="15" y="20" font-family="Verdana" font-size="15">SVG</text>
+<text x="15" y="240" font-family="Verdana" font-size="15">Passe o mouse no circulo</text>
+</svg>

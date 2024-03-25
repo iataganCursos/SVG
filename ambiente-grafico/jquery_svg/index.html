@@ -1,0 +1,771 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+@import "css/jquery.svg.css";
+.style2 {color: #0000FF}
+.style3 {color: #FF0000}
+</style>
+<script type="text/javascript" src="js/jquery-1.3.2.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+<body>
+<h2 align="center">Convertendo SVG+jQuery par SVG</h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: svgDraw.html </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;html&gt;<br />
+      &lt;head&gt; <br />
+      &lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery-1.3.2.js&quot;&gt;&lt;/script&gt;<br />
+      &lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.svg.js&quot;&gt;&lt;/script&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function(){<br />
+$(&quot;#draw&quot;).click(function(){<br />
+$('#svg_container').svg();<br />
+svg = $('#svg_container').svg('get');<br />
+svg.clear(true);<br />
+svg.circle(200, 220, 150, {fill: &quot;red&quot;, stroke: &quot;blue&quot;, strokeWidth: 5});<br />
+alert(svg.toSVG()); //this prints svg source of the generated image, i.e. circle<br />
+});<br />
+});<br />
+&lt;/script&gt;<br />
+&lt;/head&gt;<br />
+&lt;body&gt;<br />
+&lt;div id=&quot;svg_container&quot; style=&quot;position: absolute; left: 100px; top: 100px; width: 400px; height: 400px; border: thin solid #4297D7;&quot;&gt;&lt;/div&gt;<br />
+&lt;button id=&quot;draw&quot;&gt;Draw&lt;/button&gt;<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><iframe src="svgDraw.html" width="700" height="500" frameborder="1"></iframe></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: svgXml.xml </strong></td>
+  </tr>
+  <tr>
+    <td align="center"><iframe src="svg_jquery_xml.xml" width="700" height="500" frameborder="1"></iframe></td>
+  </tr>
+</table>
+<p>&nbsp; </p>
+<h2 align="center">Formas Geom&eacute;tricas </h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Linha</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_1&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;p&gt;<br />
+	  &lt;script type=&quot;text/javascript&quot;&gt;<br />
+	  $(function() {<br />
+ 	  $('#jquery_1').svg({onLoad: svg_1});<br />
+	  });<br />
+	  function svg_1(svg){<br />
+	  <span class="style2">svg.line(30, 20, 200, 100,{stroke: 'red', strokeWidth:5});</span><br />
+	  }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_1" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+
+  <script type="text/javascript">
+$(function() {
+$('#jquery_1').svg({onLoad: svg_1});
+});
+function svg_1(svg){
+svg.line(30, 20, 200, 100,{stroke: 'red', strokeWidth:5});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Retangulo</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_2&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_2').svg({onLoad: svg_2});<br />
+      });<br />
+      function svg_2(svg){<br />
+      <span class="style2">svg.rect(30, 20, 200, 100, {fill: 'blue', stroke: 'red', strokeWidth: 5});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_2" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_2').svg({onLoad: svg_2});
+});
+function svg_2(svg){
+svg.rect(30, 20, 200, 100, {fill: 'blue', stroke: 'red', strokeWidth: 5});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Retangulo com cantos arredondados </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_3&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_3').svg({onLoad: svg_3});<br />
+      });<br />
+      function svg_3(svg){<br />
+      <span class="style2">svg.rect(30, 20, 200, 100, {fill: 'blue', stroke: 'red', strokeWidth: 5, rx: 20});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_3" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_3').svg({onLoad: svg_3});
+});
+function svg_3(svg){
+svg.rect(30, 20, 200, 100, {fill: 'blue', stroke: 'red', strokeWidth: 5, rx: 20});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>C&iacute;rculo</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_4&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_4').svg({onLoad: svg_4});<br />
+      });<br />
+      function svg_4(svg){<br />
+      <span class="style2">svg.circle(100, 100, 100, {fill: 'blue', stroke: 'red', strokeWidth: 5});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_4" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_4').svg({onLoad: svg_4});
+});
+function svg_4(svg){
+svg.circle(100, 100, 100, {fill: 'blue', stroke: 'red', strokeWidth: 5});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>El&iacute;pse</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_5&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_5').svg({onLoad: svg_5});<br />
+      });<br />
+      function svg_5(svg){<br />
+      <span class="style2">svg.ellipse(100, 100, 100, 50, {fill: 'blue', stroke: 'red', strokeWidth: 5});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_5" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_5').svg({onLoad: svg_5});
+});
+function svg_5(svg){
+svg.ellipse(100, 100, 100, 50, {fill: 'blue', stroke: 'red', strokeWidth: 5});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>PolyLine</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_6&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_6').svg({onLoad: svg_6});<br />
+      });<br />
+      function svg_6(svg){<br />
+      <span class="style2">svg.polyline([[10,10], [10, 100],[100, 100], [100, 10]], {stroke: 'red', fill: 'none', strokeWidth: 5});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_6" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_6').svg({onLoad: svg_6});
+});
+function svg_6(svg){
+svg.polyline([[10,10], [10, 100],[100, 100], [100, 10]], {stroke: 'red', fill: 'none', strokeWidth: 5});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Poligono</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_7&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_7').svg({onLoad: svg_7});<br />
+      });<br />
+      function svg_7(svg){<br />
+      <span class="style2">svg.polygon([[10, 10], [10, 100], [100, 50],[10, 10]], {stroke: 'red', fill: 'blue', strokeWidth: 5});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_7" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_7').svg({onLoad: svg_7});
+});
+function svg_7(svg){
+svg.polygon([[10, 10], [10, 100], [100, 50],[10, 10]], {stroke: 'red', fill: 'blue', strokeWidth: 5});
+}
+</script>
+<p>&nbsp;</p>
+<h2 align="center">Curvas</h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Path - Curva 1 - Aberta </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_8&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_8').svg({onLoad: svg_8});<br />
+      });<br />
+      function svg_8(svg){<br />
+      <span class="style2">var path1 = svg.createPath(); <br />
+      svg.path(path1.move(20,80).curveC(20,-20, 280,-20, 280,80), {fill: 'none', stroke: 'red', strokeWidth: 5});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_8" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_8').svg({onLoad: svg_8});
+});
+function svg_8(svg){
+var path1 = svg.createPath(); 
+svg.path(path1.move(20,80).curveC(20,-20, 280,-20, 280,80), {fill: 'none', stroke: 'red', strokeWidth: 5});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Path - Curva 1 - Fechada </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_9&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_9').svg({onLoad: svg_9});<br />
+      });<br />
+      function svg_9(svg){<br />
+      <span class="style2">var path1 = svg.createPath(); <br />
+      svg.path(path1.move(20,80).curveC(20,-20, 280,-20, 280,80)<span class="style3">.close()</span>, {fill: 'none', stroke: 'red', strokeWidth: 5});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_9" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_9').svg({onLoad: svg_9});
+});
+function svg_9(svg){
+var path1 = svg.createPath(); 
+svg.path(path1.move(20,80).curveC(20,-20, 280,-20, 280,80).close(), {fill: 'none', stroke: 'red', strokeWidth: 5});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Path - Mais de uma curva - com linha no meio </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_10&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_10').svg({onLoad: svg_10});<br />
+      });<br />
+      function svg_10(svg){<br />
+      var path1 = svg.createPath(); <br />
+      svg.path(<span class="style2">path1.move(50, 90).curveC(0, 90, 0, 30, 50, 30).<span class="style3">line(150, 30).</span>curveC(200, 30, 200, 90, 150, 90)</span>, {fill: 'none', stroke: 'red', strokeWidth: 5});<br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_10" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_10').svg({onLoad: svg_10});
+});
+function svg_10(svg){
+var path1 = svg.createPath(); 
+svg.path(path1.move(50, 90).curveC(0, 90, 0, 30, 50, 30).line(150, 30).curveC(200, 30, 200, 90, 150, 90), {fill: 'none', stroke: 'red', strokeWidth: 5});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Path - Mais de uma curva - sem linha no meio </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_10&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_10').svg({onLoad: svg_10});<br />
+      });<br />
+      function svg_10(svg){<br />
+      var path1 = svg.createPath(); <br />
+      svg.path(<span class="style2">path1.move(50, 90).curveC(0, 90, 0, 30, 50, 30).curveC(200, 30, 200, 90, 150, 90)</span>, {fill: 'none', stroke: 'red', strokeWidth: 5});<br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_11" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_11').svg({onLoad: svg_11});
+});
+function svg_11(svg){
+var path1 = svg.createPath(); 
+svg.path(path1.move(50, 90).curveC(0, 90, 0, 30, 50, 30).curveC(200, 30, 200, 90, 150, 90), {fill: 'none', stroke: 'red', strokeWidth: 5});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Path - Com cor de Fundo </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_12&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_12').svg({onLoad: svg_12});<br />
+      });<br />
+      function svg_12(svg){<br />
+      var path1 = svg.createPath(); <br />
+      svg.path(path1.move(50, 90).curveC(0, 90, 0, 30, 50, 30).line(150, 30).curveC(200, 30, 200, 90, 150, 90), {<span class="style2">fill: 'blue'</span>, stroke: 'red', strokeWidth: 5});<br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_12" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_12').svg({onLoad: svg_12});
+});
+function svg_12(svg){
+var path1 = svg.createPath(); 
+svg.path(path1.move(50, 90).curveC(0, 90, 0, 30, 50, 30).line(150, 30).curveC(200, 30, 200, 90, 150, 90), {fill: 'blue', stroke: 'red', strokeWidth: 5});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Text Path</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_13&quot; style=&quot;width: 900px; height: 300px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_13').svg({onLoad: svg_13});<br />
+      });<br />
+      function svg_13(svg){<br />
+      var defs = svg.defs(); <br />
+      var path = svg.createPath(); <br />
+      svg.path(defs, path.move(100, 200).curveC([[200, 100, 300, 0, 400, 100], [500, 200, 600, 300, 700, 200], [800, 100, 900, 100, 900, 100]]), {id: &quot;MyPath&quot;}); <br />
+      svg.use(&quot;#MyPath&quot;, {fill: &quot;none&quot;, stroke: &quot;red&quot;}); <br />
+      var text = svg.text(&quot;&quot;, {fontFamily: &quot;Verdana&quot;, fontSize: &quot;38.5&quot;, fill: &quot;blue&quot;}); <br />
+      var texts = svg.createText(); <br />
+      svg.textpath(text, &quot;#MyPath&quot;, texts.string(&quot;We go &quot;).span(&quot;up&quot;, {dy: -30, fill: &quot;red&quot;}).span(&quot;,&quot;, {dy: 30}).string(&quot; then we go down, then up again.&quot;)); <br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_13" style="width: 900px; height: 300px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_13').svg({onLoad: svg_13});
+});
+function svg_13(svg){
+var defs = svg.defs(); 
+var path = svg.createPath(); 
+svg.path(defs, path.move(100, 200).curveC([[200, 100, 300, 0, 400, 100], [500, 200, 600, 300, 700, 200], [800, 100, 900, 100, 900, 100]]), {id: "MyPath"}); 
+svg.use("#MyPath", {fill: "none", stroke: "red"}); 
+var text = svg.text("", {fontFamily: "Verdana", fontSize: "38.5", fill: "blue"}); 
+var texts = svg.createText(); 
+svg.textpath(text, "#MyPath", texts.string("We go ").span("up", {dy: -30, fill: "red"}).span(",", {dy: 30}).string(" then we go down, then up again.")); 
+}
+</script>
+<p>&nbsp;</p>
+<h2 align="center">Texto</h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Texto</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_14&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_14').svg({onLoad: svg_14});<br />
+      });<br />
+      function svg_14(svg){<br />
+      <span class="style2">svg.text(10, 40, &quot;Texto&quot;, {fontFamily: &quot;Verdana&quot;, fontSize: &quot;42.5&quot;, fill: &quot;blue&quot;});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_14" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_14').svg({onLoad: svg_14});
+});
+function svg_14(svg){
+svg.text(10, 40, "Texto", {fontFamily: "Verdana", fontSize: "42.5", fill: "blue"});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Imagem 1: JPG </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_15&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_15').svg({onLoad: svg_15});<br />
+      });<br />
+      function svg_15(svg){<br />
+      <span class="style2">svg.image(10, 10, 200, 200, &quot;img/imagem.jpg&quot;);</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_15" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_15').svg({onLoad: svg_15});
+});
+function svg_15(svg){
+svg.image(10, 10, 200, 200, "img/imagem.jpg");
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Imagem 2: SVG </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_16&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_16').svg({onLoad: svg_16});<br />
+      });<br />
+      function svg_16(svg){<br />
+      <span class="style2">svg.load("lion.svg", {addTo: true, changeSize: false});</span><br />
+      }<br />
+      &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_16" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_16').svg({onLoad: svg_16});
+});
+function svg_16(svg){
+svg.load("lion.svg", {addTo: true, changeSize: false});
+}
+</script>
+<p>&nbsp;</p>
+<h2 align="center">Transforma&ccedil;&atilde;o geom&eacute;trica </h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Translate</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_17&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_17').svg({onLoad: svg_17});<br />
+      });<br />
+      function svg_17(svg){<br />
+      <span class="style2">svg.rect(0, 0, 15, 15, {transform: &quot;<span class="style3">translate(150 50)</span>&quot;, fill: 'red'});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_17" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<p>&nbsp;</p>
+  <script type="text/javascript">
+$(function() {
+$('#jquery_17').svg({onLoad: svg_17});
+});
+function svg_17(svg){
+svg.rect(0, 0, 15, 15, {transform: "translate(150 50)", fill: 'red'});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Rotate</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_18&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_18').svg({onLoad: svg_18});<br />
+      });<br />
+      function svg_18(svg){<br />
+      <span class="style2">svg.rect(145, 15, 50, 50, {transform: &quot;<span class="style3">rotate(45)</span>&quot;, fill: &quot;blue&quot;, stroke: &quot;red&quot;, strokeWidth: 2});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_18" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_18').svg({onLoad: svg_18});
+});
+function svg_18(svg){
+svg.rect(145, 15, 50, 50, {transform: "rotate(45)", fill: "blue", stroke: "red", strokeWidth: 2});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>SkewX</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_19&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_19').svg({onLoad: svg_19});<br />
+      });<br />
+      function svg_19(svg){<br />
+      <span class="style2">svg.rect(145, 15, 50, 50, {transform: &quot;</span><span class="style3">skewX(30)</span><span class="style2">&quot;, fill: &quot;blue&quot;, stroke: &quot;red&quot;, strokeWidth: 2});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_19" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_19').svg({onLoad: svg_19});
+});
+function svg_19(svg){
+svg.rect(145, 15, 50, 50, {transform: "skewX(30)", fill: "blue", stroke: "red", strokeWidth: 2});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>SkewX</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_20&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_20').svg({onLoad: svg_20});<br />
+      });<br />
+      function svg_20(svg){<br />
+      svg.rect(145, 15, 50, 50, {transform: &quot;<span class="style3">skewY(30)</span>&quot;, fill: &quot;blue&quot;, stroke: &quot;red&quot;, strokeWidth: 2});<br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_20" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_20').svg({onLoad: svg_20});
+});
+function svg_20(svg){
+svg.rect(145, 15, 50, 50, {transform: "skewY(30)", fill: "blue", stroke: "red", strokeWidth: 2});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Scale</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_21&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_21').svg({onLoad: svg_21});<br />
+      });<br />
+      function svg_21(svg){<br />
+      <span class="style2">svg.rect(0, 0, 50, 50, {transform: &quot;<span class="style3">scale(4)</span>&quot;, fill: &quot;blue&quot;, stroke: &quot;red&quot;, strokeWidth: 2});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_21" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_21').svg({onLoad: svg_21});
+});
+function svg_21(svg){
+svg.rect(0, 0, 50, 50, {transform: "scale(4)", fill: "blue", stroke: "red", strokeWidth: 2});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Esticar Horizontalmente </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_22&quot; style=&quot;width: 400px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_22').svg({onLoad: svg_22});<br />
+      });<br />
+      function svg_22(svg){<br />
+      <span class="style2">svg.image(10, 10, 200, 200, &quot;img/imagem.jpg&quot;, {transform:&quot;<span class="style3">scale(2, 1)</span>&quot;});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_22" style="width: 400px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_22').svg({onLoad: svg_22});
+});
+function svg_22(svg){
+svg.image(10, 10, 200, 200, "img/imagem.jpg", {transform:"scale(2, 1)"});
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Esticar Verticalmente </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_23&quot; style=&quot;width: 200px; height: 400px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_23').svg({onLoad: svg_23});<br />
+      });<br />
+      function svg_23(svg){<br />
+      <span class="style2">svg.image(10, 10, 200, 200, &quot;img/imagem.jpg&quot;, {transform:&quot;<span class="style3">scale(1, 2)</span>&quot;});</span><br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_23" style="width: 200px; height: 400px; border: 1px solid #484;"></div>
+<p>
+  <script type="text/javascript">
+$(function() {
+$('#jquery_23').svg({onLoad: svg_23});
+});
+function svg_23(svg){
+svg.image(10, 10, 200, 200, "img/imagem.jpg", {transform:"scale(1, 2)"});
+}
+</script>
+</p>
+<h2 align="center">Style</h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Style</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_24&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_24').svg({onLoad: svg_24});<br />
+      });<br />
+      function svg_24(svg){<br />
+      svg.style(&quot;#MyStyle {fill-opacity: 0.5}&quot;);<br />
+      svg.rect(145, 15, 50, 50, {id: &quot;MyStyle&quot;, fill: &quot;blue&quot;, stroke: &quot;red&quot;, strokeWidth: 2});<br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_24" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_24').svg({onLoad: svg_24});
+});
+function svg_24(svg){
+svg.style("#MyStyle {fill-opacity: 0.5}");
+svg.rect(145, 15, 50, 50, {id: "MyStyle", fill: "blue", stroke: "red", strokeWidth: 2});
+}
+</script>
+<h2 align="center">Group</h2>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Group</strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_25&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_25').svg({onLoad: svg_25});<br />
+      });<br />
+      function svg_25(svg){<br />
+      g = svg.group({transform: &quot;translate(150 50)&quot;});<br />
+      svg.rect(g, 0, 0, 15, 15, {fill: 'red'});<br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_25" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_25').svg({onLoad: svg_25});
+});
+function svg_25(svg){
+g = svg.group({transform: "translate(150 50)"});
+svg.rect(g, 0, 0, 15, 15, {fill: 'red'});
+}
+</script>
+<h2 align="center"><a href="svg_jquery_eventos.html">Eventos</a></h2>
+<h2 align="center"><a href="svg_jquery_animacao.html">Anima&ccedil;&atilde;o</a></h2>
+<h2 align="center"><a href="svg_jquery_filtros.html">Filtros</a></h2>
+<h2 align="center"><a href="svg_jquery_graficos.html">Gr&aacute;ficos</a></h2>
+</body>
+</html>

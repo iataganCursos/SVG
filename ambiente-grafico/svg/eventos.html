@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+<body>
+    
+  <h1 style="text-align: center; color: red;">Javascript</h1>
+
+  <h3 align="center">setAttribute</h3>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="250" height="250"&gt;<br>
+          &lt;script language="JavaScript"&gt; &lt;![CDATA[<br>
+          function circle_click() {<br>
+          var circle = document.getElementById("circulo");<br>
+          var raio = circle.getAttribute("r");<br>
+          if (raio == 50) {<br>
+          circle.setAttribute("r", 100);<br>
+          } else {<br>
+          circle.setAttribute("r", 50);<br>
+          }<br>
+          }<br>
+          ]]&gt; &lt;/script&gt;<br>
+          &lt;rect x="1" y="1" width="248" height="248" fill="none"
+          stroke="blue"/&gt;<br>
+          &lt;circle onclick="circle_click()" id="circulo" cx="125" cy="125"
+          r="50" fill="red"/&gt;<br>
+          &lt;text id="texto" x="15" y="20" font-family="Verdana"
+          font-size="15"&gt;SVG&lt;/text&gt;<br>
+          &lt;text x="15" y="240" font-family="Verdana" font-size="15"&gt;Clique
+          no circulo&lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/atributo.svg" height="250" width="250"
+          type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/"
+          &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td>
+          <embed src="svg/atributo.svg" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"
+            height="250" width="250"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 align="center">style</h3>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="250" height="250"&gt;<br>
+          &lt;script language="javascript"&gt; &lt;![CDATA[<br>
+          function circle_click() {<br>
+          var circle = document.getElementById("circulo");<br>
+          var opacidade = circle.style.opacity;<br>
+          if (opacidade == 1) {<br>
+          circle.style.opacity = 0.3;<br>
+          } else {<br>
+          circle.style.opacity = 1;<br>
+          }<br>
+          }<br>
+          ]]&gt; &lt;/script&gt;<br>
+          &lt;rect x="1" y="1" width="248" height="248" fill="none"
+          stroke="blue"/&gt;<br>
+          &lt;circle onclick="circle_click()" id="circulo" cx="125" cy="125"
+          r="50" style="opacity:1" fill="red"/&gt;<br>
+          &lt;text id="texto" x="15" y="20" font-family="Verdana"
+          font-size="15"&gt;SVG&lt;/text&gt;<br>
+          &lt;text x="15" y="240" font-family="Verdana" font-size="15"&gt;Clique
+          no circulo&lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/opacidade.svg" height="250" width="250"
+          type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/"
+          &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td>
+          <embed src="svg/propriedade.svg" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"
+            height="250" width="250"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 align="center">firstChild.nodeValue</h3>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="250" height="250"&gt;<br>
+          &lt;script language="JavaScript"&gt; &lt;![CDATA[<br>
+          function circle_click() {<br>
+          var txt = document.getElementById("texto");<br>
+          var texto = txt.firstChild.nodeValue;<br>
+          if (texto == "SVG") {<br>
+          txt.firstChild.nodeValue = "Teste";<br>
+          } else {<br>
+          txt.firstChild.nodeValue = "SVG";<br>
+          }<br>
+          }<br>
+          ]]&gt; &lt;/script&gt;<br>
+          &lt;rect x="1" y="1" width="248" height="248" fill="none"
+          stroke="blue"/&gt;<br>
+          &lt;circle onclick="circle_click()" id="circulo" cx="125" cy="125"
+          r="50" fill="red"/&gt;<br>
+          &lt;text id="texto" x="15" y="20" font-family="Verdana"
+          font-size="15"&gt;SVG&lt;/text&gt;<br>
+          &lt;text x="15" y="240" font-family="Verdana" font-size="15"&gt;Clique
+          no circulo&lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/value.svg" height="250" width="250"
+          type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/"
+          &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td>
+          <embed src="svg/value.svg" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"
+            height="250" width="250"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 align="center">className.baseVal</h2>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="250" height="250"&gt;<br>
+          &lt;style type="text/css"&gt; &lt;![CDATA[<br>
+          .vermelho {<br>
+          fill: red;<br>
+          stroke: blue;<br>
+          stroke-width: 5;<br>
+          }<br>
+          .azul {<br>
+          fill: blue;<br>
+          stroke: green;<br>
+          stroke-width: 10;<br>
+          }<br>
+          ]]&gt; &lt;/style&gt;<br>
+          &lt;script language="JavaScript"&gt; &lt;![CDATA[<br>
+          function circle_click() {<br>
+          var circle = document.getElementById("circulo");<br>
+          var classe = circle.className.baseVal;<br>
+          if (classe == "vermelho") {<br>
+          circle.className.baseVal = "azul";<br>
+          } else {<br>
+          circle.className.baseVal = "vermelho";<br>
+          }<br>
+          }<br>
+          ]]&gt; &lt;/script&gt;<br>
+          &lt;rect x="1" y="1" width="248" height="248" fill="none"
+          stroke="blue"/&gt;<br>
+          &lt;circle onclick="circle_click()" id="circulo" cx="125" cy="125"
+          r="50" fill="red"/&gt;<br>
+          &lt;text id="texto" x="15" y="20" font-family="Verdana"
+          font-size="15"&gt;SVG&lt;/text&gt;<br>
+          &lt;text x="15" y="240" font-family="Verdana" font-size="15"&gt;Clique
+          no circulo&lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/classe.svg" height="250" width="250"
+          type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/"
+          &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td>
+          <embed src="svg/classe.svg" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"
+            height="250" width="250"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 align="center">Visível e Invisível </h2>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="250" height="250"&gt;<br>
+          &lt;style type="text/css"&gt; &lt;![CDATA[<br>
+          .visivelX {<br>
+          visibility: visible;<br>
+          }<br>
+          .invisivelX {<br>
+          visibility: hidden;<br>
+          }<br>
+          ]]&gt; &lt;/style&gt;<br>
+          &lt;script language="JavaScript"&gt; &lt;![CDATA[<br>
+          function circle_click() {<br>
+          var circle = document.getElementById("circulo");<br>
+          var classe = circle.className.baseVal;<br>
+          if (classe == "visivelX") {<br>
+          circle.className.baseVal = "invisivelX";<br>
+          } else {<br>
+          circle.className.baseVal = "visivelX";<br>
+          }<br>
+          }<br>
+          ]]&gt; &lt;/script&gt;<br>
+          &lt;rect x="1" y="1" width="248" height="248" fill="none"
+          stroke="blue"/&gt;<br>
+          &lt;circle onclick="circle_click()" cx="125" cy="125" r="50"
+          fill="red"/&gt;<br>
+          &lt;circle id="circulo" class="visivelX" cx="25" cy="25" r="20"
+          fill="green"/&gt;<br>
+          &lt;text x="15" y="240" font-family="Verdana" font-size="15"&gt;Clique
+          no circulo&lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/invisivel.svg" height="250" width="250"
+          type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/"
+          &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td>
+          <embed src="svg/invisivel.svg" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"
+            height="250" width="250"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 align="center">createElementNS</h2>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>
+          <p>&lt;svg <br>
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+            height="100" style="border:solid"&gt;<br>
+            &lt;script language="JavaScript"&gt; &lt;![CDATA[<br>
+            var svgns = "http://www.w3.org/2000/svg";</p>
+          <p>function makeShape(evt) {<br>
+            if ( window.svgDocument == null )<br>
+            svgDocument = evt.target.ownerDocument;<br>
+            var shape = svgDocument.createElementNS(svgns, "circle");<br>
+            shape.setAttributeNS(null, "cx", 25);<br>
+            shape.setAttributeNS(null, "cy", 25);<br>
+            shape.setAttributeNS(null, "r", 20);<br>
+            shape.setAttributeNS(null, "fill", "green");<br>
+            svgDocument.documentElement.appendChild(shape);<br>
+            }<br>
+            ]]&gt; &lt;/script&gt;<br>
+            &lt;g <span class="style1">onload="makeShape(evt)"</span>&gt;<br>
+            &lt;/g&gt;<br>
+            &lt;/svg&gt;</p>
+        </td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/funcao.svg" height="110" width="310"
+          type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/"
+          &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td>
+          <embed src="svg/funcao.svg" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"
+            height="110" width="310"></td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="center">Eventos</p>
+<p align="center">OnClick</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      function circle_click() {<br />
+      var circle = document.getElementById(&quot;circulo&quot;);<br />
+      var raio = circle.getAttribute(&quot;r&quot;);<br />
+      if (raio == 50) {<br />
+      circle.setAttribute(&quot;r&quot;, 100);<br />
+      } else {<br />
+      circle.setAttribute(&quot;r&quot;, 50);<br />
+      }<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;circle onclick=&quot;circle_click()&quot; id=&quot;circulo&quot; cx=&quot;125&quot; cy=&quot;125&quot; r=&quot;50&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;text id=&quot;texto&quot; x=&quot;15&quot; y=&quot;20&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;SVG&lt;/text&gt;<br />
+      &lt;text x=&quot;15&quot; y=&quot;240&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Clique no circulo&lt;/text&gt;<br />
+      &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250">
+        <script language="JavaScript"> <![CDATA[
+        function circle_click() {
+        var circle = document.getElementById("circulo");
+        var raio = circle.getAttribute("r");
+        if (raio == 50) {
+        circle.setAttribute("r", 100);
+        } else {
+        circle.setAttribute("r", 50);
+        }
+        }
+        ]]> </script>
+        <rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/>
+        <circle onclick="circle_click()" id="circulo" cx="125" cy="125" r="50" fill="red"/>
+        <text id="texto" x="15" y="20" font-family="Verdana" font-size="15">SVG</text>
+        <text x="15" y="240" font-family="Verdana" font-size="15">Clique no circulo</text>
+        </svg>
+    </td>
+  </tr>
+</table>
+<p align="center">MouseOver MouseOut </p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      function circle_mouse(valor) {<br />
+      var texto = document.getElementById(&quot;texto&quot;);<br />
+      if(valor == true){<br />
+      texto.firstChild.nodeValue = &quot;Mouse Over&quot;;<br />
+      } else {<br />
+      texto.firstChild.nodeValue = &quot;Mouse Out&quot;;<br />
+      }<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;circle onmouseover=&quot;circle_mouse(true)&quot; onmouseout=&quot;circle_mouse(false)&quot; id=&quot;circulo&quot; cx=&quot;125&quot; cy=&quot;125&quot; r=&quot;50&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;text id=&quot;texto&quot; x=&quot;15&quot; y=&quot;20&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;SVG&lt;/text&gt;<br />
+      &lt;text x=&quot;15&quot; y=&quot;240&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Clique no circulo&lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250">
+        <script language="JavaScript"> <![CDATA[
+        function circle_mouse(valor) {
+        var texto = document.getElementById("textox");
+        if(valor == true){
+        texto.firstChild.nodeValue = "Mouse Over";
+        } else {
+        texto.firstChild.nodeValue = "Mouse Out";
+        }
+        }
+        ]]> </script>
+        <rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/>
+        <circle onmouseover="circle_mouse(true)" onmouseout="circle_mouse(false)" id="circulo" cx="125" cy="125" r="50" fill="red"/>
+        <text id="textox" x="15" y="20" font-family="Verdana" font-size="15">SVG</text>
+        <text x="15" y="240" font-family="Verdana" font-size="15">Clique no circulo</text>
+        </svg>
+    </td>
+  </tr>
+</table>
+<p align="center">Mousemove</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      function rect_mouse(evt) {<br />
+      var texto1 = document.getElementById(&quot;texto1&quot;);<br />
+      var texto2 = document.getElementById(&quot;texto2&quot;);<br />
+      texto1.firstChild.nodeValue = &quot;screenX=&quot;+evt.screenX+&quot;, screenY=&quot;+evt.screenY;<br />
+      texto2.firstChild.nodeValue = &quot;clientX=&quot;+evt.clientX+&quot;, clientY=&quot;+evt.clientY;<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;rect x=&quot;75&quot; y=&quot;75&quot; width=&quot;100&quot; height=&quot;100&quot; onmousemove=&quot;rect_mouse(evt)&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;text id=&quot;texto1&quot; x=&quot;15&quot; y=&quot;20&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;screen&lt;/text&gt;<br />
+      &lt;text id=&quot;texto2&quot; x=&quot;15&quot; y=&quot;40&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;client&lt;/text&gt;<br />
+      &lt;text x=&quot;15&quot; y=&quot;240&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Clique no quadrado&lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250">
+        <script language="JavaScript"> <![CDATA[
+        function rect_mouse(evt) {
+        var texto1y = document.getElementById("texto1");
+        var texto2y = document.getElementById("texto2");
+        texto1y.firstChild.nodeValue = "screenX="+evt.screenX+", screenY="+evt.screenY;
+        texto2y.firstChild.nodeValue = "clientX="+evt.clientX+", clientY="+evt.clientY;
+        }
+        ]]> </script>
+        <rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/>
+        <rect x="75" y="75" width="100" height="100" onmousemove="rect_mouse(evt)" fill="red"/>
+        <text id="texto1" x="15" y="20" font-family="Verdana" font-size="15">screen</text>
+        <text id="texto2" x="15" y="40" font-family="Verdana" font-size="15">client</text>
+        <text x="15" y="240" font-family="Verdana" font-size="15">Clique no quadrado</text>
+        </svg>
+    </td>
+  </tr>
+</table>
+<p align="center">Teclado</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[</p>
+      <p>var typeInitialized = false;</p>
+      <p>function typeText(evt) {<br />
+        if (evt.type == &quot;keypress&quot;) {</p>
+      <p>if (evt.charCode) {<br />
+        var charCode = evt.charCode;<br />
+        } else {<br />
+        var charCode = evt.keyCode;<br />
+        }</p>
+      <p>var texto1 = document.getElementById(&quot;texto1&quot;);<br />
+        var texto2 = document.getElementById(&quot;texto2&quot;);<br />
+        var texto3 = document.getElementById(&quot;texto3&quot;);<br />
+        var texto4 = document.getElementById(&quot;texto4&quot;);<br />
+        var texto5 = document.getElementById(&quot;texto5&quot;);<br />
+        texto1.firstChild.nodeValue = &quot;alt=&quot;+evt.altKey;<br />
+        texto2.firstChild.nodeValue = &quot;shift=&quot;+evt.shiftKey;<br />
+        texto3.firstChild.nodeValue = &quot;ctrl=&quot;+evt.ctrlKey;<br />
+        texto4.firstChild.nodeValue = &quot;Codigo=&quot;+charCode;<br />
+        texto5.firstChild.nodeValue = &quot;Caractere=&quot;+String.fromCharCode(charCode);<br />
+        }<br />
+        }<br />
+        function initTyping(evt) {<br />
+        if (!typeInitialized) {<br />
+        document.documentElement.addEventListener(&quot;keypress&quot;,typeText,false);<br />
+        document.documentElement.addEventListener(&quot;click&quot;,stopTyping,false);<br />
+        var texto6 = document.getElementById(&quot;texto6&quot;);<br />
+        texto6.firstChild.nodeValue = &quot;Ativado&quot;;<br />
+        typeInitialized = true;<br />
+        }<br />
+        //we don't want the click event on the document level to<br />
+        //immediately stop the typing mode<br />
+        evt.stopPropagation();<br />
+        }<br />
+        function stopTyping(evt) {<br />
+        document.documentElement.removeEventListener(&quot;keypress&quot;,typeText,false);<br />
+        document.documentElement.removeEventListener(&quot;click&quot;,stopTyping,false);<br />
+        var texto6 = document.getElementById(&quot;texto6&quot;);<br />
+        texto6.firstChild.nodeValue = &quot;Desativado&quot;;<br />
+        typeInitialized = false;<br />
+        }</p>
+      <p>]]&gt; &lt;/script&gt;<br />
+        &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+        &lt;rect x=&quot;140&quot; y=&quot;140&quot; width=&quot;100&quot; height=&quot;100&quot; onclick=&quot;initTyping(evt)&quot; fill=&quot;red&quot;/&gt;<br />
+        &lt;text id=&quot;texto1&quot; x=&quot;15&quot; y=&quot;20&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Alt&lt;/text&gt;<br />
+        &lt;text id=&quot;texto2&quot; x=&quot;15&quot; y=&quot;40&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Shift&lt;/text&gt;<br />
+        &lt;text id=&quot;texto3&quot; x=&quot;15&quot; y=&quot;60&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Ctrl&lt;/text&gt;<br />
+        &lt;text id=&quot;texto4&quot; x=&quot;15&quot; y=&quot;80&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Codigo&lt;/text&gt;<br />
+        &lt;text id=&quot;texto5&quot; x=&quot;15&quot; y=&quot;100&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Caractere&lt;/text&gt;<br />
+        &lt;text id=&quot;texto6&quot; x=&quot;15&quot; y=&quot;120&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Ativacao&lt;/text&gt;<br />
+    &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/tecla.svg&quot; height=&quot;250&quot; width=&quot;250&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250">
+        <script language="JavaScript"> <![CDATA[
+        
+        var typeInitialized = false;
+        
+        function typeText(evt) {
+        if (evt.type == "keypress") {
+        
+        if (evt.charCode) {
+        var charCode = evt.charCode;
+        } else {
+        var charCode = evt.keyCode;
+        }
+        
+        var texto1 = document.getElementById("texto1x");
+        var texto2 = document.getElementById("texto2x");
+        var texto3 = document.getElementById("texto3x");
+        var texto4 = document.getElementById("texto4x");
+        var texto5 = document.getElementById("texto5x");
+        texto1.firstChild.nodeValue = "alt="+evt.altKey;
+        texto2.firstChild.nodeValue = "shift="+evt.shiftKey;
+        texto3.firstChild.nodeValue = "ctrl="+evt.ctrlKey;
+        texto4.firstChild.nodeValue = "Codigo="+charCode;
+        texto5.firstChild.nodeValue = "Caractere="+String.fromCharCode(charCode);
+        }
+        }
+        function initTyping(evt) {
+        if (!typeInitialized) {
+        document.documentElement.addEventListener("keypress",typeText,false);
+        document.documentElement.addEventListener("click",stopTyping,false);
+        var texto6 = document.getElementById("texto6x");
+        texto6.firstChild.nodeValue = "Ativado";
+        typeInitialized = true;
+        }
+        //we don't want the click event on the document level to
+        //immediately stop the typing mode
+        evt.stopPropagation();
+        }
+        function stopTyping(evt) {
+        document.documentElement.removeEventListener("keypress",typeText,false);
+        document.documentElement.removeEventListener("click",stopTyping,false);
+        var texto6 = document.getElementById("texto6x");
+        texto6.firstChild.nodeValue = "Desativado";
+        typeInitialized = false;
+        }
+        
+        ]]> </script>
+        <rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/>
+        <rect x="140" y="140" width="100" height="100" onclick="initTyping(evt)" fill="red"/>
+        <text id="texto1x" x="15" y="20" font-family="Verdana" font-size="15">Alt</text>
+        <text id="texto2x" x="15" y="40" font-family="Verdana" font-size="15">Shift</text>
+        <text id="texto3x" x="15" y="60" font-family="Verdana" font-size="15">Ctrl</text>
+        <text id="texto4x" x="15" y="80" font-family="Verdana" font-size="15">Codigo</text>
+        <text id="texto5x" x="15" y="100" font-family="Verdana" font-size="15">Caractere</text>
+        <text id="texto6x" x="15" y="120" font-family="Verdana" font-size="15">Ativacao</text>
+        </svg>
+    </td>
+  </tr>
+</table>
+<p align="center">Clicar e Arrastar</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot; onmousedown=&quot;desenhar_down(evt)&quot; onmousemove=&quot;desenhar_move(evt)&quot; onmouseup=&quot;desenhar_up(evt)&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      var lapis = false;<br />
+      function desenhar_down(evt){<br />
+      lapis = true;<br />
+      desenhar(evt);<br />
+      }<br />
+      function desenhar_up(evt){<br />
+      lapis = false;<br />
+      }<br />
+      function desenhar_move(evt){<br />
+      if(lapis == true){<br />
+      desenhar(evt);<br />
+      }<br />
+      }<br />
+      function desenhar(evt) {<br />
+      var quadrado = document.getElementById(&quot;quadrado&quot;);<br />
+      quadrado.setAttribute(&quot;x&quot;, evt.clientX);<br />
+      quadrado.setAttribute(&quot;y&quot;, evt.clientY);<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;rect x=&quot;10&quot; id=&quot;quadrado&quot; y=&quot;10&quot; width=&quot;50&quot; height=&quot;50&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;/svg&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/desenhar.svg&quot; height=&quot;250&quot; width=&quot;250&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="svg/desenhar.svg" height="250" width="250" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: silver;">XML</td>
+        <td style="background-color: silver;">CSS</td>
+        <td style="background-color: silver;">Javascript</td>
+        <td style="background-color: silver;">jQuery</td>
+        <td style="background-color: silver;">JSON</td>
+      </tr>
+      <tr>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

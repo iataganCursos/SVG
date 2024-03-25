@@ -1,0 +1,1856 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>SVG</title>
+<style type="text/css">
+#sintaxe{
+	background-color:#DAFADC;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 14px;
+	padding-left: 10px;
+}
+.style1 {color: #FF0000}
+</style>
+</head>
+<body>
+<h2 align="center">SVG</h2>
+<p align="left">SVG - Scalabre Vector Graphics. Esse formato nada mais &eacute; do que um arquivo de texto. Isso mesmo! Um arquivo de texto que podemos abrir em qualquer editor e modificar. Claro que essa modifica&ccedil;&atilde;o dever&aacute; respeitar a estrutura de tags do XML e as predefini&ccedil;&otilde;es do formato, mas o importante &eacute; que ele &eacute; extremamente acess&iacute;vel. Voc&ecirc; pode abri-lo usando um programa com interface gr&aacute;fica voltada para o desenho rederizado (convertido de texto para gr&aacute;fico), ou mesmo edit&aacute;-lo alterando os dados com, por exemplo o Bloco de notas do Windows. O SVG agrada tanto um usu&aacute;rio-padr&atilde;o desses servi&ccedil;os, que est&aacute; interessado principalmente na forma visual, como um programador ou gerenciador de servidores que pode lan&ccedil;ar m&atilde;o da alternativa para gerar arquivos mais agrad&aacute;veis aos olhos (bonitos e bem-feitos) de forma autom&aacute;tica, ou seja, criando scripts que geram arquivos sem a interven&ccedil;&atilde;o de um usu&aacute;rio.</p>
+<h2 align="center">Jogos</h2>
+<p align="left">Jogos? D&aacute; para fazer joguinhos no SVG? Bem, d&aacute; para fazer joguinhos cruzando arquivos SVG com Javascript. Pouca gente sabe mas h&aacute; a possibilidade de animar o SVG. Infelizmente &eacute; uma tecnologia nova e pouco suportada por browsers de Internet.</p>
+<p align="left">Como ao Javascript &eacute; uma tecnologia usada largamente, alguns s&aacute;bios desenvolvedores principiaram a utiliz&aacute; la em conjunto com a beleza dos cr&aacute;ficos confeccionados no SVG. Como a quantidade de browsers que abrem arquivos SVG est&aacute;ticos &eacute; muito grande, os joguinhos costuma funcionar em in&uacute;meros deles. Dizem as boas l&iacute;guas que o SVG ser&aacute; o Flash (SWF) open source. </p>
+<h2 align="center">SVG no HTML</h2>
+<p>As linhas de SVG podem ser encaixadas em originais do HTML com o uso do Tag do &lt;embed&gt;, do Tag do &lt;object&gt;, ou do Tag do &lt;iframe&gt;.</p>
+<hr />
+<h3>Criando linhas de SVG usando o HTML</h3>
+<p>Abaixo de voc&ecirc; deve ver tr&ecirc;s m&eacute;todos diferentes em como encaixar a lima de SVG no HTML page.</p>
+<hr />
+<h3>Usando o Tag do &lt;embed&gt;</h3>
+<p>O Tag do &lt;embed&gt; &eacute; suportado em quase todos os browsers principais, e reserva scripting.</p>
+<p><strong>Nota:</strong> O visor do ad&ocirc;be SVG recomenda que voc&ecirc; usa o Tag ENCAIXAR ao encaixar SVG no HTML page! Entretanto, se voc&ecirc; quiser criar XHTML v&aacute;lido, voc&ecirc; n&atilde;o pode usar o &lt;embed&gt; - o Tag do &lt;embed&gt; n&atilde;o &eacute; alistado em nenhumas especifica&ccedil;&otilde;es do HTML<br />
+  <br />
+    <strong>Sintaxe:</strong><br />
+<div id="sintaxe">&lt;embed src=&quot;rectangle.svg&quot; height=&quot;100&quot; width=&quot;300&quot; type=&quot;image/svg+xml&quot;<br /> 
+pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;</div>
+</p>
+<p><strong>Nota</strong>: O atributo do pluginspage aponta a um URL para o plugin ao download.</p>
+<p><strong>Ponta:</strong> Sustenta&ccedil;&atilde;o do Internet Explorer um atributo adicional, wmode= &quot; transparente &quot;, que deixou o fundo do HTML page brilhar completamente.</p>
+<hr />
+<h3>Usando o Tag do &lt;object&gt;</h3>
+<p>O Tag do &lt;object&gt; &eacute; um Tag HTML4 padr&atilde;o e &eacute; suportado em todos os browsers. A desvantagem &eacute; que n&atilde;o reserva scripting a l&iacute;ngua.</p>
+<p><strong>Nota:</strong> Se voc&ecirc; instalar a vers&atilde;o a mais atrasada do visor do ad&ocirc;be SVG, as limas de SVG n&atilde;o trabalhar&atilde;o ao usar o Tag do &lt;object&gt;.<br />
+  <br />
+  <strong>  Sintaxe:</strong><br />
+<div id="sintaxe">&lt;object data=&quot;rectangle.svg&quot; height=&quot;100&quot; width=&quot;300&quot; type=&quot;image/svg+xml&quot;<br /> 
+codebase=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;</div>
+</p>
+<p><strong>Nota: </strong>Os pontos do atributo do codebase a um URL para que o plugin download</p>
+<hr />
+<h3>Usando o Tag do &lt;iframe&gt;</h3>
+<p>O Tag do &lt;iframe&gt; trabalha em quase todos os browsers.<br />
+  <br />
+  <strong>  Sintaxe:</strong><br />
+<div id="sintaxe">&lt;iframe src=&quot;rectangle.svg&quot; height=&quot;100&quot; width=&quot;300&quot; type=&quot;image/svg+xml&quot; &gt;&lt;/iframe&gt;</div></p>
+<hr />
+<h3>Adicionando elementos de SVG diretamente no c&oacute;digo do XML</h3>
+<p>Seria grande se n&oacute;s poder&iacute;amos adicionar elementos de SVG diretamente na linha do HTML, mas isso s&oacute; &eacute; poss&iacute;vel no c&oacute;digo XML, somente com refer&ecirc;ncia ao namespace de SVG, como este:<br />
+</p>
+<table width="100%" border="1">
+  <tr>
+    <td>Arquivo: teste.xml </td>
+  </tr>
+  <tr>
+    <td>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;<br />
+      &lt;head&gt;<br />
+      &lt;title&gt;SVG&lt;/title&gt;<br />
+      &lt;/head&gt;<br />
+      &lt;body&gt;<br />
+      &lt;p style=&quot;background-color:#FF0000&quot;&gt;This is an HTML paragraph&lt;/p&gt;<br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot; version=&quot;1.1&quot; &gt;<br />
+      &lt;circle cx=&quot;100&quot; cy=&quot;50&quot; r=&quot;40&quot; stroke=&quot;black&quot; stroke-width=&quot;2&quot; fill=&quot;red&quot; /&gt;<br />
+      &lt;/svg&gt;<br />
+      &lt;/body&gt;<br />
+    &lt;/html&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td align="center"><iframe src="arquivos/svg.xml" width="700" height="500" frameborder="1"></iframe></td>
+  </tr>
+</table>
+<br />
+<table width="100%" border="1">
+  <tr>
+    <td>Shape</td>
+    <td>Element</td>
+    <td>Atributo obrigat&oacute;rio</td>
+    <td>Attributo opcional</td>
+  </tr>
+  <tr>
+    <td>Linha</td>
+    <td>&lt;line&gt;</td>
+    <td>(nenhum)</td>
+    <td>x1,y1,x2,y2</td>
+  </tr>
+  <tr>
+    <td>Rectangulo</td>
+    <td>&lt;rect&gt;</td>
+    <td>width, height</td>
+    <td>x,y,rx,ry</td>
+  </tr>
+  <tr>
+    <td>Circulo</td>
+    <td>&lt;circle&gt;</td>
+    <td>r</td>
+    <td>cx,cy</td>
+  </tr>
+  <tr>
+    <td>Ellipse</td>
+    <td>&lt;ellipse&gt;</td>
+    <td>rx,ry</td>
+    <td>cx,cy</td>
+  </tr>
+  <tr>
+    <td>Polyline</td>
+    <td>&lt;polyline&gt;</td>
+    <td>points</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Polygon</td>
+    <td>&lt;polygon&gt;</td>
+    <td>points</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<h2 align="center">line &ndash; linha</h2>
+<table width="100%" border="1">
+  
+  <tr>
+    <td><p>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;line x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;100&quot; y2=&quot;100&quot; stroke=&quot;blue&quot; stroke-width=&quot;2&quot;/&gt;<br />
+      &lt;line x1=&quot;0&quot; y1=&quot;100&quot; x2=&quot;100&quot; y2=&quot;0&quot; stroke=&quot;green&quot; stroke-width=&quot;2&quot;/&gt;<br />
+      &lt;line x1=&quot;200&quot; y1=&quot;0&quot; x2=&quot;300&quot; y2=&quot;100&quot; stroke=&quot;blue&quot; stroke-width=&quot;2&quot;/&gt;<br />
+      &lt;line x1=&quot;300&quot; y1=&quot;0&quot; x2=&quot;200&quot; y2=&quot;100&quot; stroke=&quot;green&quot; stroke-width=&quot;2&quot;/&gt;<br />
+      &lt;/svg&gt;</p>    </td>
+  </tr>
+  <tr>
+    <td>embed src=&quot;svg/linha.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<line x1="0" y1="0" x2="100" y2="100" stroke="blue" stroke-width="2"/>
+<line x1="0" y1="100" x2="100" y2="0" stroke="green" stroke-width="2"/>
+<line x1="200" y1="0" x2="300" y2="100" stroke="blue" stroke-width="2"/>
+<line x1="300" y1="0" x2="200" y2="100" stroke="green" stroke-width="2"/>
+</svg></td>
+  </tr>
+</table>
+<h2 align="center"> rect &ndash; ret&acirc;ngulo</h2>
+<table width="100%" border="1">
+  
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;200&quot; height=&quot;80&quot; fill=&quot;blue&quot; stroke=&quot;red&quot; stroke-width=&quot;2&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/retangulo.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<rect x="50" y="10" width="200" height="80" fill="blue" stroke="red" stroke-width="2"/>
+</svg></td>
+  </tr>
+</table>
+<h2 align="center">rect &ndash; ret&acirc;ngulo com cantos arredondados </h2>
+<table width="100%" border="1">
+  
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;200&quot; rx=&quot;20&quot; height=&quot;80&quot; fill=&quot;blue&quot; stroke=&quot;red&quot; stroke-width=&quot;2&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/r_retangulo.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<rect x="50" y="10" width="200" rx="20" height="80" fill="blue" stroke="red" stroke-width="2"/>
+</svg></td>
+  </tr>
+</table>
+<h2 align="center">circle &ndash; c&iacute;rculo</h2>
+<table width="100%" border="1">
+  
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;circle cx=&quot;150&quot; cy=&quot;50&quot; r=&quot;45&quot; fill=&quot;blue&quot; stroke=&quot;red&quot; stroke-width=&quot;2&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/circulo.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<circle cx="150" cy="50" r="45" fill="blue" stroke="red" stroke-width="2"/>
+</svg></td>
+  </tr>
+</table>
+<h2 align="center">ellipse &ndash; elipse</h2>
+<table width="100%" border="1">
+  
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;ellipse cx=&quot;150&quot; cy=&quot;50&quot; ry=&quot;45&quot; rx=&quot;100&quot; fill=&quot;blue&quot; stroke=&quot;red&quot; stroke-width=&quot;2&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/elipse.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<ellipse cx="150" cy="50" ry="45" rx="100" fill="blue" stroke="red" stroke-width="2"/>
+</svg></td>
+  </tr>
+</table>
+<h2 align="center">polyline &ndash; pol&iacute;gono (linhas)</h2>
+<table width="100%" border="1">
+  
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;polyline points=&quot;10,10 90,90 180,10 270,90&quot; fill=&quot;none&quot; stroke=&quot;red&quot; stroke-width=&quot;2&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/polylinhas.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<polyline points="10,10 90,90 180,10 270,90" fill="none" stroke="red" stroke-width="2"/>
+</svg></td>
+  </tr>
+</table>
+<h2 align="center">polygon &ndash; pol&iacute;gono</h2>
+<table width="100%" border="1">
+  
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;polygon points=&quot;150,10 10,50 150,90 270,50 150,10&quot; fill=&quot;blue&quot; stroke=&quot;red&quot; stroke-width=&quot;2&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/poligono.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<polygon points="150,10 10,50 150,90 270,50 150,10" fill="blue" stroke="red" stroke-width="2"/>
+</svg></td>
+  </tr>
+</table>
+<h2 align="center">path &ndash; pol&iacute;gono</h2>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;path d=&quot;M100 80 L200 80 L150 20 Z&quot; fill=&quot;green&quot; stroke=&quot;red&quot; stroke-width=&quot;5&quot; /&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/path.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<path d="M100 80 L200 80 L150 20 Z" fill="green" stroke="red" stroke-width="5" />
+</svg></td>
+  </tr>
+</table>
+<p>textpadth</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;path id=&quot;duck&quot; d=&quot;M20 20 L20 80 L100 80 L100 20 L200 20 L200 80 L280 80&quot; fill=&quot;none&quot; stroke=&quot;none&quot;/&gt;<br />
+      &lt;text style=&quot;font-size:10&quot;&gt;<br />
+      &lt;textPath xlink:href=&quot;#duck&quot;&gt;<br />
+      We go up, then we go down, then up again around his head. Now we are upside down as we<br />
+      go round his neck and along the bottom to the tail.<br />
+      &lt;/textPath&gt;<br />
+      &lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/textpath.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="100" style="border:solid">
+<path id="duck" d="M20 20 L20 80 L100 80 L100 20 L200 20 L200 80 L280 80" fill="none" stroke="none"/>
+<text style="font-size:10">
+<textPath xlink:href="#duck">
+We go up, then we go down, then up again around his head. Now we are upside down as we
+go round his neck and along the bottom to the tail.
+</textPath>
+</text>
+</svg></td>
+  </tr>
+</table>
+<p>Curva</p>
+<p align="center"><img src="arquivos/curva1.jpg" width="510" height="318" /></p>
+<p align="center"><img src="arquivos/curva2.jpg" width="510" height="319" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td>Curva 1 </td>
+  </tr>
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;path d=&quot;<span class="style1">M20,80 C 20,-20 280,-20 280,80</span>&quot; fill=&quot;none&quot; stroke=&quot;red&quot; stroke-width=&quot;5&quot; /&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<path d="M20,80 C 20,-20 280,-20 280,80" fill="none" stroke="red" stroke-width="5" />
+</svg></td>
+  </tr>
+  <tr>
+    <td>Curva 2 </td>
+  </tr>
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;path d=&quot;<span class="style1">M20,80 C 60,20 320,-20 280,80</span>&quot; fill=&quot;none&quot; stroke=&quot;red&quot; stroke-width=&quot;5&quot; /&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<path d="M20,80 C 60,20 320,-20 280,80" fill="none" stroke="red" stroke-width="5" />
+</svg></td>
+  </tr>
+  <tr>
+    <td>Curva 3 </td>
+  </tr>
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;path d=&quot;<span class="style1">M20,80 C -40,-10 340,-10 280,80</span>&quot; fill=&quot;none&quot; stroke=&quot;red&quot; stroke-width=&quot;5&quot; /&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<path d="M20,80 C -40,-10 340,-10 280,80" fill="none" stroke="red" stroke-width="5" />
+</svg></td>
+  </tr>
+  <tr>
+    <td>Curva 4 </td>
+  </tr>
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;path d=&quot;<span class="style1">M20,50 C 20,-60 280,160 280,50</span>&quot; fill=&quot;none&quot; stroke=&quot;red&quot; stroke-width=&quot;5&quot; /&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<path d="M20,50 C 20,-60 280,160 280,50" fill="none" stroke="red" stroke-width="5" />
+</svg></td>
+  </tr>
+</table>
+<p>fill-rule</p>
+<table width="100%" border="1">
+  <tr>
+    <td>Normal</td>
+  </tr>
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;150&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;path d=&quot;M 24,88 L 65,6 L 107,88 z M 20,32 L 112,32 L 61,108 z&quot; fill=&quot;green&quot; stroke=&quot;red&quot; stroke-width=&quot;5&quot; /&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="150" style="border:solid">
+<path d="M 24,88 L 65,6 L 107,88 z M 20,32 L 112,32 L 61,108 z" fill="green" stroke="red" stroke-width="5" />
+</svg></td>
+  </tr>
+  <tr>
+    <td>fill-rule=&quot;evenodd&quot;</td>
+  </tr>
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;150&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;g fill-rule=&quot;evenodd&quot;&gt;<br />
+      &lt;path d=&quot;M 24,88 L 65,6 L 107,88 z M 20,32 L 112,32 L 61,108 z&quot; fill=&quot;green&quot; stroke=&quot;red&quot; stroke-width=&quot;5&quot; /&gt;<br />
+      &lt;/g&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="150" style="border:solid">
+<g fill-rule="evenodd">
+<path d="M 24,88 L 65,6 L 107,88 z M 20,32 L 112,32 L 61,108 z" fill="green" stroke="red" stroke-width="5" />
+</g>
+</svg></td>
+  </tr>
+  <tr>
+    <td>fill-rule=&quot;nonzero&quot;</td>
+  </tr>
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;150&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;g fill-rule=&quot;nonzero&quot;&gt;<br />
+      &lt;path d=&quot;M 24,88 L 65,6 L 107,88 z M 20,32 L 112,32 L 61,108 z&quot; fill=&quot;green&quot; stroke=&quot;red&quot; stroke-width=&quot;5&quot; /&gt;<br />
+      &lt;/g&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="150" style="border:solid">
+<g fill-rule="nonzero">
+<path d="M 24,88 L 65,6 L 107,88 z M 20,32 L 112,32 L 61,108 z" fill="green" stroke="red" stroke-width="5" />
+</g>
+</svg></td>
+  </tr>
+</table>
+<h2 align="center">text - texto</h2>
+<table width="100%" border="1">
+  
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;text x=&quot;40&quot; y=&quot;50&quot; font-family=&quot;courier new&quot; font-size=&quot;40&quot; fill=&quot;red&quot; stroke=&quot;red&quot; stroke-width=&quot;5&quot;&gt; Hello SVG! &lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/texto.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<text x="40" y="50" font-family="courier new" font-size="40" fill="red" stroke="red" stroke-width="5"> Hello SVG! </text>
+</svg></td>
+  </tr>
+</table>
+<h2 align="center">tspan - texto</h2>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;text x=&quot;40&quot; y=&quot;50&quot; font-family=&quot;courier new&quot; font-size=&quot;20&quot; fill=&quot;black&quot; stroke-width=&quot;2&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp;Texto<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tspan font-size=&quot;40&quot; fill=&quot;red&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Texto<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tspan&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;/text&gt;<br />
+&lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/tspan.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+   <text x="40" y="50" font-family="courier new" font-size="20" fill="black" stroke-width="2">
+   Texto
+      <tspan font-size="40" fill="red">
+         Texto
+      </tspan>
+   </text>
+</svg></td>
+  </tr>
+</table>
+<p>2&ordm; Exemplo</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;text x=&quot;10&quot; y=&quot;1&quot;&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot;&gt;This is multi-line&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot;&gt;text or text&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot;&gt;with different properties&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot;&gt;that can be produced&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot;&gt;using the tspan element&lt;/tspan&gt;<br />
+      &lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/texto2.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<text x="10" y="1">
+<tspan x="10" dy="18">This is multi-line</tspan>
+<tspan x="10" dy="18">text or text</tspan>
+<tspan x="10" dy="18">with different properties</tspan>
+<tspan x="10" dy="18">that can be produced</tspan>
+<tspan x="10" dy="18">using the tspan element</tspan>
+</text>
+</svg></td>
+  </tr>
+</table>
+<p>font-family</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;text x=&quot;10&quot; y=&quot;1&quot;&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; font-family=&quot;courier&quot;&gt;Courier&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; font-family=&quot;helvetical&quot;&gt;Helvetical&lt;/tspan&gt;<br />
+      &lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/font_family.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<text x="10" y="1">
+<tspan x="10" dy="18" font-family="courier">Courier</tspan>
+<tspan x="10" dy="18" font-family="helvetical">Helvetical</tspan>
+</text>
+</svg></td>
+  </tr>
+</table>
+<p>font-size</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;text x=&quot;10&quot; y=&quot;1&quot;&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;20&quot; font-size=&quot;20&quot;&gt;20&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;40&quot; font-size=&quot;40&quot;&gt;40&lt;/tspan&gt;<br />
+      &lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/font_size.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<text x="10" y="1">
+<tspan x="10" dy="20" font-size="20">20</tspan>
+<tspan x="10" dy="40" font-size="40">40</tspan>
+</text>
+</svg></td>
+  </tr>
+</table>
+<p>font-style</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;text x=&quot;10&quot; y=&quot;1&quot;&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; font-style=&quot;normal&quot;&gt;Normal&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; font-style=&quot;italic&quot;&gt;Italic&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; font-style=&quot;oblique&quot;&gt;Oblique&lt;/tspan&gt;<br />
+      &lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/font_style.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<text x="10" y="1">
+<tspan x="10" dy="18" font-style="normal">Normal</tspan>
+<tspan x="10" dy="18" font-style="italic">Italic</tspan>
+<tspan x="10" dy="18" font-style="oblique">Oblique</tspan>
+</text>
+</svg></td>
+  </tr>
+</table>
+<p>font-weight</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;text x=&quot;10&quot; y=&quot;1&quot;&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; font-weight=&quot;normal&quot;&gt;Normal&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; font-weight=&quot;bold&quot;&gt;Bold&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; font-weight=&quot;100&quot;&gt;100&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; font-weight=&quot;900&quot;&gt;900&lt;/tspan&gt;<br />
+      &lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/font_weight.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<text x="10" y="1">
+<tspan x="10" dy="18" font-weight="normal">Normal</tspan>
+<tspan x="10" dy="18" font-weight="bold">Bold</tspan>
+<tspan x="10" dy="18" font-weight="100">100</tspan>
+<tspan x="10" dy="18" font-weight="900">900</tspan>
+</text>
+</svg></td>
+  </tr>
+</table>
+<p>text-decoration</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;text x=&quot;10&quot; y=&quot;1&quot;&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; text-decoration=&quot;none&quot;&gt;None&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; text-decoration=&quot;underline&quot;&gt;Underline&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; text-decoration=&quot;line-through&quot;&gt;Line-Through&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; text-decoration=&quot;overline&quot;&gt;Overline&lt;/tspan&gt;<br />
+      &lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/text_decoration.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<text x="10" y="1">
+<tspan x="10" dy="18" text-decoration="none">None</tspan>
+<tspan x="10" dy="18" text-decoration="underline">Underline</tspan>
+<tspan x="10" dy="18" text-decoration="line-through">Line-Through</tspan>
+<tspan x="10" dy="18" text-decoration="overline">Overline</tspan>
+</text>
+</svg></td>
+  </tr>
+</table>
+<p>fill</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;text x=&quot;10&quot; y=&quot;1&quot;&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; fill=&quot;red&quot;&gt;Red&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;18&quot; fill=&quot;green&quot;&gt;Green&lt;/tspan&gt;<br />
+      &lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/fill.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<text x="10" y="1">
+<tspan x="10" dy="18" fill="red">Red</tspan>
+<tspan x="10" dy="18" fill="green">Green</tspan>
+</text>
+</svg></td>
+  </tr>
+</table>
+<p>stroke</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;text x=&quot;10&quot; y=&quot;1&quot;&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;40&quot; font-size=&quot;40&quot; font-weight=&quot;bold&quot; stroke=&quot;red&quot;&gt;Red&lt;/tspan&gt;<br />
+      &lt;tspan x=&quot;10&quot; dy=&quot;40&quot; font-size=&quot;40&quot; font-weight=&quot;bold&quot; stroke=&quot;green&quot;&gt;Green&lt;/tspan&gt;<br />
+      &lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/stroke2.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/stroke2.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p>Baseline-shift</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;text x=&quot;10&quot; y=&quot;18&quot;&gt;<br />
+      x<br />
+      &lt;tspan style=&quot;baseline-shift:super&quot;&gt;super&lt;/tspan&gt;<br />
+      +y<br />
+      &lt;tspan style=&quot;baseline-shift:sub&quot;&gt;sub&lt;/tspan&gt;<br />
+      +1<br />
+      &lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/baseline_shift.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/baseline_shift.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p>rotate</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;text x=&quot;10&quot; y=&quot;18&quot;&gt;<br />
+      &lt;tspan x=&quot;20&quot; dy=&quot;30&quot; rotate=&quot;10 20 30 40 0 50 60 70 0 80 90 0 100 110 120 140 150 160 170 180&quot;&gt;that can be produced&lt;/tspan&gt;<br />
+      &lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/rotate.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/rotate.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h2 align="center">image - imagens</h2>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;image xlink:href=&quot;anime.jpg&quot; x=&quot;10&quot; y=&quot;10&quot; width=&quot;280&quot; height=&quot;80&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/imagem.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/imagem.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3 align="center">Inverte Horizontalmente</h3>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;image xlink:href=&quot;anime.jpg&quot; transform=&quot;scale(1,-1)&quot; x=&quot;10&quot; y=&quot;-90&quot; width=&quot;280&quot; height=&quot;80&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/inverter_horiz.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/inverter_horiz.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3 align="center">Inverter Verticalmente</h3>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;image xlink:href=&quot;anime.jpg&quot; transform=&quot;scale(-1,1)&quot; x=&quot;-290&quot; y=&quot;10&quot; width=&quot;280&quot; height=&quot;80&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/inverter_vert.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/inverter_vert.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3 align="center">Inverter Horizontalmente e Verticalmente </h3>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;image xlink:href=&quot;anime.jpg&quot; transform=&quot;scale(-1,-1)&quot; x=&quot;-290&quot; y=&quot;-90&quot; width=&quot;280&quot; height=&quot;80&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/inverter_horiz_vert.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/inverter_horiz_vert.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3 align="center">Cores</h3>
+<p align="center"><img src="arquivos/cores.jpg" width="510" height="318" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;rect x=&quot;10&quot; y=&quot;10&quot; width=&quot;10&quot; height=&quot;10&quot; style=&quot;fill:coral&quot; /&gt;<br />
+      &lt;rect x=&quot;30&quot; y=&quot;10&quot; width=&quot;10&quot; height=&quot;10&quot; style=&quot;fill:rgb(255,27,180)&quot; /&gt;<br />
+      &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;10&quot; height=&quot;10&quot; style=&quot;fill:#456&quot; /&gt;<br />
+      &lt;rect x=&quot;70&quot; y=&quot;10&quot; width=&quot;10&quot; height=&quot;10&quot; style=&quot;fill:#CC00CC&quot; /&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/cores.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/cores.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h2>stroke-dasharray</h2>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;200&quot; height=&quot;80&quot; stroke=&quot;red&quot; stroke-width=&quot;10&quot; stroke-dasharray=&quot;10, 10&quot; fill=&quot;green&quot; opacity=&quot;0.5&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/stoke.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/stoke.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;350&quot; height=&quot;200&quot; style=&quot;border:solid&quot;&gt;<br />
+&lt;line x1=&quot;10&quot; y1=&quot;10&quot; x2=&quot;330&quot; y2=&quot;10&quot; style=&quot;stroke:black; stroke-width:5;&quot; /&gt;<br />
+&lt;line x1=&quot;10&quot; y1=&quot;50&quot; x2=&quot;330&quot; y2=&quot;50&quot; style=&quot;stroke:blue; stroke-width:10;&quot; /&gt;<br />
+&lt;line x1=&quot;10&quot; y1=&quot;90&quot; x2=&quot;330&quot; y2=&quot;90&quot; style=&quot;stroke:red; stroke-width:10; stroke-dasharray: 10&quot; /&gt;<br />
+&lt;line x1=&quot;10&quot; y1=&quot;130&quot; x2=&quot;330&quot; y2=&quot;130&quot; style=&quot;stroke:green; stroke-width:5; stroke-dasharray: 10,2; fill: none;&quot; /&gt;<br />
+&lt;line x1=&quot;10&quot; y1=&quot;170&quot; x2=&quot;330&quot; y2=&quot;170&quot; style=&quot;stroke:yellow; stroke-width:20; stroke-dasharray: 10,2,10; fill: none;&quot; /&gt;<br />
+&lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>embed src=&quot;svg/line_stoke.svg&quot; height=&quot;210&quot; width=&quot;360&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/line_stoke.svg" height="210" width="360" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h2 align="center">Link estilo Html </h2>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;a xlink:href=&quot;http://www.w3.org&quot;&gt;<br />
+      &lt;rect x=&quot;30&quot; y=&quot;30&quot; width=&quot;200&quot; height=&quot;40&quot; fill=&quot;yellow&quot; stroke=&quot;red&quot; stroke-width=&quot;2&quot; /&gt;<br />
+      &lt;text x=&quot;130&quot; y=&quot;60&quot; style=&quot;text-anchor:middle&quot;&gt;My button&lt;/text&gt;<br />
+      &lt;/a&gt;<br />
+      &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/link.svg&quot;  height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/link.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3 align="center">Recursos</h3>
+<h3> defs &ndash; defini&ccedil;&otilde;es de formas<br />
+  use &ndash; uso de formas definidas</h3>
+<table width="100%" border="1">
+  
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;rect id=&quot;rect&quot; width=&quot;15&quot; height=&quot;15&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;/defs&gt;<br />
+      &lt;use x=&quot;5&quot; y=&quot;5&quot; xlink:href=&quot;#rect&quot;/&gt;<br />
+      &lt;use x=&quot;30&quot; y=&quot;30&quot; xlink:href=&quot;#rect&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/recursos.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/recursos.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3 align="left">g</h3>
+<table width="100%" border="1">
+  
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;g fill=&quot;blue&quot; stroke=&quot;red&quot; stroke-width=&quot;2&quot;&gt; <br />
+      &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;100&quot; height=&quot;40&quot;/&gt;<br />
+      &lt;rect x=&quot;150&quot; y=&quot;50&quot; width=&quot;100&quot; height=&quot;40&quot;/&gt;<br />
+      &lt;/g&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/ggg.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/ggg.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h2>style</h2>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;200&quot; height=&quot;80&quot; style=&quot;fill:blue; stroke:red; stroke-width:2&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/texto.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/style.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3>Style 2 </h3>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;style type=&quot;text/css&quot;&gt; &lt;![CDATA[<br />
+      #amarelo {<br />
+      fill: yellow;<br />
+      stroke: green;<br />
+      stroke-width: 10;<br />
+      }<br />
+      ]]&gt; &lt;/style&gt;<br />
+      &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;200&quot; height=&quot;80&quot; id=&quot;amarelo&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/style2.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/style2.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3>Style  Externo </h3>
+<table width="100%" border="1">
+  <tr>
+    <td>Arquivo: mystyle.svg </td>
+  </tr>
+  <tr>
+    <td>&lt;?xml-stylesheet type=&quot;text/css&quot; href=&quot;mystyle.css&quot; ?&gt;<br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;200&quot; height=&quot;80&quot; id=&quot;verde&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>Arquivo: mystyle.css </td>
+  </tr>
+  <tr>
+    <td>#verde {<br />
+      fill: green;<br />
+      stroke: blue;<br />
+      stroke-width: 10;<br />
+    }</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/mystyle.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/mystyle.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3>Coment&aacute;rios</h3>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;!-- ************** Comentario ******************** --&gt;<br />
+      &lt;!-- ************** Exemplo    ******************** --&gt;<br />
+      &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;200&quot; height=&quot;80&quot; fill=&quot;green&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/comentarios.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/comentarios.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3 align="center">Opacidade</h3>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;rect x=&quot;80&quot; y=&quot;40&quot; width=&quot;100&quot; height=&quot;40&quot; fill=&quot;yellow&quot; stroke=&quot;red&quot; stroke-width=&quot;10&quot;/&gt;<br />
+      &lt;rect x=&quot;120&quot; y=&quot;20&quot; width=&quot;100&quot; height=&quot;40&quot; fill=&quot;blue&quot; opacity=&quot;0.5&quot; stroke=&quot;green&quot; stroke-width=&quot;10&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/ggg.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/opacidade.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3 align="center">Gradiente</h3>
+<p> SVG Linear</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;linearGradient id=&quot;g1&quot; gradientUnits=&quot;userSpaceOnUse&quot; x1=&quot;50&quot; y1=&quot;10&quot; x2=&quot;250&quot; y2=&quot;90&quot;&gt;<br />
+      &lt;stop offset=&quot;0&quot; style=&quot;stop-color:blue&quot; /&gt;<br />
+      &lt;stop offset=&quot;0.5&quot; style=&quot;stop-color:yellow&quot; /&gt;<br />
+      &lt;stop offset=&quot;1&quot; style=&quot;stop-color:red&quot; /&gt;<br />
+      &lt;/linearGradient&gt;<br />
+      &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;200&quot; height=&quot;80&quot; fill=&quot;url(#g1)&quot; stroke=&quot;red&quot; stroke-width=&quot;2&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/linear.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/linear.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p>  SVG Radial</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;radialGradient id=&quot;g2&quot; gradientUnits=&quot;userSpaceOnUse&quot; cx=&quot;150&quot; cy=&quot;50&quot; r=&quot;80&quot; fx=&quot;180&quot; fy=&quot;80&quot; &gt;<br />
+      &lt;stop offset=&quot;0&quot; style=&quot;stop-color:blue&quot; /&gt;<br />
+      &lt;stop offset=&quot;.5&quot; style=&quot;stop-color:yellow&quot; /&gt;<br />
+      &lt;stop offset=&quot;1&quot; style=&quot;stop-color:red&quot; /&gt;<br />
+      &lt;stop offset=&quot;1.5&quot; style=&quot;stop-color:green&quot; /&gt;<br />
+      &lt;/radialGradient&gt;<br />
+      &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;200&quot; height=&quot;80&quot; fill=&quot;url(#g2)&quot; stroke=&quot;blue&quot; stroke-width=&quot;2&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/radial.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/radial.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h2 align="center">Recortar - clipPath </h2>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; width=&quot;500&quot; height=&quot;500&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;clipPath id=&quot;cp1&quot;&gt;<br />
+      &lt;circle cx=&quot;250&quot; cy=&quot;250&quot; r=&quot;180&quot;/&gt;<br />
+      &lt;/clipPath&gt;<br />
+      &lt;image xlink:href=&quot;anime.jpg&quot; x=&quot;0&quot; y=&quot;0&quot; width=&quot;500&quot; height=&quot;500&quot; clip-path=&quot;url(#cp1)&quot;/&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/recortar.svg&quot; height=&quot;510&quot; width=&quot;510&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/recortar.svg" height="510" width="510" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3 align="center">Transforma&ccedil;&otilde;es geom&eacute;tricas</h3>
+<p>&lt;g transform=&quot;translate(x,y)&quot;&gt; .... &lt;/g&gt;</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;g transform=&quot;translate(150 50)&quot;&gt;<br />
+      &lt;rect width=&quot;15&quot; height=&quot;15&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;/g&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/translate.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/translate.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p>&lt;g transform=&quot;rotate(angle)&quot;&gt; .... &lt;/g&gt;</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;g transform=&quot;translate(145 15) rotate(45)&quot;&gt;<br />
+      &lt;rect width=&quot;50&quot; height=&quot;50&quot; fill=&quot;blue&quot; stroke=&quot;red&quot; stroke-width=&quot;2&quot;/&gt;<br />
+      &lt;/g&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/rotacao.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/rotacao.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p>&lt;g transform=&quot;rotate(angle, ox, oy)&quot;&gt; .... &lt;/g&gt;</p>
+<p>&lt;g transform=&quot;scale(sxy)&quot;&gt; .... &lt;/g&gt;</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;g transform=&quot;translate(5 5) scale(1)&quot;&gt;<br />
+      &lt;rect width=&quot;10&quot; height=&quot;10&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;/g&gt;<br />
+      &lt;g transform=&quot;translate(20 5) scale(2)&quot;&gt;<br />
+      &lt;rect width=&quot;10&quot; height=&quot;10&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;/g&gt;<br />
+      &lt;g transform=&quot;translate(45 5) scale(3)&quot;&gt;<br />
+      &lt;rect width=&quot;10&quot; height=&quot;10&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;/g&gt;<br />
+      &lt;g transform=&quot;translate(80 5) scale(4)&quot;&gt;<br />
+      &lt;rect width=&quot;10&quot; height=&quot;10&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;/g&gt;<br />
+      &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/scale.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/scale.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p>&lt;g transform=&quot;scale(sx,sy)&quot;&gt; .... &lt;/g&gt;<br />
+  Normal</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;image xlink:href=&quot;anime.jpg&quot; x=&quot;10&quot; y=&quot;10&quot; width=&quot;280&quot; height=&quot;80&quot;/&gt;<br />
+      &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/imagem.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/imagem.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p>Esticar Horizontalmente</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; width=&quot;400&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;g transform=&quot;scale(3, 1)&quot;&gt;<br />
+      &lt;image xlink:href=&quot;anime.jpg&quot; x=&quot;-80&quot; y=&quot;10&quot; width=&quot;280&quot; height=&quot;80&quot;/&gt;<br />
+      &lt;/g&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/scale2.svg&quot; width=&quot;410&quot; height=&quot;110&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/scale2.svg" width="410" height="110" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p>Esticar Verticalmente</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; width=&quot;120&quot; height=&quot;300&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;g transform=&quot;scale(1, 3)&quot;&gt;<br />
+      &lt;image xlink:href=&quot;anime.jpg&quot; x=&quot;-80&quot; y=&quot;10&quot; width=&quot;280&quot; height=&quot;80&quot;/&gt;<br />
+      &lt;/g&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/scale3.svg&quot; width=&quot;130&quot; height=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/scale3.svg" width="130" height="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p>&lt;g transform=&quot;skewX(angle)&quot;&gt; .... &lt;/g&gt;</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;g transform=&quot;translate(100 15) skewX(30)&quot;&gt;<br />
+      &lt;rect width=&quot;50&quot; height=&quot;50&quot; fill=&quot;blue&quot; stroke=&quot;red&quot; stroke-width=&quot;2&quot;/&gt;<br />
+      &lt;/g&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/skewx.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/skewx.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p>&lt;g transform=&quot;skewY(angle)&quot;&gt; .... &lt;/g&gt;</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;g transform=&quot;translate(100 15) skewY(30)&quot;&gt;<br />
+      &lt;rect width=&quot;50&quot; height=&quot;50&quot; fill=&quot;blue&quot; stroke=&quot;red&quot; stroke-width=&quot;2&quot;/&gt;<br />
+      &lt;/g&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/skewy.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/skewy.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h2 align="center">Javascript</h2>
+<h3 align="center">setAttribute</h3>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      function circle_click() {<br />
+      var circle = document.getElementById(&quot;circulo&quot;);<br />
+      var raio = circle.getAttribute(&quot;r&quot;);<br />
+      if (raio == 50) {<br />
+      circle.setAttribute(&quot;r&quot;, 100);<br />
+      } else {<br />
+      circle.setAttribute(&quot;r&quot;, 50);<br />
+      }<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;circle onclick=&quot;circle_click()&quot; id=&quot;circulo&quot; cx=&quot;125&quot; cy=&quot;125&quot; r=&quot;50&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;text id=&quot;texto&quot; x=&quot;15&quot; y=&quot;20&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;SVG&lt;/text&gt;<br />
+      &lt;text x=&quot;15&quot; y=&quot;240&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Clique no circulo&lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/atributo.svg&quot; height=&quot;250&quot; width=&quot;250&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/atributo.svg" height="250" width="250" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3 align="center">style</h3>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;script language=&quot;javascript&quot;&gt; &lt;![CDATA[<br />
+      function circle_click() {<br />
+      var circle = document.getElementById(&quot;circulo&quot;);<br />
+      var opacidade = circle.style.opacity;<br />
+      if (opacidade == 1) {<br />
+      circle.style.opacity = 0.3;<br />
+      } else {<br />
+      circle.style.opacity = 1;<br />
+      }<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;circle onclick=&quot;circle_click()&quot; id=&quot;circulo&quot; cx=&quot;125&quot; cy=&quot;125&quot; r=&quot;50&quot; style=&quot;opacity:1&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;text id=&quot;texto&quot; x=&quot;15&quot; y=&quot;20&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;SVG&lt;/text&gt;<br />
+      &lt;text x=&quot;15&quot; y=&quot;240&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Clique no circulo&lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/opacidade.svg&quot; height=&quot;250&quot; width=&quot;250&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/propriedade.svg" height="250" width="250" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3 align="center">firstChild.nodeValue</h3>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      function circle_click() {<br />
+      var txt = document.getElementById(&quot;texto&quot;);<br />
+      var texto = txt.firstChild.nodeValue;<br />
+      if (texto == &quot;SVG&quot;) {<br />
+      txt.firstChild.nodeValue = &quot;Teste&quot;;<br />
+      } else {<br />
+      txt.firstChild.nodeValue = &quot;SVG&quot;;<br />
+      }<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;circle onclick=&quot;circle_click()&quot; id=&quot;circulo&quot; cx=&quot;125&quot; cy=&quot;125&quot; r=&quot;50&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;text id=&quot;texto&quot; x=&quot;15&quot; y=&quot;20&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;SVG&lt;/text&gt;<br />
+      &lt;text x=&quot;15&quot; y=&quot;240&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Clique no circulo&lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/value.svg&quot; height=&quot;250&quot; width=&quot;250&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/value.svg" height="250" width="250" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h2 align="center">className.baseVal</h2>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;style type=&quot;text/css&quot;&gt; &lt;![CDATA[<br />
+      .vermelho {<br />
+      fill: red;<br />
+      stroke: blue;<br />
+      stroke-width: 5;<br />
+      }<br />
+      .azul {<br />
+      fill: blue;<br />
+      stroke: green;<br />
+      stroke-width: 10;<br />
+      }<br />
+      ]]&gt; &lt;/style&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      function circle_click() {<br />
+      var circle = document.getElementById(&quot;circulo&quot;);<br />
+      var classe = circle.className.baseVal;<br />
+      if (classe == &quot;vermelho&quot;) {<br />
+      circle.className.baseVal = &quot;azul&quot;;<br />
+      } else {<br />
+      circle.className.baseVal = &quot;vermelho&quot;;<br />
+      }<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;circle onclick=&quot;circle_click()&quot; id=&quot;circulo&quot; cx=&quot;125&quot; cy=&quot;125&quot; r=&quot;50&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;text id=&quot;texto&quot; x=&quot;15&quot; y=&quot;20&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;SVG&lt;/text&gt;<br />
+      &lt;text x=&quot;15&quot; y=&quot;240&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Clique no circulo&lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/classe.svg&quot; height=&quot;250&quot; width=&quot;250&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/classe.svg" height="250" width="250" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h2 align="center">Vis&iacute;vel e Invis&iacute;vel </h2>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;style type=&quot;text/css&quot;&gt; &lt;![CDATA[<br />
+      .visivelX {<br />
+      visibility: visible;<br />
+      }<br />
+      .invisivelX {<br />
+      visibility: hidden;<br />
+      }<br />
+      ]]&gt; &lt;/style&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      function circle_click() {<br />
+      var circle = document.getElementById(&quot;circulo&quot;);<br />
+      var classe = circle.className.baseVal;<br />
+      if (classe == &quot;visivelX&quot;) {<br />
+      circle.className.baseVal = &quot;invisivelX&quot;;<br />
+      } else {<br />
+      circle.className.baseVal = &quot;visivelX&quot;;<br />
+      }<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;circle onclick=&quot;circle_click()&quot; cx=&quot;125&quot; cy=&quot;125&quot; r=&quot;50&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;circle id=&quot;circulo&quot; class=&quot;visivelX&quot; cx=&quot;25&quot; cy=&quot;25&quot; r=&quot;20&quot; fill=&quot;green&quot;/&gt;<br />
+      &lt;text x=&quot;15&quot; y=&quot;240&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Clique no circulo&lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/invisivel.svg&quot; height=&quot;250&quot; width=&quot;250&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/invisivel.svg" height="250" width="250" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h2 align="center">createElementNS</h2>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;svg <br />
+      xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      var svgns = &quot;http://www.w3.org/2000/svg&quot;;</p>
+      <p>function makeShape(evt) {<br />
+        if ( window.svgDocument == null )<br />
+        svgDocument = evt.target.ownerDocument;<br />
+        var shape = svgDocument.createElementNS(svgns, &quot;circle&quot;);<br />
+        shape.setAttributeNS(null, &quot;cx&quot;, 25);<br />
+        shape.setAttributeNS(null, &quot;cy&quot;, 25);<br />
+        shape.setAttributeNS(null, &quot;r&quot;, 20);<br />
+        shape.setAttributeNS(null, &quot;fill&quot;, &quot;green&quot;);<br />
+        svgDocument.documentElement.appendChild(shape);<br />
+        }<br />
+        ]]&gt; &lt;/script&gt;<br />
+        &lt;g <span class="style1">onload=&quot;makeShape(evt)&quot;</span>&gt;<br />
+        &lt;/g&gt;<br />
+        &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/funcao.svg&quot; height=&quot;110&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+    pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/funcao.svg" height="110" width="310" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p>XML - HTML </p>
+<table width="100%" border="1">
+  <tr>
+    <td>Arquivo: svg.xml </td>
+  </tr>
+  <tr>
+    <td><p>&lt;html<br />
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;<br />
+      xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;</p>
+      <p>&lt;head&gt;<br />
+  &lt;title&gt; XHTML, SVG, CSS e DOM &lt;/title&gt;<br />
+  &lt;style type=&quot;text/css&quot;&gt;<br />
+        body { padding: 5px 20px; font-family: sans-serif; }<br />
+        h1 { text-align: center; }<br />
+        svg {<br />
+        float: right;<br />
+        margin: 0px 20px;<br />
+        }<br />
+        svg * {<br />
+        stroke: #000;<br />
+        stroke-width: 10px;<br />
+        fill: none;<br />
+        }<br />
+        svg text {<br />
+        stroke: none;<br />
+        fill: #000;<br />
+        font-size: 55px;<br />
+        font-weight: bold;<br />
+        text-align: center;<br />
+        text-anchor: middle;<br />
+        }<br />
+        .normal {<br />
+        fill: #FD0;<br />
+        }<br />
+        .hulk {<br />
+        fill: #5E0;<br />
+        }<br />
+        .balao {<br />
+        fill: #09E;<br />
+        stroke-linecap: round;<br />
+        }<br />
+  &lt;/style&gt;<br />
+  &lt;/head&gt;</p>
+      <p>&lt;body&gt;</p>
+      <p>&lt;h1&gt; XHTML, SVG, CSS e DOM &lt;/h1&gt;</p>
+      <p>&lt;svg:svg width=&quot;350&quot; height=&quot;250&quot;&gt;</p>
+      <p> &lt;svg:circle id=&quot;circle&quot; cx=&quot;100&quot; cy=&quot;150&quot; r=&quot;90&quot; fill=&quot;#F00&quot; class=&quot;normal&quot; /&gt;</p>
+      <p> &lt;svg:path d=&quot;M 80,110 L 80,170&quot; /&gt;<br />
+  &lt;svg:path d=&quot;M 120,110 L 120,170&quot; /&gt;</p>
+      <p> &lt;svg:path d=&quot;M 40,170 C 50,230 150,230 160,170&quot; /&gt;</p>
+      <p> &lt;svg:rect class=&quot;balao&quot; x=&quot;140&quot; y=&quot;10&quot; rx=&quot;15&quot; ry=&quot;15&quot; width=&quot;200&quot; height=&quot;100&quot; /&gt;<br />
+  &lt;svg:path class=&quot;balao&quot; d=&quot;M 175,104 L 160,150 C 170,150 205,130 210,104&quot; /&gt;<br />
+  &lt;svg:text x=&quot;240&quot; y=&quot;80&quot; id=&quot;txt&quot;&gt; Ol&aacute;! &lt;/svg:text&gt;</p>
+      <p>&lt;/svg:svg&gt;</p>
+      <p>&lt;p&gt;<br />
+        Ao lado temos um desenho SVG, cujo c&oacute;digo est&aacute; incorporado neste HTML.<br />
+        Podemos acesser os elementos do desenho via DOM, assim como acessamos<br />
+        qualquer elemento do HTML.<br />
+        &lt;/p&gt;<br />
+        Veja s&oacute;:<br />
+        &lt;ul&gt;<br />
+        &lt;li&gt; &lt;a href=&quot;javascript:mudaTexto()&quot;&gt;Mudar o texto do bal&atilde;o&lt;/a&gt; &lt;/li&gt;<br />
+        &lt;li&gt; &lt;a href=&quot;javascript:mudaCor()&quot;&gt;Mudar a cor do boneco&lt;/a&gt; &lt;/li&gt;<br />
+        &lt;/ul&gt;</p>
+      <p>&lt;script type=&quot;text/javascript&quot;&gt;<br />
+        function mudaTexto() {<br />
+        var txt = document.getElementById(&quot;txt&quot;);<br />
+        if ( txt.firstChild.nodeValue != &quot;Yeah!&quot; ) txt.firstChild.nodeValue = &quot;Yeah!&quot;;<br />
+        else txt.firstChild.nodeValue = &quot;Ol&aacute;!&quot;;<br />
+        }<br />
+        function mudaCor() {<br />
+        var svgNS = &quot;http://www.w3.org/2000/svg&quot;<br />
+        var c = document.getElementById(&quot;circle&quot;);<br />
+        if ( c.className.baseVal != &quot;hulk&quot; ) c.className.baseVal = &quot;hulk&quot;;<br />
+        else c.className.baseVal = &quot;normal&quot;;<br />
+        }<br />
+  &lt;/script&gt;</p>
+      <p>&lt;/body&gt;<br />
+    &lt;/html&gt;</p></td>
+  </tr>
+  <tr>
+    <td align="center"><iframe src="svg/arquivos/svg2.xml" width="700" height="500" frameborder="1"></iframe></td>
+  </tr>
+</table>
+<p align="center">Eventos</p>
+<p align="center">OnClick</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      function circle_click() {<br />
+      var circle = document.getElementById(&quot;circulo&quot;);<br />
+      var raio = circle.getAttribute(&quot;r&quot;);<br />
+      if (raio == 50) {<br />
+      circle.setAttribute(&quot;r&quot;, 100);<br />
+      } else {<br />
+      circle.setAttribute(&quot;r&quot;, 50);<br />
+      }<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;circle onclick=&quot;circle_click()&quot; id=&quot;circulo&quot; cx=&quot;125&quot; cy=&quot;125&quot; r=&quot;50&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;text id=&quot;texto&quot; x=&quot;15&quot; y=&quot;20&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;SVG&lt;/text&gt;<br />
+      &lt;text x=&quot;15&quot; y=&quot;240&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Clique no circulo&lt;/text&gt;<br />
+      &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/atributo.svg&quot; height=&quot;250&quot; width=&quot;250&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/atributo.svg" height="250" width="250" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">MouseOver MouseOut </p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      function circle_mouse(valor) {<br />
+      var texto = document.getElementById(&quot;texto&quot;);<br />
+      if(valor == true){<br />
+      texto.firstChild.nodeValue = &quot;Mouse Over&quot;;<br />
+      } else {<br />
+      texto.firstChild.nodeValue = &quot;Mouse Out&quot;;<br />
+      }<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;circle onmouseover=&quot;circle_mouse(true)&quot; onmouseout=&quot;circle_mouse(false)&quot; id=&quot;circulo&quot; cx=&quot;125&quot; cy=&quot;125&quot; r=&quot;50&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;text id=&quot;texto&quot; x=&quot;15&quot; y=&quot;20&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;SVG&lt;/text&gt;<br />
+      &lt;text x=&quot;15&quot; y=&quot;240&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Clique no circulo&lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/mouse.svg&quot; height=&quot;250&quot; width=&quot;250&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/mouse.svg" height="250" width="250" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">Mousemove</p>
+<table width="100%" border="1">
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      function rect_mouse(evt) {<br />
+      var texto1 = document.getElementById(&quot;texto1&quot;);<br />
+      var texto2 = document.getElementById(&quot;texto2&quot;);<br />
+      texto1.firstChild.nodeValue = &quot;screenX=&quot;+evt.screenX+&quot;, screenY=&quot;+evt.screenY;<br />
+      texto2.firstChild.nodeValue = &quot;clientX=&quot;+evt.clientX+&quot;, clientY=&quot;+evt.clientY;<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;rect x=&quot;75&quot; y=&quot;75&quot; width=&quot;100&quot; height=&quot;100&quot; onmousemove=&quot;rect_mouse(evt)&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;text id=&quot;texto1&quot; x=&quot;15&quot; y=&quot;20&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;screen&lt;/text&gt;<br />
+      &lt;text id=&quot;texto2&quot; x=&quot;15&quot; y=&quot;40&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;client&lt;/text&gt;<br />
+      &lt;text x=&quot;15&quot; y=&quot;240&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Clique no quadrado&lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/cursor.svg&quot; height=&quot;250&quot; width=&quot;250&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/cursor.svg" height="250" width="250" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">Teclado</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[</p>
+      <p>var typeInitialized = false;</p>
+      <p>function typeText(evt) {<br />
+        if (evt.type == &quot;keypress&quot;) {</p>
+      <p>if (evt.charCode) {<br />
+        var charCode = evt.charCode;<br />
+        } else {<br />
+        var charCode = evt.keyCode;<br />
+        }</p>
+      <p>var texto1 = document.getElementById(&quot;texto1&quot;);<br />
+        var texto2 = document.getElementById(&quot;texto2&quot;);<br />
+        var texto3 = document.getElementById(&quot;texto3&quot;);<br />
+        var texto4 = document.getElementById(&quot;texto4&quot;);<br />
+        var texto5 = document.getElementById(&quot;texto5&quot;);<br />
+        texto1.firstChild.nodeValue = &quot;alt=&quot;+evt.altKey;<br />
+        texto2.firstChild.nodeValue = &quot;shift=&quot;+evt.shiftKey;<br />
+        texto3.firstChild.nodeValue = &quot;ctrl=&quot;+evt.ctrlKey;<br />
+        texto4.firstChild.nodeValue = &quot;Codigo=&quot;+charCode;<br />
+        texto5.firstChild.nodeValue = &quot;Caractere=&quot;+String.fromCharCode(charCode);<br />
+        }<br />
+        }<br />
+        function initTyping(evt) {<br />
+        if (!typeInitialized) {<br />
+        document.documentElement.addEventListener(&quot;keypress&quot;,typeText,false);<br />
+        document.documentElement.addEventListener(&quot;click&quot;,stopTyping,false);<br />
+        var texto6 = document.getElementById(&quot;texto6&quot;);<br />
+        texto6.firstChild.nodeValue = &quot;Ativado&quot;;<br />
+        typeInitialized = true;<br />
+        }<br />
+        //we don't want the click event on the document level to<br />
+        //immediately stop the typing mode<br />
+        evt.stopPropagation();<br />
+        }<br />
+        function stopTyping(evt) {<br />
+        document.documentElement.removeEventListener(&quot;keypress&quot;,typeText,false);<br />
+        document.documentElement.removeEventListener(&quot;click&quot;,stopTyping,false);<br />
+        var texto6 = document.getElementById(&quot;texto6&quot;);<br />
+        texto6.firstChild.nodeValue = &quot;Desativado&quot;;<br />
+        typeInitialized = false;<br />
+        }</p>
+      <p>]]&gt; &lt;/script&gt;<br />
+        &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+        &lt;rect x=&quot;140&quot; y=&quot;140&quot; width=&quot;100&quot; height=&quot;100&quot; onclick=&quot;initTyping(evt)&quot; fill=&quot;red&quot;/&gt;<br />
+        &lt;text id=&quot;texto1&quot; x=&quot;15&quot; y=&quot;20&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Alt&lt;/text&gt;<br />
+        &lt;text id=&quot;texto2&quot; x=&quot;15&quot; y=&quot;40&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Shift&lt;/text&gt;<br />
+        &lt;text id=&quot;texto3&quot; x=&quot;15&quot; y=&quot;60&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Ctrl&lt;/text&gt;<br />
+        &lt;text id=&quot;texto4&quot; x=&quot;15&quot; y=&quot;80&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Codigo&lt;/text&gt;<br />
+        &lt;text id=&quot;texto5&quot; x=&quot;15&quot; y=&quot;100&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Caractere&lt;/text&gt;<br />
+        &lt;text id=&quot;texto6&quot; x=&quot;15&quot; y=&quot;120&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Ativacao&lt;/text&gt;<br />
+    &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/tecla.svg&quot; height=&quot;250&quot; width=&quot;250&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/tecla.svg" height="250" width="250" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">Clicar e Arrastar</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot; onmousedown=&quot;desenhar_down(evt)&quot; onmousemove=&quot;desenhar_move(evt)&quot; onmouseup=&quot;desenhar_up(evt)&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      var lapis = false;<br />
+      function desenhar_down(evt){<br />
+      lapis = true;<br />
+      desenhar(evt);<br />
+      }<br />
+      function desenhar_up(evt){<br />
+      lapis = false;<br />
+      }<br />
+      function desenhar_move(evt){<br />
+      if(lapis == true){<br />
+      desenhar(evt);<br />
+      }<br />
+      }<br />
+      function desenhar(evt) {<br />
+      var quadrado = document.getElementById(&quot;quadrado&quot;);<br />
+      quadrado.setAttribute(&quot;x&quot;, evt.clientX);<br />
+      quadrado.setAttribute(&quot;y&quot;, evt.clientY);<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;rect x=&quot;10&quot; id=&quot;quadrado&quot; y=&quot;10&quot; width=&quot;50&quot; height=&quot;50&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;/svg&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/desenhar.svg&quot; height=&quot;250&quot; width=&quot;250&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td>Resultado:</td>
+  </tr>
+  <tr>
+    <td><embed src="arquivos/desenhar.svg" height="250" width="250" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<h3 align="center"><a href="svg_animacao.html">Anima&ccedil;&atilde;o &gt;&gt;</a> (Internet Explorer) </h3>
+<h3 align="center"><a href="svg_filtros.html">Filtros &gt;&gt;</a> (Internet Explorer) </h3>
+</body>
+
+</html>

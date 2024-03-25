@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interpolação</title>
+    <script src="js/animacao.js"></script>
+    <script src="js/convert_swf_to_svg.js"></script>
+</head>
+<body>
+    <table border="1" width="100%">
+    <tr>
+        <td bgcolor="#FF8A8A"><strong>Anima&ccedil;&atilde;o</strong></td>
+      </tr>
+      <tr>
+        <td bgcolor="#CCCCCC"><strong>Anima&ccedil;&atilde;o 1</strong></td>
+      </tr>
+      <tr>
+        <td>Quadro a Quadro - loop<br /><br />
+    <div id="gif" style="width: 200px; height: 200px"></div>
+    <script>
+       var stage_1 = new swiffy.Stage(document.getElementById('gif'), _gif);
+       stage_1.start();
+    </script>	</td>
+      </tr>
+      <tr>
+        <td>Quadro a Quadro - stop<br /><br />
+    <div id="gif_stop" style="width: 200px; height: 200px"></div>
+    <script>
+       var stage_2 = new swiffy.Stage(document.getElementById('gif_stop'), _gif_stop);
+       stage_2.start();
+    </script>	</td>
+      </tr>
+      <tr>
+        <td>Interpola&ccedil;&atilde;o de Movimento<br /><br />
+    <div id="interpolacao_de_movimento" style="width: 200px; height: 200px"></div>
+    <script>
+       var stage_3 = new swiffy.Stage(document.getElementById('interpolacao_de_movimento'), _interpolacao_de_movimento);
+       stage_3.start();
+    </script>	</td>
+      </tr>
+      <tr>
+        <td>Interpola&ccedil;&atilde;o de Tamanho<br /><br />
+    <div id="interpolacao_de_tamanho" style="width: 200px; height: 200px"></div>
+    <script>
+       var stage_4 = new swiffy.Stage(document.getElementById('interpolacao_de_tamanho'), _interpolacao_de_tamanho);
+       stage_4.start();
+    </script>	</td>
+      </tr>
+      <tr>
+        <td>Intarpola&ccedil;&atilde;o de Giro<br /><br />
+    <div id="interpolacao_de_giro" style="width: 200px; height: 200px"></div>
+    <script>
+       var stage_5 = new swiffy.Stage(document.getElementById('interpolacao_de_giro'), _interpolacao_de_giro);
+       stage_5.start();
+    </script>	</td>
+      </tr>
+      <tr>
+        <td>Interpola&ccedil;&atilde;o de Cores<br /><br />
+    <div id="interpolacao_de_cores" style="width: 200px; height: 200px"></div>
+    <script>
+       var stage_6 = new swiffy.Stage(document.getElementById('interpolacao_de_cores'),_interpolacao_de_cores);
+       stage_6.start();
+    </script>	</td>
+      </tr>
+      <tr>
+        <td>Interpola&ccedil;&atilde;o de Transpar&ecirc;ncia<br /><br />
+    <div id="interpolacao_de_transparencia" style="width: 200px; height: 200px"></div>
+    <script>
+       var stage_7 = new swiffy.Stage(document.getElementById('interpolacao_de_transparencia'), _interpolacao_de_transparencia);
+       stage_7.start();
+    </script>	</td>
+      </tr>
+      <tr>
+        <td>Interpola&ccedil;&atilde;o de Forma<br /><br />
+    <div id="interpolacao_de_forma" style="width: 200px; height: 200px"></div>
+    <script>
+       var stage_8 = new swiffy.Stage(document.getElementById('interpolacao_de_forma'), _interpolacao_de_forma);
+       stage_8.start();
+    </script>	</td>
+      </tr>
+      <tr>
+        <td>Linha Guia<br /><br />
+    <div id="linha_guia" style="width: 200px; height: 200px"></div>
+    <script>
+       var stage_9 = new swiffy.Stage(document.getElementById('linha_guia'), _linha_guia);
+       stage_9.start();
+    </script>	</td>
+      </tr>
+      <tr>
+        <td>Interpola&ccedil;&atilde;o de Dire&ccedil;&atilde;o<br /><br />
+    <div id="interpolacao_de_direcao" style="width: 200px; height: 200px"></div>
+    <script>
+       var stage_10 = new swiffy.Stage(document.getElementById('interpolacao_de_direcao'), _interpolacao_de_direcao);
+       stage_10.start();
+    </script>	</td>
+      </tr>
+      <tr>
+        <td>M&aacute;scara<br /><br />
+    <div id="mascara" style="width: 200px; height: 200px"></div>
+    <script>
+       var stage_11 = new swiffy.Stage(document.getElementById('mascara'), _mascara);
+       stage_11.start();
+    </script>	</td>
+      </tr>
+      <tr>
+        <td>Articula&ccedil;&atilde;o<br /><br />
+    <div id="articulacao" style="width: 200px; height: 200px"></div>
+    <script>
+       var stage_12 = new swiffy.Stage(document.getElementById('articulacao'), _articulacao);
+       stage_12.start();
+    </script>	</td>
+      </tr>
+    </table>  
+<table border="1" width="100%">
+    <tr>
+        <td bgcolor="#CCCCCC"><strong>Imagem Quadro-a-Quadro</strong></td>
+      </tr>
+      <tr>
+        <td bgcolor="#CCFFFF"><strong>Quadros por Segundos</strong></td>
+      </tr>
+      <tr>
+        <td><div align="justify">Isto é a velocidade da animação. Ela é medida em <strong>Quadros</strong> por segundos <strong>(QPS)</strong>. Quanto maior a quantidade de quadros por segundo mais perfeita será a animação e maior será o arquivo, assim como mais processmento será exigido no <strong>PC</strong>. Por padrão, no<strong> HTML</strong> abre com a velocidade <strong>24</strong> quadros por segundo (<strong>24 qps</strong>). Já na web, é utilizada a velocidade de <strong>12</strong> quadros por segundo<strong> (12 qps)</strong>, pois isso torna as animações mais leves, ou seja, arquivos menores e consequentemente de trânsito mais fácil na rede, embora deixe um pouco a desejar como animação.</div></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><table border="1">
+          <tr>
+            <td align="center" bgcolor="#CCFFFF"><strong>Imagem Quadro-a-Quadro (V&aacute;rias Imagens)</strong></td>
+            <td align="center" bgcolor="#CCFFFF"><strong>Imagem Quadro-a-Quadro (&Uacute;nica Imagem)</strong></td>
+          </tr>
+          <tr>
+            <td align="left" valign="top"><table width="100%" border="1">
+              <tr>
+                <td align="center" valign="middle"><img src="img/img_1/T1.gif" width="130" height="80"></td>
+                <td align="center" valign="middle"><img src="img/img_1/T2.gif" width="130" height="80"></td>
+                <td align="center" valign="middle"><img src="img/img_1/T3.gif" width="130" height="80"></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle">T1.gif</td>
+                <td align="center" valign="middle">T2.gif</td>
+                <td align="center" valign="middle">T3.gif</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle"><img src="img/img_1/T4.gif" width="130" height="80"></td>
+                <td align="center" valign="middle"><img src="img/img_1/T5.gif" width="130" height="80"></td>
+                <td align="center" valign="middle"><img src="img/img_1/T6.gif" width="130" height="80"></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle">T4.gif</td>
+                <td align="center" valign="middle">T5.gif</td>
+                <td align="center" valign="middle">T6.gif</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle"><img src="img/img_1/T7.gif" width="130" height="80"></td>
+                <td align="center" valign="middle"><img src="img/img_1/T8.gif" width="130" height="80"></td>
+                <td align="center" valign="middle"><img src="img/img_1/T9.gif" width="130" height="80"></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle">T7.gif</td>
+                <td align="center" valign="middle">T8.gif</td>
+                <td align="center" valign="middle">T9.gif</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle"><img src="img/img_1/T10.gif" width="130" height="80"></td>
+                <td align="center" valign="middle"><img src="img/img_1/T11.gif" width="130" height="80"></td>
+                <td align="center" valign="middle"><img src="img/img_1/T12.gif" width="130" height="80"></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle">T10.gif</td>
+                <td align="center" valign="middle">T11.gif</td>
+                <td align="center" valign="middle">T12.gif</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle"><img src="img/img_1/T13.gif" width="130" height="80"></td>
+                <td align="center" valign="middle"><img src="img/img_1/T14.gif" width="130" height="80"></td>
+                <td align="center" valign="middle"><img src="img/img_1/T15.gif" width="130" height="80"></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle">T13.gif</td>
+                <td align="center" valign="middle">T14.gif</td>
+                <td align="center" valign="middle">T15.gif</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle"><img src="img/img_1/T16.gif" width="130" height="80"></td>
+                <td align="center" valign="middle"><img src="img/img_1/T17.gif" width="130" height="80"></td>
+                <td rowspan="2" align="center" valign="middle" bgcolor="#D2FFD2">&nbsp;</td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle">T16.gif</td>
+                <td align="center" valign="middle">T17.gif</td>
+                </tr>
+            </table></td>
+            <td align="center"><table width="100%" border="1">
+              <tr>
+                <td align="center" valign="middle"><img src="img/img_2/dragon_ball_z_no18.gif" width="412" height="712"></td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle">dragon_ball_z_no18.gif</td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table>
+    <table border="1" width="100%">
+      <tr>
+        <td bgcolor="#CCCCCC"><strong>Anima&ccedil;&atilde;o</strong></td>
+      </tr>
+      <tr>
+        <td><table border="1">
+          <tr>
+            <td align="center">play();</td>
+            <td align="center">pause();</td>
+            <td align="center">stop();</td>
+            <td align="center">reset();</td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center">setPlay(int num); </td>
+            <td colspan="2" align="center">setPause(int num); </td>
+          </tr>
+        </table></td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

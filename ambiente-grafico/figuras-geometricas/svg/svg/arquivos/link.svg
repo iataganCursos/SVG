@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="100" style="border:solid">
+<a xlink:href="http://www.w3.org">
+<rect x="30" y="30" width="200" height="40" fill="yellow" stroke="red" stroke-width="2" />
+<text x="130" y="60" style="text-anchor:middle">My button</text>
+</a>
+</svg>

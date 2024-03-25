@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250">
+<rect x="10" y="40" width="40" height="40" fill="red" >
+<animateTransform attributeName="transform" type="translate" from="0,0" to="100,50"
+begin="0s" dur="5s" fill="freeze" repeatCount="indefinite"/>
+</rect>
+</svg>

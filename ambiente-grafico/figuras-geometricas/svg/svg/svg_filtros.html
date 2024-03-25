@@ -1,0 +1,655 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<h2 align="center">Filtros</h2>
+<p align="center">Normal</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;<br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;<br />
+      <br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;<br />
+      width=&quot;400&quot; height=&quot;300&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;filter id=&quot;UmFiltro&quot;&gt;<br />
+      &lt;!-- Insira a definicao do filtro aqui --&gt;</p>
+        <p> &lt;/filter&gt;<br />
+          &lt;/defs&gt;<br />
+          &lt;text style=&quot;filter:url(#UmFiltro)&quot; x=&quot;40&quot; y=&quot;50&quot; font-size=&quot;40&quot; fill=&quot;#ff0000&quot; stroke=&quot;#00ff00&quot; stroke-width=&quot;2&quot;&gt;Aplicando um filtro.&lt;/text&gt;<br />
+          &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_normal.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feBlend</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; <br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</p>
+        <p>&lt;svg width=&quot;100%&quot; height=&quot;100%&quot; version=&quot;1.1&quot;<br />
+          xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;</p>
+      <p>&lt;defs&gt; <br />
+        &lt;linearGradient id=&quot;MyGradient&quot; gradientUnits=&quot;userSpaceOnUse&quot; x1=&quot;100&quot; y1=&quot;0&quot; x2=&quot;300&quot; y2=&quot;0&quot;&gt; <br />
+        &lt;stop offset=&quot;0&quot; style=&quot;stop-color:#000000&quot;/&gt; <br />
+        &lt;stop offset=&quot;.67&quot; style=&quot;stop-color:#ffff00&quot;/&gt; <br />
+        &lt;stop offset=&quot;1&quot; style=&quot;stop-color:#000000&quot;/&gt; <br />
+        &lt;/linearGradient&gt; <br />
+        &lt;filter id=&quot;normal&quot;&gt; <br />
+        &lt;feBlend mode=&quot;normal&quot; in2=&quot;BackgroundImage&quot;/&gt; <br />
+        &lt;/filter&gt; <br />
+        &lt;filter id=&quot;multiply&quot;&gt; <br />
+        &lt;feBlend mode=&quot;multiply&quot; in2=&quot;BackgroundImage&quot;/&gt; <br />
+        &lt;/filter&gt; <br />
+        &lt;filter id=&quot;screen&quot;&gt; <br />
+        &lt;feBlend mode=&quot;screen&quot; in2=&quot;BackgroundImage&quot;/&gt; <br />
+        &lt;/filter&gt; <br />
+        &lt;filter id=&quot;darken&quot;&gt; <br />
+        &lt;feBlend mode=&quot;darken&quot; in2=&quot;BackgroundImage&quot;/&gt; <br />
+        &lt;/filter&gt; <br />
+        &lt;filter id=&quot;lighten&quot;&gt; <br />
+        &lt;feBlend mode=&quot;lighten&quot; in2=&quot;BackgroundImage&quot;/&gt; <br />
+        &lt;/filter&gt; <br />
+        &lt;/defs&gt; </p>
+      <p>&lt;g style=&quot;enable-background: new&quot;&gt; <br />
+        &lt;rect x=&quot;40&quot; y=&quot;20&quot; width=&quot;300&quot; height=&quot;450&quot; style=&quot;fill:url(#MyGradient)&quot;/&gt; <br />
+        &lt;g style=&quot;font-size:75;fill:#888888;fill-opacity:.6&quot;&gt; <br />
+        &lt;text x=&quot;50&quot; y=&quot;90&quot; style=&quot;filter:url(#normal)&quot;&gt;Normal&lt;/text&gt; <br />
+        &lt;text x=&quot;50&quot; y=&quot;180&quot; style=&quot;filter:url(#multiply)&quot;&gt;Multiply&lt;/text&gt; <br />
+        &lt;text x=&quot;50&quot; y=&quot;270&quot; style=&quot;filter:url(#screen)&quot;&gt;Screen&lt;/text&gt; <br />
+        &lt;text x=&quot;50&quot; y=&quot;360&quot; style=&quot;filter:url(#darken)&quot;&gt;Darken&lt;/text&gt; <br />
+        &lt;text x=&quot;50&quot; y=&quot;450&quot; style=&quot;filter:url(#lighten)&quot;&gt;Lighten&lt;/text&gt; <br />
+        &lt;/g&gt; <br />
+        &lt;/g&gt;</p>
+      <p>&lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;510&quot; width=&quot;310&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_feblend.svg" height="550" width="350" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feColorMatrix</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; <br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</p>
+      <p>&lt;svg width=&quot;100%&quot; height=&quot;100%&quot; version=&quot;1.1&quot;<br />
+        xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;</p>
+      <p>&lt;defs&gt; <br />
+        &lt;linearGradient id=&quot;MyGrad&quot; gradientUnits=&quot;userSpaceOnUse&quot; x1=&quot;100&quot; y1=&quot;0&quot; x2=&quot;500&quot; y2=&quot;0&quot;&gt; <br />
+  &lt;stop offset=&quot;0&quot; style=&quot;stop-color:#ff00ff&quot;/&gt; <br />
+  &lt;stop offset=&quot;.33&quot; style=&quot;stop-color:#88ff88&quot;/&gt; <br />
+  &lt;stop offset=&quot;.67&quot; style=&quot;stop-color:#2020ff&quot;/&gt; <br />
+  &lt;stop offset=&quot;1&quot; style=&quot;stop-color:#d00000&quot;/&gt; <br />
+  &lt;/linearGradient&gt; <br />
+  &lt;filter id=&quot;Matrix&quot;&gt; <br />
+  &lt;feColorMatrix type=&quot;matrix&quot; values=&quot;1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0&quot;/&gt; <br />
+  &lt;/filter&gt; <br />
+  &lt;filter id=&quot;Saturate&quot;&gt; <br />
+  &lt;feColorMatrix type=&quot;saturate&quot; values=&quot;0.4&quot;/&gt; <br />
+  &lt;/filter&gt; <br />
+  &lt;filter id=&quot;HueRotate&quot;&gt; <br />
+  &lt;feColorMatrix type=&quot;hueRotate&quot; values=&quot;90&quot;/&gt; <br />
+  &lt;/filter&gt; <br />
+  &lt;filter id=&quot;Luminance&quot;&gt; <br />
+  &lt;feColorMatrix type=&quot;luminanceToAlpha&quot; result=&quot;a&quot;/&gt; <br />
+  &lt;feComposite in=&quot;SourceGraphic&quot; in2=&quot;a&quot; operator=&quot;in&quot;/&gt; <br />
+  &lt;/filter&gt; <br />
+  &lt;/defs&gt; </p>
+      <p>&lt;g style=&quot;font-size:50;fill:url(#MyGrad)&quot;&gt;<br />
+  &lt;text x=&quot;50&quot; y=&quot;60&quot;&gt;Unfiltered&lt;/text&gt; <br />
+  &lt;text x=&quot;50&quot; y=&quot;120&quot; style=&quot;filter:url(#Matrix)&quot;&gt;Matrix&lt;/text&gt; <br />
+  &lt;text x=&quot;50&quot; y=&quot;180&quot; style=&quot;filter:url(#Saturate)&quot;&gt;Saturate&lt;/text&gt; <br />
+  &lt;text x=&quot;50&quot; y=&quot;240&quot; style=&quot;filter:url(#HueRotate)&quot;&gt;HueRotate&lt;/text&gt; <br />
+  &lt;text x=&quot;50&quot; y=&quot;300&quot; style=&quot;filter:url(#Luminance)&quot;&gt;Luminance&lt;/text&gt; <br />
+  &lt;/g&gt; <br />
+  &lt;/svg&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_fecolormatrix.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feComponentTransfer</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; <br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</p>
+        <p>&lt;svg width=&quot;100%&quot; height=&quot;100%&quot; version=&quot;1.1&quot;<br />
+          xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;</p>
+        <p>&lt;defs&gt;<br />
+          &lt;linearGradient id=&quot;MyGrad&quot; gradientUnits=&quot;userSpaceOnUse&quot; x1=&quot;50&quot; y1=&quot;0&quot; x2=&quot;600&quot; y2=&quot;0&quot;&gt;<br />
+  &lt;stop offset=&quot;0&quot; stop-color=&quot;#ff0000&quot; /&gt;<br />
+  &lt;stop offset=&quot;.33&quot; stop-color=&quot;#00ff00&quot; /&gt;<br />
+  &lt;stop offset=&quot;.67&quot; stop-color=&quot;#0000ff&quot; /&gt;<br />
+  &lt;stop offset=&quot;1&quot; stop-color=&quot;#000000&quot; /&gt;<br />
+  &lt;/linearGradient&gt;</p>
+        <p>&lt;filter id=&quot;Identity&quot;&gt;<br />
+  &lt;feComponentTransfer&gt;<br />
+  &lt;feFuncR type=&quot;identity&quot;/&gt;<br />
+  &lt;feFuncG type=&quot;identity&quot;/&gt;<br />
+  &lt;feFuncB type=&quot;identity&quot;/&gt;<br />
+  &lt;feFuncA type=&quot;identity&quot;/&gt;<br />
+  &lt;/feComponentTransfer&gt;<br />
+  &lt;/filter&gt;<br />
+  &lt;filter id=&quot;Table&quot;&gt;<br />
+  &lt;feComponentTransfer&gt;<br />
+  &lt;feFuncR type=&quot;table&quot; tableValues=&quot;0 0 1 1&quot;/&gt;<br />
+  &lt;feFuncG type=&quot;table&quot; tableValues=&quot;1 1 0 0&quot;/&gt;<br />
+  &lt;feFuncB type=&quot;table&quot; tableValues=&quot;0 1 1 0&quot;/&gt;<br />
+  &lt;/feComponentTransfer&gt;<br />
+  &lt;/filter&gt;<br />
+  &lt;filter id=&quot;Linear&quot;&gt;<br />
+  &lt;feComponentTransfer&gt;<br />
+  &lt;feFuncR type=&quot;linear&quot; slope=&quot;.5&quot; intercept=&quot;.25&quot;/&gt;<br />
+  &lt;feFuncG type=&quot;linear&quot; slope=&quot;.5&quot; intercept=&quot;0&quot;/&gt;<br />
+  &lt;feFuncB type=&quot;linear&quot; slope=&quot;.5&quot; intercept=&quot;.5&quot;/&gt;<br />
+  &lt;/feComponentTransfer&gt;<br />
+  &lt;/filter&gt;<br />
+  &lt;filter id=&quot;Gamma&quot;&gt;<br />
+  &lt;feComponentTransfer&gt;<br />
+  &lt;feFuncR type=&quot;gamma&quot; amplitude=&quot;2&quot; exponent=&quot;5&quot; offset=&quot;0&quot;/&gt;<br />
+  &lt;feFuncG type=&quot;gamma&quot; amplitude=&quot;2&quot; exponent=&quot;3&quot; offset=&quot;0&quot;/&gt;<br />
+  &lt;feFuncB type=&quot;gamma&quot; amplitude=&quot;2&quot; exponent=&quot;1&quot; offset=&quot;0&quot;/&gt;<br />
+  &lt;/feComponentTransfer&gt;<br />
+  &lt;/filter&gt;<br />
+  &lt;/defs&gt;</p>
+        <p>&lt;g font-size=&quot;50&quot; font-weight=&quot;bold&quot; fill=&quot;url(#MyGrad)&quot;&gt;<br />
+          &lt;text x=&quot;50&quot; y=&quot;60&quot; filter=&quot;url(#Identity)&quot;&gt;Identity&lt;/text&gt;<br />
+          &lt;text x=&quot;50&quot; y=&quot;120&quot; filter=&quot;url(#Table)&quot;&gt;TableLookup&lt;/text&gt;<br />
+          &lt;text x=&quot;50&quot; y=&quot;180&quot; filter=&quot;url(#Linear)&quot;&gt;LinearFunc&lt;/text&gt;<br />
+          &lt;text x=&quot;50&quot; y=&quot;240&quot; filter=&quot;url(#Gamma)&quot;&gt;GammaFunc&lt;/text&gt;<br />
+          &lt;/g&gt;</p>
+        <p>&lt;/svg&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_fecomponenttransfer.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feGaussianBlur</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; <br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</p>
+      <p>&lt;svg width=&quot;100%&quot; height=&quot;100%&quot; version=&quot;1.1&quot;<br />
+        xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;</p>
+      <p>&lt;defs&gt;<br />
+        &lt;filter id=&quot;Gaussian_Blur&quot;&gt;<br />
+        &lt;feGaussianBlur in=&quot;SourceGraphic&quot; stdDeviation=&quot;5&quot;/&gt;<br />
+        &lt;/filter&gt;<br />
+        &lt;/defs&gt;</p>
+      <p>&lt;ellipse cx=&quot;200&quot; cy=&quot;150&quot; rx=&quot;70&quot; ry=&quot;40&quot;<br />
+        style=&quot;fill:#ff0000;stroke:#ffff00;<br />
+        stroke-width:2;filter:url(#Gaussian_Blur)&quot;/&gt;</p>
+      <p>&lt;/svg&gt;<br />
+      </p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_fegaussianblur.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feMerge and feMergeNode</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; <br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</p>
+      <p>&lt;svg width=&quot;100%&quot; height=&quot;100%&quot; version=&quot;1.1&quot;<br />
+        xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;</p>
+      <p>&lt;defs&gt;<br />
+        &lt;filter id=&quot;test&quot; filterUnits=&quot;objectBoundingBox&quot; x=&quot;0&quot; y=&quot;0&quot; width=&quot;1.5&quot; height=&quot;4&quot;&gt;</p>
+      <p> &lt;feOffset result=&quot;Off1&quot; dx=&quot;15&quot; dy=&quot;20&quot;/&gt;<br />
+  &lt;feFlood style=&quot;flood-color:#ff0000;flood-opacity:0.8&quot;/&gt;<br />
+  &lt;feComposite in2=&quot;Off1&quot; operator=&quot;in&quot; result=&quot;C1&quot;/&gt;</p>
+      <p> &lt;feOffset in=&quot;SourceGraphic&quot; result=&quot;Off2&quot; dx=&quot;30&quot; dy=&quot;40&quot;/&gt;<br />
+  &lt;feFlood style=&quot;flood-color:#ff0000;flood-opacity:0.4&quot;/&gt;<br />
+  &lt;feComposite in2=&quot;Off2&quot; operator=&quot;in&quot; result=&quot;C2&quot;/&gt;</p>
+      <p> &lt;feMerge&gt;<br />
+  &lt;feMergeNode in=&quot;C2&quot;/&gt;<br />
+  &lt;feMergeNode in=&quot;C1&quot;/&gt;<br />
+  &lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;<br />
+  &lt;/feMerge&gt;<br />
+  &lt;/filter&gt;<br />
+  &lt;/defs&gt;</p>
+      <p>&lt;text x=&quot;30&quot; y=&quot;100&quot; style=&quot;font:36px verdana bold;fill:blue;filter:url(#test)&quot;&gt;This is some text!&lt;/text&gt;</p>
+      <p>&lt;/svg&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_femerge.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feMorphology</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; <br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</p>
+        <p>&lt;svg width=&quot;100%&quot; height=&quot;100%&quot; version=&quot;1.1&quot;<br />
+          xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;</p>
+        <p>&lt;defs&gt;<br />
+          &lt;filter id=&quot;Erode1&quot;&gt;<br />
+  &lt;feMorphology operator=&quot;erode&quot; in=&quot;SourceGraphic&quot; radius=&quot;1&quot; /&gt;<br />
+  &lt;/filter&gt;<br />
+  &lt;filter id=&quot;Erode3&quot;&gt;<br />
+  &lt;feMorphology operator=&quot;erode&quot; in=&quot;SourceGraphic&quot; radius=&quot;3&quot; /&gt;<br />
+  &lt;/filter&gt;<br />
+  &lt;filter id=&quot;Erode4&quot;&gt;<br />
+  &lt;feMorphology operator=&quot;erode&quot; in=&quot;SourceGraphic&quot; radius=&quot;4&quot; /&gt;<br />
+  &lt;/filter&gt;<br />
+  &lt;filter id=&quot;Dilate1&quot;&gt;<br />
+  &lt;feMorphology operator=&quot;dilate&quot; in=&quot;SourceGraphic&quot; radius=&quot;1&quot; /&gt;<br />
+  &lt;/filter&gt;<br />
+  &lt;filter id=&quot;Dilate3&quot;&gt;<br />
+  &lt;feMorphology operator=&quot;dilate&quot; in=&quot;SourceGraphic&quot; radius=&quot;3&quot; /&gt;<br />
+  &lt;/filter&gt;<br />
+  &lt;filter id=&quot;Dilate4&quot;&gt;<br />
+  &lt;feMorphology operator=&quot;dilate&quot; in=&quot;SourceGraphic&quot; radius=&quot;4&quot; /&gt;<br />
+  &lt;/filter&gt;<br />
+  &lt;/defs&gt;</p>
+        <p>&lt;g enable-background=&quot;new&quot; &gt;<br />
+          &lt;g font-family=&quot;Verdana&quot; font-size=&quot;50&quot; stroke=&quot;red&quot; stroke-width=&quot;4&quot;&gt;<br />
+  &lt;text x=&quot;50&quot; y=&quot;60&quot;&gt;Unfiltered&lt;/text&gt;<br />
+  &lt;text x=&quot;50&quot; y=&quot;120&quot; filter=&quot;url(#Erode1)&quot;&gt;Erode 1&lt;/text&gt;<br />
+  &lt;text x=&quot;50&quot; y=&quot;180&quot; filter=&quot;url(#Erode3)&quot;&gt;Erode 3&lt;/text&gt;<br />
+  &lt;text x=&quot;50&quot; y=&quot;240&quot; filter=&quot;url(#Erode4)&quot;&gt;Erode 4&lt;/text&gt;<br />
+  &lt;text x=&quot;50&quot; y=&quot;300&quot; filter=&quot;url(#Dilate1)&quot;&gt;Dilate 1&lt;/text&gt;<br />
+  &lt;text x=&quot;50&quot; y=&quot;360&quot; filter=&quot;url(#Dilate3)&quot;&gt;Dilate 3&lt;/text&gt;<br />
+  &lt;text x=&quot;50&quot; y=&quot;420&quot; filter=&quot;url(#Dilate4)&quot;&gt;Dilate 4&lt;/text&gt;<br />
+  &lt;/g&gt;<br />
+  &lt;/g&gt;</p>
+      <p>&lt;/svg&gt;      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_femorphology.svg" height="510" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feOffset</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; <br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</p>
+        <p>&lt;svg width=&quot;100%&quot; height=&quot;100%&quot; version=&quot;1.1&quot;<br />
+          xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;</p>
+        <p>&lt;defs&gt;<br />
+          &lt;filter id=&quot;filter&quot; x=&quot;0&quot; y=&quot;0&quot;&gt;<br />
+  &lt;feGaussianBlur stdDeviation=&quot;5&quot;/&gt;<br />
+  &lt;feOffset dx=&quot;5&quot; dy=&quot;5&quot;/&gt;<br />
+  &lt;/filter&gt;<br />
+  &lt;/defs&gt;</p>
+        <p>&lt;rect width=&quot;90&quot; height=&quot;90&quot; fill=&quot;grey&quot; filter=&quot;url(#filter)&quot;/&gt;<br />
+          &lt;rect width=&quot;90&quot; height=&quot;90&quot; fill=&quot;yellow&quot; stroke=&quot;black&quot;/&gt;</p>
+        <p>&lt;/svg&gt;</p>
+    </td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_feoffset.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feSpecularLighting</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;<br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;<br />
+      <br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;<br />
+      width=&quot;400&quot; height=&quot;300&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;filter id=&quot;UmFiltro&quot;&gt;<br />
+      &lt;!-- Insira a definicao do filtro aqui --&gt;</p>
+        <p> &lt;/filter&gt;<br />
+          &lt;/defs&gt;<br />
+          &lt;text style=&quot;filter:url(#UmFiltro)&quot; x=&quot;40&quot; y=&quot;50&quot; font-size=&quot;40&quot; fill=&quot;#ff0000&quot; stroke=&quot;#00ff00&quot; stroke-width=&quot;2&quot;&gt;Aplicando um filtro.&lt;/text&gt;<br />
+          &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_normal.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feTile</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;<br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;<br />
+      <br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;<br />
+      width=&quot;400&quot; height=&quot;300&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;filter id=&quot;UmFiltro&quot;&gt;<br />
+      &lt;!-- Insira a definicao do filtro aqui --&gt;</p>
+        <p> &lt;/filter&gt;<br />
+          &lt;/defs&gt;<br />
+          &lt;text style=&quot;filter:url(#UmFiltro)&quot; x=&quot;40&quot; y=&quot;50&quot; font-size=&quot;40&quot; fill=&quot;#ff0000&quot; stroke=&quot;#00ff00&quot; stroke-width=&quot;2&quot;&gt;Aplicando um filtro.&lt;/text&gt;<br />
+          &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_normal.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feTurbulence</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;<br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;<br />
+      <br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;<br />
+      width=&quot;400&quot; height=&quot;300&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;filter id=&quot;UmFiltro&quot;&gt;<br />
+      &lt;!-- Insira a definicao do filtro aqui --&gt;</p>
+        <p> &lt;/filter&gt;<br />
+          &lt;/defs&gt;<br />
+          &lt;text style=&quot;filter:url(#UmFiltro)&quot; x=&quot;40&quot; y=&quot;50&quot; font-size=&quot;40&quot; fill=&quot;#ff0000&quot; stroke=&quot;#00ff00&quot; stroke-width=&quot;2&quot;&gt;Aplicando um filtro.&lt;/text&gt;<br />
+          &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_normal.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feDistantLight</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;<br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;<br />
+      <br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;<br />
+      width=&quot;400&quot; height=&quot;300&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;filter id=&quot;UmFiltro&quot;&gt;<br />
+      &lt;!-- Insira a definicao do filtro aqui --&gt;</p>
+        <p> &lt;/filter&gt;<br />
+          &lt;/defs&gt;<br />
+          &lt;text style=&quot;filter:url(#UmFiltro)&quot; x=&quot;40&quot; y=&quot;50&quot; font-size=&quot;40&quot; fill=&quot;#ff0000&quot; stroke=&quot;#00ff00&quot; stroke-width=&quot;2&quot;&gt;Aplicando um filtro.&lt;/text&gt;<br />
+          &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_normal.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">fePointLight</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;<br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;<br />
+      <br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;<br />
+      width=&quot;400&quot; height=&quot;300&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;filter id=&quot;UmFiltro&quot;&gt;<br />
+      &lt;!-- Insira a definicao do filtro aqui --&gt;</p>
+        <p> &lt;/filter&gt;<br />
+          &lt;/defs&gt;<br />
+          &lt;text style=&quot;filter:url(#UmFiltro)&quot; x=&quot;40&quot; y=&quot;50&quot; font-size=&quot;40&quot; fill=&quot;#ff0000&quot; stroke=&quot;#00ff00&quot; stroke-width=&quot;2&quot;&gt;Aplicando um filtro.&lt;/text&gt;<br />
+          &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_normal.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feSpotLight</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;<br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;<br />
+      <br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;<br />
+      width=&quot;400&quot; height=&quot;300&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;filter id=&quot;UmFiltro&quot;&gt;<br />
+      &lt;!-- Insira a definicao do filtro aqui --&gt;</p>
+        <p> &lt;/filter&gt;<br />
+          &lt;/defs&gt;<br />
+          &lt;text style=&quot;filter:url(#UmFiltro)&quot; x=&quot;40&quot; y=&quot;50&quot; font-size=&quot;40&quot; fill=&quot;#ff0000&quot; stroke=&quot;#00ff00&quot; stroke-width=&quot;2&quot;&gt;Aplicando um filtro.&lt;/text&gt;<br />
+          &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_normal.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feComposite</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;<br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;<br />
+      <br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;<br />
+      width=&quot;400&quot; height=&quot;300&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;filter id=&quot;UmFiltro&quot;&gt;<br />
+      &lt;!-- Insira a definicao do filtro aqui --&gt;</p>
+        <p> &lt;/filter&gt;<br />
+          &lt;/defs&gt;<br />
+          &lt;text style=&quot;filter:url(#UmFiltro)&quot; x=&quot;40&quot; y=&quot;50&quot; font-size=&quot;40&quot; fill=&quot;#ff0000&quot; stroke=&quot;#00ff00&quot; stroke-width=&quot;2&quot;&gt;Aplicando um filtro.&lt;/text&gt;<br />
+          &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_normal.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feConvolveMatrix</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;<br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;<br />
+      <br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;<br />
+      width=&quot;400&quot; height=&quot;300&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;filter id=&quot;UmFiltro&quot;&gt;<br />
+      &lt;!-- Insira a definicao do filtro aqui --&gt;</p>
+        <p> &lt;/filter&gt;<br />
+          &lt;/defs&gt;<br />
+          &lt;text style=&quot;filter:url(#UmFiltro)&quot; x=&quot;40&quot; y=&quot;50&quot; font-size=&quot;40&quot; fill=&quot;#ff0000&quot; stroke=&quot;#00ff00&quot; stroke-width=&quot;2&quot;&gt;Aplicando um filtro.&lt;/text&gt;<br />
+          &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_normal.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feDiffuseLighting</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;<br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;<br />
+      <br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;<br />
+      width=&quot;400&quot; height=&quot;300&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;filter id=&quot;UmFiltro&quot;&gt;<br />
+      &lt;!-- Insira a definicao do filtro aqui --&gt;</p>
+        <p> &lt;/filter&gt;<br />
+          &lt;/defs&gt;<br />
+          &lt;text style=&quot;filter:url(#UmFiltro)&quot; x=&quot;40&quot; y=&quot;50&quot; font-size=&quot;40&quot; fill=&quot;#ff0000&quot; stroke=&quot;#00ff00&quot; stroke-width=&quot;2&quot;&gt;Aplicando um filtro.&lt;/text&gt;<br />
+          &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_normal.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feDisplacementMap</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;<br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;<br />
+      <br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;<br />
+      width=&quot;400&quot; height=&quot;300&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;filter id=&quot;UmFiltro&quot;&gt;<br />
+      &lt;!-- Insira a definicao do filtro aqui --&gt;</p>
+        <p> &lt;/filter&gt;<br />
+          &lt;/defs&gt;<br />
+          &lt;text style=&quot;filter:url(#UmFiltro)&quot; x=&quot;40&quot; y=&quot;50&quot; font-size=&quot;40&quot; fill=&quot;#ff0000&quot; stroke=&quot;#00ff00&quot; stroke-width=&quot;2&quot;&gt;Aplicando um filtro.&lt;/text&gt;<br />
+          &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_normal.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feFlood</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;<br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;<br />
+      <br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;<br />
+      width=&quot;400&quot; height=&quot;300&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;filter id=&quot;UmFiltro&quot;&gt;<br />
+      &lt;!-- Insira a definicao do filtro aqui --&gt;</p>
+        <p> &lt;/filter&gt;<br />
+          &lt;/defs&gt;<br />
+          &lt;text style=&quot;filter:url(#UmFiltro)&quot; x=&quot;40&quot; y=&quot;50&quot; font-size=&quot;40&quot; fill=&quot;#ff0000&quot; stroke=&quot;#00ff00&quot; stroke-width=&quot;2&quot;&gt;Aplicando um filtro.&lt;/text&gt;<br />
+          &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_normal.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+<p align="center">feImage</p>
+<table width="100%" border="1">
+  <tr>
+    <td><p>&lt;?xml version=&quot;1.0&quot;?&gt;<br />
+      &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot;<br />
+      &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;<br />
+      <br />
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;<br />
+      width=&quot;400&quot; height=&quot;300&quot;&gt;<br />
+      &lt;defs&gt;<br />
+      &lt;filter id=&quot;UmFiltro&quot;&gt;<br />
+      &lt;feImage xlink:href=&quot;anime.jpg&quot; /&gt;
+    </p>
+        <p> &lt;/filter&gt;<br />
+          &lt;/defs&gt;<br />
+          &lt;text style=&quot;filter:url(#UmFiltro)&quot; x=&quot;40&quot; y=&quot;50&quot; font-size=&quot;50&quot; font-weight=&quot;bold&quot; &gt;Aplicando um filtro.&lt;/text&gt;<br />
+          &lt;/svg&gt;</p></td>
+  </tr>
+  <tr>
+    <td>&lt;embed src=&quot;svg/filter_normal.svg&quot; height=&quot;310&quot; width=&quot;410&quot; type=&quot;image/svg+xml&quot;<br />
+      pluginspage=&quot;http://www.adobe.com/svg/viewer/install/&quot; &gt;&lt;/embed&gt;</td>
+  </tr>
+  <tr>
+    <td align="center"><embed src="arquivos/filter_normal.svg" height="310" width="410" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed></td>
+  </tr>
+</table>
+</body>
+</html>

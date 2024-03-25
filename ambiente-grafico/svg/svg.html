@@ -1,0 +1,3385 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SVG - Gráfico 2D</title>
+
+  <script type="text/javascript" src="js-2d/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js-2d/svg/jquery.svg.js"></script>
+  <style>
+    .A {
+      fill: orange;
+      stroke: brown;
+      stroke-width: 4px;
+    }
+  </style>
+  <style>
+    .A {
+      fill: orange;
+      stroke: brown;
+      stroke-width: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <br>
+  <h1 style="text-align: center;"><span style="color: red;">Introdu\E7\E3o</span><br>
+  </h1>
+  <h2 align="center">SVG</h2>
+  <p align="left">SVG - Scalabre Vector Graphics. Esse
+    formato nada mais
+    é do que um arquivo de texto. Isso mesmo! Um arquivo de texto que
+    podemos abrir em qualquer editor e modificar. Claro que essa
+    modificação deverá respeitar a estrutura de tags do XML e as
+    predefinições do formato, mas o importante é que ele é extremamente
+    acessível. Você pode abri-lo usando um programa com interface gráfica
+    voltada para o desenho rederizado (convertido de texto para gráfico),
+    ou mesmo editá-lo alterando os dados com, por exemplo o Bloco de notas
+    do Windows. O SVG agrada tanto um usuário-padrão desses serviços, que
+    está interessado principalmente na forma visual, como um programador ou
+    gerenciador de servidores que pode lançar mão da alternativa para gerar
+    arquivos mais agradáveis aos olhos (bonitos e bem-feitos) de forma
+    automática, ou seja, criando scripts que geram arquivos sem a
+    intervenção de um usuário.</p>
+  <h2 align="center">Jogos</h2>
+  <p align="left">Jogos? Dá para fazer joguinhos no SVG?
+    Bem, dá para
+    fazer joguinhos cruzando arquivos SVG com Javascript. Pouca gente sabe
+    mas há a possibilidade de animar o SVG. Infelizmente é uma tecnologia
+    nova e pouco suportada por browsers de Internet.</p>
+  <p align="left">Como ao Javascript é uma tecnologia usada
+    largamente,
+    alguns sábios desenvolvedores principiaram a utilizá-la em conjunto com
+    a beleza dos gráficos confeccionados no SVG. Como a quantidade de
+    browsers que abrem arquivos SVG estéticos é muito grande, os joguinhos
+    costuma funcionar em inúmeros deles. Dizem as boas idéias que o SVG
+    será o Flash (SWF) open source. </p>
+  <h2 align="center">SVG no HTML</h2>
+  <p>As linhas de SVG podem ser encaixadas em originais do HTML com
+    o uso
+    do Tag do &lt;embed&gt;, do Tag do &lt;object&gt;, ou
+    do Tag do
+    &lt;iframe&gt;.</p>
+  <hr>
+  <h3>Criando linhas de SVG usando o HTML</h3>
+  <p>Abaixo de você deve ver trás métodos diferentes em como
+    encaixar a
+    lima de SVG no HTML page.</p>
+  <hr>
+  <h3>Usando o Tag do &lt;embed&gt;</h3>
+  <p>O Tag do &lt;embed&gt; é suportado em quase todos os
+    browsers
+    principais, e reserva scripting.</p>
+  <p><strong>Nota:</strong> O visor do ad\F4be SVG
+    recomenda que voc\EA usa o
+    Tag ENCAIXAR ao encaixar SVG no HTML page! Entretanto, se voc\EA quiser
+    criar XHTML v\E1lido, voc\EA n\E3o pode usar o &lt;embed&gt; - o Tag
+    do
+    &lt;embed&gt; n\E3o \E9 alistado em nenhumas especifica\E7\F5es do HTML<br>
+    <br>
+    <strong>Sintaxe:</strong><br>
+  </p>
+  <div id="sintaxe">&lt;embed src="rectangle.svg"
+    height="100"
+    width="300" type="image/svg+xml"<br>
+    pluginspage="http://www.adobe.com/svg/viewer/install/" &gt;</div>
+  <p><strong>Nota</strong>: O atributo do pluginspage
+    aponta a um URL
+    para o plugin ao download.</p>
+  <p><strong>Ponta:</strong> Sustenta\E7\E3o do Internet
+    Explorer um atributo
+    adicional, wmode= " transparente ", que deixou o fundo do HTML page
+    brilhar completamente.</p>
+  <hr>
+  <h3>Usando o Tag do &lt;object&gt;</h3>
+  <p>O Tag do &lt;object&gt; \E9 um Tag HTML4 padr\E3o e \E9
+    suportado em todos
+    os browsers. A desvantagem \E9 que n\E3o reserva scripting a l\EDngua.</p>
+  <p><strong>Nota:</strong> Se voc\EA instalar a vers\E3o a
+    mais atrasada do
+    visor do ad\F4be SVG, as limas de SVG n\E3o trabalhar\E3o ao usar o Tag do
+    &lt;object&gt;.<br>
+    <br>
+    <strong> Sintaxe:</strong><br>
+  </p>
+  <div id="sintaxe">&lt;object data="rectangle.svg"
+    height="100"
+    width="300" type="image/svg+xml"<br>
+    codebase="http://www.adobe.com/svg/viewer/install/" &gt;</div>
+  <p><strong>Nota: </strong>Os pontos do atributo do
+    codebase a um URL
+    para que o plugin download</p>
+  <hr>
+  <h3>Usando o Tag do &lt;iframe&gt;</h3>
+  <p>O Tag do &lt;iframe&gt; trabalha em quase todos os
+    browsers.<br>
+    <br>
+    <strong> Sintaxe:</strong><br>
+  </p>
+  <div id="sintaxe">&lt;iframe src="rectangle.svg"
+    height="100"
+    width="300" type="image/svg+xml" &gt;&lt;/iframe&gt;</div>
+  <hr>
+  <h3>Adicionando elementos de SVG diretamente no c\F3digo do HTML</h3>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td>Arquivo: teste.xml </td>
+      </tr>
+      <tr>
+        <td>&lt;html
+          xmlns="http://www.w3.org/1999/xhtml"&gt;<br>
+          &lt;head&gt;<br>
+          &lt;title&gt;SVG&lt;/title&gt;<br>
+          &lt;/head&gt;<br>
+          &lt;body&gt;<br>
+          &lt;p style="background-color:#FF0000"&gt;This is an HTML
+          paragraph&lt;/p&gt;<br>
+          &lt;svg xmlns="http://www.w3.org/2000/svg" width="300" height="100"
+          style="border:solid" version="1.1" &gt;<br>
+          &lt;circle cx="100" cy="50" r="40" stroke="black" stroke-width="2"
+          fill="red" /&gt;<br>
+          &lt;/svg&gt;<br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top;">
+          <iframe src="arquivos/teste.xml" width="700" height="500" frameborder="1"></iframe>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td bgcolor="#ff8a8a"><strong>Preload</strong></td>
+      </tr>
+      <tr>
+        <td bgcolor="#00ffff">Preload</td>
+      </tr>
+      <tr>
+        <td bgcolor="#ff8a8a"><strong>Fundo</strong></td>
+      </tr>
+      <tr>
+        <td>Fundo Branco</td>
+      </tr>
+      <tr>
+        <td>Fundo Transparente</td>
+      </tr>
+      <tr>
+        <td>Fundo Colorido</td>
+      </tr>
+      <tr>
+        <td>Inserindo uma Imagem de Fundo</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
+
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td bgcolor="#FF8A8A"><strong>Cursor</strong></td>
+      </tr>
+      <tr>
+        <td>Posi&ccedil;&atilde;o do Mouse (x, y)</td>
+      </tr>
+      <tr>
+        <td>Cursor de Estilo</td>
+      </tr>
+      <tr>
+        <td>Criando um Cursor Simples</td>
+      </tr>
+      <tr>
+        <td>Criando um Cursor Animado</td>
+      </tr>
+      <tr>
+        <td>Cursor Tail Effect</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 align="center">Tipos de Imagem</h2>
+  <table width="100%" border="1">
+    <tr>
+      <td width="50%" align="center">Imagem Simples</td>
+      <td width="50%" align="center">Gif Animado</td>
+    </tr>
+    <tr>
+      <td width="50%" align="center">*.jpg / *.png</td>
+      <td width="50%" align="center">*.gif</td>
+    </tr>
+    <tr>
+      <td width="50%" align="center"><img src="img/anime1.jpg" width="100px" /></td>
+      <td width="50%" align="center"><img src="img/anime2.gif" width="100px" /></td>
+    </tr>
+  </table>
+  <h2 align="center">Link estilo Html </h2>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;a xlink:href=&quot;http://www.w3.org&quot;&gt;<br />
+        &lt;rect x=&quot;30&quot; y=&quot;30&quot; width=&quot;200&quot; height=&quot;40&quot; fill=&quot;yellow&quot; stroke=&quot;red&quot; stroke-width=&quot;2&quot; /&gt;<br />
+        &lt;text x=&quot;130&quot; y=&quot;60&quot; style=&quot;text-anchor:middle&quot;&gt;My button&lt;/text&gt;<br />
+        &lt;/a&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="100" style="border:solid">
+          <a xlink:href="http://www.w3.org">
+          <rect x="30" y="30" width="200" height="40" fill="yellow" stroke="red" stroke-width="2" />
+          <text x="130" y="60" style="text-anchor:middle">My button</text>
+          </a>
+        </svg>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td bgcolor="#ff8a8a"><strong>Figuras
+            Geom\E9tricas 2D</strong></td>
+      </tr>
+      <tr>
+        <td>Quadrado<br>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200"
+            style="border: 2px solid black; background-color: rgb(253, 223, 253);">
+            <rect x="50" y="50" width="100" height="100" fill="green" stroke="black" stroke-width="5"></rect>
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: silver;">XML</td>
+        <td style="background-color: silver;">CSS</td>
+        <td style="background-color: silver;">Javascript</td>
+        <td style="background-color: silver;">jQuery</td>
+        <td style="background-color: silver;">JSON</td>
+      </tr>
+      <tr>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"&nbsp;width="200" height="200" style="border: 2px
+          solid black; background-color: rgb(253, 223, 253);"&gt;<br>
+          &nbsp; &nbsp;&lt;rect <br>
+          &nbsp; &nbsp;&nbsp; &nbsp;x="50" <br>
+          &nbsp; &nbsp;&nbsp; &nbsp;y="50" <br>
+          &nbsp; &nbsp;&nbsp; &nbsp;width="100"<br>
+          &nbsp; &nbsp;&nbsp; &nbsp;height="100" <br>
+          &nbsp; &nbsp;&nbsp; &nbsp;fill="green" <br>
+          &nbsp; &nbsp;&nbsp; &nbsp;stroke="black"<br>
+          &nbsp; &nbsp;&nbsp; &nbsp;stroke-width="5"<br>
+          &nbsp; &nbsp;&gt;<br>
+          &nbsp; &nbsp;&lt;/rect&gt;<br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1" width="200" height="200" style="border: 2px solid black;
+          background-color: rgb(253, 223, 253);"&gt;<br>
+          &lt;style type="text/css"&gt;<br>
+          &nbsp;&nbsp; #css-test {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill:green;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke:black;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width:5;<br>
+          &nbsp;&nbsp; }<br>
+          &lt;/style&gt;<br>
+          &nbsp;&nbsp; &lt;rect<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="css-test"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x="50"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y="50"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; width="100"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; height="100"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &nbsp;&nbsp; &lt;/rect&gt;<br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top">&lt;html&gt;<br>
+          &lt;head&gt;<br>
+          &lt;title&gt;Teste SVG&lt;/title&gt;<br>
+          &nbsp;&nbsp; &lt;meta http-equiv="Content-Type"
+          content="text/html;charset=utf-8"&gt;<br>
+          &nbsp;&nbsp; &lt;script type="text/javascript"
+          src="js-2d/jquery-3.4.1.min.js"&gt;&lt;/script&gt;<br>
+          &nbsp;&nbsp; &lt;script type="text/javascript"
+          src="js-2d/svg/jquery.svg.js"&gt;&lt;/script&gt;<br>
+          &lt;/head&gt;<br>
+          &lt;body&gt;<br>
+          &lt;script&gt;<br>
+          $(function() {<br>
+          &nbsp;&nbsp; $('#svgbasics').svg({onLoad: desenhando});<br>
+          });<br>
+          <br>
+          function desenhando(){<br>
+          var svg = $('#svgbasics').svg('get');<br>
+          svg.rect(<br>
+          &nbsp;&nbsp; 50,<br>
+          &nbsp;&nbsp; 50,<br>
+          &nbsp;&nbsp; 100,<br>
+          &nbsp;&nbsp; 100,<br>
+          <br>
+          &nbsp;&nbsp; {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill: 'green',<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke: 'black',<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'stroke-width': 5<br>
+          &nbsp;&nbsp; }<br>
+          );<br>
+          }<br>
+          &lt;/script&gt;<br>
+          &nbsp;&nbsp; &lt;div<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="svgbasics"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; style="width:200;
+          height:200;border: 2px solid black; background-color: rgb(253, 223,
+          253);"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &lt;/div&gt;<br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;</td>
+        <td align="left" valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td>Ret\E2ngulo<br>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200"
+            style="border: 2px solid black; background-color: rgb(253, 223, 253);">
+            <rect x="20" y="50" width="160" height="100" fill="green" stroke="black" stroke-width="5"></rect>
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: silver;">XML</td>
+        <td style="background-color: silver;">CSS</td>
+        <td style="background-color: silver;">Javascript</td>
+        <td style="background-color: silver;">jQuery</td>
+        <td style="background-color: silver;">JSON</td>
+      </tr>
+      <tr>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &nbsp;&nbsp; &lt;rect <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x="20" <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y="50" <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; width="160"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; height="100"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill="green"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke="black"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width="5"<br>
+          &nbsp;&nbsp;&nbsp; &gt;<br>
+          &nbsp;&nbsp;&nbsp; &lt;/rect&gt;<br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &lt;style type="text/css"&gt;<br>
+          &nbsp;&nbsp; #css-test {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill:green;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke:black;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width:5;<br>
+          &nbsp;&nbsp; }<br>
+          &lt;/style&gt;<br>
+          &nbsp;&nbsp; &lt;rect<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="css-test"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x="20" <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y="50" <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; width="160"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; height="100"<br>
+          &nbsp;&nbsp;&nbsp; &gt;<br>
+          &nbsp;&nbsp;&nbsp; &lt;/rect&gt;<br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top">&lt;html&gt;<br>
+          &lt;head&gt;<br>
+          &lt;title&gt;Teste SVG&lt;/title&gt;<br>
+          &nbsp;&nbsp; &lt;meta http-equiv="Content-Type"
+          content="text/html;charset=utf-8"&gt;<br>
+          &nbsp;&nbsp; &lt;script type="text/javascript"
+          src="js-2d/jquery-3.4.1.min.js"&gt;&lt;/script&gt;<br>
+          &nbsp;&nbsp; &lt;script type="text/javascript"
+          src="js-2d/svg/jquery.svg.js"&gt;&lt;/script&gt;<br>
+          &lt;/head&gt;<br>
+          &lt;body&gt;<br>
+          &lt;script&gt;<br>
+          $(function() {<br>
+          &nbsp;&nbsp; $('#svgbasics').svg({onLoad: desenhando});<br>
+          });<br>
+          <br>
+          function desenhando(){<br>
+          var svg = $('#svgbasics').svg('get');<br>
+          svg.rect(<br>
+          &nbsp;&nbsp; 20,<br>
+          &nbsp;&nbsp; 50,<br>
+          &nbsp;&nbsp; 160,<br>
+          &nbsp;&nbsp; 100,<br>
+          <br>
+          &nbsp;&nbsp; {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill: 'green',<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke: 'black',<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'stroke-width': 5<br>
+          &nbsp;&nbsp; }<br>
+          );<br>
+          }<br>
+          &lt;/script&gt;<br>
+          &nbsp;&nbsp; &lt;div<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="svgbasics"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; style="width:200;
+          height:200;border: 2px solid black; background-color: rgb(253, 223,
+          253);"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &lt;/div&gt;<br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;</td>
+        <td align="left" valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td>Ret\E2ngulo com cantos arredondados<br>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200"
+            style="border: 2px solid black; background-color: rgb(253, 223, 253);">
+            <rect x="20" y="50" width="160" height="100" rx="20" fill="green" stroke="black" stroke-width="5"></rect>
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: silver;">XML</td>
+        <td style="background-color: silver;">CSS</td>
+        <td style="background-color: silver;">Javascript</td>
+        <td style="background-color: silver;">jQuery</td>
+        <td style="background-color: silver;">JSON</td>
+      </tr>
+      <tr>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg" version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &nbsp;&nbsp; &lt;rect<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x="20"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y="50"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; width="160"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; height="100"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rx="20"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill="green"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke="black"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width="5"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &nbsp;&nbsp; &lt;/rect&gt;<br>
+          <br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg" version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &lt;style type="text/css"&gt;<br>
+          &nbsp;&nbsp; #css-test {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill:green;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke:black;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width:5;<br>
+          &nbsp;&nbsp; }<br>
+          &lt;/style&gt;<br>
+          &nbsp;&nbsp; &lt;rect<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="css-test"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x="20"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y="50"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; width="160"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; height="100"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rx="20"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &nbsp;&nbsp; &lt;/rect&gt;<br>
+          <br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top">&lt;html&gt;<br>
+          &lt;head&gt;<br>
+          &lt;title&gt;Teste SVG&lt;/title&gt;<br>
+          &nbsp;&nbsp; &lt;meta http-equiv="Content-Type"
+          content="text/html;charset=utf-8"&gt;<br>
+          &nbsp;&nbsp; &lt;script type="text/javascript"
+          src="js-2d/jquery-3.4.1.min.js"&gt;&lt;/script&gt;<br>
+          &nbsp;&nbsp; &lt;script type="text/javascript"
+          src="js-2d/svg/jquery.svg.js"&gt;&lt;/script&gt;<br>
+          &lt;/head&gt;<br>
+          &lt;body&gt;<br>
+          &lt;script&gt;<br>
+          $(function() {<br>
+          &nbsp;&nbsp; $('#svgbasics').svg({onLoad: desenhando});<br>
+          });<br>
+          <br>
+          function desenhando(){<br>
+          var svg = $('#svgbasics').svg('get');<br>
+          svg.rect(<br>
+          &nbsp;&nbsp; 20,<br>
+          &nbsp;&nbsp; 50,<br>
+          &nbsp;&nbsp; 160,<br>
+          &nbsp;&nbsp; 100,<br>
+          &nbsp;&nbsp; {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rx: 20,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill: 'green',<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke: 'black',<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'stroke-width': 5<br>
+          &nbsp;&nbsp; }<br>
+          );<br>
+          }<br>
+          &lt;/script&gt;<br>
+          &nbsp;&nbsp; &lt;div<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="svgbasics"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; style="width:200;
+          height:200;border: 2px solid black; background-color: rgb(253, 223,
+          253);"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &lt;/div&gt;<br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;</td>
+        <td align="left" valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td>C\EDrculo<br>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200"
+            style="border: 2px solid black; background-color: rgb(253, 223, 253);">
+            <circle cx="100" cy="100" r="80" fill="green" stroke="black" stroke-width="5"></circle>
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: silver;">XML</td>
+        <td style="background-color: silver;">CSS</td>
+        <td style="background-color: silver;">Javascript</td>
+        <td style="background-color: silver;">jQuery</td>
+        <td style="background-color: silver;">JSON</td>
+      </tr>
+      <tr>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg" version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &nbsp;&nbsp; &lt;circle<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cx="100"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cy="100"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r="80"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill="green"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke="black"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width="5"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &nbsp;&nbsp; &lt;/circle&gt;<br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg" version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &lt;style type="text/css"&gt;<br>
+          &nbsp;&nbsp; #css-test {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill:green;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke:black;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width:5;<br>
+          &nbsp;&nbsp; }<br>
+          &lt;/style&gt;<br>
+          &nbsp;&nbsp; &lt;circle<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="css-test"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cx="100"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cy="100"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r="80"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &nbsp;&nbsp; &lt;/circle&gt;<br>
+          <br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top">&lt;html&gt;<br>
+          &lt;head&gt;<br>
+          &lt;title&gt;Teste SVG&lt;/title&gt;<br>
+          &nbsp;&nbsp; &lt;meta http-equiv="Content-Type"
+          content="text/html;charset=utf-8"&gt;<br>
+          &nbsp;&nbsp; &lt;script type="text/javascript"
+          src="js-2d/jquery-3.4.1.min.js"&gt;&lt;/script&gt;<br>
+          &nbsp;&nbsp; &lt;script type="text/javascript"
+          src="js-2d/svg/jquery.svg.js"&gt;&lt;/script&gt;<br>
+          &lt;/head&gt;<br>
+          &lt;body&gt;<br>
+          &lt;script&gt;<br>
+          $(function() {<br>
+          &nbsp;&nbsp; $('#svgbasics').svg({onLoad: desenhando});<br>
+          });<br>
+          <br>
+          function desenhando(){<br>
+          var svg = $('#svgbasics').svg('get');<br>
+          svg.circle(<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 80,<br>
+          &nbsp;&nbsp; {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill: 'green',<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke: 'black',<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'stroke-width': 5<br>
+          &nbsp;&nbsp; }<br>
+          );<br>
+          }<br>
+          &lt;/script&gt;<br>
+          &nbsp;&nbsp; &lt;div<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="svgbasics"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; style="width:200;
+          height:200;border: 2px solid black; background-color: rgb(253, 223,
+          253);"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &lt;/div&gt;<br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;</td>
+        <td align="left" valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td>Elipse<br>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200"
+            style="border: 2px solid black; background-color: rgb(253, 223, 253);">
+            <ellipse cx="100" cy="100" ry="40" rx="80" fill="green" stroke="black" stroke-width="5"></ellipse>
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: silver;">XML</td>
+        <td style="background-color: silver;">CSS</td>
+        <td style="background-color: silver;">Javascript</td>
+        <td style="background-color: silver;">jQuery</td>
+        <td style="background-color: silver;">JSON</td>
+      </tr>
+      <tr>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg" version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &nbsp;&nbsp; &lt;ellipse<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cx="100"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cy="100"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rx="80"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ry="40"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill="green"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke="black"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width="5"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &nbsp;&nbsp; &lt;/ellipse&gt;<br>
+          <br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg" version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &lt;style type="text/css"&gt;<br>
+          &nbsp;&nbsp; #css-test {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill:green;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke:black;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width:5;<br>
+          &nbsp;&nbsp; }<br>
+          &lt;/style&gt;<br>
+          &nbsp;&nbsp; &lt;ellipse<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="css-test"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cx="100"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cy="100"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rx="80"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ry="40"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &nbsp;&nbsp; &lt;/ellipse&gt;<br>
+          <br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top">&lt;html&gt;<br>
+          &lt;head&gt;<br>
+          &lt;title&gt;Teste SVG&lt;/title&gt;<br>
+          &nbsp;&nbsp; &lt;meta http-equiv="Content-Type"
+          content="text/html;charset=utf-8"&gt;<br>
+          &nbsp;&nbsp; &lt;script type="text/javascript"
+          src="js-2d/jquery-3.4.1.min.js"&gt;&lt;/script&gt;<br>
+          &nbsp;&nbsp; &lt;script type="text/javascript"
+          src="js-2d/svg/jquery.svg.js"&gt;&lt;/script&gt;<br>
+          &lt;/head&gt;<br>
+          &lt;body&gt;<br>
+          &lt;script&gt;<br>
+          $(function() {<br>
+          &nbsp;&nbsp; $('#svgbasics').svg({onLoad: desenhando});<br>
+          });<br>
+          <br>
+          function desenhando(){<br>
+          var svg = $('#svgbasics').svg('get');<br>
+          svg.ellipse(<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 80,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 40,<br>
+          &nbsp;&nbsp; {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill: 'green',<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke: 'black',<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'stroke-width': 5<br>
+          &nbsp;&nbsp; }<br>
+          );<br>
+          }<br>
+          &lt;/script&gt;<br>
+          &nbsp;&nbsp; &lt;div<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="svgbasics"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; style="width:200;
+          height:200;border: 2px solid black; background-color: rgb(253, 223,
+          253);"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &lt;/div&gt;<br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;</td>
+        <td align="left" valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td>Linha<br>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200"
+            style="border: 2px solid black; background-color: rgb(253, 223, 253);">
+            <line x1="30" y1="30" x2="170" y2="170" stroke="green" stroke-width="5"></line>
+            <line x1="30" y1="170" x2="170" y2="30" stroke="black" stroke-width="5"> </line>
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: silver;">XML</td>
+        <td style="background-color: silver;">CSS</td>
+        <td style="background-color: silver;">Javascript</td>
+        <td style="background-color: silver;">jQuery</td>
+        <td style="background-color: silver;">JSON</td>
+      </tr>
+      <tr>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg" version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &nbsp;&nbsp; &lt;line<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x1="30"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y1="30"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x2="170"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y2="170"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke="green"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width="5"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &nbsp;&nbsp; &lt;/line&gt;<br>
+          &nbsp;&nbsp; &lt;line<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x1="30"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y1="170"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x2="170"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y2="30"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke="black"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width="5"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &nbsp;&nbsp; &lt;/line&gt;<br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg" version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &lt;style type="text/css"&gt;<br>
+          &nbsp;&nbsp; #css-test-1 {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke:green;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width:5;<br>
+          &nbsp;&nbsp; }<br>
+          &nbsp;&nbsp; #css-test-2 {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke:black;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width:5;<br>
+          &nbsp;&nbsp; }<br>
+          &lt;/style&gt;<br>
+          &nbsp;&nbsp; &lt;line<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="css-test-1"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x1="30"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y1="30"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x2="170"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y2="170"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &nbsp;&nbsp; &lt;/line&gt;<br>
+          &nbsp;&nbsp; &lt;line<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="css-test-2"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x1="30"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y1="170"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x2="170"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y2="30"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &nbsp;&nbsp; &lt;/line&gt;<br>
+          <br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top">&lt;html&gt;<br>
+          &lt;head&gt;<br>
+          &lt;title&gt;Teste SVG&lt;/title&gt;<br>
+          &nbsp;&nbsp; &lt;meta http-equiv="Content-Type"
+          content="text/html;charset=utf-8"&gt;<br>
+          &nbsp;&nbsp; &lt;script type="text/javascript"
+          src="js-2d/jquery-3.4.1.min.js"&gt;&lt;/script&gt;<br>
+          &nbsp;&nbsp; &lt;script type="text/javascript"
+          src="js-2d/svg/jquery.svg.js"&gt;&lt;/script&gt;<br>
+          &lt;/head&gt;<br>
+          &lt;body&gt;<br>
+          &lt;script&gt;<br>
+          $(function() {<br>
+          &nbsp;&nbsp; $('#svgbasics').svg({onLoad: desenhando});<br>
+          });<br>
+          <br>
+          function desenhando(){<br>
+          var svg = $('#svgbasics').svg('get');<br>
+          svg.line(<br>
+          &nbsp;&nbsp; 30,<br>
+          &nbsp;&nbsp; 30,<br>
+          &nbsp;&nbsp; 170,<br>
+          &nbsp;&nbsp; 170,<br>
+          &nbsp;&nbsp; {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke:'green',<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'stroke-width':5<br>
+          &nbsp;&nbsp; }<br>
+          );<br>
+          svg.line(<br>
+          &nbsp;&nbsp; 30,<br>
+          &nbsp;&nbsp; 170,<br>
+          &nbsp;&nbsp; 170,<br>
+          &nbsp;&nbsp; 30,<br>
+          &nbsp;&nbsp; {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke:'black',<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'stroke-width':5<br>
+          &nbsp;&nbsp; }<br>
+          );<br>
+          }<br>
+          &lt;/script&gt;<br>
+          &nbsp;&nbsp; &lt;div<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="svgbasics"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; style="width:200;
+          height:200;border: 2px solid black; background-color: rgb(253, 223,
+          253);"<br>
+          &nbsp;&nbsp; &gt;<br>
+          &lt;/div&gt;<br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;</td>
+        <td align="left" valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td>Poli Linha<br>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200"
+            style="border: 2px solid black; background-color: rgb(253, 223, 253);">
+            <polyline points="0,40 40,40 40,80 80,80 80,120 120,120 120,160" fill="white" stroke="#0562DC"
+              stroke-width="4"></polyline>
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: silver;">XML</td>
+        <td style="background-color: silver;">CSS</td>
+        <td style="background-color: silver;">Javascript</td>
+        <td style="background-color: silver;">jQuery</td>
+        <td style="background-color: silver;">JSON</td>
+      </tr>
+      <tr>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg" version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &nbsp;&nbsp; &lt;polyline<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; points="0,40 40,40
+          40,80 80,80 80,120 120,120 120,160"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill="white"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke="#0562DC"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width="4"<br>
+          &nbsp;&nbsp; /&gt;<br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td>Poligon<br>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200"
+            style="border: 2px solid black; background-color: rgb(253, 223, 253);">
+            <polygon points="50,5 100,5 125,30 125,80 100,105 50,105 25,80 25,30" fill="#0562DC" stroke="#000"
+              stroke-width="4"></polygon>
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: silver;">XML</td>
+        <td style="background-color: silver;">CSS</td>
+        <td style="background-color: silver;">Javascript</td>
+        <td style="background-color: silver;">jQuery</td>
+        <td style="background-color: silver;">JSON</td>
+      </tr>
+      <tr>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg" version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &nbsp;&nbsp; &lt;polygon<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; points="50,5 100,5
+          125,30 125,80 100,105 50,105 25,80 25,30"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill="#0562DC"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke="#000"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width="4"<br>
+          &nbsp;&nbsp; /&gt;<br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3 align="center">Cores</h3>
+  <p align="center"><img src="img/cores.jpg" width="510" height="318" /></p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot;
+        height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;rect x=&quot;10&quot; y=&quot;10&quot; width=&quot;10&quot; height=&quot;10&quot;
+        style=&quot;fill:coral&quot; /&gt;<br />
+        &lt;rect x=&quot;30&quot; y=&quot;10&quot; width=&quot;10&quot; height=&quot;10&quot;
+        style=&quot;fill:rgb(255,27,180)&quot; /&gt;<br />
+        &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;10&quot; height=&quot;10&quot;
+        style=&quot;fill:#456&quot; /&gt;<br />
+        &lt;rect x=&quot;70&quot; y=&quot;10&quot; width=&quot;10&quot; height=&quot;10&quot;
+        style=&quot;fill:#CC00CC&quot; /&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+          <rect x="10" y="10" width="10" height="10" style="fill:coral" />
+          <rect x="30" y="10" width="10" height="10" style="fill:rgb(255,27,180)" />
+          <rect x="50" y="10" width="10" height="10" style="fill:#456" />
+          <rect x="70" y="10" width="10" height="10" style="fill:#CC00CC" />
+        </svg></td>
+    </tr>
+  </table>
+  <h2>stroke-dasharray</h2>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot;
+        height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;200&quot; height=&quot;80&quot; stroke=&quot;red&quot;
+        stroke-width=&quot;10&quot; stroke-dasharray=&quot;10, 10&quot; fill=&quot;green&quot;
+        opacity=&quot;0.5&quot;/&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+          <rect x="50" y="10" width="200" height="80" stroke="red" stroke-width="10" stroke-dasharray="10, 10"
+            fill="green" opacity="0.5" />
+        </svg></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;350&quot;
+        height=&quot;200&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;line x1=&quot;10&quot; y1=&quot;10&quot; x2=&quot;330&quot; y2=&quot;10&quot; style=&quot;stroke:black;
+        stroke-width:5;&quot; /&gt;<br />
+        &lt;line x1=&quot;10&quot; y1=&quot;50&quot; x2=&quot;330&quot; y2=&quot;50&quot; style=&quot;stroke:blue;
+        stroke-width:10;&quot; /&gt;<br />
+        &lt;line x1=&quot;10&quot; y1=&quot;90&quot; x2=&quot;330&quot; y2=&quot;90&quot; style=&quot;stroke:red;
+        stroke-width:10; stroke-dasharray: 10&quot; /&gt;<br />
+        &lt;line x1=&quot;10&quot; y1=&quot;130&quot; x2=&quot;330&quot; y2=&quot;130&quot; style=&quot;stroke:green;
+        stroke-width:5; stroke-dasharray: 10,2; fill: none;&quot; /&gt;<br />
+        &lt;line x1=&quot;10&quot; y1=&quot;170&quot; x2=&quot;330&quot; y2=&quot;170&quot; style=&quot;stroke:yellow;
+        stroke-width:20; stroke-dasharray: 10,2,10; fill: none;&quot; /&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="350" height="200" style="border:solid">
+          <line x1="10" y1="10" x2="330" y2="10" style="stroke:black; stroke-width:5;" />
+          <line x1="10" y1="50" x2="330" y2="50" style="stroke:blue; stroke-width:10;" />
+          <line x1="10" y1="90" x2="330" y2="90" style="stroke:red; stroke-width:10; stroke-dasharray: 10" />
+          <line x1="10" y1="130" x2="330" y2="130"
+            style="stroke:green; stroke-width:5; stroke-dasharray: 10,2; fill: none;" />
+          <line x1="10" y1="170" x2="330" y2="170"
+            style="stroke:yellow; stroke-width:20; stroke-dasharray: 10,2,10; fill: none;" />
+        </svg></td>
+    </tr>
+  </table>
+  <br>
+  <h3 align="center">Opacidade</h3>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot;
+        height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;rect x=&quot;80&quot; y=&quot;40&quot; width=&quot;100&quot; height=&quot;40&quot; fill=&quot;yellow&quot;
+        stroke=&quot;red&quot; stroke-width=&quot;10&quot;/&gt;<br />
+        &lt;rect x=&quot;120&quot; y=&quot;20&quot; width=&quot;100&quot; height=&quot;40&quot; fill=&quot;blue&quot;
+        opacity=&quot;0.5&quot; stroke=&quot;green&quot; stroke-width=&quot;10&quot;/&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+          <rect x="80" y="40" width="100" height="40" fill="yellow" stroke="red" stroke-width="10" />
+          <rect x="120" y="20" width="100" height="40" fill="blue" opacity="0.5" stroke="green" stroke-width="10" />
+        </svg></td>
+    </tr>
+  </table>
+  <h3 align="center">Gradiente</h3>
+  <p> SVG Linear</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot;
+        height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;linearGradient id=&quot;g1&quot; gradientUnits=&quot;userSpaceOnUse&quot; x1=&quot;50&quot;
+        y1=&quot;10&quot; x2=&quot;250&quot; y2=&quot;90&quot;&gt;<br />
+        &lt;stop offset=&quot;0&quot; style=&quot;stop-color:blue&quot; /&gt;<br />
+        &lt;stop offset=&quot;0.5&quot; style=&quot;stop-color:yellow&quot; /&gt;<br />
+        &lt;stop offset=&quot;1&quot; style=&quot;stop-color:red&quot; /&gt;<br />
+        &lt;/linearGradient&gt;<br />
+        &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;200&quot; height=&quot;80&quot; fill=&quot;url(#g1)&quot;
+        stroke=&quot;red&quot; stroke-width=&quot;2&quot;/&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+          <linearGradient id="g1" gradientUnits="userSpaceOnUse" x1="50" y1="10" x2="250" y2="90">
+            <stop offset="0" style="stop-color:blue" />
+            <stop offset="0.5" style="stop-color:yellow" />
+            <stop offset="1" style="stop-color:red" />
+          </linearGradient>
+          <rect x="50" y="10" width="200" height="80" fill="url(#g1)" stroke="red" stroke-width="2" />
+        </svg></td>
+    </tr>
+  </table>
+  <p> SVG Radial</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot;
+        height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;radialGradient id=&quot;g2&quot; gradientUnits=&quot;userSpaceOnUse&quot; cx=&quot;150&quot;
+        cy=&quot;50&quot; r=&quot;80&quot; fx=&quot;180&quot; fy=&quot;80&quot; &gt;<br />
+        &lt;stop offset=&quot;0&quot; style=&quot;stop-color:blue&quot; /&gt;<br />
+        &lt;stop offset=&quot;.5&quot; style=&quot;stop-color:yellow&quot; /&gt;<br />
+        &lt;stop offset=&quot;1&quot; style=&quot;stop-color:red&quot; /&gt;<br />
+        &lt;stop offset=&quot;1.5&quot; style=&quot;stop-color:green&quot; /&gt;<br />
+        &lt;/radialGradient&gt;<br />
+        &lt;rect x=&quot;50&quot; y=&quot;10&quot; width=&quot;200&quot; height=&quot;80&quot; fill=&quot;url(#g2)&quot;
+        stroke=&quot;blue&quot; stroke-width=&quot;2&quot;/&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+          <radialGradient id="g2" gradientUnits="userSpaceOnUse" cx="150" cy="50" r="80" fx="180" fy="80">
+            <stop offset="0" style="stop-color:blue" />
+            <stop offset=".5" style="stop-color:yellow" />
+            <stop offset="1" style="stop-color:red" />
+            <stop offset="1.5" style="stop-color:green" />
+          </radialGradient>
+          <rect x="50" y="10" width="200" height="80" fill="url(#g2)" stroke="blue" stroke-width="2" />
+        </svg></td>
+    </tr>
+  </table>
+  <br>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td align="undefined" valign="undefined">
+          <h1 style="text-align: center;">SVG
+            Path</h1>
+          <br>
+          Geometria dada pelo atributo d<br>
+          <br>
+          d = "cmd coords cmd coords ..."<br>
+          <br>
+          Comandos para retas:<br>
+          <br>
+          <ul>
+            <li>M = Mover para</li>
+            <li>L = tra\E7ar Linha at\E9</li>
+            <li>H = tra\E7ar linha Horizontal</li>
+            <li>V = tra\E7ar linha Vertical</li>
+            <li>Z = fechar o caminho</li>
+          </ul>
+          Exemplo:<br>
+          <div
+            style="background: rgb(204, 204, 204) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+            &nbsp;&lt;svg style="border: 2px solid gray;" height="300"
+            width="400"&gt;<br>
+            &nbsp; &nbsp;&lt;style&gt;<br>
+            &nbsp; &nbsp; &nbsp; .A {<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fill:orange;<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;stroke:brown;<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;stroke-width:4px;<br>
+            &nbsp; &nbsp; &nbsp; }<br>
+            &nbsp; &nbsp;&lt;/style&gt;<br>
+            &nbsp; &nbsp; &nbsp; &lt;path d="M 10 10 L 50 50 H 10
+            Z" class="A"&gt;&lt;/path&gt;<br>
+            &nbsp; &nbsp; &nbsp; &lt;path&nbsp; d="M 100 100 L
+            200 50 H 300 V 200 H200 Z" class="A"&gt;&lt;/path&gt;<br>
+            &lt;/svg&gt;
+          </div>
+          <br>
+          <svg style="border: 2px solid gray;" height="300" width="400">
+            `
+            <path d="M 10 10 L 50 50 H 10 Z" class="A"></path>
+            <path d="M 100 100 L 200 50 H 300 V 200 H200 Z" class="A"></path>
+          </svg><br>
+          <br>
+          <h2 style="text-align: center;">Path com coordenadas
+            relativas</h2>
+          <br>
+          Exemplo:<br>
+          <div
+            style="background: rgb(204, 204, 204) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+            &lt;svg width=400 height=300 style="border:2px solid gray"&gt;<br>
+            &nbsp; &nbsp;&lt;style&gt;<br>
+            &nbsp; &nbsp; &nbsp; .A {<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fill:orange;<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;stroke:brown;<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;stroke-width:4px;<br>
+            &nbsp; &nbsp; &nbsp; }<br>
+            &nbsp; &nbsp;&lt;/style&gt;<br>
+            &nbsp;&nbsp; &lt;path class="A" d="M 100,100 l 100,100 h
+            -100 v -100 Z"/&gt;<br>
+            &lt;/svg&gt;
+          </div>
+          <br>
+          <svg width="400" height="300" style="border: 2px solid gray;">
+            <path class="A" d="M 100,100 l 100,100 h -100 v -100 Z"></path><br>
+          </svg>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+
+  <br>
+  <h2 style="text-align: center;">SVG Path Curvas</h2>
+  <p align="center"><img style="width: 510px; height: 318px;" alt="SVG Curva" src="img/curva1.jpg"></p>
+  <p align="center"><img style="width: 510px; height: 319px;" alt="SVG Curvas" src="img/curva2.jpg"></p>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td>Curva 1 </td>
+      </tr>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg"
+          version="1.1" width="300" height="100" style="border:solid"&gt;<br>
+          &lt;path d="<span class="style1">M20,80 C 20,-20
+            280,-20 280,80</span>" fill="none" stroke="red" stroke-width="5"
+          /&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100"
+            style="border: medium solid ;">
+            <path d="M20,80 C 20,-20 280,-20 280,80" fill="none" stroke="red" stroke-width="5">
+            </path>
+          </svg></td>
+      </tr>
+      <tr>
+        <td>Curva 2 </td>
+      </tr>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg"
+          version="1.1" width="300" height="100" style="border:solid"&gt;<br>
+          &lt;path d="<span class="style1">M20,80 C 60,20
+            320,-20 280,80</span>" fill="none" stroke="red" stroke-width="5"
+          /&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100"
+            style="border: medium solid ;">
+            <path d="M20,80 C 60,20 320,-20 280,80" fill="none" stroke="red" stroke-width="5">
+            </path>
+          </svg></td>
+      </tr>
+      <tr>
+        <td>Curva 3 </td>
+      </tr>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg"
+          version="1.1" width="300" height="100" style="border:solid"&gt;<br>
+          &lt;path d="<span class="style1">M20,80 C -40,-10
+            340,-10 280,80</span>" fill="none" stroke="red" stroke-width="5"
+          /&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100"
+            style="border: medium solid ;">
+            <path d="M20,80 C -40,-10 340,-10 280,80" fill="none" stroke="red" stroke-width="5">
+            </path>
+          </svg></td>
+      </tr>
+      <tr>
+        <td>Curva 4 </td>
+      </tr>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg"
+          version="1.1" width="300" height="100" style="border:solid"&gt;<br>
+          &lt;path d="<span class="style1">M20,50 C 20,-60
+            280,160 280,50</span>" fill="none" stroke="red" stroke-width="5"
+          /&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100"
+            style="border: medium solid ;">
+            <path d="M20,50 C 20,-60 280,160 280,50" fill="none" stroke="red" stroke-width="5">
+            </path>
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <h2 align="center">SVG Path: jQuery Curvas</h2>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: rgb(204, 204, 204);"><span style="font-weight: bold;">Insira Este c\F3digo:</span>
+        </td>
+      </tr>
+      <tr>
+        <td align="undefined" valign="undefined">&lt;script
+          type="text/javascript"
+          src="js-2d/jquery-3.4.1.min.js"&gt;&lt;/script&gt;<br>
+          &lt;script type="text/javascript"
+          src="js-2d/svg/jquery.svg.js"&gt;&lt;/script&gt;</td>
+      </tr>
+    </tbody>
+  </table>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td bgcolor="#cccccc"><strong>Path - Curva 1 -
+            Aberta </strong></td>
+      </tr>
+      <tr>
+        <td>&lt;div id="jquery_8" style="width: 300px; height:
+          200px; border: 1px solid #484;"&gt;&lt;/div&gt;<br>
+          &lt;script type="text/javascript"&gt;<br>
+          $(function() {<br>
+          $('#jquery_8').svg({onLoad: svg_8});<br>
+          });<br>
+          function svg_8(svg){<br>
+          <span style="color: rgb(51, 51, 255);" class="style2">var
+            path1 = svg.createPath(); <br>
+            svg.path(path1.move(20,80).curveC(20,-20, 280,-20, 280,80), {fill:
+            'none', stroke: 'red', strokeWidth: 5});</span><br>
+          }<br>
+          &lt;/script&gt;</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  <div id="jquery_8" style="border: 1px solid rgb(68, 136, 68); width: 300px; height: 200px;"></div>
+  <script type="text/javascript">
+    $(function () {
+      $('#jquery_8').svg({ onLoad: svg_8 });
+    });
+    function svg_8(svg) {
+      var path1 = svg.createPath(); svg.path(path1.move(20, 80).curveC(20, -20, 280, -20, 280, 80), { fill: 'none', stroke: 'red', strokeWidth: 5 });
+    }
+  </script>
+  <p>&nbsp;</p>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td bgcolor="#cccccc"><strong>Path - Curva 1 -
+            Fechada </strong></td>
+      </tr>
+      <tr>
+        <td>&lt;div id="jquery_9" style="width: 300px; height:
+          200px; border: 1px solid #484;"&gt;&lt;/div&gt;<br>
+          &lt;script type="text/javascript"&gt;<br>
+          $(function() {<br>
+          $('#jquery_9').svg({onLoad: svg_9});<br>
+          });<br>
+          function svg_9(svg){<br>
+          <span style="color: rgb(51, 51, 255);" class="style2">var
+            path1 = svg.createPath(); <br>
+            svg.path(path1.move(20,80).curveC(20,-20, 280,-20, 280,80)<span style="color: rgb(204, 0, 0);"
+              class="style3">.close()</span>,
+            {fill: 'none', stroke: 'red', strokeWidth: 5});</span><br>
+          }<br>
+          &lt;/script&gt;</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  <div id="jquery_9" style="border: 1px solid rgb(68, 136, 68); width: 300px; height: 200px;"></div>
+  <script type="text/javascript">
+    $(function () {
+      $('#jquery_9').svg({ onLoad: svg_9 });
+    });
+    function svg_9(svg) {
+      var path1 = svg.createPath(); svg.path(path1.move(20, 80).curveC(20, -20, 280, -20, 280, 80).close(), { fill: 'none', stroke: 'red', strokeWidth: 5 });
+    }
+  </script>
+  <p>&nbsp;</p>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td bgcolor="#cccccc"><strong>Path - Mais de
+            uma curva - com linha no meio </strong></td>
+      </tr>
+      <tr>
+        <td>&lt;div id="jquery_10" style="width: 300px; height:
+          200px; border: 1px solid #484;"&gt;&lt;/div&gt;<br>
+          &lt;script type="text/javascript"&gt;<br>
+          $(function() {<br>
+          $('#jquery_10').svg({onLoad: svg_10});<br>
+          });<br>
+          function svg_10(svg){<br>
+          <span style="color: rgb(51, 51, 255);"> var path1 =
+            svg.createPath(); </span><br style="color: rgb(51, 51, 255);">
+          <span style="color: rgb(51, 51, 255);"> svg.path(</span><span style="color: rgb(51, 51, 255);"
+            class="style2">path1.move(50,
+            90).curveC(0, 90, 0, 30, 50, 30).<span class="style3"><span style="color: rgb(204, 0, 0);">line(150,
+                30)</span>.</span>curveC(200,
+            30, 200, 90, 150, 90)</span><span style="color: rgb(51, 51, 255);">, {fill: 'none', stroke:
+            'red', strokeWidth: 5});</span><br>
+          }<br>
+          &lt;/script&gt;</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  <div id="jquery_10" style="border: 1px solid rgb(68, 136, 68); width: 300px; height: 200px;"></div>
+  <script type="text/javascript">
+    $(function () {
+      $('#jquery_10').svg({ onLoad: svg_10 });
+    });
+    function svg_10(svg) {
+      var path1 = svg.createPath(); svg.path(path1.move(50, 90).curveC(0, 90, 0, 30, 50, 30).line(150, 30).curveC(200, 30, 200, 90, 150, 90), { fill: 'none', stroke: 'red', strokeWidth: 5 });
+    }
+  </script>
+  <p>&nbsp;</p>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td bgcolor="#cccccc"><strong>Path - Mais de
+            uma curva - sem linha no meio </strong></td>
+      </tr>
+      <tr>
+        <td>&lt;div id="jquery_10" style="width: 300px; height:
+          200px; border: 1px solid #484;"&gt;&lt;/div&gt;<br>
+          &lt;script type="text/javascript"&gt;<br>
+          $(function() {<br>
+          $('#jquery_10').svg({onLoad: svg_10});<br>
+          });<br>
+          function svg_10(svg){<br>
+          <span style="color: rgb(51, 51, 255);"> var path1 =
+            svg.createPath(); </span><br style="color: rgb(51, 51, 255);">
+          <span style="color: rgb(51, 51, 255);"> svg.path(</span><span style="color: rgb(51, 51, 255);"
+            class="style2">path1.move(50,
+            90).curveC(0, 90, 0, 30, 50, 30).curveC(200, 30, 200, 90, 150, 90)</span><span
+            style="color: rgb(51, 51, 255);">, {fill: 'none', stroke:
+            'red', strokeWidth: 5});</span><br>
+          }<br>
+          &lt;/script&gt;</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  <div id="jquery_11" style="border: 1px solid rgb(68, 136, 68); width: 300px; height: 200px;"></div>
+  <script type="text/javascript">
+    $(function () {
+      $('#jquery_11').svg({ onLoad: svg_11 });
+    });
+    function svg_11(svg) {
+      var path1 = svg.createPath(); svg.path(path1.move(50, 90).curveC(0, 90, 0, 30, 50, 30).curveC(200, 30, 200, 90, 150, 90), { fill: 'none', stroke: 'red', strokeWidth: 5 });
+    }
+  </script>
+  <p>&nbsp;</p>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td bgcolor="#cccccc"><strong>Path - Com cor
+            de Fundo </strong></td>
+      </tr>
+      <tr>
+        <td>&lt;div id="jquery_12" style="width: 300px; height:
+          200px; border: 1px solid #484;"&gt;&lt;/div&gt;<br>
+          &lt;script type="text/javascript"&gt;<br>
+          $(function() {<br>
+          $('#jquery_12').svg({onLoad: svg_12});<br>
+          });<br>
+          function svg_12(svg){<br>
+          <span style="color: black;"> var path1 =
+            svg.createPath(); </span><br style="color: black;">
+          <span style="color: black;"> svg.path(path1.move(50,
+            90).curveC(0, 90, 0, 30, 50, 30).line(150, 30).curveC(200, 30, 200, 90,
+            150, 90), {</span><span style="color: rgb(51, 51, 255);" class="style2">fill: 'blue'</span><span
+            style="color: black;">, stroke: 'red', strokeWidth: 5});</span><br>
+          }<br>
+          &lt;/script&gt;</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  <div id="jquery_12" style="border: 1px solid rgb(68, 136, 68); width: 300px; height: 200px;"></div>
+  <script type="text/javascript">
+    $(function () {
+      $('#jquery_12').svg({ onLoad: svg_12 });
+    });
+    function svg_12(svg) {
+      var path1 = svg.createPath(); svg.path(path1.move(50, 90).curveC(0, 90, 0, 30, 50, 30).line(150, 30).curveC(200, 30, 200, 90, 150, 90), { fill: 'blue', stroke: 'red', strokeWidth: 5 });
+    }
+  </script>
+  <p>&nbsp;</p>
+  <br>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td align="undefined" valign="undefined">Arco<br>
+          <script>
+            function describeArc(x, y, radius, spread, startAngle, endAngle) {
+              var innerStart = polarToCartesian(x, y, radius, endAngle);
+              var innerEnd = polarToCartesian(x, y, radius, startAngle);
+              var outerStart = polarToCartesian(x, y, radius + spread, endAngle);
+              var outerEnd = polarToCartesian(x, y, radius + spread, startAngle);
+              var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+              var d = [
+                "M", outerStart.x, outerStart.y,
+                "A", radius + spread, radius + spread, 0, largeArcFlag, 0, outerEnd.x, outerEnd.y,
+                "L", innerEnd.x, innerEnd.y, "A", radius, radius, 0, largeArcFlag, 1, innerStart.x, innerStart.y, "L", outerStart.x, outerStart.y, "Z"
+              ].join(" ");
+              return d;
+            }
+            function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+              var angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+              return {
+                x: centerX + (radius * Math.cos(angleInRadians)),
+                y: centerY + (radius * Math.sin(angleInRadians))
+              };
+            }
+          </script>
+          <script>
+            path = describeArc(75, 75, 50, 20, 0, 270);
+            valor = '' +
+              '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200" style="border: 2px solid black; background-color: rgb(253, 223, 253);">' +
+              '<path fill="blue" stroke="cyan"stroke-width="4" d="' + path + '"></path>' +
+              '</svg>';
+            document.write(valor);
+          </script>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: rgb(204, 204, 204);" align="undefined" valign="undefined"><span
+            style="font-weight: bold; color: black;">C\F3digo Fonte:</span></td>
+      </tr>
+      <tr>
+        <td align="undefined" valign="undefined">&lt;!DOCTYPE
+          html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+          "http://www.w3.org/TR/html4/strict.dtd"&gt;<br>
+          &lt;html&gt;&lt;head&gt;<br>
+          &lt;meta http-equiv="content-type" content="text/html;
+          charset=ISO-8859-1"&gt;<br>
+          &lt;title&gt;Teste&lt;/title&gt;<br>
+          &lt;script&gt;<br>
+          function describeArc(x, y, radius, spread, startAngle, endAngle){<br>
+          &nbsp;&nbsp;&nbsp; var innerStart = polarToCartesian(x, y,
+          radius, endAngle);<br>
+          &nbsp; &nbsp;&nbsp;&nbsp; var innerEnd =
+          polarToCartesian(x, y, radius, startAngle);<br>
+          &nbsp;&nbsp;&nbsp; var outerStart = polarToCartesian(x, y,
+          radius + spread, endAngle);<br>
+          &nbsp;&nbsp;&nbsp; var outerEnd = polarToCartesian(x, y,
+          radius + spread, startAngle);<br>
+          <br>
+          &nbsp;&nbsp;&nbsp; var largeArcFlag = endAngle - startAngle
+          &lt;= 180 ? "0" : "1";<br>
+          <br>
+          &nbsp;&nbsp;&nbsp; var d = [<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          "M", outerStart.x, outerStart.y,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          "A", radius + spread, radius + spread, 0, largeArcFlag, 0, outerEnd.x,
+          outerEnd.y,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          "L", innerEnd.x, innerEnd.y, <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          "A", radius, radius, 0, largeArcFlag, 1, innerStart.x, innerStart.y, <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          "L", outerStart.x, outerStart.y, "Z"<br>
+          &nbsp;&nbsp;&nbsp; ].join(" ");<br>
+          <br>
+          &nbsp;&nbsp;&nbsp; return d;<br>
+          }<br>
+          <br>
+          function polarToCartesian(centerX, centerY, radius, angleInDegrees) {<br>
+          &nbsp; var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;<br>
+          <br>
+          &nbsp; return {<br>
+          &nbsp;&nbsp;&nbsp; x: centerX + (radius *
+          Math.cos(angleInRadians)),<br>
+          &nbsp;&nbsp;&nbsp; y: centerY + (radius *
+          Math.sin(angleInRadians))<br>
+          &nbsp; };<br>
+          }<br>
+          &lt;/script&gt;<br>
+          <br>
+          &lt;script&gt;<br>
+          <br>
+          path = describeArc(75, 75, 50, 20, 0, 270);<br>
+          <br>
+          valor = ''+<br>
+          '&lt;svg
+          xmlns="http://www.w3.org/2000/svg" version="1.1" width="200"
+          height="200" style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;'+<br>
+          '&lt;path fill="blue" stroke="cyan"stroke-width="4" d="'
+          +path+'"&gt;&lt;/path&gt;'+<br>
+          '&lt;/svg&gt;';<br>
+          <br>
+          document.write(valor);<br>
+          <br>
+          &lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table border="1" width="100%">
+    <tbody>
+      <tr>
+        <td>Linha com 1 pixel de largura<br>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200"
+            style="border: 2px solid black; background-color: rgb(253, 223, 253);">
+            <path stroke="black" fill="none" stroke-width="1px" d="M 10 10 L 190 190"
+              vector-effect="non-scaling-stroke"></path>
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <tbody>
+      <tr>
+        <td style="background-color: silver;">XML</td>
+        <td style="background-color: silver;">CSS</td>
+        <td style="background-color: silver;">Javascript</td>
+        <td style="background-color: silver;">jQuery</td>
+        <td style="background-color: silver;">JSON</td>
+      </tr>
+      <tr>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg" version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &nbsp;&nbsp; &lt;path<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke="black"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill="none"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke-width='1px'<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d='M 10 10 L 190 190'<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          vector-effect="non-scaling-stroke"<br>
+          &nbsp;&nbsp; /&gt;<br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top">&lt;svg
+          xmlns="http://www.w3.org/2000/svg" version="1.1"<br>
+          &nbsp;width="200" height="200"<br>
+          &nbsp;style="border: 2px solid black; background-color: rgb(253,
+          223, 253);"&gt;<br>
+          &lt;style type="text/css"&gt;<br>
+          &nbsp;&nbsp; #css-test {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke:black;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill:none;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'stroke-width':'1px'<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          'vector-effect':'non-scaling-stroke'<br>
+          &nbsp;&nbsp; }<br>
+          &lt;/style&gt;<br>
+          &nbsp;&nbsp; &lt;path<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; id="css-test"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d='M 10 10 L 190 190'<br>
+          &nbsp;&nbsp; /&gt;<br>
+          &lt;/svg&gt;</td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top"></td>
+        <td align="left" valign="top"></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 align="center">Transforma&ccedil;&otilde;es geom&eacute;tricas</h3>
+  <p>&lt;g transform=&quot;translate(x,y)&quot;&gt; .... &lt;/g&gt;</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot;
+        height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;g transform=&quot;translate(150 50)&quot;&gt;<br />
+        &lt;rect width=&quot;15&quot; height=&quot;15&quot; fill=&quot;red&quot;/&gt;<br />
+        &lt;/g&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+        <g transform="translate(150 50)">
+        <rect width="15" height="15" fill="red"/>
+        </g>
+        </svg></td>
+    </tr>
+  </table>
+  <p>&lt;g transform=&quot;rotate(angle)&quot;&gt; .... &lt;/g&gt;</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot;
+        height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;g transform=&quot;translate(145 15) rotate(45)&quot;&gt;<br />
+        &lt;rect width=&quot;50&quot; height=&quot;50&quot; fill=&quot;blue&quot; stroke=&quot;red&quot;
+        stroke-width=&quot;2&quot;/&gt;<br />
+        &lt;/g&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+          <g transform="translate(145 15) rotate(45)">
+          <rect width="50" height="50" fill="blue" stroke="red" stroke-width="2"/>
+          </g>
+        </svg>
+      </td>
+    </tr>
+  </table>
+  <p>&lt;g transform=&quot;rotate(angle, ox, oy)&quot;&gt; .... &lt;/g&gt;</p>
+  <p>&lt;g transform=&quot;scale(sxy)&quot;&gt; .... &lt;/g&gt;</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot;
+        height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;g transform=&quot;translate(5 5) scale(1)&quot;&gt;<br />
+        &lt;rect width=&quot;10&quot; height=&quot;10&quot; fill=&quot;red&quot;/&gt;<br />
+        &lt;/g&gt;<br />
+        &lt;g transform=&quot;translate(20 5) scale(2)&quot;&gt;<br />
+        &lt;rect width=&quot;10&quot; height=&quot;10&quot; fill=&quot;red&quot;/&gt;<br />
+        &lt;/g&gt;<br />
+        &lt;g transform=&quot;translate(45 5) scale(3)&quot;&gt;<br />
+        &lt;rect width=&quot;10&quot; height=&quot;10&quot; fill=&quot;red&quot;/&gt;<br />
+        &lt;/g&gt;<br />
+        &lt;g transform=&quot;translate(80 5) scale(4)&quot;&gt;<br />
+        &lt;rect width=&quot;10&quot; height=&quot;10&quot; fill=&quot;red&quot;/&gt;<br />
+        &lt;/g&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+          <g transform="translate(5 5) scale(1)">
+          <rect width="10" height="10" fill="red"/>
+          </g>
+          <g transform="translate(20 5) scale(2)">
+          <rect width="10" height="10" fill="red"/>
+          </g>
+          <g transform="translate(45 5) scale(3)">
+          <rect width="10" height="10" fill="red"/>
+          </g>
+          <g transform="translate(80 5) scale(4)">
+          <rect width="10" height="10" fill="red"/>
+          </g>
+        </svg>
+      </td>
+    </tr>
+  </table>
+  <p>&lt;g transform=&quot;scale(sx,sy)&quot;&gt; .... &lt;/g&gt;<br />
+    Normal</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;
+        version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;image xlink:href=&quot;img/anime.jpg&quot; x=&quot;10&quot; y=&quot;10&quot; width=&quot;280&quot;
+        height=&quot;80&quot;/&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="100" style="border:solid">
+          <image xlink:href="img/anime.jpg" x="10" y="10" width="280" height="80"/>
+        </svg>
+      </td>
+    </tr>
+  </table>
+  <p>Esticar Horizontalmente</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;
+        version=&quot;1.1&quot; width=&quot;400&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;g transform=&quot;scale(3, 1)&quot;&gt;<br />
+        &lt;image xlink:href=&quot;img/anime.jpg&quot; x=&quot;-80&quot; y=&quot;10&quot; width=&quot;280&quot;
+        height=&quot;80&quot;/&gt;<br />
+        &lt;/g&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="400" height="100" style="border:solid">
+          <g transform="scale(3, 1)">
+          <image xlink:href="img/anime.jpg" x="-80" y="10" width="280" height="80"/>
+          </g>
+        </svg>
+      </td>
+    </tr>
+  </table>
+  <p>Esticar Verticalmente</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;
+        version=&quot;1.1&quot; width=&quot;120&quot; height=&quot;300&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;g transform=&quot;scale(1, 3)&quot;&gt;<br />
+        &lt;image xlink:href=&quot;img/anime.jpg&quot; x=&quot;-80&quot; y=&quot;10&quot; width=&quot;280&quot;
+        height=&quot;80&quot;/&gt;<br />
+        &lt;/g&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="120" height="300" style="border:solid">
+          <g transform="scale(1, 3)">
+          <image xlink:href="img/anime.jpg" x="-80" y="10" width="280" height="80"/>
+          </g>
+        </svg>
+      </td>
+    </tr>
+  </table>
+  <p>&lt;g transform=&quot;skewX(angle)&quot;&gt; .... &lt;/g&gt;</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot;
+        height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;g transform=&quot;translate(100 15) skewX(30)&quot;&gt;<br />
+        &lt;rect width=&quot;50&quot; height=&quot;50&quot; fill=&quot;blue&quot; stroke=&quot;red&quot;
+        stroke-width=&quot;2&quot;/&gt;<br />
+        &lt;/g&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+          <g transform="translate(100 15) skewX(30)">
+          <rect width="50" height="50" fill="blue" stroke="red" stroke-width="2"/>
+          </g>
+        </svg>
+      </td>
+    </tr>
+  </table>
+  <p>&lt;g transform=&quot;skewY(angle)&quot;&gt; .... &lt;/g&gt;</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot;
+        height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;g transform=&quot;translate(100 15) skewY(30)&quot;&gt;<br />
+        &lt;rect width=&quot;50&quot; height=&quot;50&quot; fill=&quot;blue&quot; stroke=&quot;red&quot;
+        stroke-width=&quot;2&quot;/&gt;<br />
+        &lt;/g&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+          <g transform="translate(100 15) skewY(30)">
+          <rect width="50" height="50" fill="blue" stroke="red" stroke-width="2"/>
+          </g>
+        </svg>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table border="1" width="100%">
+    <tr>
+      <td bgcolor="#FF8A8A"><strong>Transforma&ccedil;&otilde;es Geom&eacute;tricas</strong></td>
+    </tr>
+    <tr>
+      <td>Normal<br />
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <image xlink:href="img/anime.jpg" x="50" y="75" width="200" height="149" />
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" x="50" y="75" width="200"
+        height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Tamanho do Gr&aacute;fico<br>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <image xlink:href="img/anime.jpg" id="imagem" x="50" y="75" width="200" height="149" />
+        </svg>
+        <script>
+          document.write("<br>");
+          document.write("Largura da imagem: " + document.getElementById('imagem').getAttribute("width"));
+          document.write("<br>");
+          document.write("Altura da imagem: " + document.getElementById('imagem').getAttribute("height"));
+        </script>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" id="imagem" x="50" y="75"
+        width="200" height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;<br>
+        &lt;script&gt;<br>
+        document.write("&lt;br&gt;");<br>
+        document.write("Largura da imagem:
+        "+document.getElementById('imagem').getAttribute("width"));<br>
+        document.write("&lt;br&gt;");<br>
+        document.write("Altura da imagem:
+        "+document.getElementById('imagem').getAttribute("height"));<br>
+        &lt;/script&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Posi&ccedil;&atilde;o do Gr&aacute;fico<br>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <image xlink:href="img/anime.jpg" id="imagem2" x="50" y="75" width="200" height="149" />
+        </svg>
+        <script>
+          document.write("<br>");
+          document.write("X: " + document.getElementById('imagem2').getAttribute("x"));
+          document.write("<br>");
+          document.write("Y: " + document.getElementById('imagem2').getAttribute("y"));
+        </script>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" id="imagem2" x="50" y="75"
+        width="200" height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;<br>
+        &lt;script&gt;<br>
+        document.write("&lt;br&gt;");<br>
+        document.write("X:
+        "+document.getElementById('imagem2').getAttribute("x"));<br>
+        document.write("&lt;br&gt;");<br>
+        document.write("Y:
+        "+document.getElementById('imagem2').getAttribute("y"));<br>
+        &lt;/script&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Aumentar e Diminuir [width e heigth]
+        <br>
+        Imagem 01<br>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="600"
+          height="600" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <image xlink:href="img/anime.jpg" x="50" y="75" width="400" height="298" />
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="600"
+        height="600" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" x="50" y="75" width="400"
+        height="298"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;
+        <br>
+        <br>
+        Imagem 02<br>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <image xlink:href="img/anime.jpg" x="50" y="75" width="100" height="74.5" />
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" x="50" y="75" width="100"
+        height="74.5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Aumentar e Diminuir [scale(sxy)]<br>
+        Imagem 01<br>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="500"
+          height="500" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <g transform="scale(1.5, 1.5)">
+            <image xlink:href="img/anime.jpg" x="50" y="75" width="200" height="149" />
+          </g>
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp; &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="500"
+        height="500" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;rect x="50"
+        y="75" width="200" height="149" fill="blue" stroke="red"
+        stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;g
+        transform="scale(1.5, 1.5)"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" x="50" y="75" width="200"
+        height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/g&gt;<br>
+        &nbsp;&nbsp; &lt;/svg&gt;
+
+        <br>
+        <br>
+        Imagem 02<br>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <g transform="scale(0.5, 0.5)">
+            <image xlink:href="img/anime.jpg" x="50" y="75" width="200" height="149" />
+          </g>
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp; &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;rect x="50"
+        y="75" width="200" height="149" fill="blue" stroke="red"
+        stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;g
+        transform="scale(0.5, 0.5)"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" x="50" y="75" width="200"
+        height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/g&gt;<br>
+        &nbsp;&nbsp; &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Comprimir e Esticar [width e height]</td>
+    </tr>
+    <tr>
+      <td>Comprimir e Esticar [scale(sx,sy)]<br>
+        Imagem 01<br>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="900"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <g transform="scale(3, 1)">
+            <image xlink:href="img/anime.jpg" x="50" y="75" width="200" height="149" />
+          </g>
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp; &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="900"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;rect x="50"
+        y="75" width="200" height="149" fill="blue" stroke="red"
+        stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;g
+        transform="scale(3, 1)"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" x="50" y="75" width="200"
+        height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/g&gt;<br>
+        &nbsp;&nbsp; &lt;/svg&gt;
+        <br>
+        <br>
+        Imagem 02<br>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="700" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <g transform="scale(1, 3)">
+            <image xlink:href="img/anime.jpg" x="50" y="75" width="200" height="149" />
+          </g>
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp; &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="700" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;rect x="50"
+        y="75" width="200" height="149" fill="blue" stroke="red"
+        stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;g
+        transform="scale(1, 3)"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" x="50" y="75" width="200"
+        height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/g&gt;<br>
+        &nbsp;&nbsp; &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Mover x, y<br />
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <g transform="translate(25 25)">
+            <image xlink:href="img/anime.jpg" x="50" y="75" width="200" height="149" />
+          </g>
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;g transform="translate(25 25)"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" x="50" y="75" width="200"
+        height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/g&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Inverter Horizontalmente<br />
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <image xlink:href="img/anime.jpg" transform="scale(-1,1)" x="-250" y="75" width="200" height="149" />
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" transform="scale(-1,1)"
+        x="-250" y="75" width="200" height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Inverter Verticalmente<br />
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <image xlink:href="img/anime.jpg" transform="scale(1,-1)" x="50" y="-224" width="200" height="149" />
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" transform="scale(1,-1)" x="50"
+        y="-224" width="200" height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Inverter Horizontalmente e Verticalmente<br />
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <image xlink:href="img/anime.jpg" transform="scale(-1,-1)" x="-250" y="-224" width="200" height="149" />
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" transform="scale(-1,-1)"
+        x="-250" y="-224" width="200" height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Transpar&ecirc;ncia<br />
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <image xlink:href="img/anime.jpg" opacity="0.5" x="50" y="75" width="200" height="149" />
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg"opacity="0.5" x="50" y="75"
+        width="200" height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Girar [rotate(angle)]<br />
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <g transform="rotate(45)">
+            <image xlink:href="img/anime.jpg" x="50" y="75" width="200" height="149" />
+          </g>
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;g transform="rotate(45)"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" x="50" y="75" width="200"
+        height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/g&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Girar [rotate(angle, ox, oy)]<br />
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <g transform="rotate(45, 150, 149)">
+            <image xlink:href="img/anime.jpg" x="50" y="75" width="200" height="149" />
+          </g>
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;g transform="rotate(45, 150, 149)"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" x="50" y="75" width="200"
+        height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/g&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Recortar<br />
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <clipPath id="cp1">
+            <circle cx="150" cy="150" r="50" />
+          </clipPath>
+          <image xlink:href="img/anime.jpg" x="50" y="75" width="200" height="149" clip-path="url(#cp1)" />
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;clipPath id="cp1"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;circle cx="150" cy="150" r="50"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/clipPath&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" x="50" y="75" width="200"
+        height="149" clip-path="url(#cp1)"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Distor&ccedil;&atilde;o [skewX]<br />
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <g transform="skewX(30)">
+            <image xlink:href="img/anime.jpg" x="0" y="75" width="200" height="149" />
+          </g>
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;g transform="skewX(30)"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" x="0" y="75" width="200"
+        height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/g&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Distor&ccedil;&atilde;o [skewY]<br />
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <g transform="skewY(30)">
+            <image xlink:href="img/anime.jpg" x="50" y="45" width="200" height="149" />
+          </g>
+        </svg>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;g transform="skewY(30)"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" x="50" y="45" width="200"
+        height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/g&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;
+
+      </td>
+    </tr>
+    <tr>
+      <td>Visivel e Invisivel<br>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="300" style="background-color:#FDDFFD;border: 2px solid black">
+          <rect x="50" y="75" width="200" height="149" fill="blue" stroke="red" stroke-width="5" />
+          <image xlink:href="img/anime.jpg" id="imagem3" x="50" y="75" width="200" height="149" />
+        </svg>
+        <script>
+          // Vis\EDvel
+          document.getElementById('imagem3').style.visibility = "visible";
+          // Invis\EDvel
+          document.getElementById('imagem3').style.visibility = "hidden";
+        </script>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;svg xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+        height="300" style="background-color:#FDDFFD;border: 2px solid
+        black"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;rect x="50" y="75" width="200" height="149" fill="blue"
+        stroke="red" stroke-width="5"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;image xlink:href="img/anime.jpg" id="imagem3" x="50" y="75"
+        width="200" height="149"/&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;/svg&gt;<br>
+        &lt;script&gt;<br>
+        // Vis\EDvel<br>
+        document.getElementById('imagem3').style.visibility = "visible";<br>
+        // Invis\EDvel<br>
+        document.getElementById('imagem3').style.visibility = "hidden";<br>
+        &lt;/script&gt;
+
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <h1 style="text-align: center;"><span style="color: red;">Texto</span><br>
+  </h1>
+
+  <h2 align="center">text - texto</h2>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="300" height="100" style="border:solid"&gt;<br>
+          &lt;text x="40" y="50" font-family="courier new" font-size="40"
+          fill="red" stroke="red" stroke-width="5"&gt; Hello SVG! &lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><svg xmlns="http://www.w3.org/2000/svg" style="border: medium solid currentcolor;" width="300" height="100"
+            version="1.1"><text font-family="courier new" font-size="40" fill="red" stroke="red" stroke-width="5" x="40"
+              y="50"> Hello SVG! </text> </svg></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 align="center">tspan - texto</h2>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="300" height="100" style="border:solid"&gt;<br>
+          &nbsp;&nbsp;&nbsp;&lt;text x="40" y="50" font-family="courier new"
+          font-size="20" fill="black" stroke-width="2"&gt;<br>
+          &nbsp;&nbsp;&nbsp;Texto<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tspan font-size="40"
+          fill="red"&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Texto<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tspan&gt;<br>
+          &nbsp;&nbsp;&nbsp;&lt;/text&gt;<br>
+          &lt; /svg&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><svg xmlns="http://www.w3.org/2000/svg" style="border: medium solid currentcolor;" width="300" height="100"
+            version="1.1"><text font-family="courier new" font-size="20" fill="black" stroke-width="2" x="40" y="50">
+              Texto <tspan font-size="40" fill="red"> Texto </tspan> </text> </svg></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>2º Exemplo</p>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="300" height="100" style="border:solid"&gt;<br>
+          &lt;text x="10" y="1"&gt;<br>
+          &lt;tspan x="10" dy="18"&gt;This is multi-line&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18"&gt;text or text&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18"&gt;with different properties&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18"&gt;that can be produced&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18"&gt;using the tspan element&lt;/tspan&gt;<br>
+          &lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><svg xmlns="http://www.w3.org/2000/svg" style="border: medium solid currentcolor;" width="300" height="100"
+            version="1.1"><text x="10" y="1">
+              <tspan x="10" dy="18">This is
+                multi-line</tspan>
+              <tspan x="10" dy="18">text or text</tspan>
+              <tspan x="10" dy="18">with different properties</tspan>
+              <tspan x="10" dy="18">that
+                can be produced</tspan>
+              <tspan x="10" dy="18">using the tspan element</tspan>
+            </text> </svg></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>font-family</p>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="300" height="100" style="border:solid"&gt;<br>
+          &lt;text x="10" y="1"&gt;<br>
+          &lt;tspan x="10" dy="18" font-family="courier"&gt;Courier&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18"
+          font-family="helvetical"&gt;Helvetical&lt;/tspan&gt;<br>
+          &lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><svg xmlns="http://www.w3.org/2000/svg" style="border: medium solid currentcolor;" width="300" height="100"
+            version="1.1"><text x="10" y="1">
+              <tspan font-family="courier" x="10" dy="18">Courier</tspan>
+              <tspan font-family="helvetical" x="10" dy="18">Helvetical</tspan>
+            </text> </svg></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>font-size</p>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="300" height="100" style="border:solid"&gt;<br>
+          &lt;text x="10" y="1"&gt;<br>
+          &lt;tspan x="10" dy="20" font-size="20"&gt;20&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="40" font-size="40"&gt;40&lt;/tspan&gt;<br>
+          &lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><svg xmlns="http://www.w3.org/2000/svg" style="border: medium solid currentcolor;" width="300" height="100"
+            version="1.1"><text x="10" y="1">
+              <tspan font-size="20" x="10" dy="20">20</tspan>
+              <tspan font-size="40" x="10" dy="40">40</tspan>
+            </text> </svg></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>font-style</p>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="300" height="100" style="border:solid"&gt;<br>
+          &lt;text x="10" y="1"&gt;<br>
+          &lt;tspan x="10" dy="18" font-style="normal"&gt;Normal&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18" font-style="italic"&gt;Italic&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18" font-style="oblique"&gt;Oblique&lt;/tspan&gt;<br>
+          &lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><svg xmlns="http://www.w3.org/2000/svg" style="border: medium solid currentcolor;" width="300" height="100"
+            version="1.1"><text x="10" y="1">
+              <tspan font-style="normal" x="10" dy="18">Normal</tspan>
+              <tspan font-style="italic" x="10" dy="18">Italic</tspan>
+              <tspan font-style="oblique" x="10" dy="18">Oblique</tspan>
+            </text>
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>font-weight</p>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="300" height="100" style="border:solid"&gt;<br>
+          &lt;text x="10" y="1"&gt;<br>
+          &lt;tspan x="10" dy="18" font-weight="normal"&gt;Normal&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18" font-weight="bold"&gt;Bold&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18" font-weight="100"&gt;100&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18" font-weight="900"&gt;900&lt;/tspan&gt;<br>
+          &lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><svg xmlns="http://www.w3.org/2000/svg" style="border: medium solid currentcolor;" width="300" height="100"
+            version="1.1"><text x="10" y="1">
+              <tspan font-weight="normal" x="10" dy="18">Normal</tspan>
+              <tspan font-weight="bold" x="10" dy="18">Bold</tspan>
+              <tspan font-weight="100" x="10" dy="18">100</tspan>
+              <tspan font-weight="900" x="10" dy="18">900</tspan>
+            </text> </svg></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>text-decoration</p>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="300" height="100" style="border:solid"&gt;<br>
+          &lt;text x="10" y="1"&gt;<br>
+          &lt;tspan x="10" dy="18" text-decoration="none"&gt;None&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18"
+          text-decoration="underline"&gt;Underline&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18"
+          text-decoration="line-through"&gt;Line-Through&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18"
+          text-decoration="overline"&gt;Overline&lt;/tspan&gt;<br>
+          &lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><svg xmlns="http://www.w3.org/2000/svg" style="border: medium solid currentcolor;" width="300" height="100"
+            version="1.1"><text x="10" y="1">
+              <tspan text-decoration="none" x="10" dy="18">None</tspan>
+              <tspan text-decoration="underline" x="10" dy="18">Underline</tspan>
+              <tspan text-decoration="line-through" x="10" dy="18">Line-Through</tspan>
+              <tspan text-decoration="overline" x="10" dy="18">Overline</tspan>
+            </text> </svg></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>fill</p>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="300" height="100" style="border:solid"&gt;<br>
+          &lt;text x="10" y="1"&gt;<br>
+          &lt;tspan x="10" dy="18" fill="red"&gt;Red&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="18" fill="green"&gt;Green&lt;/tspan&gt;<br>
+          &lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><svg xmlns="http://www.w3.org/2000/svg" style="border: medium solid currentcolor;" width="300" height="100"
+            version="1.1"><text x="10" y="1">
+              <tspan fill="red" x="10" dy="18">Red</tspan>
+              <tspan fill="green" x="10" dy="18">Green</tspan>
+            </text> </svg></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
+
+  <p>stroke</p>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="300" height="100" style="border:solid"&gt;<br>
+          &lt;text x="10" y="1"&gt;<br>
+          &lt;tspan x="10" dy="40" font-size="40" font-weight="bold"
+          stroke="red"&gt;Red&lt;/tspan&gt;<br>
+          &lt;tspan x="10" dy="40" font-size="40" font-weight="bold"
+          stroke="green"&gt;Green&lt;/tspan&gt;<br>
+          &lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+            <text x="10" y="1">
+              <tspan x="10" dy="40" font-size="40" font-weight="bold" stroke="red">Red</tspan>
+              <tspan x="10" dy="40" font-size="40" font-weight="bold" stroke="green">Green</tspan>
+            </text>
+          </svg>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Baseline-shift</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot;
+        height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;text x=&quot;10&quot; y=&quot;18&quot;&gt;<br />
+        x<br />
+        &lt;tspan style=&quot;baseline-shift:super&quot;&gt;super&lt;/tspan&gt;<br />
+        +y<br />
+        &lt;tspan style=&quot;baseline-shift:sub&quot;&gt;sub&lt;/tspan&gt;<br />
+        +1<br />
+        &lt;/text&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+          <text x="10" y="18">
+            x
+            <tspan style="baseline-shift:super">super</tspan>
+            +y
+            <tspan style="baseline-shift:sub">sub</tspan>
+            +1
+          </text>
+        </svg>
+      </td>
+    </tr>
+  </table>
+  <p>rotate</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;300&quot;
+        height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;text x=&quot;10&quot; y=&quot;18&quot;&gt;<br />
+        &lt;tspan x=&quot;20&quot; dy=&quot;30&quot; rotate=&quot;10 20 30 40 0 50 60 70 0 80 90 0 100 110 120 140 150
+        160 170 180&quot;&gt;that can be produced&lt;/tspan&gt;<br />
+        &lt;/text&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+          <text x="10" y="18">
+            <tspan x="20" dy="30" rotate="10 20 30 40 0 50 60 70 0 80 90 0 100 110 120 140 150 160 170 180">that can be
+              produced</tspan>
+          </text>
+        </svg>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <p>textpadth</p>
+  <table width="100%" border="1">
+    <tr>
+      <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;
+        version=&quot;1.1&quot; width=&quot;300&quot; height=&quot;100&quot; style=&quot;border:solid&quot;&gt;<br />
+        &lt;path id=&quot;duck&quot; d=&quot;M20 20 L20 80 L100 80 L100 20 L200 20 L200 80 L280 80&quot;
+        fill=&quot;none&quot; stroke=&quot;none&quot;/&gt;<br />
+        &lt;text style=&quot;font-size:10&quot;&gt;<br />
+        &lt;textPath xlink:href=&quot;#duck&quot;&gt;<br />
+        We go up, then we go down, then up again around his head. Now we are upside down as we<br />
+        go round his neck and along the bottom to the tail.<br />
+        &lt;/textPath&gt;<br />
+        &lt;/text&gt;<br />
+        &lt;/svg&gt;</td>
+    </tr>
+    <tr>
+      <td>Resultado:</td>
+    </tr>
+    <tr>
+      <td><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"
+          height="100" style="border:solid">
+          <path id="duck" d="M20 20 L20 80 L100 80 L100 20 L200 20 L200 80 L280 80" fill="none" stroke="none" />
+          <text style="font-size:10">
+            <textPath xlink:href="#duck">
+              We go up, then we go down, then up again around his head. Now we are upside down as we
+              go round his neck and along the bottom to the tail.
+            </textPath>
+          </text>
+        </svg></td>
+    </tr>
+  </table>
+  <br>
+  <h1 style="text-align: center; color: red;">Recursos</h1>
+
+
+  <h3> defs – definições de formas<br>
+    use – uso de formas definidas</h3>
+  <table width="100%" border="1">
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg"   xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300"   height="100" style="border:solid"&gt;<br>
+          &lt;defs&gt;<br>
+          &lt;rect id="rect" width="15" height="15" fill="red"/&gt;<br>
+          &lt;/defs&gt;<br>
+          &lt;use x="5" y="5" xlink:href="#rect"/&gt;<br>
+          &lt;use x="30" y="30" xlink:href="#rect"/&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/recursos.svg" height="110" width="310" type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/" &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><embed src="arquivos/recursos.svg" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" width="310" height="110"></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 align="left">g</h3>
+  <table width="100%" border="1">
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid"&gt;<br>
+          &lt;g fill="blue" stroke="red" stroke-width="2"&gt; <br>
+          &lt;rect x="50" y="10" width="100" height="40"/&gt;<br>
+          &lt;rect x="150" y="50" width="100" height="40"/&gt;<br>
+          &lt;/g&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/ggg.svg" height="110" width="310" type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/" &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><embed src="arquivos/ggg.svg" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" width="310" height="110"></td>
+      </tr>
+    </tbody>
+</table>
+  <h3 align="center">Transformações geométricas</h3>
+  <p>&lt;g transform="translate(x,y)"&gt; .... &lt;/g&gt;</p>
+  <table width="100%" border="1">
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid"&gt;<br>
+          &lt;g transform="translate(150 50)"&gt;<br>
+          &lt;rect width="15" height="15" fill="red"/&gt;<br>
+          &lt;/g&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/translate.svg" height="110" width="310" type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/" &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><embed src="arquivos/translate.svg" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" width="310" height="110"></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&lt;g transform="rotate(angle)"&gt; .... &lt;/g&gt;</p>
+  <table width="100%" border="1">
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid"&gt;<br>
+          &lt;g transform="translate(145 15) rotate(45)"&gt;<br>
+          &lt;rect width="50" height="50" fill="blue" stroke="red" stroke-width="2"/&gt;<br>
+          &lt;/g&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/rotacao.svg" height="110" width="310" type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/" &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><embed src="arquivos/rotacao.svg" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" width="310" height="110"></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&lt;g transform="rotate(angle, ox, oy)"&gt; .... &lt;/g&gt;</p>
+  <p>&lt;g transform="scale(sxy)"&gt; .... &lt;/g&gt;</p>
+  <table width="100%" border="1">
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid"&gt;<br>
+          &lt;g transform="translate(5 5) scale(1)"&gt;<br>
+          &lt;rect width="10" height="10" fill="red"/&gt;<br>
+          &lt;/g&gt;<br>
+          &lt;g transform="translate(20 5) scale(2)"&gt;<br>
+          &lt;rect width="10" height="10" fill="red"/&gt;<br>
+          &lt;/g&gt;<br>
+          &lt;g transform="translate(45 5) scale(3)"&gt;<br>
+          &lt;rect width="10" height="10" fill="red"/&gt;<br>
+          &lt;/g&gt;<br>
+          &lt;g transform="translate(80 5) scale(4)"&gt;<br>
+          &lt;rect width="10" height="10" fill="red"/&gt;<br>
+          &lt;/g&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/scale.svg" height="110" width="310" type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/" &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td><embed src="arquivos/scale.svg" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" width="310" height="110"></td>
+      </tr>
+    </tbody>
+</table>
+  <h3>style</h3>
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="300" height="100" style="border:solid"&gt;<br>
+          &lt;rect x="50" y="10" width="200" height="80" style="fill:blue;
+          stroke:red; stroke-width:2"/&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+            <rect x="50" y="10" width="200" height="80" style="fill:blue; stroke:red; stroke-width:2" />
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Style 2 </h3>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="300" height="100" style="border:solid"&gt;<br>
+          &lt;style type="text/css"&gt; &lt;![CDATA[<br>
+          #amarelo {<br>
+          fill: yellow;<br>
+          stroke: green;<br>
+          stroke-width: 10;<br>
+          }<br>
+          ]]&gt; &lt;/style&gt;<br>
+          &lt;rect x="50" y="10" width="200" height="80" id="amarelo"/&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+            <style type="text/css">
+              <![CDATA[
+              #amarelo {
+                fill: yellow;
+                stroke: green;
+                stroke-width: 10;
+              }
+              ]]>
+            </style>
+            <rect x="50" y="10" width="200" height="80" id="amarelo" />
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Style Externo </h3>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>Arquivo: mystyle.svg </td>
+      </tr>
+      <tr>
+        <td>&lt;?xml-stylesheet type="text/css" href="mystyle.css" ?&gt;<br>
+          &lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300"
+          height="100" style="border:solid"&gt;<br>
+          &lt;rect x="50" y="10" width="200" height="80" id="verde"/&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>Arquivo: mystyle.css </td>
+      </tr>
+      <tr>
+        <td>#verde {<br>
+          fill: green;<br>
+          stroke: blue;<br>
+          stroke-width: 10;<br>
+          }</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/mystyle.svg" height="110" width="310"
+          type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/"
+          &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td>
+
+          <embed src="mystyle.svg" height="110" width="310" type="image/svg+xml"
+            pluginspage="http://www.adobe.com/svg/viewer/install/"></embed>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Comentários</h3>
+
+  <table border="1" width="100%">
+
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+          width="300" height="100" style="border:solid"&gt;<br>
+          &lt;!-- ************** Comentario ******************** --&gt;<br>
+          &lt;!-- ************** Exemplo ******************** --&gt;<br>
+          &lt;rect x="50" y="10" width="200" height="80" fill="green"/&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+            <!-- ************** Comentario ******************** -->
+            <!-- ************** Exemplo ******************** -->
+            <rect x="50" y="10" width="200" height="80" fill="green" />
+          </svg></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 align="center">Javascript</h2>
+  <h3 align="center">setAttribute</h3>
+  <table width="100%" border="1">
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250"&gt;<br>
+          &lt;script language="JavaScript"&gt; &lt;![CDATA[<br>
+          function circle_click() {<br>
+          var circle = document.getElementById("circulo");<br>
+          var raio = circle.getAttribute("r");<br>
+          if (raio == 50) {<br>
+          circle.setAttribute("r", 100);<br>
+          } else {<br>
+          circle.setAttribute("r", 50);<br>
+          }<br>
+          }<br>
+          ]]&gt; &lt;/script&gt;<br>
+          &lt;rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/&gt;<br>
+          &lt;circle onclick="circle_click()" id="circulo" cx="125" cy="125" r="50" fill="red"/&gt;<br>
+          &lt;text id="texto" x="15" y="20" font-family="Verdana" font-size="15"&gt;SVG&lt;/text&gt;<br>
+          &lt;text x="15" y="240" font-family="Verdana" font-size="15"&gt;Clique no circulo&lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/atributo.svg" height="250" width="250" type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/" &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><embed src="arquivos/atributo.svg" height="250" width="250" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 align="center">style</h3>
+  <table width="100%" border="1">
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250"&gt;<br>
+          &lt;script language="javascript"&gt; &lt;![CDATA[<br>
+          function circle_click() {<br>
+          var circle = document.getElementById("circulo");<br>
+          var opacidade = circle.style.opacity;<br>
+          if (opacidade == 1) {<br>
+          circle.style.opacity = 0.3;<br>
+          } else {<br>
+          circle.style.opacity = 1;<br>
+          }<br>
+          }<br>
+          ]]&gt; &lt;/script&gt;<br>
+          &lt;rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/&gt;<br>
+          &lt;circle onclick="circle_click()" id="circulo" cx="125" cy="125" r="50" style="opacity:1" fill="red"/&gt;<br>
+          &lt;text id="texto" x="15" y="20" font-family="Verdana" font-size="15"&gt;SVG&lt;/text&gt;<br>
+          &lt;text x="15" y="240" font-family="Verdana" font-size="15"&gt;Clique no circulo&lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/opacidade.svg" height="250" width="250" type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/" &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><embed src="arquivos/propriedade.svg" height="250" width="250" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 align="center">firstChild.nodeValue</h3>
+  <table width="100%" border="1">
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250"&gt;<br>
+          &lt;script language="JavaScript"&gt; &lt;![CDATA[<br>
+          function circle_click() {<br>
+          var txt = document.getElementById("texto");<br>
+          var texto = txt.firstChild.nodeValue;<br>
+          if (texto == "SVG") {<br>
+          txt.firstChild.nodeValue = "Teste";<br>
+          } else {<br>
+          txt.firstChild.nodeValue = "SVG";<br>
+          }<br>
+          }<br>
+          ]]&gt; &lt;/script&gt;<br>
+          &lt;rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/&gt;<br>
+          &lt;circle onclick="circle_click()" id="circulo" cx="125" cy="125" r="50" fill="red"/&gt;<br>
+          &lt;text id="texto" x="15" y="20" font-family="Verdana" font-size="15"&gt;SVG&lt;/text&gt;<br>
+          &lt;text x="15" y="240" font-family="Verdana" font-size="15"&gt;Clique no circulo&lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/value.svg" height="250" width="250" type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/" &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><embed src="arquivos/value.svg" height="250" width="250" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 align="center">className.baseVal</h2>
+  <table width="100%" border="1">
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250"&gt;<br>
+          &lt;style type="text/css"&gt; &lt;![CDATA[<br>
+          .vermelho {<br>
+          fill: red;<br>
+          stroke: blue;<br>
+          stroke-width: 5;<br>
+          }<br>
+          .azul {<br>
+          fill: blue;<br>
+          stroke: green;<br>
+          stroke-width: 10;<br>
+          }<br>
+          ]]&gt; &lt;/style&gt;<br>
+          &lt;script language="JavaScript"&gt; &lt;![CDATA[<br>
+          function circle_click() {<br>
+          var circle = document.getElementById("circulo");<br>
+          var classe = circle.className.baseVal;<br>
+          if (classe == "vermelho") {<br>
+          circle.className.baseVal = "azul";<br>
+          } else {<br>
+          circle.className.baseVal = "vermelho";<br>
+          }<br>
+          }<br>
+          ]]&gt; &lt;/script&gt;<br>
+          &lt;rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/&gt;<br>
+          &lt;circle onclick="circle_click()" id="circulo" cx="125" cy="125" r="50" fill="red"/&gt;<br>
+          &lt;text id="texto" x="15" y="20" font-family="Verdana" font-size="15"&gt;SVG&lt;/text&gt;<br>
+          &lt;text x="15" y="240" font-family="Verdana" font-size="15"&gt;Clique no circulo&lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/classe.svg" height="250" width="250" type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/" &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><embed src="arquivos/classe.svg" height="250" width="250" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 align="center">Visível e Invisível</h2>
+  <table width="100%" border="1">
+    <tbody>
+      <tr>
+        <td>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250"&gt;<br>
+          &lt;style type="text/css"&gt; &lt;![CDATA[<br>
+          .visivelX {<br>
+          visibility: visible;<br>
+          }<br>
+          .invisivelX {<br>
+          visibility: hidden;<br>
+          }<br>
+          ]]&gt; &lt;/style&gt;<br>
+          &lt;script language="JavaScript"&gt; &lt;![CDATA[<br>
+          function circle_click() {<br>
+          var circle = document.getElementById("circulo");<br>
+          var classe = circle.className.baseVal;<br>
+          if (classe == "visivelX") {<br>
+          circle.className.baseVal = "invisivelX";<br>
+          } else {<br>
+          circle.className.baseVal = "visivelX";<br>
+          }<br>
+          }<br>
+          ]]&gt; &lt;/script&gt;<br>
+          &lt;rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/&gt;<br>
+          &lt;circle onclick="circle_click()" cx="125" cy="125" r="50" fill="red"/&gt;<br>
+          &lt;circle id="circulo" class="visivelX" cx="25" cy="25" r="20" fill="green"/&gt;<br>
+          &lt;text x="15" y="240" font-family="Verdana" font-size="15"&gt;Clique no circulo&lt;/text&gt;<br>
+          &lt;/svg&gt;</td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/invisivel.svg" height="250" width="250" type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/" &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><embed src="arquivos/invisivel.svg" height="250" width="250" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 align="center">createElementNS</h2>
+  <table width="100%" border="1">
+    <tbody>
+      <tr>
+        <td><p>&lt;svg<br>
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="100" style="border:solid"&gt;<br>
+          &lt;script language="JavaScript"&gt; &lt;![CDATA[<br>
+          var svgns = "http://www.w3.org/2000/svg";</p>
+            <p>function makeShape(evt) {<br>
+              if ( window.svgDocument == null )<br>
+              svgDocument = evt.target.ownerDocument;<br>
+              var shape = svgDocument.createElementNS(svgns, "circle");<br>
+              shape.setAttributeNS(null, "cx", 25);<br>
+              shape.setAttributeNS(null, "cy", 25);<br>
+              shape.setAttributeNS(null, "r", 20);<br>
+              shape.setAttributeNS(null, "fill", "green");<br>
+              svgDocument.documentElement.appendChild(shape);<br>
+              }<br>
+              ]]&gt; &lt;/script&gt;<br>
+              &lt;g onload="makeShape(evt)"&gt;<br>
+              &lt;/g&gt;<br>
+              &lt;/svg&gt;</p></td>
+      </tr>
+      <tr>
+        <td>&lt;embed src="svg/funcao.svg" height="110" width="310" type="image/svg+xml"<br>
+          pluginspage="http://www.adobe.com/svg/viewer/install/" &gt;&lt;/embed&gt;</td>
+      </tr>
+      <tr>
+        <td>Resultado:</td>
+      </tr>
+      <tr>
+        <td><embed src="arquivos/funcao.svg" height="110" width="310" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/"></td>
+      </tr>
+    </tbody>
+</table>
+</body>
+</html>

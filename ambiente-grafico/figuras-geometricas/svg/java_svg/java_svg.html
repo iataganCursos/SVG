@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<h1 align="center">Java SVG</h1>
+<h2 align="center"><a href="batik-1.7.zip">&lt;&lt;Batik&gt;&gt;</a></h2>
+<p align="center"><img src="java_svg/batik.jpg" width="401" height="301" /></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: atributo.svg </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;250&quot; height=&quot;250&quot;&gt;<br />
+      &lt;script language=&quot;JavaScript&quot;&gt; &lt;![CDATA[<br />
+      function circle_click() {<br />
+      var circle = document.getElementById(&quot;circulo&quot;);<br />
+      var raio = circle.getAttribute(&quot;r&quot;);<br />
+      if (raio == 50) {<br />
+      circle.setAttribute(&quot;r&quot;, 100);<br />
+      } else {<br />
+      circle.setAttribute(&quot;r&quot;, 50);<br />
+      }<br />
+      }<br />
+      ]]&gt; &lt;/script&gt;<br />
+      &lt;rect x=&quot;1&quot; y=&quot;1&quot; width=&quot;248&quot; height=&quot;248&quot; fill=&quot;none&quot; stroke=&quot;blue&quot;/&gt;<br />
+      &lt;circle onclick=&quot;circle_click()&quot; id=&quot;circulo&quot; cx=&quot;125&quot; cy=&quot;125&quot; r=&quot;50&quot; fill=&quot;red&quot;/&gt;<br />
+      &lt;text id=&quot;texto&quot; x=&quot;15&quot; y=&quot;20&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;SVG&lt;/text&gt;<br />
+      &lt;text x=&quot;15&quot; y=&quot;240&quot; font-family=&quot;Verdana&quot; font-size=&quot;15&quot;&gt;Clique no circulo&lt;/text&gt;<br />
+    &lt;/svg&gt;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: SVGTeste.java </strong></td>
+  </tr>
+  <tr>
+    <td><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+import java.io.*;
+// import java.net.URL;
+
+import org.apache.batik.swing.JSVGCanvas;
+import org.apache.batik.dom.svg.SAXSVGDocumentFactory;
+import org.apache.batik.util.XMLResourceDescriptor;
+import org.apache.batik.swing.svg.SVGLoadEventDispatcherAdapter;
+import org.apache.batik.swing.svg.SVGLoadEventDispatcherEvent;
+import org.apache.batik.script.Window;
+import org.w3c.dom.*;
+import org.w3c.dom.events.Event;
+import org.w3c.dom.events.EventListener;
+import org.w3c.dom.events.EventTarget;
+
+public class SVGTeste {
+
+private JButton botao_1;
+public JFrame frame;
+private JLabel label_1;
+
+public JSVGCanvas canvas;
+Document document;
+Window window;
+
+public SVGTeste() {
+frame = new JFrame();
+frame.setTitle("Formulario");
+frame.setSize(400,300);
+frame.setLocation(50, 100);
+
+Container ct = frame.getContentPane();
+ct.setLayout(null);
+
+canvas = new JSVGCanvas();
+File rx = new File("atributo.svg");
+
+        // Forces the canvas to always be dynamic even if the current
+        // document does not contain scripting or animation.
+        canvas.setDocumentState(JSVGCanvas.ALWAYS_DYNAMIC);
+        canvas.addSVGLoadEventDispatcherListener
+            (new SVGLoadEventDispatcherAdapter() {
+                    public void svgLoadEventDispatchStarted
+                        (SVGLoadEventDispatcherEvent e) {
+
+                        document = canvas.getSVGDocument();
+
+                        window = canvas.getUpdateManager().getScriptingEnvironment().createWindow();
+
+				        Element saida = document.getElementById("circulo");
+				        EventTarget t = (EventTarget)saida;
+					 	t.addEventListener("click", new OnClickSaida(), false);
+
+                    }
+                });
+
+
+canvas.setURI(rx.toURI().toString()); 
+
+canvas.setBounds(0,0,250,250);
+ct.add(canvas);
+
+botao_1 = new JButton("Teste");
+
+botao_1.setBounds(251,0,100,25);
+
+ct.add(botao_1);
+
+
+label_1 = new JLabel("Teste");
+
+label_1.setBounds(251,40,150,20);
+
+ct.add(label_1);
+
+Image Icone = Toolkit.getDefaultToolkit().getImage("icon.gif");
+frame.setIconImage(Icone);
+
+frame.setVisible(true);
+
+botao_1.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+
+jTesteEntrada();
+
+}});
+
+
+frame.addWindowListener(new WindowAdapter() {
+public void windowClosing(WindowEvent e) {
+System.exit(0);
+}});
+
+}
+
+public class OnClickSaida implements EventListener {
+    public void handleEvent(Event evt) {
+
+		jTesteSaida();
+
+    }
+}
+
+public void jTesteEntrada(){
+Element circle = document.getElementById("circulo");
+String circ = circle.getAttribute("stroke-width");
+if (circ.equals("5")) {
+circle.setAttribute("stroke", "#00FFFF");
+circle.setAttribute("stroke-width", "10");
+} else {
+circle.setAttribute("stroke", "#0000FF");
+circle.setAttribute("stroke-width", "5");
+}
+repintar();
+}
+
+public void jTesteSaida(){
+if(label_1.getText().equals("Teste")){
+label_1.setText("SVG");
+} else {
+label_1.setText("Teste");
+}
+}
+
+public void repintar(){
+canvas.getUpdateManager().getUpdateRunnableQueue().invokeLater(new Runnable() {
+public void run() {
+canvas.repaint();
+}
+});}
+
+public static void main(String[] args) {
+new SVGTeste();
+}
+}</pre></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: java_comp.bat </strong></td>
+  </tr>
+  <tr>
+    <td>C:\PROGRA~1\Java\JDK16~1.0_1\bin\javac  -classpath batik.jar SVGTeste.java </td>
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Arquivo: java_exec.bat </strong></td>
+  </tr>
+  <tr>
+    <td>java -classpath batik.jar;  SVGTeste</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

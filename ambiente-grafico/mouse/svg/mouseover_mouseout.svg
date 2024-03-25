@@ -1,0 +1,20 @@
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="340" style="background-color:#FDDFFD;overflow: hidden;">
+          <script language="JavaScript" type="text/javascript"> <![CDATA[
+function circle_mouseover_3(evt) {
+var circle = document.getElementById("circulo_3");
+var cor = circle.getAttribute("fill");
+circle.setAttribute("fill", "red");
+}
+
+function circle_mouseout_3(evt) {
+var circle = document.getElementById("circulo_3");
+var cor = circle.getAttribute("fill");
+circle.setAttribute("fill", "green");
+}
+
+]]> </script>
+          <circle onmouseover="circle_mouseover_3(evt)" onmouseout="circle_mouseout_3(evt)" id="circulo_3" cx="100" cy="160" r="50" fill="green" stroke="black" stroke-width="5"/>
+          <text x="15" y="20" font-family="Verdana" font-size="15">OnMouseOver</text>
+          <text x="15" y="40" font-family="Verdana" font-size="15">OnMouseOut</text>
+          <text x="15" y="320" font-family="Verdana" font-size="15">Passe o Mouse</text>
+        </svg>

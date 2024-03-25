@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Mouse</title>
+<script language="javascript" src="js/jquery.min.js"></script>
+<script language="javascript" src="js/jquery.svg.js"></script>
+<script language="javascript" src="js/jquery-latest.js"></script>
+<script language="javascript" src="js/jQuery_mousewheel_plugin.js"></script>
+<script language="javascript">
+var intOverallDelta = 0;
+var mensagem =  "";
+var ex = 0;
+</script>
+</head>
+
+<body id="xbody">
+<table border="1">
+  <tr>
+    <td colspan="2" bgcolor="#CCCCCC"><strong>Eventos - Mouse</strong></td>
+  </tr>
+  <tr>
+    <td bgcolor="#00FFFF"><strong>Exemplo</strong></td>
+    <td bgcolor="#00FFFF"><strong>C&oacute;digo Fonte</strong></td>
+  </tr>
+  <tr>
+    <td> OnClick<br />
+        <!-- Begin onclick -->
+        <div id="_mouse_1" style="width: 200px; height: 340px;float:left;background-color:#FDDFFD;"></div>
+      <script type="text/javascript">
+   $(function() {
+      $('#_mouse_1').svg({onLoad: _svg_1});
+      $('#x_circulo_1').bind("click",function(e){
+         _mouseCirculo_1();
+         return false;
+      });
+   });
+   function _svg_1(svg)
+   {
+      svg.circle(100, 160, 50, {id: 'x_circulo_1', fill: 'green', stroke: 'black', strokeWidth: 5});
+      svg.text(15, 20,  "OnClick", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 40,  "", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 60,  "", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 80,  "", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 100, "", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 240, "", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 260, "", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 280, "", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 300, "", {fontFamily: "Verdana", fontSize: "15"});
+      svg.text(15, 320, "Clique no circulo", {fontFamily: "Verdana", fontSize: "15"});
+   }
+   function _mouseCirculo_1()
+   {
+      var circle = document.getElementById('x_circulo_1');
+      var cor = circle.getAttribute('fill');
+      if (cor == "green")
+	  {
+         circle.setAttribute("fill", "red");
+	  }
+      else
+	  {
+         circle.setAttribute("fill", "green");
+	  }
+   }
+  </script>
+        <!-- End onclick --></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>DoubleClick<br />
+        <!-- Begin DoubleClick -->
+<embed src="svg/doubleclick.svg" height="350" width="210" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed>
+        <!-- End DoubleClick --></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>3 ou Mais  Cliques<br />
+        <!-- Bebin 3 ou mais cliques -->
+<embed src="svg/click3.svg" height="350" width="210" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed>
+        <!-- End 3 ou mais Cliques -->    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>OnMouseOver OnMouseOut<br />
+        <!-- Begin OnMouseOver OnMouseOut -->
+<embed src="svg/mouseover_mouseout.svg" height="350" width="210" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed>
+<!-- End OnMouseOver OnMouseOut --></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>OnMouseDown e OnMouseUp<br />
+        <!-- Begin OnMouseDown OnMouseUp -->
+<embed src="svg/mousedown_mouseup.svg" height="350" width="210" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed>
+        <!-- End OnMouseDown OnMouseUp --></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Bot&atilde;o Esquerdo, Bot&atilde;o Central, Bot&atilde;o Direito<br />
+        <!-- Bot&atilde;o Esquerdo -->
+        <div id="jquery_1" style="width: 200px; height: 340px;float:left;background-color:#FDDFFD;"></div><div style="width:5px; height:5px; float:left"></div>
+      <script type="text/javascript">
+$(function() {
+$('#jquery_1').svg({onLoad: svg_1});
+$('#circle1').bind("click",function(e){
+circle_click1();
+return false;
+});
+});
+function svg_1(svg){
+svg.circle(100, 160, 50, {id: "circle1", fill: 'green', stroke: 'black', strokeWidth: 5});
+svg.text(15, 20, "Botão Esquerdo", {fontFamily: "Verdana", fontSize: "15"});
+svg.text(15, 320, "Clique no circulo", {fontFamily: "Verdana", fontSize: "15"});
+}
+function circle_click1() {
+var circle = document.getElementById("circle1");
+var cor = circle.getAttribute("fill");
+if (cor == "green")
+circle.setAttribute("fill", "red");
+else
+circle.setAttribute("fill", "green");
+}
+  </script>
+        <!-- Bot&atilde;o Central -->
+        <div id="jquery_5" style="width: 200px; height: 340px;float:left;background-color:#FDDFFD;"></div><div style="width:5px; height:5px; float:left"></div>
+      <script type="text/javascript">
+$(function() {
+$('#jquery_5').svg({onLoad: svg_5});
+$('#circle5').bind("mousedown",function(e){
+if(e.which == 2){
+circle_click5();
+}
+return false;
+});
+});
+function svg_5(svg){
+svg.circle(100, 160, 50, {id: "circle5", fill: 'green', stroke: 'black', strokeWidth: 5});
+svg.text(15, 20, "Botão Central", {fontFamily: "Verdana", fontSize: "15"});
+svg.text(15, 320, "Clique no circulo", {fontFamily: "Verdana", fontSize: "15"});
+}
+function circle_click5() {
+var circle = document.getElementById("circle5");
+var cor = circle.getAttribute("fill");
+if (cor == "green")
+circle.setAttribute("fill", "red");
+else
+circle.setAttribute("fill", "green");
+}
+  </script>
+        <!-- Bot&atilde;o Direito -->
+        <div id="jquery_4" style="width: 200px; height: 340px;float:left;background-color:#FDDFFD;"></div>
+      <script type="text/javascript">
+$(function() {
+$('#jquery_4').svg({onLoad: svg_4});
+$('#circle').bind("contextmenu",function(e){
+circle_click();
+return false;
+});
+});
+function svg_4(svg){
+svg.circle(100, 160, 50, {id: "circle", fill: 'green', stroke: 'black', strokeWidth: 5});
+svg.text(15, 20, "Botão Direito", {fontFamily: "Verdana", fontSize: "15"});
+svg.text(15, 320, "Clique no circulo", {fontFamily: "Verdana", fontSize: "15"});
+}
+function circle_click() {
+var circle = document.getElementById("circle");
+var cor = circle.getAttribute("fill");
+if (cor == "green")
+circle.setAttribute("fill", "red");
+else
+circle.setAttribute("fill", "green");
+}
+  </script>    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Posi&ccedil;&atilde;o do Mouse (coordenadas x, y)<br />
+<embed src="svg/tudo.svg" height="350" width="210" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed>
+<embed src="svg/interno.svg" height="350" width="210" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed>
+<embed src="svg/externo.svg" height="350" width="210" type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" ></embed>    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Bot&atilde;o de Rolagem<br /><div id="tela" style="position:fixed; top:0px; left:0px; width:100%; height:100%; background-image: url(tela.png); background-repeat: repeat; display: none;"><div><input type="button" onClick="ocultar()" value="Clique aqui para ocultar o botão de rolagem!"></div>
+	
+<div id="mousex" style="width: 200px; height: 340px;float:left;background-color:#FDDFFD;">
+<div><font face="Verdana" style="size:15">Gire<br />o botão de rolagem<br />do mouse AQUI!</font><br />&nbsp;</div>
+<div id="textox1" style='visibility:hidden'></div>
+<div id="textox2" style='visibility:hidden'></div>
+</div>
+	
+</div>
+<input type="button" onClick="exibir()" value="Clique AQUI para exibir o botão de rolagem!"><br /><br /><br />&nbsp;
+<script language="javascript">
+function ocultar() {
+document.getElementById('tela').style.display = 'none';
+}
+function exibir() {
+document.getElementById('tela').style.display = 'block';
+}
+</script>
+<script type="text/javascript">
+$('#mousex').mousewheel(function(objEvent, intDelta){
+mensagem = "";
+if(intDelta > 0){
+intOverallDelta++;
+mensagem += "Para cima = "+ intDelta + ";";
+} else  if(intDelta < 0){
+intOverallDelta--;
+mensagem += "Para baixo = " + intDelta  +";";
+}
+var mensagem2 = "valor = " + intOverallDelta + ";";
+
+$("#textox1").text(mensagem);
+$("#textox2").text(mensagem2);
+
+$("#textox1").css("visibility","visible");
+$("#textox2").css("visibility","visible");
+return false;
+});
+</script>	</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Barras de rolagem<br />
+      <a href="jqueryd.html" target="_blank">Clique AQUI para exibir a Barras de rolagem</a><br />
+      <br />
+      <br />
+    <br />
+    <br /></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

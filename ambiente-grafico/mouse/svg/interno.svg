@@ -1,0 +1,16 @@
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="340" style="background-color:#FDDFFD;overflow: hidden;">
+          <script language="JavaScript" type="text/javascript"> <![CDATA[
+function circle_mouse(evt) {
+var texto1 = document.getElementById("texto1");
+var texto2 = document.getElementById("texto2");
+texto1.firstChild.nodeValue = "screenX="+evt.screenX+", screenY="+evt.screenY;
+texto2.firstChild.nodeValue = "clientX="+evt.clientX+", clientY="+evt.clientY;
+}
+
+]]> </script>
+          <text x="15" y="20" font-family="Verdana" font-size="15">Interno</text>
+          <text id="texto1" x="15" y="60" font-family="Verdana" font-size="12">screen</text>
+          <text id="texto2" x="15" y="80" font-family="Verdana" font-size="12">client</text>
+          <rect onmousemove="circle_mouse(evt)" id="circulo_5" x="50" y="110" width="100" height="100" fill="green" stroke="black" stroke-width="1"/>
+          <text x="15" y="320" font-family="Verdana" font-size="15">Passe o Mouse</text>
+      </svg>

@@ -1,0 +1,20 @@
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="340" style="background-color:#FDDFFD;overflow: hidden;">
+          <script language="JavaScript" type="text/javascript"> <![CDATA[
+function circle_mouseup_4(evt) {
+var circle = document.getElementById("circulo_4");
+var cor = circle.getAttribute("fill");
+circle.setAttribute("fill", "green");
+}
+
+function circle_mousedown_4(evt) {
+var circle = document.getElementById("circulo_4");
+var cor = circle.getAttribute("fill");
+circle.setAttribute("fill", "red");
+}
+
+]]> </script>
+          <circle onmouseup="circle_mouseup_4(evt)" onmousedown="circle_mousedown_4(evt)" id="circulo_4" cx="100" cy="160" r="50" fill="green" stroke="black" stroke-width="5"/>
+          <text x="15" y="20" font-family="Verdana" font-size="15">OnMouseDown</text>
+          <text x="15" y="40" font-family="Verdana" font-size="15">OnMouseUp</text>
+          <text x="15" y="320" font-family="Verdana" font-size="15">Clique no circulo</text>
+        </svg>

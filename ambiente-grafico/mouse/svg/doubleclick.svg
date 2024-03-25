@@ -1,0 +1,20 @@
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="340" style="background-color:#FDDFFD;overflow: hidden;">
+          <script language="JavaScript" type="text/javascript"> <![CDATA[
+function circle_click_2(evt) {
+var circle = document.getElementById("circulo_2");
+var cor = circle.getAttribute("fill");
+if (evt.detail==2){
+if (cor == "green") {
+circle.setAttribute("fill", "red");
+} else {
+circle.setAttribute("fill", "green");
+}
+}
+}
+]]> </script>
+          <circle onclick="circle_click_2(evt)" id="circulo_2" cx="100" cy="160" r="50" fill="green" stroke="black" stroke-width="5"/>
+          <text x="15" y="20" font-family="Verdana" font-size="15">DoubleClick</text>
+          <text x="15" y="300" font-family="Verdana" font-size="15">Clique duas vezes
+              <tspan x="15" dy="18">no circulo</tspan>
+          </text>
+        </svg>
