@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style type="text/css">
+@import "css/jquery.svg.css";
+</style>
+<script type="text/javascript" src="js/jquery-1.3.2.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+</head>
+
+<body>
+<p><a href="index.html">&lt;&lt; Voltar</a></p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Um Clique - sem tag script </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_1&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_1').svg({onLoad: svg_1});<br />
+      });<br />
+      function svg_1(svg){<br />
+      svg.circle(100, 100, 100, {onclick: &quot;circle_click(evt)&quot;, fill: 'blue', stroke: 'red', strokeWidth: 5});<br />
+      }<br />
+      function circle_click(evt) {<br />
+      var circle = evt.target;<br />
+      var currentRadius = circle.getAttribute(&quot;r&quot;);<br />
+if (currentRadius == 100)<br />
+circle.setAttribute(&quot;r&quot;, currentRadius*2);<br />
+else<br />
+circle.setAttribute(&quot;r&quot;, currentRadius*0.5);<br />
+}<br />
+&lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_1" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_1').svg({onLoad: svg_1});
+});
+function svg_1(svg){
+svg.circle(100, 100, 100, {onclick: "circle_click(evt)", fill: 'blue', stroke: 'red', strokeWidth: 5});
+}
+function circle_click(evt) {
+var circle = evt.target;
+var currentRadius = circle.getAttribute("r");
+  if (currentRadius == 100)
+      circle.setAttribute("r", currentRadius*2);
+  else
+      circle.setAttribute("r", currentRadius*0.5);
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Um Clique - com tag script </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_2&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_2').svg({onLoad: svg_2});<br />
+      });<br />
+      function svg_2(svg){<br />
+      svg.circle(100, 100, 100, {onclick: &quot;circle_click(evt)&quot;, fill: 'blue', stroke: 'red', strokeWidth: 5});<br />
+      svg.script( &quot;function circle_click(evt) {\n var circle = evt.target;\n var currentRadius = circle.getAttribute(\&quot;r\&quot;);\n  if (currentRadius == 100)\n      circle.setAttribute(\&quot;r\&quot;, currentRadius*2);\n  else\n      circle.setAttribute(\&quot;r\&quot;, currentRadius*0.5);\n}&quot;,&quot;text/ecmascript&quot;);<br />
+      }<br />
+    &lt;/script&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_2" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_2').svg({onLoad: svg_2});
+});
+function svg_2(svg){
+svg.circle(100, 100, 100, {onclick: "circle_click(evt)", fill: 'blue', stroke: 'red', strokeWidth: 5});
+svg.script( "function circle_click(evt) {\n var circle = evt.target;\n var currentRadius = circle.getAttribute(\"r\");\n  if (currentRadius == 100)\n      circle.setAttribute(\"r\", currentRadius*2);\n  else\n      circle.setAttribute(\"r\", currentRadius*0.5);\n}","text/ecmascript");
+}
+</script>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Iserir e Remover um C&iacute;rculo em jQuery </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_3&quot; style=&quot;width: 300px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_3').svg({onLoad: svg_3});<br />
+      $('#remove').toggle(function() { <br />
+$(this).val('Inserir'); <br />
+$('#jquery_3').svg('destroy'); <br />
+}, <br />
+function() { <br />
+$(this).val('Remover'); <br />
+$('#jquery_3').svg({onLoad: svg_3}); <br />
+});<br />
+});<br />
+function svg_3(svg){<br />
+svg.circle(100, 100, 100, {fill: 'blue', stroke: 'red', strokeWidth: 5});<br />
+}<br />
+&lt;/script&gt;<br />
+&lt;input type=&quot;button&quot; id=&quot;remove&quot; value=&quot;Remover&quot;/&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_3" style="width: 300px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_3').svg({onLoad: svg_3});
+$('#remove').toggle(function() { 
+        $(this).val('Inserir'); 
+        $('#jquery_3').svg('destroy'); 
+    }, 
+    function() { 
+        $(this).val('Remover'); 
+        $('#jquery_3').svg({onLoad: svg_3}); 
+    });
+});
+function svg_3(svg){
+svg.circle(100, 100, 100, {fill: 'blue', stroke: 'red', strokeWidth: 5});
+}
+</script>
+<input type="button" id="remove" value="Remover"/>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Iserir e Remover um T&iacute;tulo em SVG </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_4&quot; style=&quot;width: 500px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+&lt;svg:svg id=&quot;svginline&quot;&gt;<br />
+&lt;svg:g&gt;<br />
+&lt;svg:rect width=&quot;350&quot; height=&quot;50&quot; x=&quot;20&quot; y=&quot;90&quot; fill=&quot;blue&quot;&gt;&lt;/svg:rect&gt;<br />
+&lt;svg:text x=&quot;40&quot; y=&quot;120&quot; fill=&quot;white&quot; font-weight=&quot;bold&quot;&gt;This came from an inline SVG fragment&lt;/svg:text&gt;<br />
+&lt;/svg:g&gt;<br />
+&lt;/svg:svg&gt;<br />
+&lt;script type=&quot;text/javascript&quot;&gt;<br />
+$(function() {<br />
+$('#jquery_4').svg({onLoad: null});<br />
+$('#remove_2').toggle(function() { <br />
+$(this).val('Remover'); <br />
+var svg = $('#jquery_4').svg('get');<br />
+svg.add($('#svginline'));<br />
+}, <br />
+function() { <br />
+$(this).val('Inserir'); <br />
+$('#jquery_4').svg('get').clear();<br />
+});<br />
+});<br />
+&lt;/script&gt;<br />
+&lt;input type=&quot;button&quot; id=&quot;remove_2&quot; value=&quot;Inserir&quot;/&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_4" style="width: 500px; height: 200px; border: 1px solid #484;"></div>
+		<svg:svg id="svginline">
+			<svg:g>
+				<svg:rect width="350" height="50" x="20" y="90" fill="blue"></svg:rect>
+				<svg:text x="40" y="120" fill="white" font-weight="bold">This came from an inline SVG fragment</svg:text>
+			</svg:g>
+		</svg:svg>
+<script type="text/javascript">
+$(function() {
+$('#jquery_4').svg({onLoad: null});
+$('#remove_2').toggle(function() { 
+        $(this).val('Remover'); 
+		var svg = $('#jquery_4').svg('get');
+		svg.add($('#svginline'));
+    }, 
+    function() { 
+        $(this).val('Inserir'); 
+        $('#jquery_4').svg('get').clear();
+    });
+});
+</script>
+<input type="button" id="remove_2" value="Inserir"/>
+<p>&nbsp;</p>
+<table width="100%" border="1">
+  <tr>
+    <td bgcolor="#CCCCCC"><strong>Iserir e Remover uma Imagem em SVG </strong></td>
+  </tr>
+  <tr>
+    <td>&lt;div id=&quot;jquery_5&quot; style=&quot;width: 500px; height: 200px; border: 1px solid #484;&quot;&gt;&lt;/div&gt;<br />
+      &lt;script type=&quot;text/javascript&quot;&gt;<br />
+      $(function() {<br />
+      $('#jquery_5').svg({onLoad: null});<br />
+      $('#remove_3').toggle(function() { <br />
+$(this).val('Remover'); <br />
+var svg = $('#jquery_5').svg('get');<br />
+svg.load(&quot;lion.svg&quot;, {addTo: false, changeSize: false, onLoad: loadDone});<br />
+}, <br />
+function() { <br />
+$(this).val('Inserir'); <br />
+$('#jquery_5').svg('get').clear();<br />
+});<br />
+});<br />
+function loadDone(svg, error) { <br />
+svg.text(10, 20, error || 'Loaded into ' + this.id); <br />
+}<br />
+&lt;/script&gt;<br />
+&lt;input type=&quot;button&quot; id=&quot;remove_3&quot; value=&quot;Inserir&quot;/&gt;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div id="jquery_5" style="width: 500px; height: 200px; border: 1px solid #484;"></div>
+<script type="text/javascript">
+$(function() {
+$('#jquery_5').svg({onLoad: null});
+$('#remove_3').toggle(function() { 
+        $(this).val('Remover'); 
+		var svg = $('#jquery_5').svg('get');
+    	svg.load("lion.svg", {addTo: false, changeSize: false, onLoad: loadDone});
+    }, 
+    function() { 
+        $(this).val('Inserir'); 
+        $('#jquery_5').svg('get').clear();
+    });
+});
+function loadDone(svg, error) { 
+    svg.text(10, 20, error || 'Loaded into ' + this.id); 
+}
+</script>
+<input type="button" id="remove_3" value="Inserir"/>
+</body>
+</html>

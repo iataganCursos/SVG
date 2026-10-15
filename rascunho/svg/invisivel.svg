@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250">
+<style type="text/css"> <![CDATA[
+.visivelX {
+visibility: visible;
+}
+.invisivelX {
+visibility: hidden;
+}
+]]> </style>
+<script language="JavaScript"> <![CDATA[
+function circle_click() {
+var circle = document.getElementById("circulo");
+var classe = circle.className.baseVal;
+if (classe == "visivelX") {
+circle.className.baseVal = "invisivelX";
+} else {
+circle.className.baseVal = "visivelX";
+}
+}
+]]> </script>
+<rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/>
+<circle onclick="circle_click()" cx="125" cy="125" r="50" fill="red"/>
+<circle id="circulo" class="visivelX" cx="25" cy="25" r="20" fill="green"/>
+<text x="15" y="240" font-family="Verdana" font-size="15">Clique no circulo</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<g transform="translate(5 5) scale(1)">
+<rect width="10" height="10" fill="red"/>
+</g>
+<g transform="translate(20 5) scale(2)">
+<rect width="10" height="10" fill="red"/>
+</g>
+<g transform="translate(45 5) scale(3)">
+<rect width="10" height="10" fill="red"/>
+</g>
+<g transform="translate(80 5) scale(4)">
+<rect width="10" height="10" fill="red"/>
+</g>
+</svg>

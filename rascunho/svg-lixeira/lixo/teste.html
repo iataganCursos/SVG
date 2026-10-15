@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+<link href="../../../../../programacao/programacao/ambiente_grafico/ambiente_grafico_2d/ui/css/ui-lightness/jquery-ui-1.10.1.custom.css" rel="stylesheet">
+<script src="../../../../../programacao/programacao/componentes_1/ui/js/jquery-1.9.1.js"></script>
+<script src="../../../../../programacao/programacao/componentes_1/ui/js/jquery-ui-1.10.1.custom.js"></script>
+<script language="javascript" src="../js/jquery.svg.js"></script>
+<script>
+$(document).ready(function () {
+$("#mostrar_ocultar").hide();
+$("#botao").click(ocultar_mostrar);
+})
+function ocultar_mostrar() {
+$("#mostrar_ocultar").slideToggle('slow');
+}
+</script>
+<body>
+<span id="botao" class="ui-icon ui-icon-star"></span>
+<div id="mostrar_ocultar">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200" style="background-color:#FDDFFD;border: 2px solid black">
+<ellipse cx="100" cy="100" ry="40" rx="80" fill="green" stroke="black" stroke-width="5"/>
+</svg>
+</div>
+</body>
+</html>

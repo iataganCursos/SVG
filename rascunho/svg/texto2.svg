@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<text x="10" y="1">
+<tspan x="10" dy="18">This is multi-line</tspan>
+<tspan x="10" dy="18">text or text</tspan>
+<tspan x="10" dy="18">with different properties</tspan>
+<tspan x="10" dy="18">that can be produced</tspan>
+<tspan x="10" dy="18">using the tspan element</tspan>
+</text>
+</svg>

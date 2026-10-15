@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<style type="text/css"> <![CDATA[
+#amarelo {
+fill: yellow;
+stroke: green;
+stroke-width: 10;
+}
+]]> </style>
+<rect x="50" y="10" width="200" height="80" id="amarelo"/>
+</svg>

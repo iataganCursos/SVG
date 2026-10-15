@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250">
+<script language="javascript"> <![CDATA[
+function circle_click() {
+var circle = document.getElementById("circulo");
+var opacidade = circle.style.opacity;
+if (opacidade == 1) {
+circle.style.opacity = 0.3;
+} else {
+circle.style.opacity = 1;
+}
+}
+]]> </script>
+<rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/>
+<circle onclick="circle_click()" id="circulo" cx="125" cy="125" r="50" style="opacity:1" fill="red"/>
+<text id="texto" x="15" y="20" font-family="Verdana" font-size="15">SVG</text>
+<text x="15" y="240" font-family="Verdana" font-size="15">Clique no circulo</text>
+</svg>
