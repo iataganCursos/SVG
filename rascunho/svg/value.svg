@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250">
+<script language="JavaScript"> <![CDATA[
+function circle_click() {
+var txt = document.getElementById("texto");
+var texto = txt.firstChild.nodeValue;
+if (texto == "SVG") {
+txt.firstChild.nodeValue = "Teste";
+} else {
+txt.firstChild.nodeValue = "SVG";
+}
+}
+]]> </script>
+<rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/>
+<circle onclick="circle_click()" id="circulo" cx="125" cy="125" r="50" fill="red"/>
+<text id="texto" x="15" y="20" font-family="Verdana" font-size="15">SVG</text>
+<text x="15" y="240" font-family="Verdana" font-size="15">Clique no circulo</text>
+</svg>

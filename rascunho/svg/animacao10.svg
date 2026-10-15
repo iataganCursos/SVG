@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="500" height="500">
+<path fill="red">
+<animate attributeName="d"
+
+from="M 20 100 c 40 48 120 -32 160 -6 c 0 0 5 4 10 -3 c 10 -103 50 -83 90 -42 c 0 0 20 12 30 7 c -2 12 -18 17 -40 17 c -55 -2 -40 25 -20 35 c 30 20 35 65 -30 71 c -50 4 -170 4 -200 -79"
+
+to="M 80 100 c 40 48 120 -2 160 -36 c 0 0 5 -11 10 -18 c 10 -73 50 -23 90 -12 c 0 0 20 -48 30 22 c -2 12 -18 47 -40 17 c 5 -2 20 -5 -20 35 c 30 20 35 95 -30 86 c -80 -116 -260 94 -200 -94"
+
+fill="freeze" dur="1s" repeatCount="indefinite"/>
+</path>
+</svg>

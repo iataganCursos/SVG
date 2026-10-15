@@ -1,0 +1,85 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:svg="http://www.w3.org/2000/svg">
+
+<head>
+  <title> XHTML, SVG, CSS e DOM </title>
+  <style type="text/css">
+    body { padding: 5px 20px; font-family: sans-serif; }
+    h1 { text-align: center; }
+    svg {
+      float: right;
+      margin: 0px 20px;
+    }
+    svg * {
+      stroke: #000;
+      stroke-width: 10px;
+      fill: none;
+    }
+    svg text {
+      stroke: none;
+      fill: #000;
+      font-size: 55px;
+      font-weight: bold;
+      text-align: center;
+      text-anchor: middle;
+    }
+    .normal {
+      fill: #FD0;
+    }
+    .hulk {
+      fill: #5E0;
+    }
+    .balao {
+      fill: #09E;
+      stroke-linecap: round;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1> XHTML, SVG, CSS e DOM </h1>
+
+<svg:svg width="350" height="250">
+
+  <svg:circle id="circle" cx="100" cy="150" r="90" fill="#F00" class="normal" />
+
+  <svg:path d="M 80,110 L 80,170" />
+  <svg:path d="M 120,110 L 120,170" />
+
+  <svg:path d="M 40,170 C 50,230 150,230 160,170" />
+
+  <svg:rect class="balao" x="140" y="10" rx="15" ry="15" width="200" height="100" />
+  <svg:path class="balao" d="M 175,104 L 160,150 C 170,150 205,130 210,104" />
+  <svg:text x="240" y="80" id="txt"> Olá! </svg:text>
+
+</svg:svg>
+
+<p>
+Ao lado temos um desenho SVG, cujo código está incorporado neste HTML.
+Podemos acesser os elementos do desenho via DOM, assim como acessamos
+qualquer elemento do HTML.
+</p>
+Veja só:
+<ul>
+<li> <a href="javascript:mudaTexto()">Mudar o texto do balão</a> </li>
+<li> <a href="javascript:mudaCor()">Mudar a cor do boneco</a> </li>
+</ul>
+
+<script type="text/javascript">
+function mudaTexto() {
+  var txt = document.getElementById("txt");
+  if ( txt.firstChild.nodeValue != "Yeah!" ) txt.firstChild.nodeValue = "Yeah!";
+  else txt.firstChild.nodeValue = "Olá!";
+}
+function mudaCor() {
+  var svgNS = "http://www.w3.org/2000/svg"
+  var c = document.getElementById("circle");
+  if ( c.className.baseVal != "hulk" ) c.className.baseVal = "hulk";
+  else c.className.baseVal = "normal";
+}
+</script>
+
+</body>
+</html>

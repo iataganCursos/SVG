@@ -1,0 +1,45 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:svg="http://www.w3.org/2000/svg">
+
+<head>
+  <title> XHTML, SVG, CSS e DOM </title>
+<style type="text/css">
+@import "css/jquery.svg.css";
+</style>
+<script type="text/javascript" src="js/jquery-1.3.2.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+</head>
+
+<body>
+<a href="svg_jquery.html">&lt;&lt; Voltar</a>
+<svg:svg id="svginline" width="350" height="250">
+<svg:g>
+  <svg:circle id="circle" cx="100" cy="150" r="90" fill="blue"/>
+  <svg:text x="240" y="80" id="txt"> Olá!</svg:text>
+</svg:g>
+</svg:svg>
+<div id="jquery_4" style="width: 500px; height: 200px; border: 1px solid #484;"></div>
+<ul>
+<li> <a id="MudaTexto" href="#">Mudar o texto do balão</a> </li>
+<li> <a id="MudaCor" href="#">Mudar a cor do boneco</a> </li>
+</ul>
+
+<script type="text/javascript">
+$("#MudaTexto").click(function (){
+  var txt = document.getElementById("txt");
+  if ( txt.firstChild.nodeValue != "Yeah!" ) txt.firstChild.nodeValue = "Yeah!";
+  else txt.firstChild.nodeValue = "Olá!";
+});
+$("#MudaCor").click(function (){
+  var svg = $('#jquery_4').svg('get');
+  svg.add($('#svginline'));
+  var c = $("#circle").attr("fill");
+  alert(c);
+  if ( c == "green" ) $("#circle").attr("fill", "blue");
+  else $("#circle").attr("fill", "green");
+});
+</script>
+
+</body>
+</html>

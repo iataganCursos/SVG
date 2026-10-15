@@ -1,0 +1,4 @@
+<?xml-stylesheet type="text/css" href="mystyle.css" ?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<rect x="50" y="10" width="200" height="80" id="verde"/>
+</svg>

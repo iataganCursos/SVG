@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250">
+<script language="JavaScript"> <![CDATA[
+function rect_mouse(evt) {
+var texto1 = document.getElementById("texto1");
+var texto2 = document.getElementById("texto2");
+texto1.firstChild.nodeValue = "screenX="+evt.screenX+", screenY="+evt.screenY;
+texto2.firstChild.nodeValue = "clientX="+evt.clientX+", clientY="+evt.clientY;
+}
+]]> </script>
+<rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/>
+<rect x="75" y="75" width="100" height="100" onmousemove="rect_mouse(evt)" fill="red"/>
+<text id="texto1" x="15" y="20" font-family="Verdana" font-size="15">screen</text>
+<text id="texto2" x="15" y="40" font-family="Verdana" font-size="15">client</text>
+<text x="15" y="240" font-family="Verdana" font-size="15">Passe o mouse no quadrado</text>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250">
+<circle cx="50" cy="50" r="20" fill="red">
+<animate attributeType="XML" attributeName="r" from="20" to="40" begin="0s" dur="8s"/>
+</circle>
+</svg>

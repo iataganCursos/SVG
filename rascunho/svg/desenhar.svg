@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250" onmousedown="desenhar_down(evt)" onmousemove="desenhar_move(evt)" onmouseup="desenhar_up(evt)">
+<script language="JavaScript"> <![CDATA[
+var lapis = false;
+function desenhar_down(evt){
+lapis = true;
+desenhar(evt);
+}
+function desenhar_up(evt){
+lapis = false;
+}
+function desenhar_move(evt){
+if(lapis == true){
+desenhar(evt);
+}
+}
+function desenhar(evt) {
+var quadrado = document.getElementById("quadrado");
+quadrado.setAttribute("x", evt.clientX);
+quadrado.setAttribute("y", evt.clientY);
+}
+]]> </script>
+<rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/>
+<rect x="10" id="quadrado" y="10" width="50" height="50" fill="red"/>
+</svg>

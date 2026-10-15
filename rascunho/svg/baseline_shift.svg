@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="100" style="border:solid">
+<text x="10" y="18">
+x
+<tspan style="baseline-shift:super">super</tspan>
++y
+<tspan style="baseline-shift:sub">sub</tspan>
++1
+</text>
+</svg>

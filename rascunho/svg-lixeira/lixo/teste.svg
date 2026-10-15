@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200">
+<script language="JavaScript"> <![CDATA[
+function circle_click_1() {
+var circle = document.getElementById("circulo_1");
+var cor = circle.getAttribute("fill");
+if (cor == "blue") {
+circle.setAttribute("fill", "red");
+} else {
+circle.setAttribute("fill", "blue");
+}
+}
+]]> </script>
+<circle leftclick="circle_click_1()" id="circulo_1" cx="100" cy="100" r="50" fill="green" stroke="black" stroke-width="5"/>
+<text id="texto" x="15" y="20" font-family="Verdana" font-size="15">SVG</text>
+<text x="15" y="180" font-family="Verdana" font-size="15">Clique no circulo</text>
+</svg>

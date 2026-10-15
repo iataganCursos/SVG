@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+        <title>
+            Teclado
+        </title>
+        <script language="javascript" src="js/jquery.min.js"></script>
+        <script language="javascript" src="js/jquery.svg.js"></script>
+
+        <script language="javascript">
+                teclaLock = Array();
+				teclaLock[0] = true;
+				teclaLock[1] = true;
+				teclaLock[2] = true;
+        </script>
+
+    </head>
+    
+    <body id="xDoc">
+        <table border="1">
+            <tr><td bgcolor="#FF8A8A"><strong>Eventos</strong></td></tr>
+            <tr><td bgcolor="#CCCCCC"><strong>Eventos do Teclado</strong></td></tr>
+            <tr><td bgcolor="#00FFFF"><strong>KeyDown keyUp</strong></td></tr>
+            <tr>
+                <td>
+                    CAPS LOCK, NUM LOCK, SCROLL LOCK<br />
+                    <!-- BEGIN CAPS LOCK, NUM LOCK, SCROLL LOCK -->
+                    <div id="_tecla2s" style="width: 300px; height: 200px;float:left;background-color:#FDDFFD;border: 2px solid black"></div>
+                    <script type="text/javascript">
+                       $(function(document) {
+                           $('#_tecla2s').svg({
+                               onLoad: _svg_tecla2s
+                           });
+                           $('#xDoc').keydown(function(evt) {
+                               teclaLock = xKeyDown2s(evt, teclaLock);
+                           });
+                           $('#xDoc').keyup(function(evt) {
+                               // xKeyUp2s(evt);
+                           });
+                       });
+
+                       function _svg_tecla2s(svg) {
+                           svg.text(15, 20, "Combinação de teclas", {fontFamily: "Verdana",fontSize: "15"});
+                           svg.text(15, 40, "CAPS LOCK = ", {id: 'tecla_Ctrls', fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 60, "NUM LOCK = ", {id: 'tecla_Alts', fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 80, "SCROLL LOCK = ", {id: 'tecla_Shifts', fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 160, "Precione as seguintes teclas", {fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 180, "CAPS LK, NUM LK, SCROLL LK", {fontFamily: "Verdana", fontSize: "15"});
+                       }
+
+                       function xKeyDown2s(evt, teclaLock) {
+                           var texto1 = document.getElementById("tecla_Ctrls");
+                           var texto2 = document.getElementById("tecla_Alts");
+                           var texto3 = document.getElementById("tecla_Shifts");
+                           var teclaCaps = teclaLock[0];
+                           var teclaNum = teclaLock[1];
+                           var teclaScroll = teclaLock[2];
+
+                           if (evt.keyCode == 20 && teclaCaps == true) {
+                               texto1.firstChild.nodeValue = "CAPS LOCK = Ativado";
+                               teclaCaps = false;
+                           } else if (evt.keyCode == 20 && teclaCaps == false) {
+                               texto1.firstChild.nodeValue = "CAPS LOCK = ";
+                               teclaCaps = true;
+                           }
+                           if (evt.keyCode == 144 && teclaNum == true) {
+                               texto2.firstChild.nodeValue = "NUM LOCK = Ativado";
+                               teclaNum = false;
+                           } else if (evt.keyCode == 144 && teclaCaps == false) {
+                               texto2.firstChild.nodeValue = "NUM LOCK = ";
+                               teclaNum = true;
+                           }
+                           if (evt.keyCode == 145 && teclaScroll == true) {
+                               texto3.firstChild.nodeValue = "SCROLL LOCK = Ativado";
+                               teclaScroll = false;
+                           } else if (evt.keyCode == 145 && teclaCaps == false) {
+                               texto3.firstChild.nodeValue = "SCROLL LOCK = ";
+                               teclaScroll = true;
+                           }
+                           return Array(teclaCaps, teclaNum, teclaScroll);
+                       }
+/*
+function xKeyUp2s(evt) {
+    var texto1 = document.getElementById("tecla_Ctrls");
+    var texto2 = document.getElementById("tecla_Alts");
+    var texto3 = document.getElementById("tecla_Shifts");
+    if (evt.keyCode == 20 && teclaCaps == true) {
+        texto1.firstChild.nodeValue = "CAPS LOCK = Ativado";
+        teclaCaps = false;
+    } else {
+        texto1.firstChild.nodeValue = "CAPS LOCK = ";
+        teclaCaps = true;
+    }
+    if (evt.keyCode == 144 && teclaNum == true) {
+        texto2.firstChild.nodeValue = "NUM LOCK = Ativado";
+        teclaNum = false;
+    } else {
+        texto2.firstChild.nodeValue = "NUM LOCK = ";
+        teclaNum = true;
+    }
+    if (evt.keyCode == 145 && teclaScroll == true) {
+        texto3.firstChild.nodeValue = "SCROLL LOCK = Ativado";
+        teclaScroll = false;
+    } else {
+        texto3.firstChild.nodeValue = "SCROLL LOCK = ";
+        teclaScroll = true;
+    }
+}
+*/
+                    </script>
+                    <!-- END CAPS LOCK, NUM LOCK, SCROLL LOCK -->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    SHIFT, CTRL, ALT<br />
+                    <!-- Begin Ctrl Alt Shift -->
+                    <div id="_tecla2" style="width: 300px; height: 200px;float:left;background-color:#FDDFFD;border: 2px solid black"></div>
+                    <script type="text/javascript">
+                        $(function(document) {
+                           $('#_tecla2').svg({
+                               onLoad: _svg_tecla2
+                           });
+                           $('#xDoc').keydown(function(evt) {
+                               xKeyDown2(evt);
+                           });
+                           $('#xDoc').keyup(function(evt) {
+                               xKeyUp2(evt);
+                           });
+                       });
+
+                       function _svg_tecla2(svg) {
+                           svg.text(15, 20, "Combinação de teclas", {fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 40, "Ctrl = ", {id: 'tecla_Ctrl', fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 60, "Alt = ", {id: 'tecla_Alt', fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 80, "Shift = ", {id: 'tecla_Shift', fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 160, "Precione as seguintes", {fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 180, "Teclas (Ctrl, Alt, Shift)", {fontFamily: "Verdana", fontSize: "15"});
+                       }
+
+                       function xKeyDown2(evt) {
+                           var texto1 = document.getElementById("tecla_Ctrl");
+                           var texto2 = document.getElementById("tecla_Alt");
+                           var texto3 = document.getElementById("tecla_Shift");
+                           if (evt.ctrlKey == true) {
+                               texto1.firstChild.nodeValue = "Ctrl = Ativado";
+                           } else {
+                               texto1.firstChild.nodeValue = "Ctrl = ";
+                           }
+                           if (evt.altKey == true) {
+                               texto2.firstChild.nodeValue = "Alt = Ativado";
+                           } else {
+                               texto2.firstChild.nodeValue = "Alt = ";
+                           }
+                           if (evt.shiftKey == true) {
+                               texto3.firstChild.nodeValue = "Shift = Ativado";
+                           } else {
+                               texto3.firstChild.nodeValue = "Shift = ";
+                           }
+                       }
+
+                       function xKeyUp2(evt) {
+                           var texto1 = document.getElementById("tecla_Ctrl");
+                           var texto2 = document.getElementById("tecla_Alt");
+                           var texto3 = document.getElementById("tecla_Shift");
+                           if (evt.ctrlKey == true) {
+                               texto1.firstChild.nodeValue = "Ctrl = Ativado";
+                           } else {
+                               texto1.firstChild.nodeValue = "Ctrl = ";
+                           }
+                           if (evt.altKey == true) {
+                               texto2.firstChild.nodeValue = "Alt = Ativado";
+                           } else {
+                               texto2.firstChild.nodeValue = "Alt = ";
+                           }
+                           if (evt.shiftKey == true) {
+                               texto3.firstChild.nodeValue = "Shift = Ativado";
+                           } else {
+                               texto3.firstChild.nodeValue = "Shift = ";
+                           }
+                       }
+                    </script>
+                    <!-- End Ctrl Alt Shift -->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Combina&ccedil;&atilde;o de Teclas<br />
+                        <div id="_tecla_3_fx" style="width: 300px; height: 200px;float:left;background-color:#FDDFFD;border: 2px solid black"></div>
+                        <br />
+                        <script language="javascript">
+                           $(function(document) {
+                               $('#_tecla_3_fx').svg({
+                                   onLoad: _svg_tecla_3
+                               });
+                               $('#xDoc').keydown(function(evt) {
+                                   xKeyDown_3_fx(evt, teclaLock);
+                               });
+                               $('#xDoc').keyup(function(evt) {
+                                   xKeyUp_3_fx(evt, teclaLock);
+                               });
+                           });
+
+                           function _svg_tecla_3(svg) {
+                               svg.text(15, 20, "Combinação de teclas", {fontFamily: "Verdana", fontSize: "15"});
+                               svg.text(15, 40, "", {id: 'tecla_fx_1', fontFamily: "Verdana", fontSize: "15"});
+                               svg.text(15, 60, "", {id: 'tecla_fx_2', fontFamily: "Verdana", fontSize: "15"});
+                               svg.text(15, 80, "", {id: 'tecla_fx_3', fontFamily: "Verdana", fontSize: "15"});
+                           }
+
+                           function xKeyDown_3_fx(evt, teclaLock) {
+                               var texto1 = document.getElementById("tecla_fx_1");
+                               var texto2 = document.getElementById("tecla_fx_2");
+                               var texto3 = document.getElementById("tecla_fx_3");
+                               var textoCaps = "";
+                               var textoNum = "";
+                               var textoScroll = "";
+                               var texto_ctrl = "";
+                               var texto_alt = "";
+                               var texto_shift = "";
+                               var texto_x_1 = "";
+                               var texto_x_2 = "";
+                               var texto_x_3 = "";
+
+                               var teclaCaps = teclaLock[0];
+                               var teclaNum = teclaLock[1];
+                               var teclaScroll = teclaLock[2];
+
+                               if (teclaCaps == false) {
+                                   textoCaps = "[CAPS LK]";
+                               } else {
+                                   textoCaps = "";
+                               }
+                               if (teclaNum == false) {
+                                   textoNum = "[NUM LK]";
+                               } else {
+                                   textoNum = "";
+                               }
+                               if (teclaScroll == false) {
+                                   textoScroll = "[SCROLL LK]";
+                               } else {
+                                   textoScroll = "";
+                               }
+
+                               if (evt.ctrlKey == true) {
+                                   texto_ctrl = "[Ctrl]";
+                               } else {
+                                   texto_ctrl = "";
+                               }
+                               if (evt.altKey == true) {
+                                   texto_alt = "[Alt]";
+                               } else {
+                                   texto_alt = "";
+                               }
+                               if (evt.shiftKey == true) {
+                                   texto_shift = "[Shift]";
+                               } else {
+                                   texto_shift = "";
+                               }
+                               texto_x_1 = textoCaps + textoNum + textoScroll;
+
+                               texto_x_2 = texto_ctrl + texto_alt + texto_shift;
+
+                               texto_x_3 = "[Num. da tecla = " + evt.keyCode + "]";
+
+                               texto1.firstChild.nodeValue = texto_x_1;
+                               texto2.firstChild.nodeValue = texto_x_2;
+                               texto3.firstChild.nodeValue = texto_x_3;
+                           }
+
+                           function xKeyUp_3_fx(evt, teclaLock) {
+                               var texto1 = document.getElementById("tecla_fx_1");
+                               var texto2 = document.getElementById("tecla_fx_2");
+                               var texto3 = document.getElementById("tecla_fx_3");
+                               var textoCaps = "";
+                               var textoNum = "";
+                               var textoScroll = "";
+                               var texto_ctrl = "";
+                               var texto_alt = "";
+                               var texto_shift = "";
+                               var texto_x_1 = "";
+                               var texto_x_2 = "";
+                               var texto_x_3 = "";
+
+                               var teclaCaps = teclaLock[0];
+                               var teclaNum = teclaLock[1];
+                               var teclaScroll = teclaLock[2];
+
+                               if (teclaCaps == false) {
+                                   textoCaps = "[CAPS LK]";
+                               } else {
+                                   textoCaps = "";
+                               }
+                               if (teclaNum == false) {
+                                   textoNum = "[NUM LK]";
+                               } else {
+                                   textoNum = "";
+                               }
+                               if (teclaScroll == false) {
+                                   textoScroll = "[SCROLL LK]";
+                               } else {
+                                   textoScroll = "";
+                               }
+
+                               if (evt.ctrlKey == true) {
+                                   texto_ctrl = "[Ctrl]";
+                               } else {
+                                   texto_ctrl = "";
+                               }
+                               if (evt.altKey == true) {
+                                   texto_alt = "[Alt]";
+                               } else {
+                                   texto_alt = "";
+                               }
+                               if (evt.shiftKey == true) {
+                                   texto_shift = "[Shift]";
+                               } else {
+                                   texto_shift = "";
+                               }
+                               texto_x_1 = textoCaps + textoNum + textoScroll;
+
+                               texto_x_2 = texto_ctrl + texto_alt + texto_shift;
+
+                               texto_x_3 = "[Num. da tecla = " + evt.keyCode + "]";
+
+                               texto1.firstChild.nodeValue = texto_x_1;
+                               texto2.firstChild.nodeValue = texto_x_2;
+                               texto3.firstChild.nodeValue = texto_x_3;
+                           }
+                        </script>
+                    </p>
+                    <br />
+                    &nbsp;
+                    <br />
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Precionando mais de uma tecla ao mesmo tempo
+                    <br />
+                    <!-- Begin ZXC -->
+                    <div id="_tecla" style="width: 200px; height: 200px;float:left;background-color:#FDDFFD;border: 2px solid black"></div>
+                    <script type="text/javascript">
+                       $(function(document) {
+                           $('#_tecla').svg({
+                               onLoad: _svg_tecla
+                           });
+                           $('#xDoc').keydown(function(evt) {
+                               xKeyDown(evt);
+                           });
+                           $('#xDoc').keyup(function(evt) {
+                               xKeyUp(evt);
+                           });
+                       });
+
+                       function _svg_tecla(svg) {
+                           svg.text(15, 20, "Combinação de teclas", {fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 40, "Z = ", {id: 'tecla_Z', fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 60, "X = ", {id: 'tecla_X', fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 80, "C = ", {id: 'tecla_C', fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 160, "Precione as seguintes", {fontFamily: "Verdana", fontSize: "15"});
+                           svg.text(15, 180, "Teclas (Z, X, C)", {fontFamily: "Verdana", fontSize: "15"});
+                       }
+
+                       function xKeyDown(evt) {
+                           var texto1 = document.getElementById("tecla_Z");
+                           var texto2 = document.getElementById("tecla_X");
+                           var texto3 = document.getElementById("tecla_C");
+                           if (evt.keyCode == 90) {
+                               texto1.firstChild.nodeValue = "Z = Ativado";
+                           } else if (evt.keyCode == 88) {
+                               texto2.firstChild.nodeValue = "X = Ativado";
+                           } else if (evt.keyCode == 67) {
+                               texto3.firstChild.nodeValue = "C = Ativado";
+                           }
+                       }
+
+                       function xKeyUp(evt) {
+                           var texto1 = document.getElementById("tecla_Z");
+                           var texto2 = document.getElementById("tecla_X");
+                           var texto3 = document.getElementById("tecla_C");
+                           if (evt.keyCode == 90) {
+                               texto1.firstChild.nodeValue = "Z = ";
+                           } else if (evt.keyCode == 88) {
+                               texto2.firstChild.nodeValue = "X = ";
+                           } else if (evt.keyCode == 67) {
+                               texto3.firstChild.nodeValue = "C = ";
+                           }
+
+                       }
+                    </script>
+                    <!-- End ZXC -->
+                </td>
+            </tr>
+        </table>
+    </body>
+
+</html>

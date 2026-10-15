@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250">
+<script language="JavaScript"> <![CDATA[
+
+var typeInitialized = false;
+
+function typeText(evt) {
+
+var texto1 = document.getElementById("texto1");
+var texto2 = document.getElementById("texto2");
+var texto3 = document.getElementById("texto3");
+var texto4 = document.getElementById("texto4");
+var texto5 = document.getElementById("texto5");
+
+if(evt.type == "keyup"){
+texto1.firstChild.nodeValue = "alt="+evt.altKey;
+texto2.firstChild.nodeValue = "shift="+evt.shiftKey;
+texto3.firstChild.nodeValue = "ctrl="+evt.ctrlKey;
+}
+
+if (evt.type == "keydown") {
+
+if (evt.charCode) {
+var charCode = evt.charCode;
+} else {
+var charCode = evt.keyCode;
+}
+
+texto1.firstChild.nodeValue = "alt="+evt.altKey;
+texto2.firstChild.nodeValue = "shift="+evt.shiftKey;
+texto3.firstChild.nodeValue = "ctrl="+evt.ctrlKey;
+texto4.firstChild.nodeValue = "Codigo="+charCode;
+shift = "";
+ctrl = "";
+alt = "";
+if(!(charCode == 16 || charCode == 17 || charCode == 18)){
+shift = (evt.shiftKey == true)? " Shift " : "";
+ctrl = (evt.ctrlKey == true)? " Ctrl " : "";
+alt = (evt.altKey == true)? " Alt " : "";
+
+_stringChar = "Caractere=";
+if(charCode >= 48 && charCode <= 126){
+_stringChar = "Caractere=" + shift + ctrl + alt + String.fromCharCode(charCode);
+}
+texto5.firstChild.nodeValue = _stringChar;
+
+}
+
+}
+
+}
+function initTyping(evt) {
+if (!typeInitialized) {
+document.documentElement.addEventListener("keydown",typeText,false);
+document.documentElement.addEventListener("keyup",typeText,false);
+document.documentElement.addEventListener("click",stopTyping,false);
+var texto6 = document.getElementById("texto6");
+texto6.firstChild.nodeValue = "Ativado";
+typeInitialized = true;
+}
+//we don't want the click event on the document level to
+//immediately stop the typing mode
+evt.stopPropagation();
+}
+function stopTyping(evt) {
+document.documentElement.removeEventListener("keypress",typeText,false);
+document.documentElement.removeEventListener("click",stopTyping,false);
+var texto6 = document.getElementById("texto6");
+texto6.firstChild.nodeValue = "Desativado";
+typeInitialized = false;
+}
+
+]]> </script>
+<rect x="1" y="1" width="248" height="248" fill="none" stroke="blue"/>
+<rect x="140" y="140" width="100" height="100" onclick="initTyping(evt)" fill="red"/>
+<text id="texto1" x="15" y="20" font-family="Verdana" font-size="15">Alt</text>
+<text id="texto2" x="15" y="40" font-family="Verdana" font-size="15">Shift</text>
+<text id="texto3" x="15" y="60" font-family="Verdana" font-size="15">Ctrl</text>
+<text id="texto4" x="15" y="80" font-family="Verdana" font-size="15">Codigo</text>
+<text id="texto5" x="15" y="100" font-family="Verdana" font-size="15">Caractere</text>
+<text id="texto6" x="15" y="120" font-family="Verdana" font-size="15">Ativacao</text>
+</svg>
